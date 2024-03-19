@@ -128,7 +128,7 @@ export default function RootLayout({
                                 bottom: "-20px"
 
                             }}
-                            className="w-full absolute bg-transparent-500 items-center">
+                            className="w-full absolute z-10 bg-transparent-500 items-center">
                         </div>
                     </div>
 
@@ -153,7 +153,8 @@ export default function RootLayout({
 
 
 
-                {children}</body>
+                {children}
+                </body>
         </html>
     );
 }

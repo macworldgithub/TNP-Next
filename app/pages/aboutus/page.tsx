@@ -1,7 +1,16 @@
-const Aboutus = () => {
+import BookNow from "@/components/AboutUS/BookNow";
+import HeroAboutUs from "@/components/AboutUS/HeroAboutus";
+import SavingTravelTrips from "@/components/AboutUS/savingTravelTrips";
+
+
+
+
+const Aboutus =  () => {
   return (
     <div>
-      <h1>About Us</h1>
+      <HeroAboutUs />
+      <BookNow />
+      <SavingTravelTrips/>
     </div>
   );
 }

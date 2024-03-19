@@ -31,3 +31,7 @@ body {
     text-wrap: balance;
   }
 }
+
+.hero-bg{
+     background-image: url("/public/home/bg.png");
+}

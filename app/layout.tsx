@@ -8,6 +8,7 @@ import { FaLinkedin } from "react-icons/fa";
 import { FaPhoneAlt } from "react-icons/fa";
 import { Inter } from "next/font/google";
 import "./globals.css";
+import Footer from "@/components/Footer/page";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -24,8 +25,6 @@ export default function RootLayout({
     return (
         <html lang="en">
             <body className={inter.className}>
-
-
                 <header className="w-full flex justify-between px-10 bg-primary">
                     <div className="flex">
                         <div className="flex px-1 py-2 mx-1 items-center">
@@ -87,12 +86,10 @@ export default function RootLayout({
                     <div className="flex py-2 items-center">
                         <Image src={Logo} alt="logo image" width={150} />
                     </div>
-
-
-
+                    
                     <div className="bg-white-500 relative w-3/5">
                         <div className="text-black items-center py-2  h-full w-full justify-around flex">
-                            <p>
+                            <p >
                                 Home
                             </p>
                             <p>
@@ -150,10 +147,10 @@ export default function RootLayout({
 
                     </div>
                 </header>
-
-
-
+                
                 {children}
+
+                <Footer />
                 </body>
         </html>
     );

@@ -8,7 +8,7 @@ import { FaMapPin } from "react-icons/fa";
 import { GiMountainClimbing } from "react-icons/gi";
 import { IoMdTime, IoMdTimer } from "react-icons/io";
 import { RxAvatar } from "react-icons/rx";
-import { IoFilterCircleOutline } from "react-icons/io5";
+import { IoFilterCircleOutline, IoLocation } from "react-icons/io5";
 import { FaCircleCheck } from "react-icons/fa6";
 
 const inter = Yesteryear({
@@ -157,16 +157,65 @@ export default function Home() {
                             company that offers a wide range of printing services to
                         </p>
 
-                        <div className="w-1/2 flex justify-between">
+
+
+                        <div className="w-4/5 flex justify-between">
                             <div>
-                                <Image src={FlagMan} alt="..." />
-                                <p>
-                                    Trusted Travel Guide
+                                <div className="h-14">
+                                    <Image src={FlagMan} alt="..." />
+                                </div>
+                                <p className="text-black font-bold">
+                                    Trusted travel guide
+                                </p>
+                                <p className="text-gray-500 text-xs">
+                                    Welcome to our Print 128 wesit!
+                                    company that offers a wide range
                                 </p>
                             </div>
                             <div className="mx-">
-                                <Image src={LocationBook} alt="..." />
+                                <div className="h-14">
+                                    <Image src={LocationBook} alt="..." />
+                                </div>
+                                <p className="text-black font-bold">
+                                    Personalized Trips
+                                </p>
+                                <p className="text-gray-500 text-xs">
+                                    Welcome to our Print 128 wesit!
+                                    company that offers a wide range
+                                </p>
                             </div>
+                        </div>
+
+
+
+                        <div className="w-4/5 flex justify-between my-5">
+                            <div className="w-1/2">
+                                <button className="bg-primary text-white px-4 py-2 shadow -full text-sm">
+                                    More About us
+                                </button>
+                            </div>
+                            <div className="mx- w-1/2">
+                                <div className="flex items-center">
+                                    <div className="w-12 h-12 rounded-full bg-gray-400 border-2">
+                                    </div>
+                                    <div className="mx-2">
+                                        <p className="text-black  text-sm">
+                                            Mehedii. H
+                                        </p>
+
+                                        <p className="text-black text-xs text-primary">
+                                            Ceo & Founder
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div className="flex items-center">
+                            <IoLocation className="text-primary" />
+                            <p className="ms-2 text-primary text-sm">
+                                Checkout Beautiful Places Arround the World.
+                            </p>
                         </div>
 
                     </div>
@@ -174,6 +223,42 @@ export default function Home() {
 
 
             </div>
+
+
+
+
+
+            <div className="flex px-10 my-32 justify-center flex-wrap flex-col items-center w-full bg-white">
+
+                <div>
+                    <h1 className="text-black font-bold text-3xl">
+                        Amazing Featured Tour
+                    </h1>
+                    <h2 className={`text-black font-bold text-gray-400 text-center my-2 text-3xl ${inter.className}`}>
+                        Package
+                    </h2>
+                </div>
+
+                <div className="flex">
+                    <div className="px-3 text-sm w-32 py-1 shadow-2xl border text-center mx-2 text-black">
+                        New York
+                    </div>
+                    <div className="px-3 text-sm w-32 py-1 shadow-2xl  border text-center mx-2 text-black">
+                        London
+                    </div>
+                    <div  className="px-3 text-sm w-32 py-1 shadow-2xl border text-center mx-2 text-black">
+                        Tokyo
+                    </div>
+                    <div className="px-3 text-sm w-32 py-1 shadow-2xl border text-center mx-2 text-black">
+                        Los Angelas
+                    </div>
+                    <div className="px-3 text-sm w-32 py-1 shadow-2xl  border text-center mx-2 text-black">
+                        Manila
+                    </div>
+                </div>
+
+            </div>
+
 
 
 

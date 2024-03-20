@@ -35,11 +35,15 @@ const inter = Yesteryear({
 
 
 export default function Home() {
+    
+
+
+
     return (
         <div className="w-full bg-white">
-            <div className="relative h-[43rem]">
-                <Image src={BgImage} alt="Background image" className="w-full absolute h-[43rem] z-0 top-0 left-0" />
-                <div className="flex items-center justify-center  absolute bg-gradient-to-r from-[rgba(0,0,0,0.8)] to-[rgba(0,0,0,0.3)] top-0 left-0 w-full z-2 h-[43rem] h-96">
+                <div className="lg:h-[43rem] md:h-[30rem]   bg-gradient-to-r from-[rgba(0,0,0,0.8)] hero-bg to-[rgba(0,0,0,0.3)] w-full z-2 h-96">
+                <div className="w-full h-full flex items-center justify-center   bg-gradient-to-r from-[rgba(0,0,0,0.8)] to-[rgba(0,0,0,0.3)]">
+    
                     <div className="flex items-center flex-col">
                         <p className={`text-primary text-lg ${inter.className}`}>
                             Explore the world
@@ -119,21 +123,21 @@ export default function Home() {
                             </div>
                         </div>
 
-                        <div className="flex my-5">
-                            <div className="flex mx-5 items-center">
+                        <div className="flex flex-wrap md:flex-nowrap my-5">
+                            <div className="flex mx-5 md:w-full w-[345px] items-center">
                                 <FaCircleCheck className="mx-2 text-primary" />
                                 <p className="text-sm">
                                     Easy & Fast - Book a Car in 120 minutes
                                 </p>
 
                             </div>
-                            <div className="flex mx-5 items-center">
+                            <div className="flex mx-5  md:w-full w-[345px] items-center">
                                 <FaCircleCheck className="mx-2 text-primary" />
                                 <p className="text-sm">Best Price with Quality Service
                                 </p>
 
                             </div>
-                            <div className="flex mx-5 items-center">
+                            <div className="flex mx-5  md:w-full w-[345px] items-center">
                                 <FaCircleCheck className="mx-2 text-primary" />
                                 <p className="text-sm">Choose from a Wide Variety of Cars
                                 </p>
@@ -142,16 +146,19 @@ export default function Home() {
 
                         </div>
 
+
+
+
                     </div>
-                </div>
             </div>
 
 
+                </div>
 
 
             <div className="flex px-10 my-32 justify-center flex-wrap w-full bg-white">
 
-                <div className="w-1/2 flex justify-center items-center">
+                <div className=" w-1/2 flex justify-center items-center">
                     <Image src={VideoImage} className="w-3/5" alt="Video Image" />
                 </div>
                 <div className="w-2/5 flex justify-center ">
@@ -246,7 +253,7 @@ export default function Home() {
 
             <div className="flex px-10 my-32 justify-center flex-wrap flex-col items-center w-full bg-white">
 
-                <div>
+                <div className="w-full flex flex-col items-center">
                     <h1 className="text-black font-bold text-3xl">
                         Amazing Featured Tour
                     </h1>
@@ -255,20 +262,20 @@ export default function Home() {
                     </h2>
                 </div>
 
-                <div className="flex">
-                    <div className="px-3 text-sm w-32 py-1 shadow-2xl border text-center mx-2 text-black">
+                <div className="flex flex-wrap justify-center">
+                    <div className="px-3 text-sm w-32 py-1 my-1 shadow-2xl border text-center mx-2 text-black">
                         New York
                     </div>
-                    <div className="px-3 text-sm w-32 py-1 shadow-2xl  border text-center mx-2 text-black">
+                    <div className="px-3 text-sm w-32 py-1 my-1 shadow-2xl  border text-center mx-2 text-black">
                         London
                     </div>
-                    <div className="px-3 text-sm w-32 py-1 shadow-2xl border text-center mx-2 text-black">
+                    <div className="px-3 text-sm w-32 py-1 my-1 shadow-2xl border text-center mx-2 text-black">
                         Tokyo
                     </div>
-                    <div className="px-3 text-sm w-32 py-1 shadow-2xl border text-center mx-2 text-black">
+                    <div className="px-3 text-sm w-32 py-1 my-1 shadow-2xl border text-center mx-2 text-black">
                         Los Angelas
                     </div>
-                    <div className="px-3 text-sm w-32 py-1 shadow-2xl  border text-center mx-2 text-black">
+                    <div className="px-3 text-sm w-32 py-1 my-1 shadow-2xl  border text-center mx-2 text-black">
                         Manila
                     </div>
                 </div>
@@ -293,11 +300,11 @@ export default function Home() {
                     </h1>
                 </div>
 
-                <div className="flex flex-col my-10">
-                    <div className="flex" >
-                        <div className="mx-4 relative w-96 h-60">
-                            <Image src={Rect1} className="w-96 absolute  top-0 left-0 h-60" alt="rect1" />
-                            <div className="w-96 absolute  top-0 left-0 h-60 bg-[rgba(0,0,0,0.2)]">
+                <div className="flex flex-col flex-w w-full ">
+                    <div className="flex flex-wrap justify-center" >
+                        <div className="mx-4 relative w-96 h-60 my-2">
+                            <Image src={Rect1} className="  w-full md:w-96 absolute  top-0 left-0 h-60" alt="rect1" />
+                            <div className="w-full md:w-96 absolute  top-0 left-0 h-60 bg-[rgba(0,0,0,0.2)]">
                             </div>
                             <div className="absolute bg-[#F7921E] right-3 top-3 text-xs px-3 py-1 rounded">
                                 3 Tours
@@ -311,9 +318,9 @@ export default function Home() {
                                 </p>
                             </div>
                         </div>
-                        <div className="mx-4 relative w-72  h-60">
-                            <Image src={Rect2} className="w-72 absolute h-60 top-0 left-0" alt="rect1" />
-                            <div className="w-72 absolute  top-0 left-0 h-60 bg-[rgba(0,0,0,0.2)]">
+                        <div className="mx-4 relative md:w-72 w-full my-2 h-60">
+                            <Image src={Rect2} className=" w-full md:w-72  absolute h-60 top-0 left-0" alt="rect1" />
+                            <div className="w-72 absolute w-full md:w-72  top-0 left-0 h-60 bg-[rgba(0,0,0,0.2)]">
                             </div>
                             <div className="absolute bg-[#F7921E] right-3 top-3 text-xs px-3 py-1 rounded">
                                 3 Tours
@@ -327,9 +334,9 @@ export default function Home() {
                                 </p>
                             </div>
                         </div>
-                        <div className="mx-4 relative w-48  h-60">
-                            <Image src={Rect3} className="w-48 absolute h-60 top-0 left-0" alt="rect1" />
-                            <div className="w-48 absolute  top-0 left-0 h-60 bg-[rgba(0,0,0,0.2)]">
+                        <div className="mx-4 my-2 relative md:w-48 w-full  h-60">
+                            <Image src={Rect3} className=" md:w-48 w-full  absolute h-60 top-0 left-0" alt="rect1" />
+                            <div className=" absolute  md:w-48 w-full top-0 left-0 h-60 bg-[rgba(0,0,0,0.2)]">
                             </div>
                             <div className="absolute bg-[#F7921E] right-3 top-3 text-xs px-3 py-1 rounded">
                                 3 Tours
@@ -344,10 +351,10 @@ export default function Home() {
                             </div>
                         </div>
                     </div>
-                    <div className="flex my-5" >
-                        <div className="mx-4 relative w-48  h-60">
-                            <Image src={Rect4} className="w-48 absolute h-60 top-0 left-0" alt="rect1" />
-                            <div className="w-48 absolute  top-0 left-0 h-60 bg-[rgba(0,0,0,0.2)]">
+                    <div className="flex my-5 flex-wrap my-2 justify-center" >
+                        <div className="mx-4  relative w-full md:w-48  h-60">
+                            <Image src={Rect4} className=" w-full md:w-48 absolute h-60 top-0 left-0" alt="rect1" />
+                            <div className=" absolute w-full md:w-48 top-0 left-0 h-60 bg-[rgba(0,0,0,0.2)]">
                             </div>
                             <div className="absolute bg-[#F7921E] right-3 top-3 text-xs px-3 py-1 rounded">
                                 3 Tours
@@ -361,9 +368,9 @@ export default function Home() {
                                 </p>
                             </div>
                         </div>
-                        <div className="mx-4 relative w-96  h-60">
-                            <Image src={Rect5} className="w-96 absolute h-60 top-0 left-0" alt="rect1" />
-                            <div className="w-96 absolute  top-0 left-0 h-60 bg-[rgba(0,0,0,0.2)]">
+                        <div className="mx-4 relative w-full md:w-96 my-2 h-60">
+                            <Image src={Rect5} className="md:w-96 w-full absolute h-60 top-0 left-0" alt="rect1" />
+                            <div className="w-full md:w-96 absolute  top-0 left-0 h-60 bg-[rgba(0,0,0,0.2)]">
                             </div>
                             <div className="absolute bg-[#F7921E] right-3 top-3 text-xs px-3 py-1 rounded">
                                 3 Tours
@@ -377,9 +384,9 @@ export default function Home() {
                                 </p>
                             </div>
                         </div>
-                        <div className="mx-4 relative w-72  h-60">
-                            <Image src={Rect6} className="w-72 absolute h-60 top-0 left-0" alt="rect1" />
-                            <div className="w-72 absolute  top-0 left-0 h-60 bg-[rgba(0,0,0,0.2)]">
+                        <div className="mx-4 relative md:w-72 my-2 w-full  h-60">
+                            <Image src={Rect6} className="md:w-72 w-full absolute h-60 top-0 left-0" alt="rect1" />
+                            <div className="md:w-72 w-full absolute  top-0 left-0 h-60 bg-[rgba(0,0,0,0.2)]">
                             </div>
                             <div className="absolute bg-[#F7921E] right-3 top-3 text-xs px-3 py-1 rounded">
                                 3 Tours

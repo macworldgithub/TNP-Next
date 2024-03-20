@@ -15,7 +15,9 @@ const config: Config = {
         'hero':"url('/public/home/bg.png')"
       },
       colors:{
-          'primary':'#00ADEE'
+          'primary':'#00ADEE',
+          'golden':"#FF970D",
+          'secon':'#A3A3A3'
       }
     },
   },

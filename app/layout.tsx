@@ -26,7 +26,7 @@ export default function RootLayout({
             <body className={inter.className}>
 
 
-                <header className="w-full flex justify-between px-10 bg-primary">
+                {/* <header className="w-full flex justify-between px-10 bg-primary">
                     <div className="flex">
                         <div className="flex px-1 py-2 mx-1 items-center">
                             <FaPhoneAlt />
@@ -81,9 +81,9 @@ export default function RootLayout({
                         </div>
 
                     </div>
-                </header>
+                </header> */}
 
-                <header className="w-full flex justify-between px-10 bg-white">
+                {/* <header className="w-full flex justify-between px-10 bg-white">
                     <div className="flex py-2 items-center">
                         <Image src={Logo} alt="logo image" width={150} />
                     </div>
@@ -149,7 +149,7 @@ export default function RootLayout({
                         </div>
 
                     </div>
-                </header>
+                </header> */}
 
 
 

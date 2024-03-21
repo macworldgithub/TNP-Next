@@ -1,11 +1,4 @@
 import type { Metadata } from "next";
-import { FaGlobeEurope } from "react-icons/fa";
-import Image from "next/image";
-import Logo from "../public/home/logo.png";
-import { FaFacebook } from "react-icons/fa";
-import { FaTwitter } from "react-icons/fa";
-import { FaLinkedin } from "react-icons/fa";
-import { FaPhoneAlt } from "react-icons/fa";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import Footer from "@/components/Footer/page";

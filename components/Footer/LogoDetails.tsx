@@ -13,13 +13,13 @@ const LogoDetails: NextPage<Props> = ({}) => {
   <div className="mb-3">
     <Image src={logo} alt="not_found_image" />
   </div>
+  
   <div className="mb-3">
     <p>
-      A new way to make the payments easy, reliable and 100%
-      secure. claritatem itamconse quat. Exerci tation
-      ullamcorper.
+      A new way to make the payments easy, reliable and 100% secure. claritatem itamconse quat. Exerci tation ullamcorper.
     </p>
   </div>
+
   <div className="flex w-52 justify-between">
     <Image
       src={sc0}

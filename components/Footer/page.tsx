@@ -23,18 +23,18 @@ const Footer = () => {
           className="w-[90%]"
         />
       </div>
-      <div className="lg:h-96 w-[90%] mb-5 flex flex-col lg:flex-row justify-between">
+      <div className=" w-[90%] mb-5 flex flex-col lg:flex-row lg:flex-wrap justify-between">
         {NavigationRows.map((item, i) => {
           if (item === "LogoDetails") {
-            return <LogoDetails />
+            return <LogoDetails key={"rendering-id-" + i} />
           } else if (item === "OurCompany") {
-            return <OurCompany />
+            return <OurCompany key={"rendering-id-" + i} />
           } else if (item === "QuickLinks") {
-            return <QuickLinks />
+            return <QuickLinks key={"rendering-id-" + i} />
           } else if (item === "NewsLetter") {
-            return <OurNewsLetter />
+            return <OurNewsLetter key={"rendering-id-" + i} />
           }
-          return <div></div>;
+          return <div key={"rendering-id-" + i} ></div>;
         })}
       </div>
     </div>

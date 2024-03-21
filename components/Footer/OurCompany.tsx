@@ -9,7 +9,7 @@ const OurCompany: NextPage<Props> = ({}) => {
       <p className="text-xl font-semibold mb-8">Our Company</p>
 
       {ourCompanyLinks.map((item, i) => (
-        <p className="mb-5">
+        <p className="mb-5" key={"rendering-our-company-link-" + i}>
           <a href={item.link}>{item.name}</a>
         </p>
       ))}

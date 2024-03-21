@@ -9,7 +9,7 @@ const QuickLinks: NextPage<Props> = ({}) => {
       <p className="text-xl font-semibold mb-8">Quick Link</p>
 
       {quickLinks.map((item, i) => (
-        <p className="mb-5">
+        <p className="mb-5" key={"rendering-quick-link-" + i}>
           <a href={item.link}>{item.name}</a>
         </p>
       ))}

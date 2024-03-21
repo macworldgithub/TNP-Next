@@ -21,9 +21,9 @@ const OurNewsLetter: NextPage<Props> = ({}) => {
         </a>
       </p>
 
-      <div className="flex border-gray border">
+      <div className="flex justify-between border-gray border rounded-xl">
         <input
-          className="p-4 "
+          className="p-4 rounded-xl"
           type="text"
           id="my-text-field"
           value={value}

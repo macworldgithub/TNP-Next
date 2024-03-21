@@ -8,15 +8,15 @@ const Domestic = () => {
         <div>
             <HeroDomestic />
             <div className="w-full lg:w-[80%] flex flex-col lg:flex-row gap-6  justify-center mx-auto my-10">
-            {/* Right Side*/}
+                {/* Right Side*/}
                 <div className=" w-full  lg:w-[60%]  ">
                     <div className="flex flex-col md:flex-row justify-between w-full items-center gap-2 my-5 md:p-3 lg:p-0">
                         <h1 className="text-1xl md:text-2xl font-bold" > 6 Days Skardu & Bashu Valley </h1>
 
                         <div className="flex flex-col justify-center items-center border border-gray-300 shadow-sm">
-    <div className="w-[6rem] h-[5rem] bg-yellow-300 text-white text-3xl flex justify-center items-center">6</div>
-    <div className="w-[6rem] h-[2rem] text-1xl text-black flex justify-center items-center bg-white">Days</div>
-</div>
+                            <div className="w-[6rem] h-[5rem] bg-yellow-300 text-white text-3xl flex justify-center items-center">6</div>
+                            <div className="w-[6rem] h-[2rem] text-1xl text-black flex justify-center items-center bg-white">Days</div>
+                        </div>
 
                     </div>
                     <CarouselSlider />
@@ -37,7 +37,7 @@ the first known use of the word travel was in the 14th century."/>
 
                 </div>
 
-
+{/* aqsa add your compoennts here */}
 
 
                 {/* left side */}

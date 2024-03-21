@@ -26,7 +26,7 @@ export default function RootLayout({
         <html lang="en">
             <body className={inter.className}>
 
-
+{/*
                 <header className="w-full text-sm flex justify-between px-10 bg-primary">
                     <div className="flex">
                         <div className="flex px-1 py-2 mx-1 items-center">
@@ -151,6 +151,7 @@ export default function RootLayout({
 
                     </div>
                 </header>
+*/}
                 
                 {children}
 

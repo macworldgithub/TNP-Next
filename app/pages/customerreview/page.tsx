@@ -15,7 +15,7 @@ import Ticket_Dropdown from "./dropdown";
 
 export default function CustomerReview() {
   return (
-    <div className="mb-10 bg-white">
+    <div className="pb-10 bg-white text-black">
       <div className="relative">
         <Image className="w-full" src={Background_img} alt=".." />
       </div>

@@ -411,7 +411,7 @@ export default function Home() {
         </div>
       </div>
 
-      <div className="flex lg:px-60 px-5 bg-blue-500 my-32 my-20 justify-start w-full flex-wrap  items-start w-full bg-white">
+      <div className="flex lg:px-60 px-5 bg-blue-500 my-32 my-20 justify-start w-full flex-wrap items-start w-full bg-white">
         <div className="flex items-center w-full flex-col md:flex-row my-10 justify-between">
           <div className="flex  bg-primary items-center md:text-3xl">
             <Image src={MountainImage} alt="mountain" />

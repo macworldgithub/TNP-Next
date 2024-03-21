@@ -32,9 +32,9 @@ body {
   }
 }
 
-.hero-bg{
-     background-image: url("../public/home/bg.png");
-     background-size: cover;
-        background-repeat: no-repeat;
-        height: auto; /* Set div height to auto */
+.hero-bg {
+  background-image: url("../public/home/bg.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: auto; 
 }

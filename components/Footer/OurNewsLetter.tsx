@@ -23,7 +23,7 @@ const OurNewsLetter: NextPage<Props> = ({}) => {
 
       <div className="flex justify-between border-gray border rounded-xl">
         <input
-          className="p-4 w-4/5 rounded-xl"
+          className="p-4 w-4/5 rounded-xl border-0 outline-none"
           type="text"
           id="my-text-field"
           value={value}

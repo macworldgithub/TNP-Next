@@ -38,3 +38,20 @@ body {
   background-repeat: no-repeat;
   height: auto; 
 }
+.ant-drawer-body{
+    padding: 0px !important;
+}
+
+.hover-animation{
+    transition: all 0.3s ease-in-out;
+}
+
+.hover-animation:hover{
+    transform: scale(1.05);
+    box-shadow: 0 0 10px rgba(0,0,0,0.2);
+
+}
+
+.height-animation{
+    transition: height 0.3s ease-in-out !important;
+}

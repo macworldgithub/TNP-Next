@@ -114,17 +114,17 @@
 
 import { NextPage } from 'next';
 import Image from 'next/image';
+import Logo from "../../assets/common/Logo.svg";
 import { FaFacebook } from "react-icons/fa";
 import { FaTwitter } from "react-icons/fa";
 import { FaLinkedin } from "react-icons/fa";
 import { FaPhoneAlt } from "react-icons/fa";
 import { FaGlobeEurope } from "react-icons/fa";
-import Logo from "../../assets/common/Logo.svg";
 
 interface Props {}
 
 const Page: NextPage<Props> = ({}) => {
-  return <div>
+  return <div className='lg:block hidden'>
     <header className="w-full text-sm flex justify-between px-10 bg-primary">
           <div className="flex">
             <div className="flex px-1 py-2 mx-1 items-center">

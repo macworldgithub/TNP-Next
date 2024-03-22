@@ -1,6 +1,6 @@
 import { NextPage } from "next";
 import Image from "next/image";
-import { AffiliationsData } from "@/assets/Strings/NavigationString";
+import { AffiliationsData } from "@/assets/strings/NavigationString";
 
 interface Props {}
 

@@ -1,3 +1,4 @@
+"use client";
 import BookNow from "@/components/AboutUS/BookNow";
 import FollowUs from "@/components/AboutUS/FollowUs";
 import HeroAboutUs from "@/components/AboutUS/HeroAboutus";

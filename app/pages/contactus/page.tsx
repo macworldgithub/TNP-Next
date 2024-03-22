@@ -3,10 +3,6 @@ import ContactForm from "@/components/ContactUs/ContactForm";
 import ContactusHero from "@/components/ContactUs/ContactusHero";
 import GetInTouch from "@/components/ContactUs/GetInTouch";
 
-
-
-
-
 const Contactus=()=>{
     return(
         <div>

@@ -27,6 +27,7 @@ import { RxAvatar } from "react-icons/rx";
 import { IoFilterCircleOutline, IoLocation } from "react-icons/io5";
 import { FaCircleCheck } from "react-icons/fa6";
 import { CiCalendar } from "react-icons/ci";
+import BlueBanner from '../public/home/banner.png'
 
 const inter = Yesteryear({
   subsets: ["latin"],
@@ -411,8 +412,10 @@ export default function Home() {
         </div>
       </div>
 
-      <div className="flex lg:px-60 px-5 bg-blue-500 my-32 my-20 justify-start w-full flex-wrap items-start w-full bg-white">
-        <div className="flex items-center w-full flex-col md:flex-row my-10 justify-between">
+      <div className="flex relative lg:px-60 bg- px-5 my-32 my-20 justify-start w-full flex-wrap items-start w-full bg-">
+      <Image className="absolute top-[-3rem] left-0 w-full z-0 min-h-[18rem]" src={BlueBanner} alt="bluebanner" />
+
+        <div className="flex relative z-10 bg- items-center w-full flex-col md:flex-row my-10 justify-between">
           <div className="flex  bg-primary items-center md:text-3xl">
             <Image src={MountainImage} alt="mountain" />
             <h1 className="mx-5">Ready to adventure and enjoy natural</h1>
@@ -422,8 +425,8 @@ export default function Home() {
           </button>
         </div>
 
-        <div className="flex md:justify-between flex-col md:flex-row items-center flex-wrap  w-full">
-          <div className="flex items-center flex-col h-60 my-7 w-52 justify-around border px-15 rounded-2xl py-5">
+        <div className="flex relative z-10 md:justify-between flex-col md:flex-row  items-center flex-wrap  w-full">
+          <div className="flex items-center flex-col h-60 my-7 w-52 justify-around bg-white border px-15 rounded-2xl py-5">
             <Image src={Hike} alt="hiking" />
             <p className="text-primary text-xl text-center">5489</p>
             <p className="text-black font-bold text-center">
@@ -431,14 +434,14 @@ export default function Home() {
             </p>
           </div>
 
-          <div className="flex items-center flex-col h-60 my-7 w-52 justify-around border px-15 rounded-2xl py-5">
+          <div className="flex relative z-10 items-center flex-col h-60 my-7 w-52 bg-white justify-around border px-15 rounded-2xl py-5">
             <Image src={Feedback} alt="hiking" />
             <p className="text-primary text-xl text-center">99.9%</p>
             <p className="text-black font-bold text-center">
               Total Positive <br /> Reviews
             </p>
           </div>
-          <div className="flex items-center flex-col h-60 w-52 my-7 justify-around border px-15 rounded-2xl py-5">
+          <div className="flex items-center relative z-10 flex-col h-60 w-52 bg-white my-7 justify-around border px-15 rounded-2xl py-5">
             <Image src={Path} alt="hiking" />
             <p className="text-primary text-xl text-center">190+</p>
             <p className="text-black text-center font-bold">
@@ -446,7 +449,7 @@ export default function Home() {
             </p>
           </div>
 
-          <div className="flex items-center flex-col h-60 w-52 my-7 justify-around border px-15 rounded-2xl py-5">
+          <div className="flex items-center flex-col h-60 relative z-10 bg-white w-52 my-7 justify-around border px-15 rounded-2xl py-5">
             <Image src={Hike} alt="hiking" />
             <p className="text-primary text-xl text-center">472</p>
             <p className="text-black text-center font-bold">

@@ -5,7 +5,7 @@ export default function Visa() {
   return (
     <div>
       <div>
-        <Image className="" src={Visa_Banner} alt="" />
+        <Image src={Visa_Banner} alt="" />
       </div>
     </div>
   );

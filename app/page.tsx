@@ -39,7 +39,7 @@ export default function Home() {
   return (
     <div className="w-full bg-white min-w-min">
       <div className="lg:h-[43rem] md:h-[30rem]   bg-gradient-to-r from-[rgba(0,0,0,0.8)] hero-bg to-[rgba(0,0,0,0.3)] w-full z-2 h-96">
-        <div className="w-full h-full flex items-center justify-center   bg-gradient-to-r from-[rgba(0,0,0,0.8)] to-[rgba(0,0,0,0.3)]">
+        <div className="w-full h-full md:py-0 py-10 flex items-center justify-center   bg-gradient-to-r from-[rgba(0,0,0,0.8)] to-[rgba(0,0,0,0.3)]">
           <div className="flex items-center flex-col">
             <p className={`text-primary text-lg ${inter.className}`}>
               Explore the world
@@ -418,7 +418,7 @@ export default function Home() {
         <div className="flex relative z-10 bg- items-center w-full flex-col md:flex-row my-10 justify-between">
           <div className="flex  bg-primary items-center md:text-3xl">
             <Image src={MountainImage} alt="mountain" />
-            <h1 className="mx-5">Ready to adventure and enjoy natural</h1>
+            <h1 className="mx-5 text-white font-bold text-3xl">Ready to adventure and enjoy natural</h1>
           </div>
           <button className="bg-white text-sm md:my-0 mt-5 md:px-5 px-3 py-2 shadow text-primary">
             Let's get started

@@ -1,27 +1,10 @@
 import Image from "next/image";
 import check from "../../public/domestic/check.png";
 import cancel from "../../public/domestic/Cancel.png"
-const Cost = () => {
-  const includeCost = [
-    "Pick-up or Drop-off service from and to Airport(in our own vehicle)",
-    "Transportation to and from!!",
-    "Food all along the trip(Breakfast, Lunch, Dinner and a cup of coffee or tea) and accommodations during the trip in hotels with family environment",
-    "Transportation, food, accommodation and insurance of Guide during the trip",
-    "Down jacket, all-season sleeping bag, duffel bag and trekking map(in case if you don’t have your",
-    "First Aid Medical Kit(Your guide will carry the Medical Kit but we also advise to bring yourself for your own use, as far as possible)",
-    "All the required permits and paperwork",
-  ];
+const Cost = ({includeCost,costExclude}:any) => {
+  
 
-  const costExclude = [
-    "International Airfare",
-    "Visa Charges",
-    "Hotel Expenses(In Kathmandu, some packages do include hotel expenses)",
-    "Your travel and medical insurance",
-    "Personal Expenses such as shopping, bar bills, hot shower, telephone, laundry, titbits etc",
-    "Food and accommodations in Kathmandu",
-    "Services not mentioned or not promised by the agent/agency",
-    "Emergency expenses such as expenses on chartered helicopter.",
-  ];
+  
   return (
     <div className="flex flex-col gap-6 mt-4 p-6 lg:p-0 ">
       <p className="text-2xl font-bold">Cost</p>

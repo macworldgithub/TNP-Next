@@ -6,6 +6,12 @@ import Tour_Icon from "../../../assets/customer_review/Group.png";
 import Location_Icon from "../../../assets/customer_review/map.png";
 import Review_Icon from "../../../assets/customer_review/Group (1).png";
 import Gallery_Icon from "../../../assets/customer_review/Vector (1).png";
+import User from "../../../assets/customer_review/user.png";
+import Customer_Care from "../../../assets/customer_review/customer-service1.png";
+import Activties from "../../../assets/customer_review/approve1.png";
+import Insurance from "../../../assets/customer_review/Vector22.png";
+import Price_Guranttee from "../../../assets/customer_review/Vector (11).png";
+import News_img from "../../../assets/customer_review/image (1).png";
 
 import ProgressBar from "./progressBar";
 import RatingProgressBar from "./ratingProgressBar";
@@ -15,7 +21,7 @@ import Ticket_Dropdown from "./dropdown";
 
 export default function CustomerReview() {
   return (
-    <div className="pb-10 bg-white text-black">
+    <div className="bg-white mb-96">
       <div className="relative">
         <Image className="w-full" src={Background_img} alt=".." />
       </div>
@@ -42,8 +48,8 @@ export default function CustomerReview() {
         </div>
       </div>
       <div className="flex justify-center gap-9 mt-10">
-        <div className="w-[54%] px-8 border-2 rounded-md py-10">
-          <h2 className="text-xl font-bold mt-4 mb-4 border-l-2 border-l-[#1677FF] px-1">
+        <div className="w-[54%] px-8 border-2 rounded-md py-5 h-[28rem] ">
+          <h2 className="text-xl font-bold mt-4 mb-4 border-l-2 border-l-[#00ADEE] px-1">
             Customer Review
           </h2>
           <div>
@@ -87,74 +93,297 @@ export default function CustomerReview() {
               </div>
             </div>
           </div>
-        </div>
-
-        <div className="w-[26%] bg-[#F8F8F8] px-8 py-12">
-          <h2 className="text-lg font-bold mt-4 mb-4 border-l-2 border-l-[#1677FF] px-1">
-            Book This Tour
-          </h2>
-          <div>
-            <input className="w-full" type="datetime-local" name="" id="" />
-          </div>
-          <div className="w-full flex gap-4 mt-4">
-            <h2 className=" font-semibold">Time:</h2>
-            <input className="w-full" type="time" name="" id="" />
-          </div>
-          <div className="w-full mt-4">
-            <h2 className="font-semibold">Tickets:</h2>
-            <div className="flex items-center justify-between my-2">
-              <p className="w-full text-[13px] text-gray-400">
-                Children(0-12 years)$129
-              </p>
-              <Ticket_Dropdown />
-            </div>
-            <div className="flex items-center justify-between my-2">
-              <p className="w-full text-[13px] text-gray-400">
-                Youth(13-17 years)$169
-              </p>
-              <Ticket_Dropdown />
-            </div>
-            <div className="flex items-center justify-between">
-              <p className="w-full text-[13px] text-gray-400">
-                Adult (18+ years)$189.00
-              </p>
-              <Ticket_Dropdown />
-            </div>
-          </div>
-          <div className="w-full gap-4 mt-4">
-            <h2 className=" font-semibold">Add Extra:</h2>
-            <div className="flex gap-x-2 mt-2">
-              <input type="checkbox" name="" id="" />
-              <p className="text-gray-400">Service per booking</p>
+          <div className="mt-20 w-full">
+            <div className="flex justify-between mb-3">
+              <h2 className="text-xl font-bold mb-4 border-l-2 border-l-[#00ADEE] px-1">
+                Client's Review
+              </h2>
+              <div className="flex gap-2">
+                <div className=" font-semibold">6 reviews</div>
+                <div>
+                  <Rating />
+                </div>
+                <div className=" font-semibold">(5 out of 5)</div>
+              </div>
             </div>
             <div>
-              <div className="mt-2">
-                <div className="flex gap-x-2">
-                  <input type="checkbox" name="" id="" />
-                  <p className="text-gray-400">Service per booking</p>
+              <div className="w-full flex gap-5 border-b-2 mb-6 pb-4">
+                <div>
+                  <Image width={100} height={100} src={User} alt="" />
                 </div>
-                <div className="ml-5">
-                  <div className="flex gap-x-6">
-                    <p className="text-gray-400">Adult:</p>
-                    <h3>$18.00</h3>
+                <div className="px-2">
+                  <h3 className=" font-semibold">Rohan De Spond</h3>
+                  <p className="text-gray-400 text-sm">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing
+                    elit.Curabitur have is covered many vulputate vestibulum
+                    Phasellus rhoncus, dolor eget viverra pretium dolor tellus
+                    aliquet nunc, vitae ultricies erat elit eu lacus.
+                  </p>
+                  <div className="font-semibold py-3">
+                    <Rating /> 5.0
                   </div>
-                  <div className="flex gap-x-6">
-                    <p className="text-gray-400">Adult:</p>
-                    <h3>$18.00</h3>
+                  <div>
+                    <p className="text-gray-600 font-medium">25 jan 2021</p>
                   </div>
-                  <div className="flex gap-x-6">
-                    <p className="text-gray-400">Adult:</p>
-                    <h3>$18.00</h3>
+                </div>
+              </div>
+              <div className="w-full flex gap-5 border-b-2 mb-6 pb-4">
+                <div>
+                  <Image width={100} height={100} src={User} alt="" />
+                </div>
+                <div className="px-2">
+                  <h3 className=" font-semibold">Rohan De Spond</h3>
+                  <p className="text-gray-400 text-sm">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing
+                    elit.Curabitur have is covered many vulputate vestibulum
+                    Phasellus rhoncus, dolor eget viverra pretium dolor tellus
+                    aliquet nunc, vitae ultricies erat elit eu lacus.
+                  </p>
+                  <div className="font-semibold py-3">
+                    <Rating /> 5.0
+                  </div>
+                  <div>
+                    <p className="text-gray-600 font-medium">25 jan 2021</p>
+                  </div>
+                </div>
+              </div>
+              <div className="w-full flex gap-5 border-b-2 mb-6 pb-4">
+                <div>
+                  <Image width={100} height={100} src={User} alt="" />
+                </div>
+                <div className="px-2">
+                  <h3 className=" font-semibold">Rohan De Spond</h3>
+                  <p className="text-gray-400 text-sm">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing
+                    elit.Curabitur have is covered many vulputate vestibulum
+                    Phasellus rhoncus, dolor eget viverra pretium dolor tellus
+                    aliquet nunc, vitae ultricies erat elit eu lacus.
+                  </p>
+                  <div className="font-semibold py-3">
+                    <Rating /> 5.0
+                  </div>
+                  <div>
+                    <p className="text-gray-600 font-medium">25 jan 2021</p>
                   </div>
                 </div>
               </div>
             </div>
+            <div className=" bg-[#F6F6F6] rounded-sm px-6 py-8">
+              <h2 className="text-xl font-bold mt-4 mb-8 border-l-2 border-l-[#00ADEE] px-1">
+                leave a comment
+              </h2>
+              <div className="flex justify-between">
+                <div>
+                  <h3 className="text-md font-semibold mb-2">
+                    Value for Money*
+                  </h3>
+                  <Rating />
+                </div>
+                <div>
+                  <h3 className="text-md font-semibold mb-2">Destination**</h3>
+                  <Rating />
+                </div>
+                <div>
+                  <h3 className="text-md font-semibold mb-2">Accommodation*</h3>
+                  <Rating />
+                </div>
+                <div>
+                  <h3 className="text-md font-semibold mb-2">Transport*</h3>
+                  <Rating />
+                </div>
+              </div>
+              <div className="w-full flex justify-center gap-y-5  items-center flex-col mt-6">
+                <div className="flex gap-10">
+                  <input
+                    type="text"
+                    className="py-3 px-6 outline-none"
+                    placeholder="First name"
+                    value=""
+                  />
+                  <input
+                    type="email"
+                    className="py-3 px-6 outline-none"
+                    placeholder="Email Address"
+                    name=""
+                    id=""
+                  />
+                </div>
+                <div>
+                  <input
+                    className="outline-none relative px-44 py-24 flex items-start justify-start"
+                    placeholder="Write Review"
+                    type="text"
+                    name=""
+                    id=""
+                  />
+                </div>
+                <div className="flex flex-col items-center">
+                  <div className="flex gap-3">
+                    <input type="checkbox" name="" id="" />
+                    <p className=" text-sm">
+                      I agree to Terms & Conditions, Refund Policy and Privacy
+                      Policy of Fabrilife.
+                    </p>
+                  </div>
+
+                  <button className="w-full bg-[#00ADEE] text-white py-3 mt-8">Post Comment</button>
+                </div>
+              </div>
+            </div>
           </div>
-          <div className="flex justify-between mt-4 mb-6">
-            <h2 className=" font-semibold">Total:</h2>
-            <h3 className="text-[#1677FF] font-bold">$130.00</h3>
+        </div>
+        <div className="w-[26%]">
+          <div className="bg-[#F8F8F8] px-8 py-12">
+            <h2 className="text-lg font-bold mt-4 mb-4 border-l-2 border-l-[#00ADEE] px-1">
+              Book This Tour
+            </h2>
+            <div>
+              <input className="w-full p-2" type="datetime-local" name="" id="" />
+            </div>
+            <div className="w-full items-center flex gap-4 mt-4">
+              <h2 className=" font-semibold">Time:</h2>
+              <input className="w-full p-1" type="time" name="" id="" />
+            </div>
+            <div className="w-full mt-4">
+              <h2 className="font-semibold">Tickets:</h2>
+              <div className="flex items-center justify-between my-2">
+                <p className="w-full text-[13px] text-gray-400">
+                  Children(0-12 years)$129
+                </p>
+                <Ticket_Dropdown />
+              </div>
+              <div className="flex items-center justify-between my-2">
+                <p className="w-full text-[13px] text-gray-400">
+                  Youth(13-17 years)$169
+                </p>
+                <Ticket_Dropdown />
+              </div>
+              <div className="flex items-center justify-between">
+                <p className="w-full text-[13px] text-gray-400">
+                  Adult (18+ years)$189.00
+                </p>
+                <Ticket_Dropdown />
+              </div>
+            </div>
+            <div className="w-full gap-4 mt-4">
+              <h2 className=" font-semibold">Add Extra:</h2>
+              <div className="flex gap-x-2 mt-2">
+                <input type="checkbox" name="" id="" />
+                <p className="text-gray-400">Service per booking</p>
+              </div>
+              <div>
+                <div className="mt-2">
+                  <div className="flex gap-x-2">
+                    <input type="checkbox" name="" id="" />
+                    <p className="text-gray-400">Service per booking</p>
+                  </div>
+                  <div className="ml-5">
+                    <div className="flex gap-x-6">
+                      <p className="text-gray-400">Adult:</p>
+                      <h3>$18.00</h3>
+                    </div>
+                    <div className="flex gap-x-6">
+                      <p className="text-gray-400">Adult:</p>
+                      <h3>$18.00</h3>
+                    </div>
+                    <div className="flex gap-x-6">
+                      <p className="text-gray-400">Adult:</p>
+                      <h3>$18.00</h3>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div className="flex justify-between mt-4 mb-6">
+              <h2 className=" font-semibold">Total:</h2>
+              <h3 className="text-[#00ADEE] font-bold">$130.00</h3>
+            </div>
+            <button className="w-11/12 py-3 flex justify-center m-auto rounded-sm text-white bg-[#00ADEE]">
+              Procced Booking
+            </button>
           </div>
-          <button className="w-11/12 py-3 flex justify-center m-auto rounded-sm text-white bg-[#1677FF]">Procced Booking</button>
+          <div className=" bg-white shadow-lg px-6 py-10 mt-10">
+            <h2 className="text-md font-bold mt-4 mb-4 border-l-2 border-l-[#00ADEE] px-1">
+              Book With Confidence
+            </h2>
+            <div className="flex items-center gap-3 mb-4">
+              <div>
+                <Image src={Customer_Care} alt="" />
+              </div>
+              <p className=" text-[#44454F] text-md">
+                Customer care available 24/7
+              </p>
+            </div>
+            <div className="flex items-center gap-3 mb-4">
+              <div>
+                <Image src={Activties} alt="" />
+              </div>
+              <p className=" text-[#44454F] text-md">
+                Hand-picked Tours & Activities
+              </p>
+            </div>
+            <div className="flex items-center gap-3 mb-4">
+              <div>
+                <Image src={Insurance} alt="" />
+              </div>
+              <p className=" text-[#44454F] text-md">Free Travel Insureance</p>
+            </div>
+            <div className="flex items-center gap-3 mb-4">
+              <div>
+                <Image src={Price_Guranttee} alt="" />
+              </div>
+              <p className=" text-[#44454F] text-md">
+                No-hassle best price guarantee
+              </p>
+            </div>
+          </div>
+          <div className=" bg-white shadow-lg px-6 py-10 mt-10">
+            <h2 className="text-md font-bold mt-4 mb-4 border-l-2 border-l-[#00ADEE] px-1">
+              Recent News
+            </h2>
+            <div className="flex items-center gap-3 mb-4">
+              <div>
+                <Image src={News_img} alt="" />
+              </div>
+              <div>
+                <Rating />
+                <p className=" text-[#44454F] text-sm">
+                  Walking the Amalfi Coast
+                </p>
+                <p>
+                  From <span className=" text-[#00ADEE]">$129.00</span>
+                </p>
+              </div>
+            </div>
+            <div className="flex items-center gap-3 mb-4">
+              <div>
+                <Image src={News_img} alt="" />
+              </div>
+              <div>
+                <Rating />
+                <p className=" text-[#44454F] text-sm">
+                  Walking the Amalfi Coast
+                </p>
+                <p>
+                  From <span className=" text-[#00ADEE]">$129.00</span>
+                </p>
+              </div>
+            </div>
+            <div className="flex items-center gap-3 mb-4">
+              <div>
+                <Image src={News_img} alt="" />
+              </div>
+              <div>
+                <Rating />
+                <p className=" text-[#44454F] text-sm">
+                  Walking the Amalfi Coast
+                </p>
+                <p>
+                  From <span className=" text-[#00ADEE]">$129.00</span>
+                </p>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>

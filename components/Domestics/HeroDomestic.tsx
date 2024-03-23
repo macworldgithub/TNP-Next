@@ -2,7 +2,7 @@ import React from 'react';
 import Image from 'next/image'; 
 import Bg from '../../public/domestic/Domestics 1.png';
 
-const HeroDomestic = () => {
+const HeroDomestic = ({ heading, paragraph } :any) => {
   return (
     <div className="heroAboutUs relative w-full h-[50vh]">
       {/* Background Image */}
@@ -15,8 +15,8 @@ const HeroDomestic = () => {
       <div className="absolute inset-0 flex items-center justify-center">
         
         <div className="text-center">
-          <h1 className="text-white text-5xl font-bold mb-6">DOMESTICS</h1>
-          <p className="text-white text-lg"> North Tour Packages</p>
+          <h1 className="text-white text-5xl font-bold mb-6">{heading}</h1>
+          <p className="text-white text-lg">{paragraph}</p>
         </div>
       </div>
     </div>

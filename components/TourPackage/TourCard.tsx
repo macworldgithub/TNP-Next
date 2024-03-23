@@ -4,7 +4,11 @@ import { MdLocationPin } from "react-icons/md";
 import { MdOutlineStarPurple500 } from "react-icons/md";
 import { IoMdTime } from "react-icons/io";
 import { IoPersonAddOutline } from "react-icons/io5";
+import Link from 'next/link';
+
 interface TourCardProps {
+    id:number,
+    pid:number,
     pic: StaticImageData;
     loc: string;
     title: string;
@@ -14,10 +18,13 @@ interface TourCardProps {
     dprice: number;
     review: number;
   }
-const TourCard:React.FC<TourCardProps> = ({pic , loc , title , duration , people , price , dprice , review})=>{
+const TourCard:React.FC<TourCardProps> = ({id,pid,pic , loc , title , duration , people , price , dprice , review})=>{
 
     return(
+        
+        
         <div className="flex flex-col  md:h-[21rem] xl:h-auto h-auto items-center justify-center lg:w-[30%] xl:w-[30%] md:w-[45%] w-[100%] shadow-lg shadow-gray-400 rounded-lg">
+            <Link href={`/pages/domestic/${id}/${pid}`}>
             <div className=" w-full">
                 <Image src={pic} alt="tour image " className="w-full" />
 
@@ -62,6 +69,7 @@ const TourCard:React.FC<TourCardProps> = ({pic , loc , title , duration , people
                 </div>
 
             </div>
+        </Link>
         </div>
     )
 }

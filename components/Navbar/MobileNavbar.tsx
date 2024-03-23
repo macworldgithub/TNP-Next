@@ -61,7 +61,12 @@ const items: MenuItem[] = [
     getItem('Hotels', 'sub2', null,),
     getItem('Car Rental', 'sub2', null,),
     getItem('Visa', 'sub2', null,),
-    getItem('Packages', 'sub2', null,),
+    getItem('Packages', 'sub2', null,[
+            getItem('Group', '7'),
+            getItem('Honeymoon', '8'),
+            getItem('Private Family', '8'),
+            getItem('Corporate', '8'),
+        ]),
     getItem('Contact us', 'sub2', null,),
 ];
 
@@ -87,7 +92,7 @@ const MobileNavbar: React.FC = () => {
                 <div className="flex py-2 items-center">
                     <Image src={Logo} alt="logo image" width={150} />
                 </div>
-                    <IoMdMenu onClick={showDrawer} className="cursor-pointer text-3xl text-primary" />
+                <IoMdMenu onClick={showDrawer} className="cursor-pointer text-3xl text-primary" />
             </div>
             <Drawer title="Nouvelliste" className='px-0' onClose={onClose} open={open}>
                 <Menu

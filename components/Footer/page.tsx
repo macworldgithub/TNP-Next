@@ -1,7 +1,7 @@
 "use client";
 import Image from "next/image";
 import mobile_download from "../../assets/footer/mobile_app_download.png";
-import { NavigationRows } from "../../assets/Strings/NavigationString";
+import { NavigationRows } from "../../assets/strings/NavigationString";
 import LogoDetails from "./LogoDetails";
 import OurCompany from "./OurCompany";
 import QuickLinks from "./QuickLinks";

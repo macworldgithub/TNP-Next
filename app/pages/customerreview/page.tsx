@@ -176,21 +176,21 @@ export default function CustomerReview() {
               </h2>
               <div className="flex flex-wrap md:flex-row justify-between">
                 <div>
-                  <h3 className="text-md font-semibold mb-2">
+                  <h3 className=" text-md md:text-lg font-semibold mb-2">
                     Value for Money*
                   </h3>
                   <Rating />
                 </div>
                 <div>
-                  <h3 className="text-md font-semibold mb-2">Destination*</h3>
+                  <h3 className=" text-md md:text-lg font-semibold mb-2">Destination*</h3>
                   <Rating />
                 </div>
                 <div>
-                  <h3 className="text-md font-semibold mb-2">Accommodation*</h3>
+                  <h3 className=" text-md md:text-lg font-semibold mb-2">Accommodation*</h3>
                   <Rating />
                 </div>
                 <div>
-                  <h3 className="text-md font-semibold mb-2">Transport*</h3>
+                  <h3 className=" text-md md:text-lg font-semibold mb-2">Transport*</h3>
                   <Rating />
                 </div>
               </div>

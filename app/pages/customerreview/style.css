@@ -1,3 +1,7 @@
+body {
+    background-color: #fff;
+}
+
 :where(.css-dev-only-do-not-override-djtmh8).ant-progress .ant-progress-bg {
     position: relative;
     background: #00ADEE;

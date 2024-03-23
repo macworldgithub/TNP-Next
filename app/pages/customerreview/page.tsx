@@ -12,6 +12,7 @@ import Activties from "../../../assets/customer_review/approve1.png";
 import Insurance from "../../../assets/customer_review/Vector22.png";
 import Price_Guranttee from "../../../assets/customer_review/Vector (11).png";
 import News_img from "../../../assets/customer_review/image (1).png";
+import "./style.css"
 
 import ProgressBar from "./progressBar";
 import RatingProgressBar from "./ratingProgressBar";
@@ -180,7 +181,7 @@ export default function CustomerReview() {
                   <Rating />
                 </div>
                 <div>
-                  <h3 className="text-md font-semibold mb-2">Destination**</h3>
+                  <h3 className="text-md font-semibold mb-2">Destination*</h3>
                   <Rating />
                 </div>
                 <div>
@@ -210,7 +211,7 @@ export default function CustomerReview() {
                 </div>
                 <div>
                   <input
-                    className="outline-none relative px-44 py-24 flex items-start justify-start"
+                    className="outline-none relative px-44 py-24"
                     placeholder="Write Review"
                     type="text"
                     name=""

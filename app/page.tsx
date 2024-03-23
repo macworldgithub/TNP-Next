@@ -1,4 +1,11 @@
+'use client';
+
+import Carousel from 'react-multi-carousel';
+import 'react-multi-carousel/lib/styles.css';
+
+
 import Navbar from "@/components/Navbar/page";
+
 import Image from "next/image";
 import TestimonialBackground from "../public/home/H5-png-1 1.png";
 import Hike from "../public/home/Hike.png";
@@ -29,6 +36,34 @@ import { FaCircleCheck } from "react-icons/fa6";
 import { CiCalendar } from "react-icons/ci";
 import BlueBanner from '../public/home/banner.png'
 
+  const settings = {
+    dots: true,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 3,
+    slidesToScroll: 3
+  };
+
+  const responsive = {
+  superLargeDesktop: {
+    // the naming can be any, depends on you.
+    breakpoint: { max: 4000, min: 3000 },
+    items: 5
+  },
+  desktop: {
+    breakpoint: { max: 3000, min: 1024 },
+    items: 3
+  },
+  tablet: {
+    breakpoint: { max: 1024, min: 464 },
+    items: 2
+  },
+  mobile: {
+    breakpoint: { max: 464, min: 0 },
+    items: 1
+  }
+};
+
 const inter = Yesteryear({
   subsets: ["latin"],
   weight: ["400"],
@@ -37,7 +72,7 @@ const inter = Yesteryear({
 
 export default function Home() {
   return (
-    <div className="w-full bg-white min-w-min">
+    <div className="w-full bg-white min-w-mi">
       <div className="lg:h-[43rem] md:h-[30rem]   bg-gradient-to-r from-[rgba(0,0,0,0.8)] hero-bg to-[rgba(0,0,0,0.3)] w-full z-2 h-96">
         <div className="w-full h-full md:py-0 py-10 flex items-center justify-center   bg-gradient-to-r from-[rgba(0,0,0,0.8)] to-[rgba(0,0,0,0.3)]">
           <div className="flex items-center flex-col">
@@ -57,7 +92,7 @@ export default function Home() {
                 Adventure <span className=""> Camping </span>
               </h1>
             </div>
-            <div className="flex my-3 flex-col md:flex-row mx-5 bg-white text-black flex-wrap  rounded px-4 py-4">
+            <div className="flex my-3 flex-col md:flex-row md:mx-5 bg-white text-black flex-wrap  rounded px-4 py-4">
               <div className="flex mx-2 w-[15rem] md:w-auto md:justify-start justify-between  items-center">
                 <div className="flex items-center">
                   <div className="me-2">
@@ -129,17 +164,17 @@ export default function Home() {
             </div>
 
             <div className="flex justify-center flex-wrap md:flex-nowrap my-5 items-start ">
-              <div className="flex mx-5 md:w-full w-[320px] items-center">
+              <div className="flex md:mx-5 md:w-full w-[320px] items-center">
                 <FaCircleCheck className="mx-2 text-primary" />
                 <p className="text-sm text-white">
                   Easy & Fast - Book a Car in 120 minutes
                 </p>
               </div>
-              <div className="flex mx-5  md:w-full text-white w-[320px] items-center">
+              <div className="flex md:mx-5  md:w-full text-white w-[320px] items-center">
                 <FaCircleCheck className="mx-2 text-primary" />
                 <p className="text-sm">Best Price with Quality Service</p>
               </div>
-              <div className="flex mx-5  md:w-full w-[320px] text-white items-center">
+              <div className="flex md:mx-5  md:w-full w-[320px] text-white items-center">
                 <FaCircleCheck className="mx-2 text-primary" />
                 <p className="text-sm">Choose from a Wide Variety of Cars</p>
               </div>
@@ -224,7 +259,7 @@ export default function Home() {
 
       <div className="flex px-10 my-32 justify-center flex-wrap flex-col items-center w-full bg-white">
         <div className="w-full flex flex-col items-center">
-          <h1 className="text-black font-bold text-3xl">
+          <h1 className="text-black font-bold text-center text-3xl">
             Amazing Featured Tour
           </h1>
           <h2
@@ -260,7 +295,7 @@ export default function Home() {
           >
             Package
           </h2>
-          <h1 className="text-black font-bold text-3xl">
+          <h1 className="text-black text-center font-bold text-3xl">
             Popular destinations
           </h1>
         </div>
@@ -459,7 +494,7 @@ export default function Home() {
         </div>
       </div>
 
-      <div className="flex bg-gray-100 pt-16 flex-col px-10 my-32 pb-10 justify- flex-wrap   items-center w-full relative md:h-[40rem]">
+      <div className="flex md:block lg:flex bg-gray-100 pt-16 flex-col md:px-10 my-32 pb-10 justify- flex-wrap   items-center w-full relative md:h-[40rem]">
         <Image
           src={TestimonialBackground}
           className="w-full md:h-[40rem] absolute"
@@ -470,6 +505,7 @@ export default function Home() {
         </h1>
 
         <div className="flex my-10 flex-wrap justify-around bg-ed-100">
+
           <div className="relative w-full md:w-[25rem] my-5 h-[13rem] flex flex-col bg-white mx-5 px-5 py-4 border">
             <Image
               src={DLeft}
@@ -535,9 +571,9 @@ export default function Home() {
         </button>
       </div>
 
-      <div className="flex flex-col px-10 mt-20 justify- flex-wrap  items-center w-full relative md:h-[40rem]">
+      <div className="flex md:block lg:flex flex-col md:px-10 mt-20  justify- flex-wrap  items-center w-full relative md:h-[40rem]">
         <p className="text-[#FBAD17] text-sm">Explore the world</p>
-        <h1 className="text-black text-3xl font-bold my-2">
+        <h1 className="text-black sm:text-center text-center text-3xl font-bold my-2">
           Latest News & Articles
         </h1>
         <h1 className="text-black text-3xl font-bold">

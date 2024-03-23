@@ -23,8 +23,8 @@ const TourCard:React.FC<TourCardProps> = ({id,pid,pic , loc , title , duration ,
     return(
         
         
-        <div className="flex flex-col  md:h-[21rem] xl:h-auto h-auto items-center justify-center lg:w-[30%] xl:w-[30%] md:w-[45%] w-[100%] shadow-lg shadow-gray-400 rounded-lg">
-            <Link href={`/pages/domestic/${id}/${pid}`}>
+        <Link  href={`/pages/domestic/${id}/${pid}`} className="flex flex-col  md:h-[21rem] xl:h-auto h-auto items-center justify-center lg:w-[30%] xl:w-[30%] md:w-[45%] w-[100%] shadow-lg shadow-gray-400 rounded-lg">
+            
             <div className=" w-full">
                 <Image src={pic} alt="tour image " className="w-full" />
 
@@ -70,7 +70,7 @@ const TourCard:React.FC<TourCardProps> = ({id,pid,pic , loc , title , duration ,
 
             </div>
         </Link>
-        </div>
+       
     )
 }
 export default TourCard;

@@ -14,7 +14,7 @@ const FeaturedListings = () => {
   const itemsPerPage = 6; 
   
   const featuredData = [
-    { id:0,
+    { id:1,
       pid:1,
       img: img1,
       location: "Pakistan-North",
@@ -38,7 +38,7 @@ const FeaturedListings = () => {
       reviewCount: 1,
     },
     {
-      id:0,
+      id:1,
       pid:1,
       img: img3,
       location: "Pakistan-North",

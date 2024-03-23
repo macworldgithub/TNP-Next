@@ -13,13 +13,14 @@ import { useParams } from "next/navigation";
 const Domestic = () => {
   const params= useParams()
   console.log(params,"param")
-  const renderedData= data.filter((item)=>{return item.id.toString() === params?.id[0]})[0]?.packages?.filter((item)=>{return item.pid.toString()===params?.id[1]})[0]
+  const bannerData= data.filter((item)=>{return item.id.toString() === params?.id[0]})[0]
+  const renderedData= bannerData?.packages?.filter((item)=>{return item.pid.toString()===params?.id[1]})[0]
   console.log(renderedData,"rr")
     console.log(data)
   
   return (
     <div>
-      <HeroDomestic heading="DOMESTICS" paragraph="North Tour Packages" />
+      <HeroDomestic heading={bannerData.type} paragraph={bannerData.pTag} />
 
       <div className="w-full lg:w-[80%] flex flex-col lg:flex-row gap-6  justify-center mx-auto my-10">
         {/* Right Side*/}

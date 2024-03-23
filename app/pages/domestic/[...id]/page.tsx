@@ -15,7 +15,7 @@ const Domestic = () => {
   console.log(params,"param")
   const bannerData= data.filter((item)=>{return item.id.toString() === params?.id[0]})[0]
   const renderedData= bannerData?.packages?.filter((item)=>{return item.pid.toString()===params?.id[1]})[0]
-  console.log(renderedData,"rr")
+  console.log(renderedData,"rrrr")
     console.log(data)
   
   return (

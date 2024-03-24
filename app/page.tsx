@@ -19,7 +19,6 @@ import FlagMan from "../public/home/Group.png";
 import LocationBook from "../public/home/loc.png";
 import VideoImage from "../public/home/image.png";
 import { Yesteryear } from "next/font/google";
-import BgImage from "../public/home/bg.png";
 import { FaMapPin, FaRegComments } from "react-icons/fa";
 import { GiMountainClimbing } from "react-icons/gi";
 import { IoIosArrowDown, IoMdTime, IoMdTimer } from "react-icons/io";

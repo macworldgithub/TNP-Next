@@ -28,12 +28,51 @@ import { IoFilterCircleOutline, IoLocation } from "react-icons/io5";
 import { FaCircleCheck } from "react-icons/fa6";
 import { CiCalendar } from "react-icons/ci";
 import BlueBanner from '../public/home/banner.png'
+import TourCard from "@/components/TourPackage/TourCard";
+
+import img1 from "../public/TourPackage/FeaturedListing/featured listing 1.png";
+import img2 from  "../public/TourPackage/FeaturedListing/featured listing 2.png";
+import img3 from "../public/TourPackage/FeaturedListing/featured listing 3.png";
+
+import packbg from "../public/home/package bg.png";
+import bgaa from "../public/home/bgaa.png";
 
 const inter = Yesteryear({
   subsets: ["latin"],
   weight: ["400"],
   style: ["normal"],
 });
+
+const featuredata = [{
+  img: img1,
+  location: "Pakistan-North",
+  title: "All Girls Trip to Kashmir",
+  duration: "7days",
+  people: 12,
+  price: 32000,
+  discountedPrice: 20987,
+  reviewCount: 1,
+},
+{
+  img: img2,
+  location: "Pakistan-North",
+  title: "All Girls Trip to Kashmir ",
+  duration: "7days",
+  people: 12,
+  price: 32000,
+  discountedPrice: 20987,
+  reviewCount: 1,
+},
+{
+  img: img3,
+  location: "Pakistan-North",
+  title: "All Girls Trip to Kashmir",
+  duration: "7days",
+  people: 12,
+  price: 32000,
+  discountedPrice: 20987,
+  reviewCount: 1,
+}]
 
 export default function Home() {
   return (
@@ -222,7 +261,7 @@ export default function Home() {
         </div>
       </div>
 
-      <div className="flex px-10 my-32 justify-center flex-wrap flex-col items-center w-full bg-white">
+      <div className="flex px-10 items-center flex-wrap flex-col  w-full bg-white h-[100vh]">
         <div className="w-full flex flex-col items-center">
           <h1 className="text-black font-bold text-3xl">
             Amazing Featured Tour
@@ -250,6 +289,20 @@ export default function Home() {
           <div className="px-3 text-sm w-32 py-1 my-1 shadow-2xl  border text-center mx-2 text-black">
             Manila
           </div>
+        </div>
+        <div className="relative w-full mt-8 ">
+          <div className="absolute z-10 w-full top-40">
+            <Image src={packbg} alt="bg image here" />
+          </div>
+          <div className="absolute z-20 w-full ">
+            <Image src={bgaa} alt="img.."/>
+          </div>
+
+        <div className="flex flex-row flex-wrap w-full justify-center gap-6 absolute z-30">
+          {featuredata.map((item , index)=>(
+            <TourCard pic={item?.img} loc={item?.location} title={item?.title} duration={item?.duration} people={item?.people} price={item?.price} dprice={item?.discountedPrice} review={item?.reviewCount} />
+          ))}
+        </div>
         </div>
       </div>
 

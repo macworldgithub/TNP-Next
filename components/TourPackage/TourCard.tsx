@@ -17,9 +17,9 @@ interface TourCardProps {
 const TourCard:React.FC<TourCardProps> = ({pic , loc , title , duration , people , price , dprice , review})=>{
 
     return(
-        <div className="flex flex-col  md:h-[21rem] xl:h-auto h-auto items-center justify-center lg:w-[30%] xl:w-[30%] md:w-[45%] w-[100%] shadow-lg shadow-gray-400 rounded-lg">
-            <div className=" w-full">
-                <Image src={pic} alt="tour image " className="w-full" />
+        <div className="flex flex-col bg-white  md:h-[18rem] xl:h-auto h-auto items-center justify-center lg:w-[30%] xl:w-[30%] md:w-[45%] w-[100%] shadow-lg shadow-gray-400 rounded-lg">
+            <div className=" w-full h-[40%]">
+                <Image src={pic} alt="tour image " className="w-full h-full" />
 
             </div>
             <div className="flex  flex-col gap-2 h-full w-full bg-white-300 px-2 rounded-lg py-2 ">

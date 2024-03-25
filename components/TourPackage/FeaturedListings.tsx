@@ -188,8 +188,8 @@ const FeaturedListings = () => {
 
  
   return (
-    <div className="w-full h-full flex justify-center items-center ">
-      <div className="w-[80%] flex flex-col gap-4">
+    <div className="w-full h-full flex justify-center items-center">
+      <div className="w-[80%] flex flex-col gap-4  ">
         <PaginationInfo currentPage={2} itemsPerPage={6} totalItems={featuredData.length} />
         <div className="flex flex-row gap-4 flex-wrap ">
           

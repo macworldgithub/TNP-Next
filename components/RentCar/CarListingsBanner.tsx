@@ -17,8 +17,6 @@ const CarListingsBanner: NextPage<Props> = ({}) => {
     <CarTypeButtons selectedCarType={selectedCarType} setSelectedCarType={setselectedCarType} />
 
     <CarListing />
-
-    <RentalExperiance />
   </div>
 }
 

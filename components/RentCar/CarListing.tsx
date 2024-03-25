@@ -10,7 +10,7 @@ const CarListing: NextPage<Props> = ({ }) => {
   const position = 'bottom';
   const align = 'center';
 
-  return <div className='flex flex-col lg:flex-row justify-center items-center pb-20'>
+  return <div className='flex flex-col lg:flex-row justify-center items-center'>
 
     <List
       grid={{ gutter: 16, column: 3 }}

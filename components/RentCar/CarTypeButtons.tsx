@@ -8,7 +8,7 @@ interface Props {
   setSelectedCarType: (carType: string) => void;
 }
 
-const CarTypeButtons: NextPage<Props> = ({ selectedCarType }) => {
+const CarTypeButtons: NextPage<Props> = ({ selectedCarType, setSelectedCarType }) => {
   return (
     <div className="flex justify-center py-4">
       <div className="w-[750px] flex justify-between">
@@ -21,6 +21,7 @@ const CarTypeButtons: NextPage<Props> = ({ selectedCarType }) => {
                 selectedCarType === e.name ? `bg-[#4096FF] text-white` : "bg-white text-black"
               } flex items-center `}
               type="primary"
+              onClick={()=> setSelectedCarType(e.name)}
             >
               {e.name}
             </Button>

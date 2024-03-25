@@ -6,6 +6,7 @@ import SearchbarAndFilters from "@/components/RentCar/SearchbarAndFilters";
 import CarListingsBanner from "@/components/RentCar/CarListingsBanner";
 import { useEffect, useState } from "react";
 import RentCarMotivation from "@/components/RentCar/RentCarMotivation";
+import RentalExperiance from "@/components/RentCar/RentalExperiance";
 
 interface Props {}
 
@@ -38,6 +39,8 @@ const Page: NextPage<Props> = ({}) => {
       <RentCarMotivation />
 
       <CarListingsBanner />
+
+    <RentalExperiance />
     </div>
   );
 };

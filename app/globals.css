@@ -55,3 +55,8 @@ body {
 .height-animation{
     transition: height 0.3s ease-in-out !important;
 }
+
+.grad {
+  background-color: transparent !important; /* For browsers that do not support gradients */
+  background-image: linear-gradient(transparent, black) !important;
+}

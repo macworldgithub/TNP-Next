@@ -88,11 +88,11 @@ const MobileNavbar: React.FC = () => {
 
     return (
         <>
-            <div className="bg-white py-3 flex justify-between lg:hidden items-center px-10">
+            <div className="bg-white py-3 min-w-min flex justify-between lg:hidden w-[100%] items-center px-10">
                 <div className="flex py-2 items-center">
                     <Image src={Logo} alt="logo image" width={150} />
                 </div>
-                <IoMdMenu onClick={showDrawer} className="cursor-pointer text-3xl text-primary" />
+                <IoMdMenu onClick={showDrawer} className="cursor-pointer md:hidden text-3xl text-primary" />
             </div>
             <Drawer title="Nouvelliste" className='px-0' onClose={onClose} open={open}>
                 <Menu

@@ -1,5 +1,13 @@
-import Navbar from "@/components/Navbar/page";
+"use client";
+
+// import Carousel from 'react-multi-carousel';
+// import 'react-multi-carousel/lib/styles.css';
+
+import { Carousel } from "antd";
+// import Navbar from "@/components/Navbar/page";
+
 import Image from "next/image";
+import { useState } from "react";
 import TestimonialBackground from "../public/home/H5-png-1 1.png";
 import Hike from "../public/home/Hike.png";
 import Feedback from "../public/home/feedback 1.png";
@@ -27,15 +35,45 @@ import { RxAvatar } from "react-icons/rx";
 import { IoFilterCircleOutline, IoLocation } from "react-icons/io5";
 import { FaCircleCheck } from "react-icons/fa6";
 import { CiCalendar } from "react-icons/ci";
-import BlueBanner from '../public/home/banner.png'
-import TourCard from "@/components/TourPackage/TourCard";
+import BlueBanner from "../public/home/banner.png";
 
 import img1 from "../public/TourPackage/FeaturedListing/featured listing 1.png";
-import img2 from  "../public/TourPackage/FeaturedListing/featured listing 2.png";
+import img2 from "../public/TourPackage/FeaturedListing/featured listing 2.png";
 import img3 from "../public/TourPackage/FeaturedListing/featured listing 3.png";
 
 import packbg from "../public/home/package bg.png";
 import bgaa from "../public/home/bgaa.png";
+import TourCard from "@/components/Home/TourCard";
+import TourCardPagination from "@/components/Home/TourCardPagination";
+import TestimonialCarousel from "@/components/Home/TestimonialCarousel";
+
+const settings = {
+  dots: true,
+  infinite: true,
+  speed: 500,
+  slidesToShow: 3,
+  slidesToScroll: 3,
+};
+
+const responsive = {
+  superLargeDesktop: {
+    // the naming can be any, depends on you.
+    breakpoint: { max: 4000, min: 3000 },
+    items: 5,
+  },
+  desktop: {
+    breakpoint: { max: 3000, min: 1024 },
+    items: 3,
+  },
+  tablet: {
+    breakpoint: { max: 1024, min: 464 },
+    items: 2,
+  },
+  mobile: {
+    breakpoint: { max: 464, min: 0 },
+    items: 1,
+  },
+};
 
 const inter = Yesteryear({
   subsets: ["latin"],
@@ -43,40 +81,123 @@ const inter = Yesteryear({
   style: ["normal"],
 });
 
-const featuredata = [{
-  img: img1,
-  location: "Pakistan-North",
-  title: "All Girls Trip to Kashmir",
-  duration: "7days",
-  people: 12,
-  price: 32000,
-  discountedPrice: 20987,
-  reviewCount: 1,
-},
-{
-  img: img2,
-  location: "Pakistan-North",
-  title: "All Girls Trip to Kashmir ",
-  duration: "7days",
-  people: 12,
-  price: 32000,
-  discountedPrice: 20987,
-  reviewCount: 1,
-},
-{
-  img: img3,
-  location: "Pakistan-North",
-  title: "All Girls Trip to Kashmir",
-  duration: "7days",
-  people: 12,
-  price: 32000,
-  discountedPrice: 20987,
-  reviewCount: 1,
-}]
+const featuredata = [
+  {
+    img: img1,
+    location: "Pakistan-North",
+    title: "All Girls Trip to Kashmir",
+    duration: "7days",
+    people: 12,
+    price: 32000,
+    discountedPrice: 20987,
+    reviewCount: 1,
+  },
+  {
+    img: img2,
+    location: "Pakistan-North",
+    title: "All Girls Trip to Kashmir ",
+    duration: "7days",
+    people: 12,
+    price: 32000,
+    discountedPrice: 20987,
+    reviewCount: 1,
+  },
+  {
+    img: img3,
+    location: "Pakistan-North",
+    title: "All Girls Trip to Kashmir",
+    duration: "7days",
+    people: 12,
+    price: 32000,
+    discountedPrice: 20987,
+    reviewCount: 1,
+  },
+  {
+    img: img2,
+    location: "Pakistan-North",
+    title: "All Girls Trip to Kashmir",
+    duration: "7days",
+    people: 12,
+    price: 32000,
+    discountedPrice: 20987,
+    reviewCount: 1,
+  },
+  {
+    img: img1,
+    location: "Pakistan-North",
+    title: "All Girls Trip to Kashmir ",
+    duration: "7days",
+    people: 12,
+    price: 32000,
+    discountedPrice: 20987,
+    reviewCount: 1,
+  },
+  {
+    img: img3,
+    location: "Pakistan-North",
+    title: "All Girls Trip to Kashmir",
+    duration: "7days",
+    people: 12,
+    price: 32000,
+    discountedPrice: 20987,
+    reviewCount: 1,
+  },
+  {
+    img: img2,
+    location: "Pakistan-North",
+    title: "All Girls Trip to Kashmir",
+    duration: "7days",
+    people: 12,
+    price: 32000,
+    discountedPrice: 20987,
+    reviewCount: 1,
+  },
+  {
+    img: img2,
+    location: "Pakistan-North",
+    title: "All Girls Trip to Kashmir ",
+    duration: "7days",
+    people: 12,
+    price: 32000,
+    discountedPrice: 20987,
+    reviewCount: 1,
+  },
+];
+
+const testimonialData = [
+  {
+    name: "williamson",
+    desc: " The most advanced revenue than this. Iwill refer everyone I like Level more and more each day because it makes my easier. It really saves me time and effort. Level is exactly business has been lacking",
+  },
+  {
+    name: "williamson",
+    desc: " The most advanced revenue than this. Iwill refer everyone I like Level more and more each day because it makes my easier. It really saves me time and effort. Level is exactly business has been lacking",
+  },
+  {
+    name: "williamson",
+    desc: " The most advanced revenue than this. Iwill refer everyone I like Level more and more each day because it makes my easier. It really saves me time and effort. Level is exactly business has been lacking",
+  },
+  {
+    name: "williamson",
+    desc: " The most advanced revenue than this. Iwill refer everyone I like Level more and more each day because it makes my easier. It really saves me time and effort. Level is exactly business has been lacking",
+  }
+];
 
 export default function Home() {
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const cardsPerPage = 3;
+
+  const handleNext = () => {
+    setCurrentIndex((prevIndex) =>
+      Math.min(prevIndex + cardsPerPage, featuredata.length - 1)
+    );
+  };
+
+  const handlePrev = () => {
+    setCurrentIndex((prevIndex) => Math.max(prevIndex - cardsPerPage, 0));
+  };
   return (
-    <div className="w-full bg-white min-w-min">
+    <div className="w-full bg-white min-w-mi">
       <div className="lg:h-[43rem] md:h-[30rem]   bg-gradient-to-r from-[rgba(0,0,0,0.8)] hero-bg to-[rgba(0,0,0,0.3)] w-full z-2 h-96">
         <div className="w-full h-full md:py-0 py-10 flex items-center justify-center   bg-gradient-to-r from-[rgba(0,0,0,0.8)] to-[rgba(0,0,0,0.3)]">
           <div className="flex items-center flex-col">
@@ -96,7 +217,7 @@ export default function Home() {
                 Adventure <span className=""> Camping </span>
               </h1>
             </div>
-            <div className="flex my-3 flex-col md:flex-row mx-5 bg-white text-black flex-wrap  rounded px-4 py-4">
+            <div className="flex my-3 flex-col md:flex-row md:mx-5 bg-white text-black flex-wrap  rounded px-4 py-4">
               <div className="flex mx-2 w-[15rem] md:w-auto md:justify-start justify-between  items-center">
                 <div className="flex items-center">
                   <div className="me-2">
@@ -168,17 +289,17 @@ export default function Home() {
             </div>
 
             <div className="flex justify-center flex-wrap md:flex-nowrap my-5 items-start ">
-              <div className="flex mx-5 md:w-full w-[320px] items-center">
+              <div className="flex md:mx-5 md:w-full w-[320px] items-center">
                 <FaCircleCheck className="mx-2 text-primary" />
                 <p className="text-sm text-white">
                   Easy & Fast - Book a Car in 120 minutes
                 </p>
               </div>
-              <div className="flex mx-5  md:w-full text-white w-[320px] items-center">
+              <div className="flex md:mx-5  md:w-full text-white w-[320px] items-center">
                 <FaCircleCheck className="mx-2 text-primary" />
                 <p className="text-sm">Best Price with Quality Service</p>
               </div>
-              <div className="flex mx-5  md:w-full w-[320px] text-white items-center">
+              <div className="flex md:mx-5  md:w-full w-[320px] text-white items-center">
                 <FaCircleCheck className="mx-2 text-primary" />
                 <p className="text-sm">Choose from a Wide Variety of Cars</p>
               </div>
@@ -261,9 +382,9 @@ export default function Home() {
         </div>
       </div>
 
-      <div className="flex px-10 items-center flex-wrap flex-col  w-full bg-white h-[100vh]">
+      <div className="flex  items-center flex-wrap flex-col  w-full bg-white md:h-[100vh] h-[300vh] ">
         <div className="w-full flex flex-col items-center">
-          <h1 className="text-black font-bold text-3xl">
+          <h1 className="text-black font-bold text-center text-3xl">
             Amazing Featured Tour
           </h1>
           <h2
@@ -290,19 +411,15 @@ export default function Home() {
             Manila
           </div>
         </div>
-        <div className="relative w-full mt-8 ">
-          <div className="absolute z-10 w-full top-40">
+        <div className="relative w-full  mt-8 z-0 ">
+          <div className="absolute z-10 md:block hidden w-full top-40">
             <Image src={packbg} alt="bg image here" />
           </div>
-          <div className="absolute z-20 w-full ">
-            <Image src={bgaa} alt="img.."/>
+          <div className="absolute z-20 w-full  flex flex-col items-center gap-8 justify-center ">
+            <div className="w-full px-2">
+              <TourCardPagination featuredata={featuredata} direction="row" />
+            </div>
           </div>
-
-        <div className="flex flex-row flex-wrap w-full justify-center gap-6 absolute z-30">
-          {featuredata.map((item , index)=>(
-            <TourCard pic={item?.img} loc={item?.location} title={item?.title} duration={item?.duration} people={item?.people} price={item?.price} dprice={item?.discountedPrice} review={item?.reviewCount} />
-          ))}
-        </div>
         </div>
       </div>
 
@@ -313,7 +430,7 @@ export default function Home() {
           >
             Package
           </h2>
-          <h1 className="text-black font-bold text-3xl">
+          <h1 className="text-black text-center font-bold text-3xl">
             Popular destinations
           </h1>
         </div>
@@ -416,7 +533,7 @@ export default function Home() {
         </div>
       </div>
 
-      <div className="flex px-10 my-32 flex-col md:flex-row justify-start flex-wrap  items-start w-full bg-white">
+      <div className="flex px-10 my-32 flex-col md:flex-row justify-start  flex-wrap  items-start w-full bg-white">
         <div className="md:w-3/12 bgblue-400">
           <h1 className="text-black font-bold text-3xl">Tour Packages</h1>
           <div className="flex mt-3">
@@ -460,18 +577,24 @@ export default function Home() {
           </button>
         </div>
 
-        <div className="md:w-9/12">
-          <h1 className="text-black font-bold text-3xl">Tour Packages</h1>
+        <div className="md:w-9/12 w-full ">
+          <TourCardPagination featuredata={featuredata} direction="col" />
         </div>
       </div>
 
       <div className="flex relative lg:px-60 bg- px-5 my-32 my-20 justify-start w-full flex-wrap items-start w-full bg-">
-      <Image className="absolute top-[-3rem] left-0 w-full z-0 min-h-[18rem]" src={BlueBanner} alt="bluebanner" />
+        <Image
+          className="absolute top-[-3rem] left-0 w-full z-0 min-h-[18rem]"
+          src={BlueBanner}
+          alt="bluebanner"
+        />
 
         <div className="flex relative z-10 bg- items-center w-full flex-col md:flex-row my-10 justify-between">
           <div className="flex  bg-primary items-center md:text-3xl">
             <Image src={MountainImage} alt="mountain" />
-            <h1 className="mx-5 text-white font-bold text-3xl">Ready to adventure and enjoy natural</h1>
+            <h1 className="mx-5 text-white font-bold text-3xl">
+              Ready to adventure and enjoy natural
+            </h1>
           </div>
           <button className="bg-white text-sm md:my-0 mt-5 md:px-5 px-3 py-2 shadow text-primary">
             Let's get started
@@ -512,85 +635,28 @@ export default function Home() {
         </div>
       </div>
 
-      <div className="flex bg-gray-100 pt-16 flex-col px-10 my-32 pb-10 justify- flex-wrap   items-center w-full relative md:h-[40rem]">
-        <Image
-          src={TestimonialBackground}
-          className="w-full md:h-[40rem] absolute"
-          alt="testimonial background"
-        />
-        <h1 className="text-3xl text-black text-center font-bold">
+      <div className="w-screen md:h-[100vh] h-[130vh] relative z-0 ">
+        <Image src={TestimonialBackground} alt="bg" className="w-full absolute z-10"/>
+        <div className="absolute w-full z-20 bg-gray-400 ">
+        <div className="flex flex-col gap-6 bg-gray-400 bg-opacity-50 py-6 absolute z-30 w-[95%] justify-center items-center  m-2">
+        <h1 className="text-3xl text-black  text-center font-bold">
           Testimonials
         </h1>
-
-        <div className="flex my-10 flex-wrap justify-around bg-ed-100">
-          <div className="relative w-full md:w-[25rem] my-5 h-[13rem] flex flex-col bg-white mx-5 px-5 py-4 border">
-            <Image
-              src={DLeft}
-              className="absolute left-0 top-10 h-[8rem]"
-              alt="dleft"
-            />
-            <Image
-              src={Quotation}
-              className="absolute right-10 top-10 "
-              alt="dleft"
-            />
-            <Image
-              src={DDown}
-              alt="dleft"
-              className="absolute bottom-0 right-10 "
-            />
-
-            <div className="flex items-center my-3">
-              <div className="w-10 h-10 rounded-full  bg-gray-300"></div>
-              <div className="ms-5 text-black">Williamson</div>
-            </div>
-
-            <div className="text-black text-xs my-3">
-              The most advanced revenue than this. Iwill refer everyone I like
-              Level more and more each day because it makes my easier. It really
-              saves me time and effort. Level is exactly business has been
-              lacking.
-            </div>
-          </div>
-
-          <div className="md:w-[25rem] w-full relative my-5 h-[13rem] flex flex-col bg-white mx-5 px-5 py-4 border">
-            <Image
-              src={DLeft}
-              className="absolute left-0 top-10 h-[8rem]"
-              alt="dleft"
-            />
-            <Image
-              src={Quotation}
-              className="absolute right-10 top-10 "
-              alt="dleft"
-            />
-            <Image
-              src={DDown}
-              alt="dleft"
-              className="absolute bottom-0 right-10 "
-            />
-            <div className="flex items-center my-3">
-              <div className="w-10 h-10 rounded-full  bg-gray-300"></div>
-              <div className="ms-5 text-black">Williamson</div>
-            </div>
-
-            <div className="text-black text-xs my-3">
-              The most advanced revenue than this. Iwill refer everyone I like
-              Level more and more each day because it makes my easier. It really
-              saves me time and effort. Level is exactly business has been
-              lacking.
-            </div>
-          </div>
+        <div className="w-full  px-2 ">
+          <TestimonialCarousel/>
         </div>
-
         <button className="px-8 py-3 shadow-2xl bg-primary text-white text-sm ">
           VIEW MORE
         </button>
+
+        </div>
+        </div>
+
       </div>
 
-      <div className="flex flex-col px-10 mt-20 justify- flex-wrap  items-center w-full relative md:h-[40rem]">
+      <div className="flex md:block lg:flex flex-col md:px-10 mt-20  justify- flex-wrap  items-center w-full relative md:h-[40rem]">
         <p className="text-[#FBAD17] text-sm">Explore the world</p>
-        <h1 className="text-black text-3xl font-bold my-2">
+        <h1 className="text-black sm:text-center text-center text-3xl font-bold my-2">
           Latest News & Articles
         </h1>
         <h1 className="text-black text-3xl font-bold">

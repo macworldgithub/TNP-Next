@@ -122,6 +122,7 @@ import { FaGlobeEurope } from "react-icons/fa";
 import { IoIosArrowForward } from "react-icons/io";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
+import Link from "next/link";
 
 interface Props {}
 
@@ -253,12 +254,12 @@ const Page: NextPage<Props> = ({}) => {
 
             <p className="cursor-pointer font-bold">Activities</p>
             <p className="cursor-pointer font-bold">Hotels</p>
-            <p
-              onClick={() => location.href = ("/pages/rentcar")}
+            <Link
+              href="/pages/rentcar"
               className="cursor-pointer font-bold"
             >
               Car Rental
-            </p>
+            </Link>
             <p className="cursor-pointer font-bold">Visa</p>
             <div
               onMouseOver={() => setShowPackageDropdown(true)}

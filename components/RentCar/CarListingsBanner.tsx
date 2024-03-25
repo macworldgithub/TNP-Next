@@ -3,6 +3,7 @@ import CarTypeButtons from './CarTypeButtons';
 import { useState } from 'react';
 import RentBannerHeader from './RentBannerHeader';
 import CarListing from './CarListing';
+import RentalExperiance from './RentalExperiance';
 
 interface Props {}
 
@@ -16,6 +17,8 @@ const CarListingsBanner: NextPage<Props> = ({}) => {
     <CarTypeButtons selectedCarType={selectedCarType} setSelectedCarType={setselectedCarType} />
 
     <CarListing />
+
+    <RentalExperiance />
   </div>
 }
 

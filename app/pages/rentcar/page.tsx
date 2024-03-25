@@ -37,9 +37,7 @@ const Page: NextPage<Props> = ({}) => {
 
       <RentCarMotivation />
 
-      <div>
-        <CarListingsBanner />
-      </div>
+      <CarListingsBanner />
     </div>
   );
 };

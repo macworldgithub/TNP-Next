@@ -5,6 +5,7 @@ import Image from "next/legacy/image";
 
 interface Props {
   selectedCarType: string;
+  setSelectedCarType: (carType: string) => void;
 }
 
 const CarTypeButtons: NextPage<Props> = ({ selectedCarType }) => {

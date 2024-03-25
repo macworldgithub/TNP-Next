@@ -254,7 +254,7 @@ const Page: NextPage<Props> = ({}) => {
             <p className="cursor-pointer font-bold">Activities</p>
             <p className="cursor-pointer font-bold">Hotels</p>
             <p
-              onClick={() => router.push("/pages/rentcar")}
+              onClick={() => location.href = ("/pages/rentcar")}
               className="cursor-pointer font-bold"
             >
               Car Rental

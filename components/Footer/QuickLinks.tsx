@@ -1,4 +1,4 @@
-import { quickLinks } from "@/assets/Strings/NavigationString";
+import { quickLinks } from "@/assets/strings/NavigationString";
 import { NextPage } from "next";
 
 interface Props {}

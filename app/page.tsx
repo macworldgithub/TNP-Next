@@ -638,11 +638,11 @@ export default function Home() {
       <div className="w-screen md:h-[100vh] h-[130vh] relative z-0 ">
         <Image src={TestimonialBackground} alt="bg" className="w-full absolute z-10"/>
         <div className="absolute w-full z-20 bg-gray-400 ">
-        <div className="flex flex-col gap-6 bg-gray-400 bg-opacity-50 py-6 absolute z-30 w-[95%] justify-center items-center  m-2">
+        <div className="flex flex-col gap-6 bg-gray-200 bg-opacity-50 py-6 absolute z-30 w-[95%] justify-center items-center  m-2">
         <h1 className="text-3xl text-black  text-center font-bold">
           Testimonials
         </h1>
-        <div className="w-full  px-2 ">
+        <div className="w-full   px-2 ">
           <TestimonialCarousel/>
         </div>
         <button className="px-8 py-3 shadow-2xl bg-primary text-white text-sm ">

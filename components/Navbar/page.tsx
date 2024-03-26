@@ -162,7 +162,7 @@ const Page: NextPage<Props> = ({}) => {
           </div>
 
           <div className="flex py-2 ms-8">
-            <p className="mx-1">User login</p>
+            <Link href={"/pages/login"} className="mx-1">User login</Link>
             <p>|</p>
             <p className="mx-1">Agent login</p>
           </div>

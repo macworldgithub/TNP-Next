@@ -8,9 +8,9 @@ import { useEffect, useState } from "react";
 import RentCarMotivation from "@/components/RentCar/RentCarMotivation";
 import RentalExperiance from "@/components/RentCar/RentalExperiance";
 
-interface Props {}
+interface Props { }
 
-const Page: NextPage<Props> = ({}) => {
+const Page: NextPage<Props> = ({ }) => {
   const [isMounted, setIsMounted] = useState(false);
 
   useEffect(() => {
@@ -28,7 +28,7 @@ const Page: NextPage<Props> = ({}) => {
         Subheading=""
       />
 
-      <div className="flex justify-center relative h-0">
+      <div className="flex justify-center relative md:h-0 h-40">
         <span className="absolute z-10 bottom-[-50px]">
           <SearchbarAndFilters />
         </span>
@@ -40,7 +40,7 @@ const Page: NextPage<Props> = ({}) => {
 
       <CarListingsBanner />
 
-    <RentalExperiance />
+      <RentalExperiance />
     </div>
   );
 };

@@ -12,7 +12,7 @@ interface Props {}
 
 const SearchbarAndFilters: NextPage<Props> = ({}) => {
   return (
-    <div className="flex my-3 bg-white text-black rounded px-4 py-4 shadow-lg shadow-gray-400">
+    <div className="flex flex-col lg:flex-row my-3 bg-white text-black rounded px-4 py-4 shadow-lg shadow-gray-400">
       <div className="flex mx-2 items-center">
         <div className="me-2">
           <FaMapPin className="text-[#00ADEE] text-xl" />

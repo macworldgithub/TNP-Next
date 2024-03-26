@@ -8,13 +8,13 @@ interface Props {}
 
 const RentCarMotivation: NextPage<Props> = ({}) => {
   return (
-    <div className="flex flex-col justify-center py-20">
+    <div className="flex flex-col items-center justify-center py-20">
       <RentBannerHeader
         Title="Better Way to Find Your Perfect Car"
         Description="In hac habitasse platea dictumst. In pharetra tellus eu justo tincidunt bibendum. Morbi rutrum elit ligula, eget fringilla sem pellentesque aliquam suspendisse."
       />
 
-      <div className="flex flex-col md:flex-row justify-center items-center">
+      <div className="flex flex-col md:flex-row flex-wrap justify-center items-center">
         {getCarMotivationData.map((e, i) => (
           <MotivationCard
             Title={e.Title}

@@ -1,11 +1,5 @@
 'use client';
-
-import Carousel from 'react-multi-carousel';
-import 'react-multi-carousel/lib/styles.css';
-
-
 import Navbar from "@/components/Navbar/page";
-
 import Image from "next/image";
 import TestimonialBackground from "../public/home/H5-png-1 1.png";
 import Hike from "../public/home/Hike.png";

@@ -20,13 +20,13 @@ interface TourCardProps {
 const TourCard: React.FC<TourCardProps> = ({ id, pid, pic, loc, title, duration, people, price, dprice, review }) => {
 
   return (
-    <Link href={`/pages/domestic/${id}/${pid}`} className="flex flex-col  md:h-[21rem] xl:h-auto h-auto items-center justify-center lg:w-[30%] xl:w-[30%] md:w-[45%] w-[100%] shadow-lg shadow-gray-400 rounded-lg">
+    <Link href={`/pages/domestic/${id}/${pid}`} className="flex flex-col  md:h-[21rem] xl:h-auto h-auto items-center justify-center lg:w-[30%] xl:w-[300px] md:w-[45%] w-[100%] shadow-lg shadow-gray-400 rounded-lg">
 
       <div className=" w-full">
         <Image src={pic} alt="tour image " className="w-full" />
       </div>
 
-      <div className="flex  flex-col gap-2 h-full w-full bg-white-300 px-2 rounded-lg py-2 ">
+      <div className="flex flex-col gap-2 h-full w-full bg-white-300 px-5 rounded-lg py-5 ">
         <div className="flex flex-row gap-2">
           <MdLocationPin size={15} className="text-blue-500" />
           <p className="text-xs font-light text-gray-500">{loc}</p>

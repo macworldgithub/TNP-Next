@@ -12,7 +12,7 @@ const Pagination = ({ currentPage, totalPages , setCurr }) => {
       <button
         onClick={() => handlePageChange(currentPage - 1)}
         disabled={currentPage === 1}
-        className="px-2 py-[2px] border-[1px] border-gray-400 text-sm"
+        className="py-2 px-3 rounded-md border-[1px] border-gray-400"
       >
         &lt;&lt;
       </button>
@@ -20,7 +20,7 @@ const Pagination = ({ currentPage, totalPages , setCurr }) => {
         <button
           key={page}
           onClick={() => handlePageChange(page)}
-          className={` ${currentPage === page ? 'text-white' : ''} ${currentPage === page ? 'bg-blue-500' : ''} px-2 py-[2px] border-[1px] border-gray-400 `}
+          className={` ${currentPage === page ? 'text-white' : ''} ${currentPage === page ? 'bg-[#00ADEE]' : ''} py-2 px-4 border-[1px] rounded-md border-gray-400 `}
         >
           {page}
         </button>
@@ -28,7 +28,7 @@ const Pagination = ({ currentPage, totalPages , setCurr }) => {
       <button
         onClick={() => handlePageChange(currentPage + 1)}
         disabled={currentPage === totalPages}
-        className=" px-2 py-[2px] border-[1px] border-gray-400 text-sm"
+        className="py-2 px-3 rounded-md border-[1px] border-gray-400"
       >
         &gt;&gt;
       </button>

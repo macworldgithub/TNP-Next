@@ -8,7 +8,7 @@ import { Carousel } from "antd";
 
 import Image from "next/image";
 import { useState } from "react";
-import TestimonialBackground from "../public/home/H5-png-1 1.png";
+import TestimonialBackground from "../public/home/termonials_bg.png";
 import Hike from "../public/home/Hike.png";
 import Feedback from "../public/home/feedback 1.png";
 import DLeft from "../public/home/dleft.png";
@@ -180,7 +180,7 @@ const testimonialData = [
   {
     name: "williamson",
     desc: " The most advanced revenue than this. Iwill refer everyone I like Level more and more each day because it makes my easier. It really saves me time and effort. Level is exactly business has been lacking",
-  }
+  },
 ];
 
 export default function Home() {
@@ -382,7 +382,7 @@ export default function Home() {
         </div>
       </div>
 
-      <div className="flex  items-center flex-wrap flex-col  w-full bg-white md:h-[100vh] h-[300vh] ">
+      <div className="flex items-center flex-wrap flex-col  w-full bg-white md:h-[100vh] h-[300vh]">
         <div className="w-full flex flex-col items-center">
           <h1 className="text-black font-bold text-center text-3xl">
             Amazing Featured Tour
@@ -415,9 +415,19 @@ export default function Home() {
           <div className="absolute z-10 md:block hidden w-full top-40">
             <Image src={packbg} alt="bg image here" />
           </div>
-          <div className="absolute z-20 w-full  flex flex-col items-center gap-8 justify-center ">
+          <div className="absolute z-20 w-full flex flex-col items-center gap-8 justify-center">
             <div className="w-full px-2">
-              <TourCardPagination featuredata={featuredata} direction="row" />
+              <TourCardPagination
+                featuredata={featuredata}
+                direction="row"
+                cardsPerPage={4}
+              />
+            </div>
+
+            <div className="md:w-1/2 flex justify-center">
+              <button className="bg-primary text-white px-4 py-2 shadow -full text-sm">
+                View All Tour
+              </button>
             </div>
           </div>
         </div>
@@ -483,7 +493,7 @@ export default function Home() {
               </div>
             </div>
           </div>
-          <div className="flex my-5 flex-wrap my-2 justify-center">
+          <div className="flex flex-wrap my-2 justify-center">
             <div className="mx-4  relative w-full md:w-48  h-60">
               <Image
                 src={Rect4}
@@ -582,7 +592,7 @@ export default function Home() {
         </div>
       </div>
 
-      <div className="flex relative lg:px-60 bg- px-5 my-32 my-20 justify-start w-full flex-wrap items-start w-full bg-">
+      <div className="flex relative lg:px-60 bg- px-5 my-20 justify-start w-full flex-wrap items-start">
         <Image
           className="absolute top-[-3rem] left-0 w-full z-0 min-h-[18rem]"
           src={BlueBanner}
@@ -635,23 +645,25 @@ export default function Home() {
         </div>
       </div>
 
-      <div className="w-screen md:h-[100vh] h-[130vh] relative z-0 ">
-        <Image src={TestimonialBackground} alt="bg" className="w-full absolute z-10"/>
-        <div className="absolute w-full z-20 bg-gray-400 ">
-        <div className="flex flex-col gap-6 bg-gray-200 bg-opacity-50 py-6 absolute z-30 w-[95%] justify-center items-center  m-2">
-        <h1 className="text-3xl text-black  text-center font-bold">
-          Testimonials
-        </h1>
-        <div className="w-full   px-2 ">
-          <TestimonialCarousel/>
+      <div className="w-full relative z-0">
+        <Image
+          src={TestimonialBackground}
+          alt="bg"
+          className="w-full absolute"
+        />
+        <div className="w-full z-20">
+          <div className="flex flex-col gap-6 bg-gray-200 bg-opacity-50 py-6 z-30 justify-center items-center">
+            <h1 className="text-3xl text-black  text-center font-bold">
+              Testimonials
+            </h1>
+            <div className="w-full   px-2 ">
+              <TestimonialCarousel />
+            </div>
+            <button className="px-8 py-3 shadow-2xl bg-primary text-white text-sm ">
+              VIEW MORE
+            </button>
+          </div>
         </div>
-        <button className="px-8 py-3 shadow-2xl bg-primary text-white text-sm ">
-          VIEW MORE
-        </button>
-
-        </div>
-        </div>
-
       </div>
 
       <div className="flex md:block lg:flex flex-col md:px-10 mt-20  justify- flex-wrap  items-center w-full relative md:h-[40rem]">

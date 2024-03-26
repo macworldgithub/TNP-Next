@@ -176,7 +176,7 @@ const Page: NextPage<Props> = ({}) => {
 
         <div className="bg-white-500 relative w-3/5">
           <div className="text-black items-center py-2  h-full w-full justify-around flex">
-            <p className="cursor-pointer font-bold">Home</p>
+            <Link href={"/"} className="cursor-pointer font-bold">Home</Link>
             <div
               onMouseOver={() => setShowTourDropdown(true)}
               className="relative cursor-pointer font-bold"
@@ -201,7 +201,7 @@ const Page: NextPage<Props> = ({}) => {
                       onMouseOver={() => setCurrTour("Domestic")}
                       className="hover:text-[#FBAD17] flex items-center cursor-pointer py-5 justify-between px-2 py-1 text-black rounded"
                     >
-                      <a href="#">Domestic</a>
+                      <Link href="/pages/tourpackages">Domestic</Link>
                       <IoIosArrowForward className="ms-5" />
                     </li>
                   </ul>
@@ -260,7 +260,7 @@ const Page: NextPage<Props> = ({}) => {
             >
               Car Rental
             </Link>
-            <p className="cursor-pointer font-bold">Visa</p>
+            <Link href={"/pages/visa"} className="cursor-pointer font-bold">Visa</Link>
             <div
               onMouseOver={() => setShowPackageDropdown(true)}
               className="cursor-pointer font-bold relative"

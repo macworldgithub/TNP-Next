@@ -1,4 +1,9 @@
 'use client';
+import ArrowLeft from '../public/home/arrLeft (1).png'
+import PlanePath1 from '../public/home/arrLeft (2).png'
+import PlanePath2 from '../public/home/arrLeft (3).png'
+import PlanePNG from '../public/home/plane.png'
+import PlanePNG2 from '../public/home/Plane2.png'
 import Image from "next/image";
 import { useState } from "react";
 import TestimonialBackground from "../public/home/termonials_bg.png";
@@ -186,7 +191,12 @@ export default function Home() {
         <div className="w-full bg-white min-w-mi">
             <div className="lg:h-[43rem] md:h-[30rem]   bg-gradient-to-r from-[rgba(0,0,0,0.8)] hero-bg to-[rgba(0,0,0,0.3)] w-full z-2 h-96">
                 <div className="w-full h-full md:py-0 py-10 flex items-center justify-center   bg-gradient-to-r from-[rgba(0,0,0,0.8)] to-[rgba(0,0,0,0.3)]">
-                    <div className="flex items-center flex-col">
+                    <div className="flex items-center relative  flex-col">
+                        <Image 
+                        src={PlanePath2}
+                        alt='plane'
+                        className='absolute top-[-2rem] w-40 h-32 left-0'
+                        />
                         <p className={`text-primary text-lg ${inter.className}`}>
                             Explore the world
                         </p>
@@ -398,8 +408,8 @@ export default function Home() {
                     </div>
                 </div>
                 <div className="relative w-full  mt-8 z-0 ">
-                    <div className="absolute z-10 md:block hidden w-full top-40">
-                        <Image src={packbg} alt="bg image here" />
+                    <div className="absolute z-10 md:block hidden w-full top-40 flex justify-center">
+                        <Image src={packbg} alt="bg image here" className=' w-full' />
                     </div>
                     <div className="relative z-20 w-full flex flex-col items-center gap-8 justify-center">
                         <div className="w-full px-2">
@@ -419,20 +429,31 @@ export default function Home() {
                 </div>
             </div>
 
-            <div className="flex px-10 mt-10 mb-32 justify-center flex-wrap flex-col items-center w-full bg-white">
-                <div>
+            <div className="flex px-10 mt-10 mb-32 2xl:mt-[25rem] justify-center flex-wrap flex-col items-center w-full bg-white">
+                <div className='mb-10 relative'>
                     <h2
                         className={`font-bold text-primary text-center my-2 text-3xl ${inter.className}`}
                     >
                         Package
                     </h2>
-                    <h1 className="text-black text-center font-bold text-3xl">
+                    <h1 className="text-black  text-center font-bold text-3xl">
                         Popular destinations
                     </h1>
+                        <Image 
+                        src={PlanePath1}
+                        alt='plane'
+                        className='absolute top-[-0rem] w-40 h-32 left-[-10rem]'
+                        />
+                    
                 </div>
 
-                <div className="flex flex-col flex-w w-full ">
-                    <div className="flex flex-wrap justify-center">
+                <div className="flex flex-col flex-w w-full relative">
+                <Image
+                src={PlanePNG2}
+                    className="absolute z-[200 top-[-15%] hidden md:block w-32 h-20  right-[8%] "
+                        alt="rect1"
+                        />
+                    <div className="flex relative flex-wrap justify-center">
                         <div className="mx-4 relative md:w-96 w-full h-60 my-2">
                             <Image
                                 src={Rect1}
@@ -440,7 +461,7 @@ export default function Home() {
                                 alt="rect1"
                             />
                             <div className="w-full md:w-96 absolute  top-0 left-0 h-60 bg-[rgba(0,0,0,0.2)]"></div>
-                            <div className="absolute bg-[#F7921E] right-3 top-3 text-xs px-3 py-1 rounded">
+                            <div className="absolute text-white bg-[#F7921E] right-3 top-3 text-xs px-3 py-1 rounded">
                                 3 Tours
                             </div>
                             <div className="absolute left-3 bottom-3  px-3 py-1 ">
@@ -455,7 +476,7 @@ export default function Home() {
                                 alt="rect1"
                             />
                             <div className="absolute w-full md:w-72  top-0 left-0 h-60 bg-[rgba(0,0,0,0.2)]"></div>
-                            <div className="absolute bg-[#F7921E] right-3 top-3 text-xs px-3 py-1 rounded">
+                            <div className="absolute bg-[#F7921E] text-white right-3 top-3 text-xs px-3 py-1 rounded">
                                 3 Tours
                             </div>
                             <div className="absolute left-3 bottom-3  px-3 py-1 ">
@@ -470,7 +491,7 @@ export default function Home() {
                                 alt="rect1"
                             />
                             <div className=" absolute  md:w-48 w-full top-0 left-0 h-60 bg-[rgba(0,0,0,0.2)]"></div>
-                            <div className="absolute bg-[#F7921E] right-3 top-3 text-xs px-3 py-1 rounded">
+                            <div className="absolute bg-[#F7921E] right-3 text-white top-3 text-xs px-3 py-1 rounded">
                                 3 Tours
                             </div>
                             <div className="absolute left-3 bottom-3  px-3 py-1 ">
@@ -487,7 +508,7 @@ export default function Home() {
                                 alt="rect1"
                             />
                             <div className=" absolute w-full md:w-48 top-0 left-0 h-60 bg-[rgba(0,0,0,0.2)]"></div>
-                            <div className="absolute bg-[#F7921E] right-3 top-3 text-xs px-3 py-1 rounded">
+                            <div className="absolute bg-[#F7921E] right-3 top-3 text-xs text-white px-3 py-1 rounded">
                                 3 Tours
                             </div>
                             <div className="absolute left-3 bottom-3  px-3 py-1 ">
@@ -502,7 +523,7 @@ export default function Home() {
                                 alt="rect1"
                             />
                             <div className="w-full md:w-96 absolute  top-0 left-0 h-60 bg-[rgba(0,0,0,0.2)]"></div>
-                            <div className="absolute bg-[#F7921E] right-3 top-3 text-xs px-3 py-1 rounded">
+                            <div className="absolute bg-[#F7921E] right-3 top-3 text-xs px-3 text-white py-1 rounded">
                                 3 Tours
                             </div>
                             <div className="absolute left-3 bottom-3  px-3 py-1 ">
@@ -517,7 +538,7 @@ export default function Home() {
                                 alt="rect1"
                             />
                             <div className="md:w-72 w-full absolute  top-0 left-0 h-60 bg-[rgba(0,0,0,0.2)]"></div>
-                            <div className="absolute bg-[#F7921E] right-3 top-3 text-xs px-3 py-1 rounded">
+                            <div className="absolute bg-[#F7921E] right-3 top-3 text-xs px-3 text-white py-1 rounded">
                                 3 Tours
                             </div>
                             <div className="absolute left-3 bottom-3  px-3 py-1 ">
@@ -575,7 +596,13 @@ export default function Home() {
                     </div>
                 </div>
 
-                <div className="md:w-9/12 w-full ">
+                <div className="md:w-9/12 w-full relative">
+
+                <Image
+                    className="absolute top-[-5rem] hidden md:block left-0 z-0"
+                    src={ArrowLeft}
+                    alt="bluebanner"
+                />
                     <TourCardPagination featuredata={featuredata} direction="col" />
                 </div>
             </div>
@@ -640,6 +667,11 @@ export default function Home() {
                     className="w-full absolute top-0 left-0 md:h-[40rem]"
                 />
                 <div className="w-full z-20 ">
+                <Image
+                    src={PlanePNG}
+                    alt="bg"
+                    className=" w-20 h-20 z-0 absolute bottom-[14%] left-[10%] md:bottom-[20%] md:left-[10%] "
+                />
                     <div className="flex flex-col gap-6 my-10 bgopacity-50 py-6 z-30 justify-center items-center">
                         <h1 className="text-3xl text-black  text-center font-bold">
                             Testimonials
@@ -647,7 +679,7 @@ export default function Home() {
                         <div className="w-full my-10  px-2 ">
                             <TestimonialCarousel />
                         </div>
-                        <button className="px-8 py-3 shadow-2xl bg-primary text-white text-sm ">
+                        <button className="px-8 relative z-10 py-3 shadow-2xl bg-primary text-white text-sm ">
                             VIEW MORE
                         </button>
                     </div>

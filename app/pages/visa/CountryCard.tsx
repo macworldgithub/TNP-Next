@@ -16,8 +16,8 @@ export default function CountryCard() {
             <div className="bg-white rounded-md shadow-lg py-4 relative -top-2">
               <div>
                 <h2 className=" text-left px-10 font-bold text-xl">{e.name}</h2>
-                <p className="mr-6 p-2">
-                  <Rating /> {e.reviewCount + " " + "Review"}
+                <p className=" mr-12 p-2">
+                  <Rating fontSize={15}/> {e.reviewCount + " " + "Review"}
                 </p>
               </div>
               <div className="flex items-center gap-2 justify-center">

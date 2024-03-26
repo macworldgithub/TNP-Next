@@ -176,7 +176,7 @@ export default function CustomerReview() {
                   leave a comment
                 </h2>
                 <div className="flex justify-around lg:gap-1 xl:gap-4 flex-wrap md:flex-row">
-                  <div className="flex flex-col gap-y-3 lg:flex-row xl:gap-2">
+                  <div className="flex flex-col gap-y-3 lg:flex-row xl:gap-4">
                     <div>
                       <h3 className="text-sm font-semibold mb-2">
                         Value for Money*
@@ -190,7 +190,7 @@ export default function CustomerReview() {
                       <Rating fontSize={13} />
                     </div>
                   </div>
-                  <div className="flex flex-col gap-y-3 lg:flex-row xl:gap-2">
+                  <div className="flex flex-col gap-y-3 lg:flex-row xl:gap-4">
                     <div>
                       <h3 className=" text-sm font-semibold mb-2">
                         Accommodation*

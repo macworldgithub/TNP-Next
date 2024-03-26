@@ -8,7 +8,7 @@ export default function CountryCard() {
     <div className="flex items-center relative justify-center gap-x-2 gap-y-8 flex-wrap max-w-[1440px]">
       {countryDetailsArray.map((e) => {
         return (
-          <div>
+          <div className=" relative">
             <div>
               <Image src={e.image} alt="image not found" />
             </div>

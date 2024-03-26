@@ -1,4 +1,6 @@
 "use client";
+import Link from 'next/link';
+
 import { useState } from "react";
 import img1 from "../../public/TourPackage/FeaturedListing/featured listing 1.png";
 import img2 from "../../public/TourPackage/FeaturedListing/featured listing 2.png";
@@ -13,6 +15,8 @@ const FeaturedListings = () => {
 
   const featuredData = [
     {
+      id: 1,
+      pid: 1,
       img: img1,
       location: "Pakistan-North",
       title: "All Girls Trip to Kashmir",
@@ -23,9 +27,11 @@ const FeaturedListings = () => {
       reviewCount: 1,
     },
     {
+      id: 0,
+      pid: 1,
       img: img2,
       location: "Pakistan-North",
-      title: "All Girls Trip to Kashmir ",
+      title: "All Girls Trip to Kashmir",
       duration: "7days",
       people: 12,
       price: 32000,
@@ -33,6 +39,8 @@ const FeaturedListings = () => {
       reviewCount: 1,
     },
     {
+      id: 1,
+      pid: 1,
       img: img3,
       location: "Pakistan-North",
       title: "All Girls Trip to Kashmir",
@@ -43,7 +51,9 @@ const FeaturedListings = () => {
       reviewCount: 1,
     },
     {
-      img: img3,
+      id: 0,
+      pid: 1,
+      img: img2,
       location: "Pakistan-North",
       title: "All Girls Trip to Kashmir",
       duration: "7days",
@@ -53,6 +63,8 @@ const FeaturedListings = () => {
       reviewCount: 1,
     },
     {
+      id: 0,
+      pid: 1,
       img: img1,
       location: "Pakistan-North",
       title: "All Girls Trip to Kashmir",
@@ -63,9 +75,11 @@ const FeaturedListings = () => {
       reviewCount: 1,
     },
     {
+      id: 0,
+      pid: 1,
       img: img2,
       location: "Pakistan-North",
-      title: "All Girls Trip to Kashmir ",
+      title: "All Girls Trip to Kashmir",
       duration: "7days",
       people: 12,
       price: 32000,
@@ -73,9 +87,11 @@ const FeaturedListings = () => {
       reviewCount: 1,
     },
     {
+      id: 0,
+      pid: 1,
       img: img2,
       location: "Pakistan-North",
-      title: "All Girls Trip to Kashmir ",
+      title: "All Girls Trip to Kashmir",
       duration: "7days",
       people: 12,
       price: 32000,
@@ -83,9 +99,11 @@ const FeaturedListings = () => {
       reviewCount: 1,
     },
     {
+      id: 0,
+      pid: 1,
       img: img2,
       location: "Pakistan-North",
-      title: "All Girls Trip to Kashmir ",
+      title: "All Girls Trip to Kashmir",
       duration: "7days",
       people: 12,
       price: 32000,
@@ -93,9 +111,11 @@ const FeaturedListings = () => {
       reviewCount: 1,
     },
     {
+      id: 0,
+      pid: 1,
       img: img2,
       location: "Pakistan-North",
-      title: "All Girls Trip to Kashmir ",
+      title: "All Girls Trip to Kashmir",
       duration: "7days",
       people: 12,
       price: 32000,
@@ -103,9 +123,11 @@ const FeaturedListings = () => {
       reviewCount: 1,
     },
     {
+      id: 0,
+      pid: 1,
       img: img2,
       location: "Pakistan-North",
-      title: "All Girls Trip to Kashmir ",
+      title: "All Girls Trip to Kashmir",
       duration: "7days",
       people: 12,
       price: 32000,
@@ -113,9 +135,11 @@ const FeaturedListings = () => {
       reviewCount: 1,
     },
     {
+      id: 0,
+      pid: 1,
       img: img2,
       location: "Pakistan-North",
-      title: "All Girls Trip to Kashmir ",
+      title: "All Girls Trip to Kashmir",
       duration: "7days",
       people: 12,
       price: 32000,
@@ -123,9 +147,11 @@ const FeaturedListings = () => {
       reviewCount: 1,
     },
     {
+      id: 0,
+      pid: 1,
       img: img2,
       location: "Pakistan-North",
-      title: "All Girls Trip to Kashmir ",
+      title: "All Girls Trip to Kashmir",
       duration: "7days",
       people: 12,
       price: 32000,
@@ -133,9 +159,11 @@ const FeaturedListings = () => {
       reviewCount: 1,
     },
     {
+      id: 0,
+      pid: 1,
       img: img2,
       location: "Pakistan-North",
-      title: "All Girls Trip to Kashmir ",
+      title: "All Girls Trip to Kashmir",
       duration: "7days",
       people: 12,
       price: 32000,
@@ -143,9 +171,11 @@ const FeaturedListings = () => {
       reviewCount: 1,
     },
     {
+      id: 0,
+      pid: 1,
       img: img2,
       location: "Pakistan-North",
-      title: "All Girls Trip to Kashmir ",
+      title: "All Girls Trip to Kashmir",
       duration: "7days",
       people: 12,
       price: 32000,
@@ -216,6 +246,8 @@ const FeaturedListings = () => {
         <div className="w-full flex flex-row flex-wrap gap-10">
           {currentItems.map((item, index) => (
             <TourCard
+              id={item?.id}
+              pid={item?.pid}
               pic={item?.img}
               loc={item?.location}
               title={item?.title}

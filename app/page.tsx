@@ -1,21 +1,10 @@
-"use client";
-
-// import Carousel from 'react-multi-carousel';
-// import 'react-multi-carousel/lib/styles.css';
-
-import { Carousel } from "antd";
-// import Navbar from "@/components/Navbar/page";
-
+'use client';
 import Image from "next/image";
 import { useState } from "react";
 import TestimonialBackground from "../public/home/termonials_bg.png";
 import Hike from "../public/home/Hike.png";
 import Feedback from "../public/home/feedback 1.png";
-import DLeft from "../public/home/dleft.png";
-import DDown from "../public/home/Frame.png";
-import Quotation from "../public/home/quotation.png";
 import Path from "../public/home/path.png";
-import Badge from "../public/home/_x33_8-Award_symbol.png";
 import MountainImage from "../public/home/mountain 1.png";
 import Rect1 from "../public/home/Rectangle 19378.png";
 import Rect2 from "../public/home/Rectangle 19437.png";
@@ -41,8 +30,6 @@ import img2 from "../public/TourPackage/FeaturedListing/featured listing 2.png";
 import img3 from "../public/TourPackage/FeaturedListing/featured listing 3.png";
 
 import packbg from "../public/home/package bg.png";
-import bgaa from "../public/home/bgaa.png";
-import TourCard from "@/components/Home/TourCard";
 import TourCardPagination from "@/components/Home/TourCardPagination";
 import TestimonialCarousel from "@/components/Home/TestimonialCarousel";
 

@@ -8,10 +8,10 @@ export default function Visa() {
     <div>
       <HeroBanner UpcommingImage={Visa_Banner} Heading="Visa" Subheading="" />
       <div className="text-center mt-10 mb-20 flex justify-center items-center flex-col">
-        <h2 className="font-bold px-10 text-xl lg:text-2xl xl:text-5xl">
+        <h2 className="font-bold px-10 text-xl lg:text-2xl xl:text-3xl">
           Visa Requirements for Pakistani Passport Holders
         </h2>
-        <p className="pt-5 pb-10 px-4 md:px-10 text-md xl:text-2xl">
+        <p className="pt-5 pb-10 px-4 md:px-10 text-md xl:text-lg">
           Visa services from Karachi Pakistan along with the documents which are
           required for the visa process.
           <br />

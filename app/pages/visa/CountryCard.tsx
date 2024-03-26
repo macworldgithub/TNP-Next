@@ -6,7 +6,7 @@ import Rating from "../customerreview/rating";
 export default function CountryCard() {
   return (
     <div className="flex items-center relative justify-center gap-x-2 gap-y-8 flex-wrap max-w-[1440px]">
-      {countryDetailsArray.map((e) => {
+      {countryDetailsArray.map((e) => { 
         return (
           <div className=" relative">
             <div>

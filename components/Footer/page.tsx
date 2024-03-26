@@ -7,8 +7,18 @@ import OurCompany from "./OurCompany";
 import QuickLinks from "./QuickLinks";
 import OurNewsLetter from "./OurNewsLetter";
 import Affiliations from "./Affiliations";
+import { useEffect, useState } from "react";
 
 const Footer = () => {
+  const [isMounted, setIsMounted] = useState(false);
+
+  useEffect(() => {
+    setIsMounted(true); // Component has been mounted
+  }, []);
+
+  if (!isMounted) {
+    return null; // Don't render anything until client-side hydration
+  }
   return (
     <div className="text-black bg-white relative pb-4 pt-8 items-center flex flex-col">
       <Affiliations />

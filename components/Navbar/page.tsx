@@ -149,7 +149,7 @@ const Page: NextPage<Props> = ({}) => {
 
         <div className="flex">
           <div className="flex py-2 items-center">
-            <p className="mx-2">About Us</p>
+            <Link href={"/pages/aboutus"} className="mx-2">About Us</Link>
             <p className="mx-2">Blogs</p>
 
             <p className="mx-2">Gallery</p>
@@ -192,14 +192,14 @@ const Page: NextPage<Props> = ({}) => {
                   <ul>
                     <li
                       onMouseOver={() => setCurrTour("International")}
-                      className="hover:text-[#FBAD17] flex cursor-pointer items-center py-5 justify-between px-2 py-1 text-black rounded"
+                      className="hover:text-[#FBAD17] flex cursor-pointer items-center justify-between px-2 py-1 text-black rounded"
                     >
                       <a href="#">International</a>
                       <IoIosArrowForward className="ms-5" />
                     </li>
                     <li
                       onMouseOver={() => setCurrTour("Domestic")}
-                      className="hover:text-[#FBAD17] flex items-center cursor-pointer py-5 justify-between px-2 py-1 text-black rounded"
+                      className="hover:text-[#FBAD17] flex items-center cursor-pointer justify-between px-2 py-1 text-black rounded"
                     >
                       <Link href="/pages/tourpackages">Domestic</Link>
                       <IoIosArrowForward className="ms-5" />
@@ -265,7 +265,7 @@ const Page: NextPage<Props> = ({}) => {
               onMouseOver={() => setShowPackageDropdown(true)}
               className="cursor-pointer font-bold relative"
             >
-              <p>Packages</p>
+              <Link href="/pages/tourpackages">Packages</Link>
               <div
                 onMouseOut={() => setShowPackageDropdown(false)}
                 className={` ${
@@ -276,25 +276,25 @@ const Page: NextPage<Props> = ({}) => {
                   <ul>
                     <li
                       onMouseOver={() => setCurrTour("International")}
-                      className="hover:text-[#FBAD17] flex cursor-pointer items-center py-2 justify-between px-2 py-1 text-black rounded"
+                      className="hover:text-[#FBAD17] flex cursor-pointer items-center justify-between px-2 py-1 text-black rounded"
                     >
                       <a href="#">Group</a>
                     </li>
                     <li
                       onMouseOver={() => setCurrTour("Domestic")}
-                      className="hover:text-[#FBAD17] flex items-center cursor-pointer py-2 justify-between px-2 py-1 text-black rounded"
+                      className="hover:text-[#FBAD17] flex items-center cursor-pointer justify-between px-2 py-1 text-black rounded"
                     >
                       <a href="#">Honeymoon</a>
                     </li>
                     <li
                       onMouseOver={() => setCurrTour("Domestic")}
-                      className="hover:text-[#FBAD17] flex items-center cursor-pointer py-2 justify-between px-2 py-1 text-black rounded"
+                      className="hover:text-[#FBAD17] flex items-center cursor-pointer justify-between px-2 py-1 text-black rounded"
                     >
                       <a href="#">Private Family</a>
                     </li>
                     <li
                       onMouseOver={() => setCurrTour("Domestic")}
-                      className="hover:text-[#FBAD17] flex items-center cursor-pointer py-2 justify-between px-2 py-1 text-black rounded"
+                      className="hover:text-[#FBAD17] flex items-center cursor-pointer justify-between px-2 py-1 text-black rounded"
                     >
                       <a href="#">Corporate</a>
                     </li>
@@ -302,7 +302,7 @@ const Page: NextPage<Props> = ({}) => {
                 </div>
               </div>
             </div>
-            <p className="cursor-pointer font-bold">Contact Us</p>
+            <Link href="/pages/contactus" className="cursor-pointer font-bold">Contact Us</Link>
             <p className="bg-primary px-2 py-2 rounded shadow cursor-pointer text-white">
               Make your trip
             </p>

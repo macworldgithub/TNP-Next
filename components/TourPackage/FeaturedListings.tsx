@@ -31,7 +31,7 @@ const FeaturedListings = () => {
       duration: "7 days",
       people: 12,
       price: 32000,
-      discountedPrice: 20987,
+      discountedPrice: 29500,
       reviewCount: 1,
     },
     {
@@ -246,7 +246,7 @@ const FeaturedListings = () => {
   const currentItems = featuredData.slice(startIndex, endIndex);
 
   return (
-    <div className="w-full h-full flex justify-center items-center">
+    <div className="w-full h-full flex justify-center items-center mt-12">
       <div className="w-[80%] flex flex-col gap-4  ">
         <PaginationInfo
           currentPage={2}
@@ -275,7 +275,7 @@ const FeaturedListings = () => {
             onSelect={setSelectedFilter}
           />
         </div>
-        <div className="w-full flex flex-row flex-wrap gap-10 xl:gap-24">
+        <div className="w-full flex flex-row flex-wrap gap-10 xl:gap-24 mt-4">
           {currentItems.map((item, index) => (
             <TourCard
               id={item?.id}

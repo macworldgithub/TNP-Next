@@ -35,7 +35,7 @@ const CarTypeButtons: NextPage<Props> = ({ selectedCarType, setSelectedCarType }
 const IconComponent: NextPage<{ iconImage: any }> = ({ iconImage }) => {
   return (
     <div className="mr-1">
-      <Image height={30} width={30} src={iconImage} />
+      <Image alt="hello" height={30} width={30} src={iconImage} />
     </div>
   );
 };

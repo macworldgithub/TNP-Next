@@ -89,6 +89,8 @@ const featuredata = [
         price: 34000,
         discountedPrice: 31950,
         reviewCount: 1,
+        imageCount: 5,
+        videoCount: 2
     },
     {
         img: img2,
@@ -99,6 +101,8 @@ const featuredata = [
         price: 45000,
         discountedPrice: 42950,
         reviewCount: 1,
+        imageCount: 5,
+        videoCount: 2
     },
     {
         img: img3,
@@ -109,6 +113,8 @@ const featuredata = [
         price: 37000,
         discountedPrice: 34950,
         reviewCount: 1,
+        imageCount: 5,
+        videoCount: 2
     },
     {
         img: img4,
@@ -119,6 +125,8 @@ const featuredata = [
         price: 32000,
         discountedPrice: 29500,
         reviewCount: 1,
+        imageCount: 5,
+        videoCount: 2
     },
     {
         img: img5,
@@ -129,6 +137,8 @@ const featuredata = [
         price: 37500,
         discountedPrice: 35450,
         reviewCount: 1,
+        imageCount: 5,
+        videoCount: 2
     },
     {
         img: img6,
@@ -139,6 +149,8 @@ const featuredata = [
         price: 37500,
         discountedPrice: 37500,
         reviewCount: 1,
+          imageCount: 5,
+        videoCount: 2
     },
     {
         img: img7,
@@ -149,6 +161,8 @@ const featuredata = [
         price: 32000,
         discountedPrice: 20987,
         reviewCount: 1,
+        imageCount: 5,
+        videoCount: 2
     },
     {
         img: img8,
@@ -159,6 +173,8 @@ const featuredata = [
         price: 37500,
         discountedPrice: 35450,
         reviewCount: 1,
+        imageCount: 5,
+        videoCount: 2
     },
 ];
 

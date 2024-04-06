@@ -151,8 +151,7 @@ const Page: NextPage<Props> = ({}) => {
           <div className="flex py-2 items-center">
             <Link href={"/pages/aboutus"} className="mx-2">About Us</Link>
             <p className="mx-2">Blogs</p>
-
-            <p className="mx-2">Gallery</p>
+            <Link href={"/pages/gallery"} className="cursor-pointer mx-2">Gallery</Link>
             <p className="mx-2">Brouchers</p>
           </div>
           <div className="flex py-2 items-center bg-[#FBAD17] mx-3 px-4 ">
@@ -253,7 +252,12 @@ const Page: NextPage<Props> = ({}) => {
             </div>
 
             <p className="cursor-pointer font-bold">Activities</p>
-            <p className="cursor-pointer font-bold">Hotels</p>
+            <Link
+              href="/pages/hotel"
+              className="cursor-pointer font-bold"
+            >
+              Hotels
+            </Link>
             <Link
               href="/pages/rentcar"
               className="cursor-pointer font-bold"

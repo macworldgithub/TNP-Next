@@ -1,3 +1,4 @@
+"use client";
 import Image from "next/image";
 import Visa_Banner from "../../../assets/visa/Domestics 1.png";
 import CountryCard from "./CountryCard";

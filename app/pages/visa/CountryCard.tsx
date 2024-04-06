@@ -26,7 +26,7 @@ export default function CountryCard() {
                 <button className=" bg-primary text-white py-1 px-5 rounded-md">
                   Share
                 </button>
-                <Image src={WhatsApp_Img} alt="whatsapp" />
+                <Image src={WhatsApp_Img} alt="whatsapp" onClick={() => window.open("//api.whatsapp.com/send?phone=+9290078601&text=The Novelist Pakistan")} />
               </div>
             </div>
           </div>

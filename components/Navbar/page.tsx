@@ -95,8 +95,8 @@ const Page: NextPage<Props> = ({}) => {
                   </ul>
 
                   <div
-                    className={`bg-white flex flex-col flex-wrap ${
-                      currTour === "International" ? "" : "w-0 overflow-hidden"
+                    className={`flex flex-col flex-wrap ${
+                      currTour === "International" ? "min-w-96" : "w-0 overflow-hidden"
                     }`}
                   >
                     <p className="mx-8 cursor-pointer hover:text-[#FBAD17] my-2">
@@ -125,7 +125,7 @@ const Page: NextPage<Props> = ({}) => {
                     </p>
                   </div>
                   <div
-                    className={`bg-white flex flex-col flex-wrap ${
+                    className={`flex flex-col flex-wrap ${
                       currTour === "Domestic" ? "" : "w-0 overflow-hidden"
                     }`}
                   >

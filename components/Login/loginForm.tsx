@@ -22,7 +22,6 @@ const LoginForm = () => {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
-
     password: "",
   });
 

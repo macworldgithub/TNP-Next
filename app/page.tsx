@@ -233,7 +233,7 @@ const featuredata = [
 
 export default function Home() {
     const [isModalOpen, setIsModalOpen] = useState(false);
-    const [isOfferModalOpen, setIsOfferModalOpen] = useState(true);
+    const [isOfferModalOpen, setIsOfferModalOpen] = useState(false);
     const [currentIndex, setCurrentIndex] = useState(0);
 
     useEffect(() => {

@@ -31,7 +31,7 @@ const HeroBanner: NextPage<Props> = ({
         <span className="text-left md:text-center flex flex-col justify-center items-center">
           <h1 className="text-white text-5xl w-3/4 font-bold mb-6">{Heading}</h1>
           {Subheading && (
-            <p className="text-white text-lg">North Tour Packages</p>
+            <p className="text-white text-lg">{Subheading}</p>
           )}
         </span>
       </div>

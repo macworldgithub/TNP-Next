@@ -7,11 +7,11 @@ import HeroBanner from "../Common/HeroBanner";
 import { NextPage } from 'next'
 
 interface TourPackHeroParams {
-  heading: string;
-  subheading: string;
+  heading?: string;
+  subheading?: string;
 }
 
-const TourPackHero: NextPage<TourPackHeroParams> = ({ heading, subheading }) => {
+const TourPackHero: NextPage<TourPackHeroParams> = ({ heading = "Tour Packages", subheading = "" }) => {
   return <div className="w-full">
     <div className="w-full ">
       <HeroBanner Heading={heading} Subheading={subheading} UpcommingImage={bg} />

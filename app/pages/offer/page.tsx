@@ -5,13 +5,17 @@ import "./page.css";
 import MyDropdown from "./dropdown";
 import { useEffect, useState } from "react";
 import HeroBanner from "@/components/Common/HeroBanner";
+import PersonalDetails from "./PersonalDetails";
 
 import BannerImg from "../../../assets/offer/header.svg";
+import TourDetails from "./tourDetail";
+import SpecialRequirments from "./specialReq";
 
 interface Props {}
 
 const Page: NextPage<Props> = ({}) => {
   const [isMounted, setIsMounted] = useState(false);
+  const [counter, setCounter] = useState(0);
 
   useEffect(() => {
     setIsMounted(true); // Component has been mounted
@@ -20,163 +24,41 @@ const Page: NextPage<Props> = ({}) => {
   if (!isMounted) {
     return null; // Don't render anything until client-side hydration
   }
-  return (
-    <div>
-      <HeroBanner UpcommingImage={BannerImg} Heading="" Subheading="" />
 
-      <div className=" w-fill bg-img flex pb-10 flex-col items-center rounded-lg md:mt-16 mx-auto md:w-11/12">
-        <h2 className="mt-10 uppercase text-3xl font-bold text-[#FBAD17] py-5">
+  return (
+    <div className="relative">
+      <HeroBanner UpcommingImage={BannerImg} Heading="" Subheading="" />
+      <div className="w-full mb-14 flex pb-10 flex-col items-center rounded-lg md:mt-16 mx-auto md:w-11/12">
+        <h2 className="mt-10 uppercase text-2xl md:text-3xl font-bold text-[#FBAD17] py-5">
           Make your own trip
         </h2>
-        <div className="w-11/12 md:w-[700px] py-10 px-6 md:px-14 bg-white rounded-lg">
-          <div className=" bg-[#00ADEE] text-white w-36 py-1 px-2 rounded-md">Personal Details</div>
-          <div className="flex flex-col md:flex-row gap-4 md:gap-10">
-            <div>
-              <p className="mb-1">Name</p>
-              <input
-                className=" rounded-md w-11/12 border-gray-300 md:w-[275px]"
-                type="text"
-                name=""
-                id=""
-                placeholder="Name"
-              />
-            </div>
-            <div>
-              <p className="mb-1">Last Name</p>
-              <input
-                className=" border-gray-300 rounded-md w-11/12 md:w-[274px]"
-                type="text"
-                name=""
-                id=""
-                placeholder="Last Name"
-              />
-            </div>
-          </div>
-          <div className="flex flex-col md:flex-row gap-4 md:gap-10 mt-4">
-            <div>
-              <p className="mb-1">Phone/Mobile</p>
-              <input
-                className="border-gray-300 rounded-md w-11/12 md:w-[274px]"
-                type="number"
-                name=""
-                id=""
-                placeholder="Phone/Mobile"
-              />
-            </div>
-            <div>
-              <p className="mb-1">Email</p>
-              <input
-                className="border-gray-300 rounded-md w-11/12 md:w-[275px]"
-                type="email"
-                name=""
-                id=""
-                placeholder="Email"
-              />
-            </div>
-          </div>
-        </div>
-        <div className="w-11/12 md:w-[700px] py-10 px-4 md:px-14 bg-white rounded-lg mt-4">
-          <div className="flex flex-col gap-4 md:flex-row justify-between">
-            <div>
-              <p className="my-2">Select your desired areas</p>
-              <div className="relative">
-                <MyDropdown />
-              </div>
-            </div>
-            <div>
-              <p className="my-2">Tour Duration (Days)</p>
-              <div className=" relative">
-                <MyDropdown />
-              </div>
-            </div>
-          </div>
-          <div className="flex flex-col gap-4 md:flex-row justify-between mt-2">
-            <div>
-              <p className="my-2">Pick Up city (location)</p>
-              <div className=" relative">
-                <MyDropdown />
-              </div>
-            </div>
-            <div>
-              <p className="my-2">Vehicle type</p>
-              <div className=" relative">
-                <MyDropdown />
-              </div>
-            </div>
-          </div>
-          <div className="flex flex-col gap-4 md:flex-row justify-between mt-2">
-            <div>
-              <p className="my-2">No. of adults</p>
-              <div className=" relative">
-                <MyDropdown />
-              </div>
-            </div>
-            <div>
-              <p className="my-2">No. of kids</p>
-              <div className=" relative">
-                <MyDropdown />
-              </div>
-            </div>
-          </div>
-          <div className="flex flex-col  gap-4 md:flex-row justify-between mt-2">
-            <div>
-              <p className="my-2">Hotel Type</p>
-              <div className=" relative">
-                <MyDropdown />
-              </div>
-            </div>
-            <div>
-              <p className="my-2">Rooms </p>
-              <div className=" relative">
-                <MyDropdown />
-              </div>
-            </div>
-          </div>
-          <div className="flex flex-col  gap-4 md:flex-row justify-between mt-2">
-            <div>
-              <p className="my-2">Package type</p>
-              <div className=" relative">
-                <MyDropdown />
-              </div>
-            </div>
-            <div>
-              <p className="my-2">Additional features</p>
-              <div className=" relative">
-                <MyDropdown />
-              </div>
-            </div>
-          </div>
-          <div className="flex flex-col  gap-4 md:flex-row justify-between mt-2">
-            <div>
-              <p className="my-2">Tour you want to (but little changes)</p>
-              <div className="relative">
-                <MyDropdown />
-              </div>
-            </div>
-            <div>
-              <p className="my-2">When would you like to go?</p>
-              <div className=" relative">
-                <MyDropdown />
-              </div>
-            </div>
-          </div>
-        </div>
-        <div className="w-11/12 md:w-[700px] px-12 py-10 mt-4 bg-white rounded-lg">
-          <label
-            htmlFor="message"
-            className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
-            Brief/requirements
-          </label>
-          <textarea
-            id="message"
-            rows={6}
-            className="block p-2.5 w-full text-sm rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-            placeholder="Brief/requirements"></textarea>
-        </div>
+        {counter === 0 ? (
+          <PersonalDetails />
+        ) : counter === 1 ? (
+          <TourDetails />
+        ) : (
+          <SpecialRequirments />
+        )}
 
-        <button className="py-2 px-10 md:px-32 bg-[#00ADEE] text-white mt-4 rounded-md">
-          SUBMIT
-        </button>
+        <div
+          className={`w-11/12 md:w-[700px] flex ${
+            counter === 0 ? "justify-end" : "justify-between"
+          } mt-10`}>
+          {counter >= 1 && (
+            <button
+              onClick={() => setCounter(counter - 1)}
+              className="py-2 px-12 bg-[#00ADEE] rounded-sm text-sm text-white">
+              BACK
+            </button>
+          )}
+          {counter < 2 && (
+            <button
+              onClick={() => setCounter(counter + 1)}
+              className="py-2 px-12 bg-[#00ADEE] rounded-sm text-sm text-white">
+              NEXT
+            </button>
+          )}
+        </div>
       </div>
     </div>
   );

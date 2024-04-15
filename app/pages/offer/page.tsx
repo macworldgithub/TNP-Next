@@ -22,22 +22,19 @@ const Page: NextPage<Props> = ({}) => {
   }
   return (
     <div>
-      <HeroBanner
-        UpcommingImage={BannerImg}
-        Heading=""
-        Subheading=""
-      />
+      <HeroBanner UpcommingImage={BannerImg} Heading="" Subheading="" />
 
       <div className=" w-fill bg-img flex pb-10 flex-col items-center rounded-lg md:mt-16 mx-auto md:w-11/12">
-        <h2 className="mt-10 uppercase text-2xl font-bold text-[#FBAD17] py-5">
+        <h2 className="mt-10 uppercase text-3xl font-bold text-[#FBAD17] py-5">
           Make your own trip
         </h2>
-        <div className="w-11/12 md:w-[700px] py-10 px-6 md:px-20 bg-white rounded-lg">
+        <div className="w-11/12 md:w-[700px] py-10 px-6 md:px-14 bg-white rounded-lg">
+          <div className=" bg-[#00ADEE] text-white w-36 py-1 px-2 rounded-md">Personal Details</div>
           <div className="flex flex-col md:flex-row gap-4 md:gap-10">
             <div>
               <p className="mb-1">Name</p>
               <input
-                className=" rounded-md w-11/12 border-gray-300 md:w-[265px]"
+                className=" rounded-md w-11/12 border-gray-300 md:w-[275px]"
                 type="text"
                 name=""
                 id=""
@@ -47,7 +44,7 @@ const Page: NextPage<Props> = ({}) => {
             <div>
               <p className="mb-1">Last Name</p>
               <input
-                className=" border-gray-300 rounded-md w-11/12 md:w-[265px]"
+                className=" border-gray-300 rounded-md w-11/12 md:w-[274px]"
                 type="text"
                 name=""
                 id=""
@@ -59,7 +56,7 @@ const Page: NextPage<Props> = ({}) => {
             <div>
               <p className="mb-1">Phone/Mobile</p>
               <input
-                className="border-gray-300 rounded-md w-11/12 md:w-[265px]"
+                className="border-gray-300 rounded-md w-11/12 md:w-[274px]"
                 type="number"
                 name=""
                 id=""
@@ -69,7 +66,7 @@ const Page: NextPage<Props> = ({}) => {
             <div>
               <p className="mb-1">Email</p>
               <input
-                className="border-gray-300 rounded-md w-11/12 md:w-[265px]"
+                className="border-gray-300 rounded-md w-11/12 md:w-[275px]"
                 type="email"
                 name=""
                 id=""
@@ -79,10 +76,10 @@ const Page: NextPage<Props> = ({}) => {
           </div>
         </div>
         <div className="w-11/12 md:w-[700px] py-10 px-4 md:px-14 bg-white rounded-lg mt-4">
-          <div className="flex flex-col gap-12 md:flex-row justify-between">
+          <div className="flex flex-col gap-4 md:flex-row justify-between">
             <div>
               <p className="my-2">Select your desired areas</p>
-              <div className=" relative">
+              <div className="relative">
                 <MyDropdown />
               </div>
             </div>
@@ -93,7 +90,7 @@ const Page: NextPage<Props> = ({}) => {
               </div>
             </div>
           </div>
-          <div className="flex flex-col gap-12 md:flex-row justify-between mt-2">
+          <div className="flex flex-col gap-4 md:flex-row justify-between mt-2">
             <div>
               <p className="my-2">Pick Up city (location)</p>
               <div className=" relative">
@@ -107,7 +104,7 @@ const Page: NextPage<Props> = ({}) => {
               </div>
             </div>
           </div>
-          <div className="flex flex-col  gap-12 md:flex-row justify-between mt-2">
+          <div className="flex flex-col gap-4 md:flex-row justify-between mt-2">
             <div>
               <p className="my-2">No. of adults</p>
               <div className=" relative">
@@ -121,7 +118,7 @@ const Page: NextPage<Props> = ({}) => {
               </div>
             </div>
           </div>
-          <div className="flex flex-col  gap-12 md:flex-row justify-between mt-2">
+          <div className="flex flex-col  gap-4 md:flex-row justify-between mt-2">
             <div>
               <p className="my-2">Hotel Type</p>
               <div className=" relative">
@@ -135,7 +132,7 @@ const Page: NextPage<Props> = ({}) => {
               </div>
             </div>
           </div>
-          <div className="flex flex-col  gap-12 md:flex-row justify-between mt-2">
+          <div className="flex flex-col  gap-4 md:flex-row justify-between mt-2">
             <div>
               <p className="my-2">Package type</p>
               <div className=" relative">
@@ -149,7 +146,7 @@ const Page: NextPage<Props> = ({}) => {
               </div>
             </div>
           </div>
-          <div className="flex flex-col  gap-12 md:flex-row justify-between mt-2">
+          <div className="flex flex-col  gap-4 md:flex-row justify-between mt-2">
             <div>
               <p className="my-2">Tour you want to (but little changes)</p>
               <div className="relative">

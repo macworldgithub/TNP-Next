@@ -30,7 +30,7 @@ const items: MenuProps["items"] = [
 const MyDropdown: React.FC = () => (
   <Dropdown menu={{ items }}>
     <a onClick={(e) => e.preventDefault()}>
-      <Space className="py-2 px-4 flex justify-between border rounded-md w-[265px]">
+      <Space className="py-2 px-4 flex justify-between border rounded-md w-11/12 md:w-[275px]">
         Hunza
         <IoMdArrowDropdownCircle style={{ color: "#FBAD17" }} />
       </Space>

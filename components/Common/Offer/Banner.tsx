@@ -46,7 +46,7 @@ const Banner: NextPage<Props> = ({ UpcommingImage, Heading, Subheading }) => {
         </span>
       </div>
       <div className="bottom-0 w-full absolute">
-        <ImageComp BannerCar={BannerCar} move={`!translate-x-[400px]`} moveImage={moveImage} />
+        <ImageComp BannerCar={BannerCar} move={move} moveImage={moveImage} />
         <Image
           className="w-full"
           src={BannerImg}

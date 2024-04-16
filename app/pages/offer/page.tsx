@@ -30,8 +30,7 @@ const Page: NextPage<Props> = ({}) => {
     <div className="relative">
       <Banner
         UpcommingImage={BannerImg}
-        Heading="MAKE YOUR OWN TRIP
-"
+        Heading="MAKE YOUR OWN TRIP"
         Subheading=""
       />
       <div className="w-full mb-14 flex pb-10 flex-col items-center rounded-lg md:mt-16 mx-auto md:w-11/12">

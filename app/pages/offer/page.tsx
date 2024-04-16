@@ -4,12 +4,13 @@ import { NextPage } from "next";
 import "./page.css";
 import MyDropdown from "./dropdown";
 import { useEffect, useState } from "react";
-import HeroBanner from "@/components/Common/HeroBanner";
+import Banner from "@/components/Common/Offer/Banner";
 import PersonalDetails from "./PersonalDetails";
 
 import BannerImg from "../../../assets/offer/header.svg";
 import TourDetails from "./tourDetail";
 import SpecialRequirments from "./specialReq";
+import Tansition from "./transition";
 
 interface Props {}
 
@@ -27,11 +28,16 @@ const Page: NextPage<Props> = ({}) => {
 
   return (
     <div className="relative">
-      <HeroBanner UpcommingImage={BannerImg} Heading="" Subheading="" />
+      <Banner
+        UpcommingImage={BannerImg}
+        Heading="MAKE YOUR OWN TRIP
+"
+        Subheading=""
+      />
       <div className="w-full mb-14 flex pb-10 flex-col items-center rounded-lg md:mt-16 mx-auto md:w-11/12">
-        <h2 className="mt-10 uppercase text-2xl md:text-3xl font-bold text-[#FBAD17] py-5">
+        {/* <h2 className="mt-10 uppercase text-2xl md:text-3xl font-bold text-[#FBAD17] py-5">
           Make your own trip
-        </h2>
+        </h2> */}
         {counter === 0 ? (
           <PersonalDetails />
         ) : counter === 1 ? (
@@ -47,7 +53,7 @@ const Page: NextPage<Props> = ({}) => {
           {counter >= 1 && (
             <button
               onClick={() => setCounter(counter - 1)}
-              className="py-2 px-12 bg-[#00ADEE] rounded-sm text-sm text-white">
+              className="py-2 px-12 bg-[#FBAD17] rounded-sm text-sm text-white">
               BACK
             </button>
           )}

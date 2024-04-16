@@ -41,7 +41,7 @@ const Page: NextPage<Props> = ({}) => {
         )}
 
         <div
-          className={`w-11/12 md:w-[700px] flex ${
+          className={`w-11/12 md:w-[700px] px-2 md:px-0 flex ${
             counter === 0 ? "justify-end" : "justify-between"
           } mt-10`}>
           {counter >= 1 && (

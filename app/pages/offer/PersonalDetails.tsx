@@ -5,7 +5,7 @@ interface Props {}
 const PersonalDetails: NextPage<Props> = ({}) => {
   return (
     <div className=" relative">
-      <div className=" bg-[#00ADEE] text-white w-36 py-1 px-2 rounded-md mt-4 absolute ml-0 md:-ml-20">
+      <div className=" bg-[#00ADEE] text-white w-36 py-1 px-2 rounded-md mt-4 absolute ml-0 md:ml-[1rem] lg:-ml-20">
         Personal Details
       </div>
       <div className="w-full md:w-[700px] py-14 px-6 md:px-14 bg-white shadow-2xl rounded-lg">

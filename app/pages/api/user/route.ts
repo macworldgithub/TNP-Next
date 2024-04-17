@@ -1,11 +1,6 @@
-import type { NextApiRequest, NextApiResponse } from 'next'
 import { NextResponse } from 'next/server';
 
-type ResponseData = {
-  message: string
-}
-
-export async function GET(req: NextApiRequest, res: NextApiResponse<ResponseData>) {
+export async function GET(request: Request) {
   try {
     // Your logic here
     // ...
@@ -16,7 +11,7 @@ export async function GET(req: NextApiRequest, res: NextApiResponse<ResponseData
   }
 }
 
-export async function POST(req: NextApiRequest, res: NextApiResponse<ResponseData>) {
+export async function POST(request: Request) {
   try {
     // Your logic here
     // ...

@@ -1,8 +1,8 @@
 import { NextPage } from "next";
 import Image from "next/image";
 import { StaticImport } from "next/dist/shared/lib/get-img-props";
-import BannerImg from "../../../assets/offer/Group 1000003265.svg";
-import BannerCar from "../../../assets/offer/Group 1000003260.svg";
+import BannerImg from "../../assets/offer/Group 1000003265.svg";
+import BannerCar from "../../assets/offer/Group 1000003260.svg";
 import { useEffect, useState } from "react";
 import ImageComp from "./ImageComp";
 // import { transform } from "next/dist/build/swc";
@@ -11,14 +11,20 @@ interface Props {
   UpcommingImage: string | StaticImport;
   Heading: string;
   Subheading: string;
+  move: number;
+  setMove: (newMove: number) => void;
 }
 
-const Banner: NextPage<Props> = ({ UpcommingImage, Heading, Subheading }) => {
-  const [move, setMove] = useState(200); // Adjusted initial value
-
+const Banner: NextPage<Props> = ({
+  UpcommingImage,
+  Heading,
+  Subheading,
+  move,
+  setMove,
+}) => {
   const moveImage = () => {
-    console.log("Move image function called"); // Check if this log appears when image is clicked
-    setMove(move + 100); // Adjust the move value as needed
+    console.log("Move image function called");
+    setMove(move + 100);
   };
 
   useEffect(() => {
@@ -41,7 +47,9 @@ const Banner: NextPage<Props> = ({ UpcommingImage, Heading, Subheading }) => {
 
       <div className="absolute inset-0 flex flex-col items-center justify-center">
         <span className="md:text-center flex flex-col justify-center items-center">
-          <h1 className="text-5xl font-bold mb-6 text-[#FBAD17]">{Heading}</h1>
+          <h1 className="text-2xl md:text-5xl font-bold mb-6 text-[#FBAD17]">
+            {Heading}
+          </h1>
           {Subheading && <p className="text-white text-lg">{Subheading}</p>}
         </span>
       </div>

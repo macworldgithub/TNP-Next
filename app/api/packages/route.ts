@@ -1,9 +1,7 @@
 import type { NextApiRequest, NextApiResponse } from 'next'
 import { NextResponse } from 'next/server';
-import mysql from "mysql2/promise";
 
 type ResponseData = {
-  items: mysql.QueryResult;
 }
 
 export async function GET(req: NextApiRequest, res: NextApiResponse<ResponseData>) {

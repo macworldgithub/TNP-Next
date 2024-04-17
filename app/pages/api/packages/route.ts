@@ -4,7 +4,7 @@ import { NextResponse } from 'next/server';
 type ResponseData = {
 }
 
-export async function GET(req: NextApiRequest, res: NextApiResponse<ResponseData>) {
+export async function GET(request: Request) {
   try {
     return new NextResponse('Success', { status: 200 });
   } catch (error) {
@@ -13,7 +13,7 @@ export async function GET(req: NextApiRequest, res: NextApiResponse<ResponseData
   }
 }
 
-export async function POST(req: NextApiRequest, res: NextApiResponse<ResponseData>) {
+export async function POST(request: Request) {
   try {
     // Your logic here
     // ...

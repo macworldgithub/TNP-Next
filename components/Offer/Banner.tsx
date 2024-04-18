@@ -43,7 +43,7 @@ const Banner: NextPage<Props> = ({
         />
       </span>
 
-      <div className="absolute inset-0 bg-black opacity-50"></div>
+      <div className="absolute inset-0 opacity-50"></div>
 
       <div className="absolute inset-0 flex flex-col items-center justify-center">
         <span className="md:text-center flex flex-col justify-center items-center">

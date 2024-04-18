@@ -7,7 +7,7 @@ import { useEffect, useState } from "react";
 import Banner from "@/components/Offer/Banner";
 import PersonalDetails from "../../../components/Offer/PersonalDetails";
 
-import BannerImg from "../../../assets/offer/header.svg";
+import BannerImg from "../../../assets/offer/BG.svg";
 import TourDetails from "../../../components/Offer/tourDetail";
 import SpecialRequirments from "../../../components/Offer/specialReq";
 import Payment from "@/components/Offer/payment";

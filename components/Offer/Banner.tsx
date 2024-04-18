@@ -32,7 +32,7 @@ const Banner: NextPage<Props> = ({
   }, [move]);
 
   return (
-    <div className="heroAboutUs relative w-full h-[40vh]">
+    <div className="heroAboutUs relative w-full h-[15vh] sm:h-[30vh] lg:h-[40vh]">
       {/* Background Image */}
       <span className="absolute inset-0">
         <Image
@@ -43,11 +43,11 @@ const Banner: NextPage<Props> = ({
         />
       </span>
 
-      <div className="absolute inset-0 opacity-50"></div>
+      {/* <div className="absolute inset-0 opacity-50"></div> */}
 
       <div className="absolute inset-0 flex flex-col items-center justify-center">
         <span className="md:text-center flex flex-col justify-center items-center">
-          <h1 className="text-2xl md:text-5xl font-bold mb-6 text-[#FBAD17]">
+          <h1 className="text-xl md:text-3xl lg:text-5xl font-bold mb-6 text-[#FBAD17]">
             {Heading}
           </h1>
           {Subheading && <p className="text-white text-lg">{Subheading}</p>}

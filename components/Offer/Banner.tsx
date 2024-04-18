@@ -53,7 +53,7 @@ const Banner: NextPage<Props> = ({
           {Subheading && <p className="text-white text-lg">{Subheading}</p>}
         </span>
       </div>
-      <div className="bottom-0 w-full absolute">
+      <div className="bottom-[-1px] lg:bottom-[-10px] w-full absolute">
         <ImageComp BannerCar={BannerCar} move={move} moveImage={moveImage} />
         <Image
           className="w-full"

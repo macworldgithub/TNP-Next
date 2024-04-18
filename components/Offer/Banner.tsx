@@ -32,7 +32,7 @@ const Banner: NextPage<Props> = ({
   }, [move]);
 
   return (
-    <div className="heroAboutUs relative w-full h-[50vh]">
+    <div className="heroAboutUs relative w-full h-[40vh]">
       {/* Background Image */}
       <span className="absolute inset-0">
         <Image

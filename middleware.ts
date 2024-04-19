@@ -2,6 +2,7 @@ import jwt from 'jsonwebtoken'
 import { NextResponse } from 'next/server'
 import type { NextRequest } from 'next/server'
 import prisma from './app/pages/api/db'
+import { getUser } from './app/pages/api/utils'
  
 export const protect = (req : NextRequest) => {
 
@@ -32,17 +33,6 @@ export const protect = (req : NextRequest) => {
 
 export async function middleware(request: NextRequest) {
     if (request.nextUrl.pathname === "/pages/api/signUp"){
-        const body = await request.json()
-        // @ts-ignore
-        const user = await prisma.tnp_user.findUnique({
-            where: {
-                username: body.username
-            }
-        })
-        if (user){
-            return Response.json({message:"username already taken"}, {status:400})
-        }
-
         return NextResponse.rewrite(new URL('/pages/api/signUp', request.url))
     }
 }

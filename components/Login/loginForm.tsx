@@ -9,6 +9,8 @@ import Bg from "../../assets/login/pic.png";
 import icon1 from "../../public/aboutus/plane 2.png";
 import icon2 from "../../public/aboutus/travel-and-tourism 1.png";
 import icon3 from "../../public/aboutus/location 1.png";
+import Link from 'next/link';
+
 import { useState } from "react";
 import {
     HiOutlineUser,
@@ -150,7 +152,8 @@ const LoginForm = () => {
                 <div className="flex items-center justify-center lg:justify-normal ">
                     <p className="text-gray-700">Don&apos;t have an account?</p>
                     <button className="ml-2 bg-primary hover:bg-blue-600 text-white  py-2 px-4 rounded">
-                        Register
+                        <Link href="/pages/signup">Register</Link>
+                        
                     </button>
                 </div>
             </div>

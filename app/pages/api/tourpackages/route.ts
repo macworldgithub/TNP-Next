@@ -1,11 +1,11 @@
-import type { NextApiRequest, NextApiResponse } from 'next'
+import { PrismaClient } from '@prisma/client';
 import { NextResponse } from 'next/server';
 
 export async function GET(request: Request) {
+  const prisma = new PrismaClient();
   try {
-    // Your logic here
-    // ...
-    return new NextResponse('Success', { status: 200 });
+    const packages = prisma.tnp_packages.findMany();
+    return NextResponse.json({ status: 200, message: "Success", data: packages });
   } catch (error) {
     console.error('Error in GET handler:', error);
     return new NextResponse('Internal Server Error', { status: 500 });

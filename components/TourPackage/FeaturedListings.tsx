@@ -19,7 +19,6 @@ import PaginationInfo from "../PaginationInfo";
 import TourCard from "./TourCard";
 import Dropdown from "../Dropdown";
 const FeaturedListings = () => {
-  const [currPage, setCurrPage] = useState(1);
   const itemsPerPage = 8;
 
   const featuredData = [
@@ -254,21 +253,26 @@ const FeaturedListings = () => {
     { label: "All Filters", value: "All filters" },
     { label: "All Filters", value: "All filters" },
   ];
+
   const dateOptions = [
     { label: "Dates", value: "dates" },
     { label: "Dates", value: "dates" },
     { label: "Dates", value: "dates" },
   ];
+
   const typeOptions = [
     { label: "Types", value: "types" },
     { label: "Types", value: "types" },
     { label: "Types", value: "types" },
   ];
+
   const priceOptions = [
     { label: "Price", value: "price" },
     { label: "Price", value: "price" },
     { label: "Price", value: "price" },
   ];
+
+  const [currPage, setCurrPage] = useState(1);
   const [selectedFilter, setSelectedFilter] = useState(filterOptions[0].value);
   const [selectedDates, setSelectedDates] = useState(dateOptions[0].value);
   const [selectedType, setSelectedType] = useState(typeOptions[0].value);
@@ -297,11 +301,6 @@ const FeaturedListings = () => {
     toggleSortDirection();
     sortData();
   };
-
-
-  console.log(selectedSort , "hello");
-
-
 
   return (
     <div className="w-full h-full flex justify-center items-center mt-12">
@@ -334,10 +333,10 @@ const FeaturedListings = () => {
             onSelect={setSelectedFilter}
           />
         </div>
-        <div className='flex flex-row'>
-        <p className='text-sm mt-2 '>Sort By</p>
+        <div className='flex flex-row gap-1'>
+        <p className='text-sm mt-2'>Sort By</p>
         <button onClick={handleSort}><BiSortAlt2 size={20}/></button>
-        <Dropdown options={[{label:"featured" , value:"featured"},{label:"price" , value:"price"}]} selectedOption={selectedSort} onSelect={setSelectedSort} />
+        <Dropdown options={[{label:"Ascending" , value:"asc"},{label:"Descending" , value:"desc"}]} selectedOption={selectedSort} onSelect={setSelectedSort} />
         </div>
         </div>
         <div className="w-full flex flex-row flex-wrap gap-10 xl:gap-24 mt-4">

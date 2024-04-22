@@ -1,11 +1,13 @@
+"use client";
 import { FaMapPin } from "react-icons/fa";
 import { GiMountainClimbing } from "react-icons/gi";
-import { IoMdTime, IoMdTimer, IoIosArrowDown } from "react-icons/io";
+import { IoMdTimer, IoIosArrowDown } from "react-icons/io";
 import { RxAvatar } from "react-icons/rx";
-import { IoFilterCircleOutline } from "react-icons/io5";
 import { RiEqualizerLine } from "react-icons/ri";
 import { CiSearch } from "react-icons/ci";
-const TourpackSearch = () => {
+
+const TourpackSearch = () => { 
+
   return (
     <div className="flex my-3 flex-col md:flex-row md:mx-5 bg-white text-black flex-wrap rounded px-4 py-4" style={{ boxShadow: "-1px -1px 20px -6px #ccc" }}>
       <div className="flex mx-2 w-[15rem] md:w-auto md:justify-start justify-between  items-center">

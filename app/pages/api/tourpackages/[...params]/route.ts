@@ -15,10 +15,7 @@ interface PackageStructure {
 }
 
 interface PackagesRequestParams {
-  fetch_type: string;
-  sort_type?: string;
-  filtering_item?: string;
-  filter_value?: string | number;
+  params: string[];
 }
 
 export async function GET(
@@ -26,21 +23,22 @@ export async function GET(
   context: { params: PackagesRequestParams }
 ) {
   const prisma = new PrismaClient();
-  const { fetch_type, sort_type, filtering_item, filter_value } =
-    await context.params;
-  console.log(
-    "Request body",
-    fetch_type,
-    sort_type,
-    filtering_item,
-    filter_value
-  );
+  const { params } = await context.params;
+  console.log("Requested body", params);
+
+  if (!params || params.length < 1) {
+    return new NextResponse(
+      "Bad Request: Missing or invalid parameters",
+      { status: 400 }
+    );
+  }
+
   try {
     let packages: PackageStructure[] = [];
 
-    switch (fetch_type) {
+    switch (params[0]) {
       case "search":
-        if (!filter_value || typeof filter_value !== "string") {
+        if (!params[1] || typeof params[1] !== "string") {
           return new NextResponse(
             "Bad Request: Missing or invalid search parameters",
             { status: 400 }
@@ -50,25 +48,25 @@ export async function GET(
         packages = await prisma.tnp_packages.findMany({
           where: {
             package_name: {
-              contains: filter_value,
+              contains: params[1],
             },
           },
         });
         break;
       case "sort":
-        if (!sort_type) {
+        if (!params[1]) {
           return new NextResponse("Bad Request: Missing sort type", {
             status: 400,
           });
         }
         packages = await prisma.tnp_packages.findMany({
           orderBy: {
-            [sort_type]: "asc", // Assuming ascending order
+            [params[1]]: "asc", // Assuming ascending order
           },
         });
         break;
       case "filter":
-        if (!filtering_item || typeof filter_value === "undefined") {
+        if (!params[1] || typeof params[2] === "undefined") {
           return new NextResponse(
             "Bad Request: Missing or invalid filter parameters",
             { status: 400 }
@@ -76,7 +74,7 @@ export async function GET(
         }
         packages = await prisma.tnp_packages.findMany({
           where: {
-            [filtering_item]: filter_value,
+            [params[1]]: params[2],
           },
         });
         break;

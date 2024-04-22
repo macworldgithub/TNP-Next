@@ -12,7 +12,7 @@ import Link from 'next/link';
 interface TourCardProps {
   id: number,
   pid: number,
-  pic: StaticImageData;
+  pic?: StaticImageData;
   loc: string;
   title: string;
   duration: string;

@@ -8,10 +8,11 @@ export async function POST(request: Request) {
 
         const req = await request.json()
 
-        const isAvailable = await getUser(req.username)
+        const isAvailable = await getUser(req.email)
+        console.log(req)
 
         if (isAvailable){
-            return Response.json({message:"username already taken"}, {status:400})
+            return Response.json({message:"email already taken"}, {status:400})
         }
 
         // @ts-ignore
@@ -19,15 +20,24 @@ export async function POST(request: Request) {
             data: {
                 name: req.name,
                 lname: req.lname,
-                username: req.username,
+                // @ts-ignore
+                email: req.email,
                 password: await hashPassword(req.password)
             }
         })
         console.log(user)
-
         const token = createJWT(user)
 
-        return NextResponse.json({ status: 200, message: "success",token });
+        let userData = {
+            token,
+            name:user?.name,
+            lname:user?.lname,
+            // @ts-ignore
+            email:user?.email,
+            id:user?.id
+        }
+
+        return NextResponse.json({ status: 200, message: "success", userData });
     } catch (error) {
         console.error('Error in GET handler:', error);
         return new NextResponse('Internal Server Error', { status: 500 });

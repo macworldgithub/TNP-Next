@@ -50,6 +50,6 @@ model tnp_user {
   createdAt DateTime @default(now())
   name      String   @db.VarChar(255)
   lname     String   @db.VarChar(255)
-  username  String   @unique
+  email     String   @unique
   password  String
 }

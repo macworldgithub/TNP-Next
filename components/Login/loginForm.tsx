@@ -22,12 +22,19 @@ import {
 } from "react-icons/hi";
 import googlepic from "../../assets/login/googlePic.png";
 import facebookpic from "../../assets/login/facebook.png";
+import { useAppDispatch } from '@/lib/store';
+import { useRouter } from 'next/navigation';
+import { setUserData } from '@/lib/feature/user/userSlice';
+import { signIn } from '@/apiFunctions/authentication';
 
 const LoginForm = () => {
+ const dispatch = useAppDispatch();
+
+const router = useRouter();
 
     const [messageApi, contextHolder] = message.useMessage();
     const [formData, setFormData] = useState({
-      
+
         email: "",
         password: "",
     });
@@ -41,15 +48,41 @@ const LoginForm = () => {
     };
 
 
-    const handleSubmit = () => {
-       if (formData.password?.length < 8) messageApi.open({
-            type: 'error',
-            content: 'Password must be atleast 8 characters long',
-        });
-        else if (!formData.email) messageApi.open({
-            type: 'error',
-            content: 'Email can not be empty',
-        });
+    const handleSubmit =async () => {
+        if (formData.password?.length < 8) {
+            messageApi.open({
+                type: 'error',
+                content: 'Password must be atleast 8 characters long',
+            });
+            return
+        }
+        else if (!formData.email) {
+
+            messageApi.open({
+                type: 'error',
+                content: 'Email can not be empty',
+            })
+            return
+        }
+        try {
+            const response = await signIn(formData);
+            console.log("yeah")
+            dispatch(setUserData(response?.data?.userData))
+            console.log("yeah2")
+            router.push('/');
+            messageApi.open({
+                type: 'success',
+                content: "Logged in successfully"
+            })
+
+        } catch (error) {
+        console.log(error.response)
+            messageApi.open({
+                type: 'error',
+                content: error?.response?.data?.message
+            })
+                
+        }
     }
 
 
@@ -68,7 +101,7 @@ const LoginForm = () => {
                 </span>{" "}
                 <span>get 20% off foe web signup</span>
                 <div className="w-full">
-                  
+
 
                     <div className="mb-4">
                         <label
@@ -85,7 +118,7 @@ const LoginForm = () => {
                                 value={formData.email}
                                 onChange={handleChange}
                                 placeholder="Enter your email"
-                                className="input-with-icon pl-8 rounded border border-gray-300 shadow-sm focus:ring-2 focus:ring-blue-500 focus:border-transparent w-full" 
+                                className="input-with-icon pl-8 rounded border border-gray-300 shadow-sm focus:ring-2 focus:ring-blue-500 focus:border-transparent w-full"
                             />
                             <HiOutlineMail className="absolute top-3 left-3 text-gray-500" />
                         </div>
@@ -153,7 +186,7 @@ const LoginForm = () => {
                     <p className="text-gray-700">Don&apos;t have an account?</p>
                     <button className="ml-2 bg-primary hover:bg-blue-600 text-white  py-2 px-4 rounded">
                         <Link href="/pages/signup">Register</Link>
-                        
+
                     </button>
                 </div>
             </div>

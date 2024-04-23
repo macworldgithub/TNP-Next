@@ -22,12 +22,14 @@ import {
 } from "react-icons/hi";
 import googlepic from "../../assets/login/googlePic.png";
 import facebookpic from "../../assets/login/facebook.png";
+import Signup from '@/app/pages/signup/page';
 
-const LoginForm = () => {
+const SignupForm = () => {
 
     const [messageApi, contextHolder] = message.useMessage();
     const [formData, setFormData] = useState({
-      
+        firstname: "",
+        lastname: "",
         email: "",
         password: "",
     });
@@ -42,7 +44,15 @@ const LoginForm = () => {
 
 
     const handleSubmit = () => {
-       if (formData.password?.length < 8) messageApi.open({
+        if (!formData.firstname) messageApi.open({
+            type: 'error',
+            content: 'Name cannot be empty',
+        });
+       else if (!formData.lastname) messageApi.open({
+            type: 'error',
+            content: 'Name cannot be empty',
+        });
+        else if (formData.password?.length < 8) messageApi.open({
             type: 'error',
             content: 'Password must be atleast 8 characters long',
         });
@@ -66,29 +76,68 @@ const LoginForm = () => {
                 <span className="mb-4  p-1 text-white rounded-sm h-8 bg-yellow-400 w-[10rem] ">
                     20% OFF
                 </span>{" "}
-                <span>get 20% off foe web signup</span>
-                <div className="w-full">
-                  
-
-                    <div className="mb-4">
+                <span>get 20% off for web signup</span>
+                <div className="flex flex-col lg:flex-row gap-4 my-3">
+                    <div className="mb-4 ">
                         <label
-                            htmlFor="email"
-                            className="block text-gray-700 font-bold mb-2 my-2"
+                            htmlFor="First Name"
+                            className="block text-gray-700 font-bold mb-2"
                         >
-                            Email
+                            First Name
                         </label>
                         <div className="relative">
                             <input
-                                type="email"
-                                id="email"
-                                name="email"
-                                value={formData.email}
+                                type="text"
+                                id="firstname"
+                                name="firstname"
+                                value={formData.firstname}
                                 onChange={handleChange}
-                                placeholder="Enter your email"
-                                className="input-with-icon pl-8 rounded border border-gray-300 shadow-sm focus:ring-2 focus:ring-blue-500 focus:border-transparent w-full" 
+                                placeholder="Enter your first name"
+                                className="input-with-icon pl-8 rounded border border-gray-300 shadow-sm focus:ring-2 focus:ring-blue-500 focus:border-transparent w-full"
+                            />
+                            <HiOutlineUser className="absolute top-3 left-3 text-gray-500" />
+                        </div>
+                    </div>
+
+                    <div className="mb-4">
+                        <label
+                            htmlFor="Last Name"
+                            className="block text-gray-700 font-bold mb-2"
+                        >
+                            Last Name
+                        </label>
+                        <div className="relative">
+                            <input
+                                type="text"
+                                id="lastname"
+                                name="lastname"
+                                value={formData.lastname}
+                                onChange={handleChange}
+                                placeholder="Enter your Last name"
+                                className="input-with-icon pl-8 rounded border border-gray-300 shadow-sm focus:ring-2 focus:ring-blue-500 focus:border-transparent w-full" // Added left padding to create space for the icon
                             />
                             <HiOutlineMail className="absolute top-3 left-3 text-gray-500" />
                         </div>
+                    </div>
+                </div>
+                <div className="mb-4">
+                    <label
+                        htmlFor="Your email"
+                        className="block text-gray-700 font-bold mb-2"
+                    >
+                        Your Email{" "}
+                    </label>
+                    <div className="relative">
+                        <input
+                            type="email"
+                            id="email"
+                            name="email"
+                            value={formData.email}
+                            onChange={handleChange}
+                            placeholder="Enter email"
+                            className="input-with-icon pl-8 rounded border border-gray-300 shadow-sm focus:ring-2 focus:ring-blue-500 focus:border-transparent w-full"
+                        />
+                        <HiOutlinePhone className="absolute top-3 left-3 text-gray-500" />
                     </div>
                 </div>
                 <div className="mb-4">
@@ -105,7 +154,7 @@ const LoginForm = () => {
                             name="password"
                             value={formData.password}
                             onChange={handleChange}
-                            placeholder="Enter your phone number"
+                            placeholder="Enter  password"
                             className="input-with-icon pl-8 rounded border border-gray-300 shadow-sm focus:ring-2 focus:ring-blue-500 focus:border-transparent w-full"
                         />
                         <HiOutlinePhone className="absolute top-3 left-3 text-gray-500" />
@@ -135,7 +184,7 @@ const LoginForm = () => {
                         className="bg-primary w-full hover:bg-blue-600 text-white py-2 px-5 rounded"
                         onClick={handleSubmit}
                     >
-                        SIGN IN{" "}
+                        SIGN UP{" "}
                     </button>
                 </div>
                 <div className="flex items-center my-3">
@@ -152,8 +201,7 @@ const LoginForm = () => {
                 <div className="flex items-center justify-center lg:justify-normal ">
                     <p className="text-gray-700">Don&apos;t have an account?</p>
                     <button className="ml-2 bg-primary hover:bg-blue-600 text-white  py-2 px-4 rounded">
-                        <Link href="/pages/signup">Register</Link>
-                        
+                    <Link href="/pages/login">Login</Link>
                     </button>
                 </div>
             </div>
@@ -161,4 +209,4 @@ const LoginForm = () => {
     );
 };
 
-export default LoginForm;
+export default SignupForm;

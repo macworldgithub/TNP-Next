@@ -27,10 +27,14 @@ import { useRouter } from 'next/navigation';
 import { setUserData } from '@/lib/feature/user/userSlice';
 import { signIn } from '@/apiFunctions/authentication';
 
-const LoginForm = () => {
- const dispatch = useAppDispatch();
+import { GoogleAuthProvider, signInWithPopup } from "firebase/auth";
 
-const router = useRouter();
+const provider = new GoogleAuthProvider();
+
+const LoginForm = () => {
+    const dispatch = useAppDispatch();
+
+    const router = useRouter();
 
     const [messageApi, contextHolder] = message.useMessage();
     const [formData, setFormData] = useState({
@@ -48,7 +52,28 @@ const router = useRouter();
     };
 
 
-    const handleSubmit =async () => {
+    const handleGoogleLogin = async () => {
+        signInWithPopup(auth, provider)
+            .then((result) => {
+                // This gives you a Google Access Token. You can use it to access the Google API.
+                // The signed-in user info.
+                const user = result.user;
+                console.log("User",user)
+                // IdP data available using getAdditionalUserInfo(result)
+                // ...
+            }).catch((error) => {
+                // Handle Errors here.
+                const errorCode = error.code;
+                const errorMessage = error.message;
+                // The email of the user's account used.
+                const email = error.customData.email;
+                // The AuthCredential type that was used.
+                const credential = GoogleAuthProvider.credentialFromError(error);
+                // ...
+            });
+    }
+
+    const handleSubmit = async () => {
         if (formData.password?.length < 8) {
             messageApi.open({
                 type: 'error',
@@ -76,12 +101,12 @@ const router = useRouter();
             })
 
         } catch (error) {
-        console.log(error.response)
+            console.log(error.response)
             messageApi.open({
                 type: 'error',
                 content: error?.response?.data?.message
             })
-                
+
         }
     }
 
@@ -150,7 +175,7 @@ const router = useRouter();
                     <div className="w-[50%] h-[1px] rounded-sm  bg-gray-200"> </div>
                 </div>
                 <div className="flex flex-col lg:flex-row my-3 gap-4">
-                    <button className="bg-white text-black py-2 px-5 rounded flex items-center border border-gray-400">
+                    <button onClick={handleGoogleLogin} className="bg-white text-black py-2 px-5 rounded flex items-center border border-gray-400">
                         <Image src={googlepic} alt="Google icon" className="w-6 h-6 mr-2" />{" "}
                         Sign In with Google
                     </button>

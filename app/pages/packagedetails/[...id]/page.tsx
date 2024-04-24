@@ -39,6 +39,7 @@ interface TripDetails {
       event: string;
       description: string;
     }[];
+    Highlights: string[];
     Images: string[];
   };
 }
@@ -104,10 +105,10 @@ const Page: NextPage<Props> = ({ }) => {
           />
 
           <Highlights
-            data={renderedData?.highlights}
+            data={tripDetails.TripDetailsAndCostSummary?.Highlights}
           />
-          <Itinerary data={renderedData?.itineraryData} />
-          <Cost includeCost={renderedData?.includeCost} costExclude={renderedData?.costExclude} />
+          <Itinerary data={tripDetails.TripDetailsAndCostSummary?.Itinerary} />
+          <Cost includeCost={tripDetails.TripDetailsAndCostSummary?.CostIncludes} costExclude={tripDetails.TripDetailsAndCostSummary?.CostExcludes} />
         </div>
 
         {/* aqsa add your compoennts here */}

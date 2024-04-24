@@ -46,7 +46,7 @@ const nextConfig = {
             },
             {
                 protocol: 'https',
-                hostname: 'ichef.bbci.co.uk',
+                hostname: 'i.ytimg.com',
                 port: '',
                 pathname: '/**',
             },

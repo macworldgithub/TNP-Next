@@ -1,27 +1,22 @@
 import React, { useState, useEffect } from 'react';
 import Image, { StaticImageData } from 'next/image';
-import Bg1 from '../../public/aboutus/img2.png';
-import Bg2 from '../../public/aboutus/booknow.png';
-import Bg3 from '../../public/aboutus/map.png';
-import Bg4 from '../../public/aboutus/location 1.png';
-import Bg5 from '../../public/aboutus/plane 2.png';
 import { NextPage } from 'next';
 
 interface Props {
   ImageList: string[] | StaticImageData[];
 }
 
-const CarouselSlider: NextPage<Props> = ({ImageList}) => {
+const CarouselSlider: NextPage<Props> = ({ ImageList }) => {
   const [currentSlide, setCurrentSlide] = useState(0);
 
   // Function to handle next slide
   const nextSlide = () => {
-    setCurrentSlide((prevSlide) => (prevSlide === 4 ? 0 : prevSlide + 1));
+    setCurrentSlide((prevSlide) => (prevSlide === ImageList.length - 1 ? 0 : prevSlide + 1));
   };
 
   // Function to handle previous slide
   const prevSlide = () => {
-    setCurrentSlide((prevSlide) => (prevSlide === 0 ? 4 : prevSlide - 1));
+    setCurrentSlide((prevSlide) => (prevSlide === 0 ? ImageList.length - 1 : prevSlide - 1));
   };
 
   useEffect(() => {
@@ -40,12 +35,12 @@ const CarouselSlider: NextPage<Props> = ({ImageList}) => {
         {ImageList.map((bg, index) => (
           <div
             key={305 + index}
-            className={`absolute w-full h-full transition-opacity duration-500 ${
+            className={`absolute inset-0 transition-opacity duration-500 ${
               index === currentSlide ? 'opacity-100' : 'opacity-0'
             }`}
             style={{ zIndex: index === currentSlide ? 1 : 0 }}
           >
-            <Image src={bg} fill={true} className="object-cover" alt={`Slide ${index}`} />
+            <Image className="object-cover" src={bg} fill={true} alt={`Slide ${index}`} />
           </div>
         ))}
       </div>
@@ -68,6 +63,6 @@ const CarouselSlider: NextPage<Props> = ({ImageList}) => {
       </button>
     </div>
   );
-}
+};
 
 export default CarouselSlider;

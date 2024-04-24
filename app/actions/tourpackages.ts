@@ -18,3 +18,17 @@ export async function getTourPackages(extededRoute = "/tourpackages/all"): Promi
         }
     }
 }
+
+export async function getSinglePackage(extededRoute = "/tourpackages/single"): Promise<any> {
+    try {
+        const response = await axios.get(LOCALHOST_URL + extededRoute);
+        // console.log("API Response", response.data?.data);
+        return response.data?.data[0];
+    } catch (error) {
+        return {
+            data: [],
+            status: 400,
+            message: "failed"
+        }
+    }
+}

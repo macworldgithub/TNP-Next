@@ -259,7 +259,7 @@ const featuredData = [
 const FeaturedListings = () => {
   const itemsPerPage = 8;
   const [packages, setPackages] = useState<PackageStructure[]>([]);
-  
+
   const [currPage, setCurrPage] = useState(1);
 
   useEffect(() => {
@@ -280,19 +280,25 @@ const FeaturedListings = () => {
     <div className="w-full h-full flex justify-center items-center mt-12">
       <div className="w-[80%] flex flex-col gap-4  ">
         <PaginationInfo
-          currentPage={2}
+          currentPage={1}
           itemsPerPage={6}
           totalItems={featuredData.length}
         />
         <FilterAndSearchBar />
         <RenderTourCards PackageItems={packages} />
-        <div className="flex w-full justify-center">
-          <Pagination
-            currentPage={currPage}
-            totalPages={Math.ceil(featuredData.length / itemsPerPage)}
-            setCurr={setCurrPage}
-          />
-        </div>
+        {
+          packages?.length > 6 &&
+          <div className="flex w-full justify-center">
+            <Pagination
+              currentPage={currPage}
+              totalPages={Math.ceil(featuredData.length / itemsPerPage)}
+              setCurr={setCurrPage}
+            />
+          </div>
+        }
+        {
+          packages?.length === 0 && <div> No items were found </div>
+        }
       </div>
     </div>
   );

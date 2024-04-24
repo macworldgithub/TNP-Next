@@ -78,6 +78,19 @@ export async function GET(
           },
         });
         break;
+      case "single":
+        if (!params[1] || isNaN(parseInt(params[1]))) {
+          return new NextResponse(
+            "Bad Request: Missing or invalid item ID",
+            { status: 400 }
+          );
+        }
+        packages = await prisma.tnp_packages.findMany({
+          where: {
+            package_id: parseInt(params[1]),
+          },
+        });
+        break;
       case "all":
         packages = await prisma.tnp_packages.findMany({
           orderBy: {

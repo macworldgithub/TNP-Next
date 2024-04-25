@@ -23,13 +23,19 @@ import {
 import googlepic from "../../assets/login/googlePic.png";
 import facebookpic from "../../assets/login/facebook.png";
 import Signup from '@/app/pages/signup/page';
+import { signUp } from '@/apiFunctions/authentication';
+import { useAppDispatch } from '@/lib/store';
+import { setUserData } from '@/lib/feature/user/userSlice';
+import { useRouter } from 'next/navigation';
 
 const SignupForm = () => {
+ const dispatch = useAppDispatch();
 
+const router = useRouter();
     const [messageApi, contextHolder] = message.useMessage();
     const [formData, setFormData] = useState({
-        firstname: "",
-        lastname: "",
+        name: "",
+        lname: "",
         email: "",
         password: "",
     });
@@ -43,23 +49,60 @@ const SignupForm = () => {
     };
 
 
-    const handleSubmit = () => {
-        if (!formData.firstname) messageApi.open({
-            type: 'error',
-            content: 'Name cannot be empty',
-        });
-       else if (!formData.lastname) messageApi.open({
-            type: 'error',
-            content: 'Name cannot be empty',
-        });
-        else if (formData.password?.length < 8) messageApi.open({
-            type: 'error',
-            content: 'Password must be atleast 8 characters long',
-        });
-        else if (!formData.email) messageApi.open({
-            type: 'error',
-            content: 'Email can not be empty',
-        });
+    const handleSubmit = async () => {
+            console.log("yeah")
+        if (!formData.name) {
+            messageApi.open({
+                type: 'error',
+                content: 'Name cannot be empty',
+            })
+            return
+        }
+        else if (!formData.lname) {
+            messageApi.open({
+                type: 'error',
+                content: 'Name cannot be empty',
+            })
+            return
+        }
+        else if (formData.password?.length < 8) {
+            messageApi.open({
+                type: 'error',
+                content: 'Password must be atleast 8 characters long',
+            })
+            return
+        }
+        else if (!formData.email) {
+            messageApi.open({
+                type: 'error',
+                content: 'Email can not be empty',
+            })
+            return
+        }
+
+        try {
+            const response = await signUp(formData);
+            console.log("yeah")
+            dispatch(setUserData(response?.data?.userData))
+            console.log("yeah")
+            router.push('/');
+            messageApi.open({
+                type: 'success',
+                content: "Logged in successfully"
+            })
+
+        } catch (error) {
+        console.log(error.response)
+            messageApi.open({
+                type: 'error',
+                content: error?.response?.data?.message
+            })
+                
+        }
+
+
+
+
     }
 
 
@@ -88,9 +131,9 @@ const SignupForm = () => {
                         <div className="relative">
                             <input
                                 type="text"
-                                id="firstname"
-                                name="firstname"
-                                value={formData.firstname}
+                                id="name"
+                                name="name"
+                                value={formData.name}
                                 onChange={handleChange}
                                 placeholder="Enter your first name"
                                 className="input-with-icon pl-8 rounded border border-gray-300 shadow-sm focus:ring-2 focus:ring-blue-500 focus:border-transparent w-full"
@@ -109,9 +152,9 @@ const SignupForm = () => {
                         <div className="relative">
                             <input
                                 type="text"
-                                id="lastname"
-                                name="lastname"
-                                value={formData.lastname}
+                                id="lname"
+                                name="lname"
+                                value={formData.lname}
                                 onChange={handleChange}
                                 placeholder="Enter your Last name"
                                 className="input-with-icon pl-8 rounded border border-gray-300 shadow-sm focus:ring-2 focus:ring-blue-500 focus:border-transparent w-full" // Added left padding to create space for the icon
@@ -201,7 +244,7 @@ const SignupForm = () => {
                 <div className="flex items-center justify-center lg:justify-normal ">
                     <p className="text-gray-700">Don&apos;t have an account?</p>
                     <button className="ml-2 bg-primary hover:bg-blue-600 text-white  py-2 px-4 rounded">
-                    <Link href="/pages/login">Login</Link>
+                        <Link href="/pages/login">Login</Link>
                     </button>
                 </div>
             </div>

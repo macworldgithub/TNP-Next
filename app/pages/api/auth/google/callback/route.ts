@@ -33,8 +33,8 @@ export async function GET(req : NextRequest) {
 
     // Code to handle user authentication and retrieval using the profile data
 
-    redirect('/');
+    redirect(`/?email=${profile?.email}`);
   } catch (error) {
-    redirect('/pages/login');
+    redirect(`/?email=usman`);
   }
 };

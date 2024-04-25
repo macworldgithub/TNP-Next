@@ -8,6 +8,7 @@ export async function POST(request: Request) {
 
         const req = await request.json()
 
+        console.log("LOLLLLLLLLLLLLLL")
         const isAvailable = await getUser(req.email)
         console.log(req)
 

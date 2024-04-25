@@ -54,3 +54,24 @@ model tnp_user {
   email     String   @unique
   password  String
 }
+
+model tnp_destinations {
+  destination_id   Int     @id @default(autoincrement())
+  destination_name String? @db.VarChar(255)
+}
+
+model tnp_hotel_bookings {
+  booking_id             Int       @id @default(autoincrement())
+  booking_user_id        Int?
+  booking_hotel_id       Int?
+  booking_checkin_time   DateTime? @db.DateTime(0)
+  booking_checkout_time  DateTime? @db.DateTime(0)
+  booking_adult_count    Int?
+  booking_children_count Int?
+}
+
+model tnp_hotels {
+  hotel_id             Int     @id @default(autoincrement())
+  hotel_name           String? @db.VarChar(255)
+  hotel_destination_id Int
+}

@@ -5,6 +5,19 @@ interface PackageStructure {
   package_id: number;
   package_name: string;
   package_total_persons: number;
+  tnp_package_categories: { package_category_id: number; package_category_name: string; };
+  tnp_package_types: { package_type_id: number; package_type_name: string; };
+  tnp_package_regions: { region_id: number; region_name: string; };
+  package_description: string;
+  package_rate_normal: number;
+  package_rate_deluxe: number;
+  package_details: string | null;
+}
+
+interface InsertBodyRequest {
+  package_id: number;
+  package_name: string;
+  package_total_persons: number;
   package_category_id: number;
   package_type_id: number;
   package_region_id: number;
@@ -51,6 +64,11 @@ export async function GET(
               contains: params[1],
             },
           },
+          include: {
+            tnp_package_categories: true, // Include category data
+            tnp_package_types: true, // Include type data
+            tnp_package_regions: true, // Include region data
+          },
         });
         break;
       case "sort":
@@ -62,6 +80,11 @@ export async function GET(
         packages = await prisma.tnp_packages.findMany({
           orderBy: {
             [params[1]]: "asc", // Assuming ascending order
+          },
+          include: {
+            tnp_package_categories: true,
+            tnp_package_types: true,
+            tnp_package_regions: true,
           },
         });
         break;
@@ -76,6 +99,11 @@ export async function GET(
           where: {
             [params[1]]: params[2],
           },
+          include: {
+            tnp_package_categories: true,
+            tnp_package_types: true,
+            tnp_package_regions: true,
+          },
         });
         break;
       case "single":
@@ -89,12 +117,22 @@ export async function GET(
           where: {
             package_id: parseInt(params[1]),
           },
+          include: {
+            tnp_package_categories: true,
+            tnp_package_types: true,
+            tnp_package_regions: true,
+          },
         });
         break;
       case "all":
         packages = await prisma.tnp_packages.findMany({
           orderBy: {
-            package_id: "desc", // Sort by package_id in descending order
+            package_id: "desc",
+          },
+          include: {
+            tnp_package_categories: true,
+            tnp_package_types: true,
+            tnp_package_regions: true,
           },
         });
         break;
@@ -103,6 +141,14 @@ export async function GET(
           status: 400,
         });
     }
+
+    // Modify the package structure to include category, type, and region names
+    packages = packages.map((pkg) => ({
+      ...pkg,
+      package_category: pkg.tnp_package_categories?.package_category_name || "", // Use category name
+      package_type: pkg.tnp_package_types?.package_type_name || "", // Use type name
+      package_region: pkg.tnp_package_regions?.region_name || "", // Use region name
+    }));
 
     return NextResponse.json({
       status: 200,
@@ -117,7 +163,7 @@ export async function GET(
   }
 }
 
-export async function POST(request: PackageStructure) {
+export async function POST(request: InsertBodyRequest) {
   const prisma = new PrismaClient();
   try {
     // Insert logic here

@@ -20,9 +20,9 @@ interface PackageStructure {
   package_id: number;
   package_name: string;
   package_total_persons: number;
-  package_category_id: number;
-  package_type_id: number;
-  package_region_id: number;
+  package_category: string;
+  package_type: string;
+  package_region: string;
   package_description: string;
   package_rate_normal: number;
   package_rate_deluxe: number;
@@ -47,11 +47,7 @@ interface TripDetails {
 const Page: NextPage<Props> = ({ }) => {
   const params = useParams();
   const [packageDetails, setPackageDetails] = useState<PackageStructure>();
-  // console.log(params, "param")
-  const bannerData = data.filter((item) => { return item.id.toString() === params?.id[0] })[0];
-  const renderedData = bannerData?.packages?.filter((item) => { return item.pid.toString() === params?.id[1] })[0];
-  // console.log(renderedData, "rrrr");
-  // console.log(data);
+  // console.log(params, "param");
   useEffect(() => {
     async function getItem() {
       const response = await getSinglePackage('/tourpackages/single/' + params?.id[0]);
@@ -62,17 +58,21 @@ const Page: NextPage<Props> = ({ }) => {
     getItem();
   }, []);
 
+  function capitalizeFirstLetter(string) {
+    return string.charAt(0).toUpperCase() + string.slice(1);
+  }
+
   if (!packageDetails) {
     return <div className='w-full flex justify-center mt-4 h-12 pt-2'>
       <Spin size="large" />
     </div>
   }
 
-  const tripDetails : TripDetails = JSON.parse(packageDetails?.package_details);
+  const tripDetails: TripDetails = JSON.parse(packageDetails?.package_details);
 
   return (
     <div>
-      <HeroDomestic heading={packageDetails.package_type_id.toString()} paragraph={packageDetails.package_region_id.toString()} image={tripDetails.TripDetailsAndCostSummary.Images.length > 0 && tripDetails.TripDetailsAndCostSummary.Images[0]} />
+      <HeroDomestic heading={capitalizeFirstLetter(packageDetails.package_type)} paragraph={capitalizeFirstLetter(packageDetails.package_region)} image={tripDetails.TripDetailsAndCostSummary.Images.length > 0 && tripDetails.TripDetailsAndCostSummary.Images[0]} />
       <div className="w-full lg:w-[80%] flex flex-col lg:flex-row gap-6  justify-center mx-auto my-10">
         {/* Right Side*/}
         <div className=" w-full  lg:w-[60%]  ">
@@ -104,17 +104,17 @@ const Page: NextPage<Props> = ({ }) => {
             text={packageDetails.package_description}
           />
 
-          <Highlights
-            data={tripDetails.TripDetailsAndCostSummary?.Highlights}
-          />
+          {
+            tripDetails.TripDetailsAndCostSummary?.Highlights?.length > 0 &&
+            <Highlights
+              data={tripDetails.TripDetailsAndCostSummary?.Highlights}
+            />
+          }
           <Itinerary data={tripDetails.TripDetailsAndCostSummary?.Itinerary} />
           <Cost includeCost={tripDetails.TripDetailsAndCostSummary?.CostIncludes} costExclude={tripDetails.TripDetailsAndCostSummary?.CostExcludes} />
         </div>
 
-        {/* aqsa add your compoennts here */}
-
-        {/* left side */}
-        <div className=" w-full lg:w-[40%]  flex ">
+        <div className="w-full lg:w-[40%] flex">
           <DomesticForm />
         </div>
       </div>

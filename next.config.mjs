@@ -52,7 +52,19 @@ const nextConfig = {
             },
             {
                 protocol: 'https',
-                hostname: 'ichef.bbci.co.uk',
+                hostname: 'images.ctfassets.net',
+                port: '',
+                pathname: '/**',
+            },
+            {
+                protocol: 'https',
+                hostname: 'static.vecteezy.com',
+                port: '',
+                pathname: '/**',
+            },
+            {
+                protocol: 'https',
+                hostname: 'images.ctfassets.net',
                 port: '',
                 pathname: '/**',
             },

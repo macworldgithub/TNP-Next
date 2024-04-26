@@ -1,12 +1,14 @@
 "use client";
 import { Button, message } from 'antd';
-import { fetchDestinations } from "@/apiFunctions/authentication";
+import { fetchDestinations, postHotelBooking } from "@/apiFunctions/authentication";
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { BsPerson, BsEnvelope, BsTelephone } from 'react-icons/bs';
 import { IoIosArrowDown } from 'react-icons/io';
+import { useAppSelector } from '@/lib/store';
 
 const Hotelform = () => {
+const user = useAppSelector((data) => data?.auth?.data)
     const [destinations, setDestinations] = useState([])
     const [messageApi, contextHolder] = message.useMessage();
     const [formData, setFormData] = useState({
@@ -24,7 +26,6 @@ const Hotelform = () => {
 
     const getDestinations = async () => {
         const destinations = await fetchDestinations()
-        console.log(destinations)
         setDestinations(destinations)
     }
     useEffect(() => {
@@ -43,10 +44,8 @@ const Hotelform = () => {
     let filteredHotels: any;
     if (formData?.destination) {
         const temp: any = destinations?.filter((dest) => {
-            console.log(dest?.destination_id, parseInt(formData?.destination))
             return dest?.destination_id === parseInt(formData?.destination)
         })
-        console.log(temp[0], "Temp")
         filteredHotels = temp[0]?.tnp_hotels
     }
 
@@ -56,11 +55,15 @@ const Hotelform = () => {
             return
         }
         console.log(formData)
-        const res = await postHotelBooking(formData)
+        const res = await postHotelBooking(formData, user)
         console.log(res)
+        if (res?.message === "success"){
+            messageApi.success('Request Submitted Successfully!');
+        }else{
+            messageApi.error('Ops Error, Somrthing wen wrong!');
+        }
     }
 
-    console.log(filteredHotels, "filteredhotels")
 
     return (
         <div className="bg-white mx-auto flex flex-col gap-4 lg:items-center justify-center my-16 w-[80%] max-w-screen-xl">
@@ -83,7 +86,6 @@ const Hotelform = () => {
                             <option value="">  Select Destination </option>
                             {
                                 destinations?.map((dest) => {
-                                    console.log("lol")
                                     return (<option value={dest?.destination_id}> {dest?.destination_name} </option>)
                                 })
                             }
@@ -116,7 +118,6 @@ const Hotelform = () => {
                             {
 
                                 filteredHotels?.map((hotel: any) => {
-                                    console.log(filteredHotels, "Hereeeeee")
                                     return (<option value={hotel?.hotel_id}>{hotel?.hotel_name}</option>
                                     )
                                 })

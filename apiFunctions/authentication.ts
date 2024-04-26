@@ -34,9 +34,13 @@ export async function fetchDestinations() {
     return response?.data?.destinationsWithHotels
 }
 
-export async function postHotelBooking() {
-    const response = await axios.get('/pages/api/hotelBooking');
-    return response
+export async function postHotelBooking( data: any, userData :any ) {
+    const response = await axios.post('/pages/api/hotelBooking',data,{
+        headers: {
+            Authorization: `Bearer ${userData?.token}`
+        }
+    });
+    return response?.data
 }
 
 

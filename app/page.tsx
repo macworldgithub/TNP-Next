@@ -68,6 +68,12 @@ import TourCardPagination from "@/components/Home/TourCardPagination";
 import TestimonialCarousel from "@/components/Home/TestimonialCarousel";
 import NewCustomerOfferModel from "@/components/Home/NewCustomerOfferModel";
 import Timer from "@/components/Home/Timer";
+// import { useRouter } from "next/router";
+import { fetchUserById } from "@/apiFunctions/authentication";
+// import { getUser } from "./pages/api/utils";
+import { useSearchParams } from "next/navigation";
+import { useAppDispatch } from "@/lib/store";
+import { setUserData } from "@/lib/feature/user/userSlice";
 
 // const settings = {
 //   dots: true,
@@ -237,11 +243,27 @@ export default function Home() {
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [isOfferModalOpen, setIsOfferModalOpen] = useState(false);
     const [currentIndex, setCurrentIndex] = useState(0);
+    const searchParams = useSearchParams()
+    const dispatch = useAppDispatch() 
+
+
+    async function getUserById(id: any) {
+        const user = await fetchUserById(id)
+        console.log(user)
+        dispatch(setUserData(user?.data?.userData))
+    }
 
     useEffect(() => {
         setTimeout(() => {
             setIsOfferModalOpen(true);
         }, 5000);
+
+        const id = searchParams.get('id')
+
+        if (id) {
+            getUserById(id)
+        }
+
     }, []);
 
     const showModal = () => {
@@ -324,7 +346,7 @@ export default function Home() {
                                         <p>Destination</p>
                                         <Select
                                             defaultValue="lucy"
-                                            style={{ height:20 }}
+                                            style={{ height: 20 }}
                                             className="w-full g-red-300 border-0 hide-border p-0"
                                             options={[{ value: 'lucy', label: 'New York' }]}
                                         />
@@ -342,7 +364,7 @@ export default function Home() {
                                         <p>Type</p>
                                         <Select
                                             defaultValue="lucy"
-                                            style={{ height:20 }}
+                                            style={{ height: 20 }}
                                             className="w-full g-red-300 border-0 hide-border p-0"
                                             options={[{ value: 'lucy', label: 'Booking type' }]}
                                         />
@@ -361,7 +383,7 @@ export default function Home() {
                                         <p>Duration</p>
                                         <Select
                                             defaultValue="lucy"
-                                            style={{ height:20 }}
+                                            style={{ height: 20 }}
                                             className="w-full g-red-300 border-0 hide-border p-0"
                                             options={[{ value: 'lucy', label: '2-4 days' }]}
                                         />
@@ -380,7 +402,7 @@ export default function Home() {
                                         <p>Guests</p>
                                         <Select
                                             defaultValue="lucy"
-                                            style={{ height:20 }}
+                                            style={{ height: 20 }}
                                             className="w-full g-red-300 border-0 hide-border p-0"
                                             options={[{ value: 'lucy', label: '0' }]}
                                         />

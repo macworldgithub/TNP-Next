@@ -9,22 +9,23 @@ export const protect = (req : NextRequest) => {
   const bearer = req.headers.get("authorization")
 
   if (!bearer) {
-    return Response.json({message: "unauthorized"},{status:401})
+      console.log("Hello")
+    return false
   }
 
   const [, token] = bearer.split(' ')
 
   if (!token) {
-    return Response.json({message: "unauthorized"},{status:401})
+    return false
   }
 
   try {
     const user = jwt.verify(token, process.env.JWT_SECRET)
     req.headers.set("user",user)
-    return
+    return true
   } catch (e) {
     console.error(e)
-    return Response.json({message: "unauthorized"},{status:401})
+    return false
   }
 }
 
@@ -34,6 +35,14 @@ export const protect = (req : NextRequest) => {
 export async function middleware(request: NextRequest) {
     if (request.nextUrl.pathname === "/pages/api/signUp"){
         return NextResponse.rewrite(new URL('/pages/api/signUp', request.url))
+    }
+    else if (request.nextUrl.pathname === "/pages/api/hotelBooking"){
+        console.log("RANNNNNNNN")
+        let isAuthorized = protect(request)
+        if (!isAuthorized){
+            return NextResponse.json({message:"UnAuthorized",status:401})
+        }
+        return NextResponse.next()
     }
 }
 

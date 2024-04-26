@@ -27,3 +27,16 @@ export async function fetchUserById(id : any) {
     });
     return response
 }
+
+
+export async function fetchDestinations() {
+    const response = await axios.get('/pages/api/destinationHotel');
+    return response?.data?.destinationsWithHotels
+}
+
+export async function postHotelBooking() {
+    const response = await axios.get('/pages/api/hotelBooking');
+    return response
+}
+
+

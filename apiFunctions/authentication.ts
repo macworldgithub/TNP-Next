@@ -19,7 +19,11 @@ export async function signInWithGoogle() {
     window.location.assign(url) 
 }
 
-export async function fetchUserById() {
-    const response = await axios.get('/pages/api/user');
+export async function fetchUserById(id : any) {
+    const response = await axios.get('/pages/api/user',{
+        params:{
+            id
+        }
+    });
     return response
 }

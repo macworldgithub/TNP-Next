@@ -52,9 +52,9 @@ export async function GET(
             },
           },
           include: {
-            tnp_package_categories: true, // Include category data
-            tnp_package_types: true, // Include type data
-            tnp_package_regions: true, // Include region data
+            tnp_package_categories: true,
+            tnp_package_types: true,
+            tnp_package_regions: true,
           },
         });
         break;
@@ -123,6 +123,45 @@ export async function GET(
           },
         });
         break;
+      case "featured":
+        packages = await prisma.tnp_packages.findMany({
+          where: {
+            package_isfeatured: true,
+          },
+          include: {
+            tnp_package_categories: true,
+            tnp_package_types: true,
+            tnp_package_regions: true,
+          },
+        });
+        break;
+      case "bestseller":
+        packages = await prisma.tnp_packages.findMany({
+          where: {
+            package_bestseller: true,
+          },
+          include: {
+            tnp_package_categories: true,
+            tnp_package_types: true,
+            tnp_package_regions: true,
+          },
+        });
+        break;
+      case "featured&bestseller":
+        packages = await prisma.tnp_packages.findMany({
+          where: {
+            AND: [
+              { package_isfeatured: true },
+              { package_bestseller: true },
+            ],
+          },
+          include: {
+            tnp_package_categories: true,
+            tnp_package_types: true,
+            tnp_package_regions: true,
+          },
+        });
+        break;
       default:
         return new NextResponse("Bad Request: Invalid fetch type", {
           status: 400,
@@ -132,9 +171,9 @@ export async function GET(
     // Modify the package structure to include category, type, and region names
     packages = packages.map((pkg) => ({
       ...pkg,
-      package_category: pkg.tnp_package_categories?.package_category_name || "", // Use category name
-      package_type: pkg.tnp_package_types?.package_type_name || "", // Use type name
-      package_region: pkg.tnp_package_regions?.region_name || "", // Use region name
+      package_category: pkg.tnp_package_categories?.package_category_name || "",
+      package_type: pkg.tnp_package_types?.package_type_name || "",
+      package_region: pkg.tnp_package_regions?.region_name || "",
     }));
 
     return NextResponse.json({

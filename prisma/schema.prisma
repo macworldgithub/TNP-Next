@@ -37,6 +37,8 @@ model tnp_packages {
   package_rate_deluxe    Int
   package_details        String?                @db.LongText
   package_duration       Int?
+  package_isfeatured     Boolean?
+  package_bestseller     Boolean?
   tnp_package_categories tnp_package_categories @relation(fields: [package_category_id], references: [package_category_id], onUpdate: Restrict, map: "tnp_packages_ibfk_1")
   tnp_package_regions    tnp_package_regions    @relation(fields: [package_region_id], references: [region_id], onUpdate: Restrict, map: "tnp_packages_ibfk_2")
   tnp_package_types      tnp_package_types      @relation(fields: [package_type_id], references: [package_type_id], onUpdate: Restrict, map: "tnp_packages_ibfk_3")
@@ -52,7 +54,7 @@ model tnp_user {
   name               String               @db.VarChar(255)
   lname              String               @db.VarChar(255)
   email              String               @unique
-  password           String
+  password           String?
   tnp_hotel_bookings tnp_hotel_bookings[]
 }
 
@@ -85,4 +87,16 @@ model tnp_hotels {
   tnp_destinations     tnp_destinations     @relation(fields: [hotel_destination_id], references: [destination_id], onUpdate: Restrict, map: "tnp_hotels_ibfk_1")
 
   @@index([hotel_destination_id], map: "hotel_destination_id")
+}
+
+model tnp_agents {
+  agent_id   Int    @id @default(autoincrement())
+  agent_name String @db.VarChar(255)
+}
+
+model tnp_tour_bookings {
+  tour_id           Int     @id @default(autoincrement())
+  tour_package_id   Int?
+  tour_client_name  String? @db.VarChar(255)
+  tour_client_email String? @db.VarChar(255)
 }

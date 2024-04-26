@@ -85,6 +85,7 @@ model tnp_hotels {
   tnp_destinations     tnp_destinations     @relation(fields: [hotel_destination_id], references: [destination_id], onUpdate: Restrict, map: "tnp_hotels_ibfk_1")
 
   @@index([hotel_destination_id], map: "hotel_destination_id")
+<<<<<<< HEAD
 }
 
 model tnp_agents {
@@ -97,4 +98,6 @@ model tnp_tour_bookings {
   tour_package_id   Int?
   tour_client_name  String? @db.VarChar(255)
   tour_client_email String? @db.VarChar(255)
+=======
+>>>>>>> 04e83159cb1bafa4846d5e507618c620470669c2
 }

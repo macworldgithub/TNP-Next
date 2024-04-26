@@ -10,7 +10,7 @@ const Progressbar = ({ data }) => (
     items={data?.map((item, index) => ({
       title: <span className="font-semibold text-lg">{item.day}</span>, // Dynamically set the title
       status: 'process', // Set status to 'process' for the first item
-      description: <span className='text-sm'>{item.description}</span>,
+      description: <span className='text-sm'>{item.event}</span>,
       icon: index === 0 || index === data.length - 1 ? ( // Conditionally render different icons
         <SlLocationPin size={20} className='bg-sky-400 text-white p-[3px] rounded-full' /> // Custom icon for first and last step
       ) : (

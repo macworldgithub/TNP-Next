@@ -4,7 +4,6 @@ import cancel from "../../public/domestic/cancel.svg"
 const Cost = ({includeCost,costExclude}:any) => {
   
 
-  
   return (
     <div className="flex flex-col gap-6 mt-4 p-6 lg:p-0 ">
       <div className="flex flex-col gap-6">

@@ -9,7 +9,8 @@ export async function POST(request: Request) {
         // @ts-ignore
         const user = await prisma.tnp_user.findUnique({
             where: {
-                username: req.username
+                // @ts-ignore
+                email: req.email
             }
         })
 
@@ -18,9 +19,17 @@ export async function POST(request: Request) {
         if (!isValid) {
             return Response.json({ message: "incorrect password" }, { status: 400 })
         }
-
         const token = createJWT(user)
-        return Response.json({ token, message: "success" }, { status: 200 })
+        let userData = {
+            token,
+            name:user?.name,
+            lname:user?.lname,
+            // @ts-ignore
+            email:user?.email,
+            id:user?.id
+        }
+
+        return Response.json({ token, message: "success",userData }, { status: 200 })
 
 
 

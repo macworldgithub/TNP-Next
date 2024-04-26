@@ -5,7 +5,6 @@ import { Steps } from 'antd';
 const Progressbar = ({ data }) => (
   <Steps
     direction="vertical"
-
     size="small"
     current={0}
     items={data.map((item, index) => ({
@@ -15,7 +14,6 @@ const Progressbar = ({ data }) => (
       icon: index === 0 || index === data.length - 1 ? ( // Conditionally render different icons
         <SlLocationPin size={20} className='bg-sky-400 text-white p-[3px] rounded-full' /> // Custom icon for first and last step
       ) : (
-    
         <div className="w-2 h-2 mt-2 ml-2 bg-sky-500 rounded-full"></div> // Default dot icon for other steps
       ),
     }))}

@@ -22,23 +22,20 @@ import {
 } from "react-icons/hi";
 import googlepic from "../../assets/login/googlePic.png";
 import facebookpic from "../../assets/login/facebook.png";
+import Signup from '@/app/pages/signup/page';
+import { signUp } from '@/apiFunctions/authentication';
 import { useAppDispatch } from '@/lib/store';
-import { useRouter } from 'next/navigation';
 import { setUserData } from '@/lib/feature/user/userSlice';
-import { signIn, signInWithGoogle } from '@/apiFunctions/authentication';
+import { useRouter } from 'next/navigation';
 
-import { GoogleAuthProvider, signInWithPopup } from "firebase/auth";
+const SignupForm = () => {
+ const dispatch = useAppDispatch();
 
-const provider = new GoogleAuthProvider();
-
-const LoginForm = () => {
-    const dispatch = useAppDispatch();
-
-    const router = useRouter();
-
+const router = useRouter();
     const [messageApi, contextHolder] = message.useMessage();
     const [formData, setFormData] = useState({
-
+        name: "",
+        lname: "",
         email: "",
         password: "",
     });
@@ -52,56 +49,42 @@ const LoginForm = () => {
     };
 
 
-    const handleGoogleLogin = async () => {
-        signInWithPopup(auth, provider)
-            .then((result) => {
-                // This gives you a Google Access Token. You can use it to access the Google API.
-                // The signed-in user info.
-                const user = result.user;
-                console.log("User",user)
-                // IdP data available using getAdditionalUserInfo(result)
-                // ...
-            }).catch((error) => {
-                // Handle Errors here.
-                const errorCode = error.code;
-                const errorMessage = error.message;
-                // The email of the user's account used.
-                const email = error.customData.email;
-                // The AuthCredential type that was used.
-                const credential = GoogleAuthProvider.credentialFromError(error);
-                // ...
-            });
-    }
-    
-
-    const handleServerGoogleLogin= async () => {
-
-        const res = await signInWithGoogle()
-        console.log(res)
-        
-    }
-
     const handleSubmit = async () => {
-        if (formData.password?.length < 8) {
+            console.log("yeah")
+        if (!formData.name) {
+            messageApi.open({
+                type: 'error',
+                content: 'Name cannot be empty',
+            })
+            return
+        }
+        else if (!formData.lname) {
+            messageApi.open({
+                type: 'error',
+                content: 'Name cannot be empty',
+            })
+            return
+        }
+        else if (formData.password?.length < 8) {
             messageApi.open({
                 type: 'error',
                 content: 'Password must be atleast 8 characters long',
-            });
+            })
             return
         }
         else if (!formData.email) {
-
             messageApi.open({
                 type: 'error',
                 content: 'Email can not be empty',
             })
             return
         }
+
         try {
-            const response = await signIn(formData);
+            const response = await signUp(formData);
             console.log("yeah")
             dispatch(setUserData(response?.data?.userData))
-            console.log("yeah2")
+            console.log("yeah")
             router.push('/');
             messageApi.open({
                 type: 'success',
@@ -109,13 +92,17 @@ const LoginForm = () => {
             })
 
         } catch (error) {
-            console.log(error.response)
+        console.log(error.response)
             messageApi.open({
                 type: 'error',
                 content: error?.response?.data?.message
             })
-
+                
         }
+
+
+
+
     }
 
 
@@ -132,29 +119,68 @@ const LoginForm = () => {
                 <span className="mb-4  p-1 text-white rounded-sm h-8 bg-yellow-400 w-[10rem] ">
                     20% OFF
                 </span>{" "}
-                <span>get 20% off foe web signup</span>
-                <div className="w-full">
-
-
-                    <div className="mb-4">
+                <span>get 20% off for web signup</span>
+                <div className="flex flex-col lg:flex-row gap-4 my-3">
+                    <div className="mb-4 ">
                         <label
-                            htmlFor="email"
-                            className="block text-gray-700 font-bold mb-2 my-2"
+                            htmlFor="First Name"
+                            className="block text-gray-700 font-bold mb-2"
                         >
-                            Email
+                            First Name
                         </label>
                         <div className="relative">
                             <input
-                                type="email"
-                                id="email"
-                                name="email"
-                                value={formData.email}
+                                type="text"
+                                id="name"
+                                name="name"
+                                value={formData.name}
                                 onChange={handleChange}
-                                placeholder="Enter your email"
+                                placeholder="Enter your first name"
                                 className="input-with-icon pl-8 rounded border border-gray-300 shadow-sm focus:ring-2 focus:ring-blue-500 focus:border-transparent w-full"
+                            />
+                            <HiOutlineUser className="absolute top-3 left-3 text-gray-500" />
+                        </div>
+                    </div>
+
+                    <div className="mb-4">
+                        <label
+                            htmlFor="Last Name"
+                            className="block text-gray-700 font-bold mb-2"
+                        >
+                            Last Name
+                        </label>
+                        <div className="relative">
+                            <input
+                                type="text"
+                                id="lname"
+                                name="lname"
+                                value={formData.lname}
+                                onChange={handleChange}
+                                placeholder="Enter your Last name"
+                                className="input-with-icon pl-8 rounded border border-gray-300 shadow-sm focus:ring-2 focus:ring-blue-500 focus:border-transparent w-full" // Added left padding to create space for the icon
                             />
                             <HiOutlineMail className="absolute top-3 left-3 text-gray-500" />
                         </div>
+                    </div>
+                </div>
+                <div className="mb-4">
+                    <label
+                        htmlFor="Your email"
+                        className="block text-gray-700 font-bold mb-2"
+                    >
+                        Your Email{" "}
+                    </label>
+                    <div className="relative">
+                        <input
+                            type="email"
+                            id="email"
+                            name="email"
+                            value={formData.email}
+                            onChange={handleChange}
+                            placeholder="Enter email"
+                            className="input-with-icon pl-8 rounded border border-gray-300 shadow-sm focus:ring-2 focus:ring-blue-500 focus:border-transparent w-full"
+                        />
+                        <HiOutlinePhone className="absolute top-3 left-3 text-gray-500" />
                     </div>
                 </div>
                 <div className="mb-4">
@@ -171,7 +197,7 @@ const LoginForm = () => {
                             name="password"
                             value={formData.password}
                             onChange={handleChange}
-                            placeholder="Enter your phone number"
+                            placeholder="Enter  password"
                             className="input-with-icon pl-8 rounded border border-gray-300 shadow-sm focus:ring-2 focus:ring-blue-500 focus:border-transparent w-full"
                         />
                         <HiOutlinePhone className="absolute top-3 left-3 text-gray-500" />
@@ -183,7 +209,7 @@ const LoginForm = () => {
                     <div className="w-[50%] h-[1px] rounded-sm  bg-gray-200"> </div>
                 </div>
                 <div className="flex flex-col lg:flex-row my-3 gap-4">
-                    <button onClick={handleServerGoogleLogin} className="bg-white text-black py-2 px-5 rounded flex items-center border border-gray-400">
+                    <button  className="bg-white text-black py-2 px-5 rounded flex items-center border border-gray-400">
                         <Image src={googlepic} alt="Google icon" className="w-6 h-6 mr-2" />{" "}
                         Sign In with Google
                     </button>
@@ -201,7 +227,7 @@ const LoginForm = () => {
                         className="bg-primary w-full hover:bg-blue-600 text-white py-2 px-5 rounded"
                         onClick={handleSubmit}
                     >
-                        SIGN IN{" "}
+                        SIGN UP{" "}
                     </button>
                 </div>
                 <div className="flex items-center my-3">
@@ -218,8 +244,7 @@ const LoginForm = () => {
                 <div className="flex items-center justify-center lg:justify-normal ">
                     <p className="text-gray-700">Don&apos;t have an account?</p>
                     <button className="ml-2 bg-primary hover:bg-blue-600 text-white  py-2 px-4 rounded">
-                        <Link href="/pages/signup">Register</Link>
-
+                        <Link href="/pages/login">Login</Link>
                     </button>
                 </div>
             </div>
@@ -227,4 +252,4 @@ const LoginForm = () => {
     );
 };
 
-export default LoginForm;
+export default SignupForm;

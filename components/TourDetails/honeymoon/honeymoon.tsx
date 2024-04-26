@@ -11,10 +11,41 @@ import { useParams } from "next/navigation";
 import "./style.css";
 
 import FooterBg from "./Footer/page";
+import { useEffect, useState } from "react";
+import { getSinglePackage } from "@/app/actions/tourpackages";
+import { Spin } from "antd";
+
+interface PackageStructure {
+  package_id: number;
+  package_name: string;
+  package_total_persons: number;
+  package_category: string;
+  package_type: string;
+  package_region: string;
+  package_description: string;
+  package_rate_normal: number;
+  package_rate_deluxe: number;
+  package_details: string | null;
+  package_duration: string | null;
+}
+
+interface TripDetails {
+  TripDetailsAndCostSummary: {
+    CostIncludes: string[];
+    CostExcludes: string[];
+    Itinerary: {
+      day: string;
+      event: string;
+      description: string;
+    }[];
+    Highlights: string[];
+    Images: string[];
+  };
+}
 
 const Honeymoon = () => {
   const params = useParams();
-  console.log(params, "param");
+  console.log(params, "<===param");
   const bannerData = data.filter((item) => {
     return item.id.toString() === "0";
   })[0];
@@ -23,6 +54,34 @@ const Honeymoon = () => {
   })[0];
   // console.log(renderedData, "rrrr");
   // console.log(data);
+
+  const [packageDetails, setPackageDetails] = useState<PackageStructure>();
+  // console.log(params, "param");
+  useEffect(() => {
+    async function getItem() {
+      const response = await getSinglePackage(
+        "/tourpackages/single/" + params?.category[1]
+      );
+      console.log("Response", response);
+      setPackageDetails(response);
+    }
+
+    getItem();
+  }, []);
+
+  function capitalizeFirstLetter(string) {
+    return string.charAt(0).toUpperCase() + string.slice(1);
+  }
+
+  if (!packageDetails) {
+    return (
+      <div className="w-full flex justify-center mt-4 h-12 pt-2">
+        <Spin size="large" />
+      </div>
+    );
+  }
+
+  const tripDetails: TripDetails = JSON.parse(packageDetails?.package_details);
 
   return (
     <div className="bg_color text-white">
@@ -47,7 +106,9 @@ const Honeymoon = () => {
                 </div>
               </div>
             </div>
-            <CarouselSlider />
+            <CarouselSlider
+              ImageList={tripDetails.TripDetailsAndCostSummary.Images}
+            />
 
             <div className="flex justify-end  gap-6 items-center p-2">
               <button className="bg-[#760F22] text-white px-4 py-2 rounded hover:bg-secon w-[12rem] lg:w-[10rem]">

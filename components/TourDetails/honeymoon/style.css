@@ -1,0 +1,10 @@
+.bg_img {
+    background-image: url(../../../assets/honeymoon/pngwing\ 2.svg);
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.bg_color {
+    background-image: url(../../../assets/honeymoon/Vector\ \(1\).svg);
+    opacity: 90%;
+}

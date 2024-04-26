@@ -32,3 +32,19 @@ export async function getSinglePackage(extededRoute = "/tourpackages/single"): P
         }
     }
 }
+
+export async function getTourPackagesByCategory(extededRoute = "/tourpackages/featured&bestseller"): Promise<any> { 
+    try {
+        const response = await axios.get(LOCALHOST_URL + extededRoute);
+        console.log(response,"hereeeeeeeeeee")
+        // console.log("API Response", response.data?.data);
+        return response.data.data;
+    } catch (error) {
+        return {
+            data: [],
+            status: 400,
+            message: "failed"
+        }
+    }
+
+}

@@ -68,6 +68,7 @@ import TourCardPagination from "@/components/Home/TourCardPagination";
 import TestimonialCarousel from "@/components/Home/TestimonialCarousel";
 import NewCustomerOfferModel from "@/components/Home/NewCustomerOfferModel";
 import Timer from "@/components/Home/Timer";
+import { getTourPackagesByCategory } from "./actions/tourpackages";
 
 // const settings = {
 //   dots: true,
@@ -236,12 +237,34 @@ const featuredata = [
 export default function Home() {
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [isOfferModalOpen, setIsOfferModalOpen] = useState(false);
+    const[bestSellerData, setBestSellerData] = useState([]);
+    console.log("Best Seller Data", bestSellerData);
+  
     const [currentIndex, setCurrentIndex] = useState(0);
 
+  
+
     useEffect(() => {
+
+        const getPackages = async () => {
+            try {
+              const response = await getTourPackagesByCategory("/tourpackages/featured&bestseller");
+              console.log("API Response:", response); // Log API response for debugging
+              if (response ) {
+                setBestSellerData(response);
+              } else {
+                console.error("Invalid API response:", response); // Log invalid response for debugging
+              }
+            } catch (error) {
+              console.error("Error fetching data:", error); // Log any errors for debugging
+            }
+          };
+      
+          getPackages();
         setTimeout(() => {
             setIsOfferModalOpen(true);
         }, 5000);
+      
     }, []);
 
     const showModal = () => {
@@ -266,6 +289,7 @@ export default function Home() {
     const handlePrev = () => {
         setCurrentIndex((prevIndex) => Math.max(prevIndex - cardsPerPage, 0));
     };
+   
     return (
         <div className="w-full bg-white min-w-mi">
             <NewCustomerOfferModel />
@@ -535,7 +559,7 @@ export default function Home() {
                     <div className="relative z-20 w-full flex flex-col items-center gap-8 justify-center">
                         <div className="w-full px-2">
                             <TourCardPagination
-                                featuredata={featuredata}
+                                featuredata={bestSellerData}
                                 direction="row"
                                 cardsPerPage={4}
                             />
@@ -734,7 +758,8 @@ export default function Home() {
                         src={ArrowLeft}
                         alt="bluebanner"
                     />
-                    <TourCardPagination featuredata={featuredata2} direction="col" />
+                    
+                    <TourCardPagination featuredata={bestSellerData} direction="col" />
                 </div>
             </div>
 

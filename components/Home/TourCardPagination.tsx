@@ -3,6 +3,9 @@ import HomeTourCard from "./HomeTourCard";
 import { GrFormNext } from "react-icons/gr";
 import { GrFormPrevious } from "react-icons/gr";
 import { NextPage } from "next";
+import TourCard from "./TourCard";
+import Link from "next/link";
+
 
 interface Props {
   featuredata: any[];
@@ -33,19 +36,31 @@ const TourCardPagination: NextPage<Props> = ({
 
     return (
       <div className="flex md:flex-row flex-col md:gap-4 gap-4 justify-center items-center lg:w-[85%] w-[100%]  ">
-        {featuredata.slice(startIndex, endIndex).map((item, index) => (
-          <HomeTourCard
-          key={index}
-            pic={item?.img}
-            loc={item?.location}
-            title={item?.title}
-            duration={item?.duration}
-            people={item?.people}
-            price={item?.price}
-            dprice={item?.discountedPrice}
-            review={item?.reviewCount}
-          />
-        ))}
+        {featuredata.slice(startIndex, endIndex).map((item, index) => {
+           const packageDetails = JSON.parse(item.package_details || '{}');
+           console.log("packageDetails", packageDetails)
+           const imageUrls = packageDetails?.TripDetailsAndCostSummary?.Images || [];
+       return (
+       
+        <HomeTourCard key={index}
+        id={item?.package_id}
+        pic={imageUrls[0]}
+        loc={item?.tnp_package_regions.region_name}
+        title={item?.package_name}
+        duration={item?.package_duration}
+        people={item?.package_total_persons}
+         price={item?.package_rate_deluxe}
+        dprice={item?.package_rate_normal}
+        review={1}
+        imageCount={imageUrls.length}
+        videoCount={imageUrls.length}/>
+     
+       
+
+       
+          
+         
+        )})}
       </div>
     );
   };

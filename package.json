@@ -16,6 +16,7 @@
     "antd": "^5.15.3",
     "axios": "^1.6.8",
     "bcrypt": "^5.1.1",
+    "ejs": "^3.1.10",
     "firebase": "^10.10.0",
     "flowbite": "^2.3.0",
     "flowbite-react": "^0.7.5",

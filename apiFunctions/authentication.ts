@@ -10,14 +10,16 @@ export async function signIn(userData : any) {
     const response = await axios.post('/pages/api/signIn', userData);
     return response
 }
-const CLIENT_ID = process.env.CLIENT_ID
 const REDIRECT_URI = 'http://localhost:3000/pages/api/auth/google/callback';
 
 export async function signInWithGoogle() {
 //    const response = await axios.get('/pages/api/auth');
 //    return response
-    console.log(CLIENT_ID)
     const url = `https://accounts.google.com/o/oauth2/v2/auth?client_id=206550019220-gch048ktlcdklsj5g9h85dj06462vvfg.apps.googleusercontent.com&redirect_uri=${REDIRECT_URI}&response_type=code&scope=profile email`;
     window.location.assign(url) 
 }
 
+export async function fetchUserById() {
+    const response = await axios.get('/pages/api/user');
+    return response
+}

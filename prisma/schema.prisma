@@ -47,31 +47,54 @@ model tnp_packages {
 }
 
 model tnp_user {
-  id        Int      @id @default(autoincrement())
-  createdAt DateTime @default(now())
-  name      String   @db.VarChar(255)
-  lname     String   @db.VarChar(255)
-  email     String   @unique
-  password  String
+  id                 Int                  @id @default(autoincrement())
+  createdAt          DateTime             @default(now())
+  name               String               @db.VarChar(255)
+  lname              String               @db.VarChar(255)
+  email              String               @unique
+  password           String?
+  tnp_hotel_bookings tnp_hotel_bookings[]
 }
 
 model tnp_destinations {
-  destination_id   Int     @id @default(autoincrement())
-  destination_name String? @db.VarChar(255)
+  destination_id   Int          @id @default(autoincrement())
+  destination_name String?      @db.VarChar(255)
+  tnp_hotels       tnp_hotels[]
 }
 
 model tnp_hotel_bookings {
-  booking_id             Int       @id @default(autoincrement())
+  booking_id             Int         @id @default(autoincrement())
   booking_user_id        Int?
   booking_hotel_id       Int?
-  booking_checkin_time   DateTime? @db.DateTime(0)
-  booking_checkout_time  DateTime? @db.DateTime(0)
+  booking_checkin_time   DateTime?   @db.DateTime(0)
+  booking_checkout_time  DateTime?   @db.DateTime(0)
   booking_adult_count    Int?
   booking_children_count Int?
+  tnp_user               tnp_user?   @relation(fields: [booking_user_id], references: [id], onDelete: Restrict, onUpdate: Restrict, map: "tnp_hotel_bookings_ibfk_1")
+  tnp_hotels             tnp_hotels? @relation(fields: [booking_hotel_id], references: [hotel_id], onDelete: Restrict, onUpdate: Restrict, map: "tnp_hotel_bookings_ibfk_2")
+
+  @@index([booking_hotel_id], map: "booking_hotel_id")
+  @@index([booking_user_id], map: "booking_user_id")
 }
 
 model tnp_hotels {
-  hotel_id             Int     @id @default(autoincrement())
-  hotel_name           String? @db.VarChar(255)
+  hotel_id             Int                  @id @default(autoincrement())
+  hotel_name           String?              @db.VarChar(255)
   hotel_destination_id Int
+  tnp_hotel_bookings   tnp_hotel_bookings[]
+  tnp_destinations     tnp_destinations     @relation(fields: [hotel_destination_id], references: [destination_id], onUpdate: Restrict, map: "tnp_hotels_ibfk_1")
+
+  @@index([hotel_destination_id], map: "hotel_destination_id")
+}
+
+model tnp_agents {
+  agent_id   Int    @id @default(autoincrement())
+  agent_name String @db.VarChar(255)
+}
+
+model tnp_tour_bookings {
+  tour_id           Int     @id @default(autoincrement())
+  tour_package_id   Int?
+  tour_client_name  String? @db.VarChar(255)
+  tour_client_email String? @db.VarChar(255)
 }

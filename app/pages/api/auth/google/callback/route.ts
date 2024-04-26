@@ -1,6 +1,9 @@
 import { NextRequest } from "next/server";
 import axios from "axios";
 import { redirect } from "next/navigation";
+import { getUser } from "../../../utils";
+import prisma from "../../../db";
+import { createJWT, hashPassword } from "../../../auth";
 
 const CLIENT_ID = process.env.CLIENT_ID
 const CLIENT_SECRET =process.env.CLIENT_SECRET
@@ -12,7 +15,6 @@ export async function GET(req : NextRequest) {
   const code = searchParams.get('code')
   console.log("Hello1",code,searchParams)
 
-  try {
     // Exchange authorization code for access token
     const { data } = await axios.post('https://oauth2.googleapis.com/token', {
       client_id: CLIENT_ID,
@@ -31,10 +33,22 @@ export async function GET(req : NextRequest) {
     });
     console.log("DATAAAAAAAAA",profile)
 
-    // Code to handle user authentication and retrieval using the profile data
+    let user = await getUser(profile.email)
 
-    redirect(`/?email=${profile?.email}`);
-  } catch (error) {
-    redirect(`/?email=usman`);
-  }
+    if (!user){
+        user = await prisma.tnp_user.create({
+            // @ts-ignore
+            data: {
+                name: profile.given_name,
+                lname: profile.family_name,
+                // @ts-ignore
+                email: profile.email,
+            }
+        })
+        console.log(user)
+    }
+
+
+
+    redirect(`/?email=${user?.id}`);
 };

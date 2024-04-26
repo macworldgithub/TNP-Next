@@ -67,6 +67,7 @@ import packbg from "../public/home/package bg.png";
 import TourCardPagination from "@/components/Home/TourCardPagination";
 import TestimonialCarousel from "@/components/Home/TestimonialCarousel";
 import NewCustomerOfferModel from "@/components/Home/NewCustomerOfferModel";
+import Timer from "@/components/Home/Timer";
 
 // const settings = {
 //   dots: true,
@@ -697,8 +698,9 @@ export default function Home() {
 
                     <div className="flex flex-col md:flex-row mt-3">
                         <div className="w-20 text-black text-base font-bold">Hurry Up!</div>
-                        <div className="md:w-1/2 md:mx-5 my-5 md:my-0 text-xs text-black font-bold">
-                            <div className="flex md:w-full justify-between">
+                        <div className="md:w-1/2 md:mx-5 my-5 md:my-0 text-xs text-black font-bold ">
+                            <Timer/>
+                            {/* <div className="flex md:w-full justify-between">
                                 <div className="flex flex-col h-12 px- justify-between ">
                                     <p className="text-primary text-center">845</p>
                                     <p>Days</p>
@@ -715,7 +717,7 @@ export default function Home() {
                                     <p className="text-primary text-center">59</p>
                                     <p>Second</p>
                                 </div>
-                            </div>
+                            </div> */}
                         </div>
                     </div>
 

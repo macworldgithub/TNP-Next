@@ -8,8 +8,12 @@ import QuickLinks from "./QuickLinks";
 import OurNewsLetter from "./OurNewsLetter";
 import Affiliations from "./Affiliations";
 import { useEffect, useState } from "react";
+import { useParams } from "next/navigation";
 
 const Footer = () => {
+  const params = useParams();
+  console.log("footer", params);
+
   const [isMounted, setIsMounted] = useState(false);
 
   useEffect(() => {
@@ -19,6 +23,10 @@ const Footer = () => {
   if (!isMounted) {
     return null; // Don't render anything until client-side hydration
   }
+  if (params?.category && params.category[0] === "honeymoon") {
+    return null;
+  }
+
   return (
     <div className="text-black bg-white relative pb-4 pt-8 items-center flex flex-col">
       <Affiliations />

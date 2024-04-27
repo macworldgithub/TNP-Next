@@ -4,7 +4,7 @@ const Itinerary = ({data})=>{
     console.log("Iteneries data", data);
     return(
         <div className="flex flex-col gap-4 mt-4 p-6 lg:p-0">
-            <p className="text-2xl font-bold">Itinerary</p>
+            <p className="text-2xl font-bold text-white">Itinerary</p>
             <Progressbar data={data}/>
         </div>
     )

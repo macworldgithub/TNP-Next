@@ -8,21 +8,24 @@ datasource db {
 }
 
 model tnp_package_categories {
-  package_category_id   Int            @id @default(autoincrement())
-  package_category_name String         @db.VarChar(255)
+  package_category_id   Int                @id @default(autoincrement())
+  package_category_name String             @db.VarChar(255)
+  tnp_destinations      tnp_destinations[]
   tnp_packages          tnp_packages[]
 }
 
 model tnp_package_regions {
-  region_id    Int            @id @default(autoincrement())
-  region_name  String         @db.VarChar(255)
-  tnp_packages tnp_packages[]
+  region_id        Int                @id @default(autoincrement())
+  region_name      String             @db.VarChar(255)
+  tnp_destinations tnp_destinations[]
+  tnp_packages     tnp_packages[]
 }
 
 model tnp_package_types {
-  package_type_id   Int            @id @default(autoincrement())
-  package_type_name String         @db.VarChar(255)
-  tnp_packages      tnp_packages[]
+  package_type_id    Int            @id @default(autoincrement())
+  package_type_name  String         @db.VarChar(255)
+  package_type_value String?        @db.VarChar(255)
+  tnp_packages       tnp_packages[]
 }
 
 model tnp_packages {
@@ -59,9 +62,16 @@ model tnp_user {
 }
 
 model tnp_destinations {
-  destination_id   Int          @id @default(autoincrement())
-  destination_name String?      @db.VarChar(255)
-  tnp_hotels       tnp_hotels[]
+  destination_id          Int                    @id @default(autoincrement())
+  destination_category_id Int
+  destination_region_id   Int
+  destination_name        String?                @db.VarChar(255)
+  tnp_package_regions     tnp_package_regions    @relation(fields: [destination_region_id], references: [region_id], onUpdate: Restrict, map: "tnp_destinations_ibfk_1")
+  tnp_package_categories  tnp_package_categories @relation(fields: [destination_category_id], references: [package_category_id], onUpdate: Restrict, map: "tnp_destinations_ibfk_2")
+  tnp_hotels              tnp_hotels[]
+
+  @@index([destination_category_id], map: "destination_category_id")
+  @@index([destination_region_id], map: "destination_region_id")
 }
 
 model tnp_hotel_bookings {
@@ -90,8 +100,8 @@ model tnp_hotels {
 }
 
 model tnp_agents {
-  agent_id   Int    @id @default(autoincrement())
-  agent_name String @db.VarChar(255)
+  agent_id    Int    @id @default(autoincrement())
+  agent_name  String @db.VarChar(255)
   agent_email String @db.VarChar(255)
 }
 

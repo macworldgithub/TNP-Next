@@ -11,14 +11,12 @@ model tnp_package_categories {
   package_category_id   Int                @id @default(autoincrement())
   package_category_name String             @db.VarChar(255)
   tnp_destinations      tnp_destinations[]
-  tnp_packages          tnp_packages[]
 }
 
 model tnp_package_regions {
   region_id        Int                @id @default(autoincrement())
   region_name      String             @db.VarChar(255)
   tnp_destinations tnp_destinations[]
-  tnp_packages     tnp_packages[]
 }
 
 model tnp_package_types {
@@ -29,26 +27,23 @@ model tnp_package_types {
 }
 
 model tnp_packages {
-  package_id             Int                    @id @default(autoincrement())
-  package_name           String                 @db.VarChar(255)
+  package_id             Int               @id @default(autoincrement())
+  package_name           String            @db.VarChar(255)
   package_total_persons  Int
-  package_category_id    Int
   package_type_id        Int
-  package_region_id      Int
-  package_description    String                 @db.Text
+  package_description    String            @db.Text
+  package_destination_id Int?
   package_rate_normal    Int
   package_rate_deluxe    Int
-  package_details        String?                @db.LongText
+  package_details        String?           @db.LongText
   package_duration       Int?
   package_isfeatured     Boolean?
   package_bestseller     Boolean?
-  tnp_package_categories tnp_package_categories @relation(fields: [package_category_id], references: [package_category_id], onUpdate: Restrict, map: "tnp_packages_ibfk_1")
-  tnp_package_regions    tnp_package_regions    @relation(fields: [package_region_id], references: [region_id], onUpdate: Restrict, map: "tnp_packages_ibfk_2")
-  tnp_package_types      tnp_package_types      @relation(fields: [package_type_id], references: [package_type_id], onUpdate: Restrict, map: "tnp_packages_ibfk_3")
+  tnp_package_types      tnp_package_types @relation(fields: [package_type_id], references: [package_type_id], onUpdate: Restrict, map: "tnp_packages_ibfk_3")
+  tnp_destinations       tnp_destinations? @relation(fields: [package_destination_id], references: [destination_id], onDelete: Restrict, onUpdate: Restrict, map: "tnp_packages_ibfk_4")
 
-  @@index([package_category_id], map: "package_category_id")
-  @@index([package_region_id], map: "package_region_id")
   @@index([package_type_id], map: "package_type_id")
+  @@index([package_destination_id], map: "package_destination_id")
 }
 
 model tnp_user {
@@ -69,6 +64,7 @@ model tnp_destinations {
   tnp_package_regions     tnp_package_regions    @relation(fields: [destination_region_id], references: [region_id], onUpdate: Restrict, map: "tnp_destinations_ibfk_1")
   tnp_package_categories  tnp_package_categories @relation(fields: [destination_category_id], references: [package_category_id], onUpdate: Restrict, map: "tnp_destinations_ibfk_2")
   tnp_hotels              tnp_hotels[]
+  tnp_packages            tnp_packages[]
 
   @@index([destination_category_id], map: "destination_category_id")
   @@index([destination_region_id], map: "destination_region_id")

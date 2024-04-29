@@ -260,11 +260,11 @@ export default function Home() {
     const getPackages = async () => {
       try {
         const response = await getTourPackagesByCategory(
-          "/tourpackages/featured&bestseller"
+          "/tourpackages/filter?limit=8&offset=0"
         );
-        console.log("API Response:", response); // Log API response for debugging
+        console.log("Home API Response:", response);
         if (response) {
-          setBestSellerData(response);
+          setBestSellerData(response.data);
         } else {
           console.error("Invalid API response:", response); // Log invalid response for debugging
         }

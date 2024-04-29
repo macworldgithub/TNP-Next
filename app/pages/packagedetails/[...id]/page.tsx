@@ -20,14 +20,32 @@ interface PackageStructure {
   package_id: number;
   package_name: string;
   package_total_persons: number;
-  package_category: string;
-  package_type: string;
-  package_region: string;
   package_description: string;
   package_rate_normal: number;
   package_rate_deluxe: number;
-  package_details: string | null;
-  package_duration: string | null;
+  package_details: string;
+  package_duration: number;
+  package_isfeatured: boolean;
+  package_bestseller: boolean;
+  tnp_destinations: {
+    destination_id: number;
+    destination_category_id: number;
+    destination_name: string;
+    destination_region_id: number;
+    tnp_package_categories: {
+      package_category_id: number;
+      package_category_name: string;
+    };
+    tnp_package_regions: {
+      region_id: number;
+      region_name: string;
+    };
+  };
+  tnp_package_types: {
+    package_type_id: number;
+    package_type_name: string;
+    package_type_value: string;
+  };
 }
 
 interface TripDetails {
@@ -52,7 +70,7 @@ const Page: NextPage<Props> = ({ }) => {
     async function getItem() {
       const response = await getSinglePackage('/tourpackages/single/' + params?.id[0]);
       console.log("Response", response);
-      setPackageDetails(response)
+      setPackageDetails(response.data)
     }
 
     getItem();
@@ -72,7 +90,7 @@ const Page: NextPage<Props> = ({ }) => {
 
   return (
     <div>
-      <HeroDomestic heading={capitalizeFirstLetter(packageDetails.package_type)} paragraph={capitalizeFirstLetter(packageDetails.package_region)} image={tripDetails.TripDetailsAndCostSummary.Images.length > 0 && tripDetails.TripDetailsAndCostSummary.Images[0]} />
+      <HeroDomestic heading={capitalizeFirstLetter(packageDetails.tnp_package_types.package_type_name)} paragraph={capitalizeFirstLetter(packageDetails.tnp_destinations.tnp_package_regions.region_name)} image={tripDetails.TripDetailsAndCostSummary.Images.length > 0 && tripDetails.TripDetailsAndCostSummary.Images[0]} />
       <div className="w-full lg:w-[80%] flex flex-col lg:flex-row gap-6  justify-center mx-auto my-10">
         {/* Right Side*/}
         <div className=" w-full  lg:w-[60%]  ">

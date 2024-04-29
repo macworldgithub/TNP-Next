@@ -5,33 +5,35 @@ import TourPackHero from "@/components/TourPackage/TourPackHero";
 import Honeymoon from "@/components/TourDetails/honeymoon/honeymoon";
 import { NextPage } from "next";
 import { useParams } from "next/navigation";
+import HoneymoonFeaturedListings from "@/components/TourPackage/HoneymoonFeaturedListings";
+import HoneymoonTourPackHero from "@/components/TourPackage/HoneymoonTourPackHero";
 
 interface Props {}
 
 const Page: NextPage<Props> = ({}) => {
   const params = useParams();
-  console.log("Param", params);
+  console.log("Param aya", params);
   const { category } = params;
 
   function capitalizeFirstLetter(string) {
     return string.charAt(0).toUpperCase() + string.slice(1);
   }
 
-  if (category[0] === "honeymoon") {
-    return (
-      <div>
-        <Honeymoon />
-      </div>
-    );
-  }
+  // if (category[0] === "honeymoon") {
+  //   return (
+  //     <div>
+  //       <Honeymoon />
+  //     </div>
+  //   );
+  // }
 
   return (
     <div>
-      <TourPackHero
+      <HoneymoonTourPackHero
         heading={capitalizeFirstLetter(category.length > 0 && category[0])}
         subheading={category.length > 1 && capitalizeFirstLetter(category[1])}
       />
-      <FeaturedListings />
+      <HoneymoonFeaturedListings/>
     </div>
   );
 };

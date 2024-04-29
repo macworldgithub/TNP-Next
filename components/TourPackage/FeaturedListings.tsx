@@ -272,9 +272,9 @@ const FeaturedListings = () => {
 
   }, []);
 
-  const startIndex = (currPage - 1) * itemsPerPage;
-  const endIndex = Math.min(startIndex + itemsPerPage, featuredData.length);
-  let currentItems = featuredData.slice(startIndex, endIndex);
+  // const startIndex = (currPage - 1) * itemsPerPage;
+  // const endIndex = Math.min(startIndex + itemsPerPage, featuredData.length);
+  // let currentItems = featuredData.slice(startIndex, endIndex);
 
   return (
     <div className="w-full h-full flex justify-center items-center mt-12">
@@ -282,7 +282,7 @@ const FeaturedListings = () => {
         <PaginationInfo
           currentPage={1}
           itemsPerPage={6}
-          totalItems={featuredData.length}
+          totalItems={packages.length}
         />
         <FilterAndSearchBar />
         <RenderTourCards PackageItems={packages} />
@@ -291,7 +291,7 @@ const FeaturedListings = () => {
           <div className="flex w-full justify-center">
             <Pagination
               currentPage={currPage}
-              totalPages={Math.ceil(featuredData.length / itemsPerPage)}
+              totalPages={Math.ceil(packages.length / itemsPerPage)}
               setCurr={setCurrPage}
             />
           </div>

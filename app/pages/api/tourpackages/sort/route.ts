@@ -15,6 +15,19 @@ interface InsertBodyRequest {
   package_details: string | null;
 }
 
+interface PackageStructure {
+  package_id: number;
+  package_name: string;
+  package_total_persons: number;
+  tnp_package_categories: { package_category_id: number; package_category_name: string; };
+  tnp_package_types: { package_type_id: number; package_type_name: string; };
+  tnp_package_regions: { region_id: number; region_name: string; };
+  package_description: string;
+  package_rate_normal: number;
+  package_rate_deluxe: number;
+  package_details: string | null;
+}
+
 export async function GET(request: NextRequest) {
   try {
     // Your logic here

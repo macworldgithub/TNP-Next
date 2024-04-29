@@ -1,5 +1,5 @@
 import { PrismaClient } from "@prisma/client";
-import { NextResponse } from "next/server";
+import { NextRequest, NextResponse } from "next/server";
 
 interface PackageStructure {
   package_id: number;
@@ -19,12 +19,12 @@ interface PackagesRequestParams {
 }
 
 export async function GET(
-  request: Request,
+  request: NextRequest,
   context: { params: PackagesRequestParams }
 ) {
   const prisma = new PrismaClient();
   const { params } = await context.params;
-  console.log("Requested body", params);
+  // console.log("Requested body", request.nextUrl);
 
   if (!params || params.length < 1) {
     return new NextResponse(
@@ -81,6 +81,21 @@ export async function GET(
             "Bad Request: Missing or invalid filter parameters",
             { status: 400 }
           );
+        }
+        if (params[1] === "category") {
+          packages = await prisma.tnp_packages.findMany({
+            where: {
+              tnp_package_categories: {
+                package_category_name: params[2],
+              },
+            },
+            include: {
+              tnp_package_categories: true,
+              tnp_package_types: true,
+              tnp_package_regions: true,
+            },
+          });
+          break;
         }
         packages = await prisma.tnp_packages.findMany({
           where: {

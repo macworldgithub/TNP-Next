@@ -24,11 +24,12 @@ interface TourCardProps {
 }
 const TourCard: React.FC<TourCardProps> = ({ pid, pic, loc, title, duration, people, price, dprice, review, imageCount, videoCount }) => {
   return (
-    <Link href={`/pages/packagedetails/${pid}`} className="flex flex-col  md:h-[21rem] xl:h-auto h-auto items-center justify-center lg:w-[30%] xl:w-[300px] md:w-[45%] w-[100%] shadow-lg shadow-gray-400 rounded-lg overflow-hidden">
+    <Link href={`/pages/packagedetails/${pid}`} className="flex flex-col  md:h-[21rem] xl:h-auto h-auto items-center justify-center lg:w-[30%] xl:w-[300px] md:w-[45%] w-[100%] shadow-lg shadow-gray-400 rounded-lg">
 
-      <div className=" w-full relative bg-pink-400">
-
-        <Image src={pic?.length > 0 && pic[0]} alt="not_found" width={300} height={300} className="w-full h-52 absolute z-0 transform hover:scale-[115%] transition-transform duration-300 ease-in-out" />
+      <div className=" w-full relative">
+        <div className="overflow-hidden w-full h-[205px] absolute">
+          <Image src={pic?.length > 0 && pic[0]} alt="not_found" width={300} height={300} className="w-full h-52 absolute z-0 transform hover:scale-[115%] transition-transform duration-300 ease-in-out" />
+        </div>
         <div className="absolute z-10 flex flex-row justify-between w-full">
           <p className="bg-sky-500 text-white text-sm px-2 py-[2px] m-2 rounded-md">Featured</p>
           <div className="flex flex-row gap-2">
@@ -44,8 +45,8 @@ const TourCard: React.FC<TourCardProps> = ({ pid, pic, loc, title, duration, peo
           <p className="text-xs font-light text-gray-500">{loc}</p>
         </div>
 
-        <div>
-          <h5 className="text-xs font-bold">{title}</h5>
+        <div className="overflow-hidden">
+          <h5 className="text-xs font-bold truncate">{title}</h5>
         </div>
 
         <div className="flex flex-row gap-2 pb-[2px]">

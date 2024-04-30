@@ -56,11 +56,11 @@ const Honeymoon = () => {
   // console.log(data);
 
   const [packageDetails, setPackageDetails] = useState<PackageStructure>();
-  // console.log(params, "param");
+  console.log(params, "param at honeymoon");
   useEffect(() => {
     async function getItem() {
       const response = await getSinglePackage(
-        "/tourpackages/single/" + params?.category[1]
+        "/tourpackages/single/" + params?.id[1]
       );
       console.log("Response", response);
       setPackageDetails(response);

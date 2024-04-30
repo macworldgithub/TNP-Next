@@ -10,9 +10,13 @@ import CarouselSlider from '@/components/Domestics/carousel';
 import Overview from '@/components/Domestics/overview';
 import { Spin } from 'antd';
 import axios from 'axios';
-import { NextPage } from 'next';
-import { useParams } from 'next/navigation';
 import { useEffect, useState } from 'react';
+import FeaturedListings from "@/components/TourPackage/FeaturedListings";
+import TourPackHero from "@/components/TourPackage/TourPackHero";
+import Honeymoon from "@/components/TourDetails/honeymoon/honeymoon";
+import { NextPage } from "next";
+import { useParams } from "next/navigation";
+
 
 interface Props { }
 
@@ -64,11 +68,25 @@ interface TripDetails {
 
 const Page: NextPage<Props> = ({ }) => {
   const params = useParams();
+  console.log("Param at package details", params);
+  const { id } = params; 
+  
   const [packageDetails, setPackageDetails] = useState<PackageStructure>();
   // console.log(params, "param");
   useEffect(() => {
-    async function getItem() {
-      const response = await getSinglePackage('/tourpackages/single/' + params?.id[0]);
+    // async function getItem() {
+    //   const response = await getSinglePackage('/tourpackages/single/' + params?.id[0]);
+    //   console.log("Response", response);
+    //   setPackageDetails(response)
+    // }
+
+    async function getItem(){
+      let response;
+      if (id[0]==='honeymoon'){
+        response = await getSinglePackage('/tourpackages/single/'+ params?.id[1]); 
+      } else {
+        response = await getSinglePackage('/tourpackages/single/' + params?.id[0]);
+      }
       console.log("Response", response);
       setPackageDetails(response.data)
     }
@@ -84,6 +102,15 @@ const Page: NextPage<Props> = ({ }) => {
     return <div className='w-full flex justify-center mt-4 h-12 pt-2'>
       <Spin size="large" />
     </div>
+  }
+
+  if (id[0] === "honeymoon") {
+
+    return (
+      <div>
+        <Honeymoon />
+      </div>
+    );
   }
 
   const tripDetails: TripDetails = JSON.parse(packageDetails?.package_details);
@@ -140,4 +167,5 @@ const Page: NextPage<Props> = ({ }) => {
   );
 }
 
-export default Page
+export default Page;
+

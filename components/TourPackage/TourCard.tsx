@@ -20,9 +20,10 @@ interface TourCardProps {
   dprice: number;
   review: number;
   imageCount: number;
-  videoCount: number
+  videoCount: number;
+  color? : string;
 }
-const TourCard: React.FC<TourCardProps> = ({ pid, pic, loc, title, duration, people, price, dprice, review, imageCount, videoCount }) => {
+const TourCard: React.FC<TourCardProps> = ({ pid, pic, loc, title, duration, people, price, dprice, review, imageCount, videoCount, color = "sky" }) => {
   return (
     <Link href={`/pages/packagedetails/${pid}`} className="flex flex-col  md:h-[21rem] xl:h-auto h-auto items-center justify-center lg:w-[30%] xl:w-[300px] md:w-[45%] w-[100%] shadow-lg shadow-gray-400 rounded-lg">
 
@@ -31,18 +32,18 @@ const TourCard: React.FC<TourCardProps> = ({ pid, pic, loc, title, duration, peo
           <Image src={pic?.length > 0 && pic[0]} alt="not_found" width={300} height={300} className="w-full h-52 absolute z-0 transform hover:scale-[115%] transition-transform duration-300 ease-in-out" />
         </div>
         <div className="absolute z-10 flex flex-row justify-between w-full">
-          <p className="bg-sky-500 text-white text-sm px-2 py-[2px] m-2 rounded-md">Featured</p>
+        <p className={`bg-${color}-500 text-white text-sm px-2 py-[2px] m-2 rounded-md`}>Featured</p> 
           <div className="flex flex-row gap-2">
             <div className="flex flex-row bg-gray-400 blur-20  gap-[2px] m-2 px-2 py-[2px] rounded-md"><MdPhotoCamera size={14} className="text-white mt-[3px]" /><p className="text-white text-sm">{imageCount}</p></div>
-            <div className="flex flex-row gap-2 bg-sky-500 text-white m-2 px-2 py-[2px] rounded-md"><BiSolidVideos size={14} className="text-white mt-[3px]" /><p className="text-sm ">{videoCount}</p></div>
+            <div className={`flex flex-row gap-2 bg-${color}-500 text-white m-2 px-2 py-[2px] rounded-md`}><BiSolidVideos size={14} className="text-white mt-[3px]" /><p className="text-sm ">{videoCount}</p></div>
           </div>
         </div>
       </div>
 
-      <div className="flex flex-col gap-2 h-full w-full bg-white-300 px-5 rounded-lg py-5 mt-[12.5rem] ">
+      <div className="flex flex-col gap-2 h-full w-full bg-white px-5 rounded-lg py-5 mt-[12.5rem] ">
         <div className="flex flex-row gap-2">
-          <MdLocationPin size={15} className="text-blue-500" />
-          <p className="text-xs font-light text-gray-500">{loc}</p>
+          <MdLocationPin size={15} className={`text-${color}-500`}/>
+          <p className={`text-xs font-light text-${color}-500`}>{loc}</p>
         </div>
 
         <div className="overflow-hidden">
@@ -51,23 +52,23 @@ const TourCard: React.FC<TourCardProps> = ({ pid, pic, loc, title, duration, peo
 
         <div className="flex flex-row gap-2 pb-[2px]">
           <div className="flex flex-row">
-            <MdOutlineStarPurple500 className="text-yellow-400" />
-            <MdOutlineStarPurple500 className="text-yellow-400" />
-            <MdOutlineStarPurple500 className="text-yellow-400" />
-            <MdOutlineStarPurple500 className="text-yellow-400" />
-            <MdOutlineStarPurple500 className="text-yellow-400" />
+            <MdOutlineStarPurple500 className={`text-${color}-500`}/>
+            <MdOutlineStarPurple500 className={`text-${color}-500`}/>
+            <MdOutlineStarPurple500 className={`text-${color}-500`}/>
+            <MdOutlineStarPurple500 className={`text-${color}-500`}/>
+            <MdOutlineStarPurple500 className={`text-${color}-500`}/>
           </div>
           <p className="text-xs text-gray-500">({review} Review)</p>
         </div>
 
         <div className="flex flex-row gap-8 pb-[2px]">
           <div className="flex flex-row gap-2">
-            <IoMdTime className="text-blue-400" />
+            <IoMdTime className={`text-${color}-500`} />
             <p className="text-xs text-gray-500">{duration}</p>
           </div>
 
           <div className="flex flex-row gap-2">
-            <IoPersonAddOutline className="text-blue-400" />
+            <IoPersonAddOutline className={`text-${color}-500`}/>
             <p className="text-xs text-gray-500">{people} persons</p>
           </div>
         </div>
@@ -76,7 +77,7 @@ const TourCard: React.FC<TourCardProps> = ({ pid, pic, loc, title, duration, peo
 
         <div className="flex flex-row gap-2">
           <p className="text-xs text-gray-500 ">From</p>
-          <p className="text-xs text-blue-400 font-semibold ">Rs{dprice}</p>
+          <p className={`text-xs text-${color}-500 font-semibold`}>Rs{dprice}</p>
           <p className="text-xs text-gray-500 line-through">Rs{price}</p>
         </div>
 

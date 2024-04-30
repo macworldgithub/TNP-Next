@@ -14,6 +14,9 @@ import { useRouter } from "next/navigation";
 import Link from "next/link";
 import { useAppDispatch, useAppSelector } from "@/lib/store";
 import { setUserData } from "@/lib/feature/user/userSlice";
+// import {useRouter} from "next/router";
+import { useParams } from "next/navigation";
+
 
 interface Props { }
 
@@ -25,8 +28,12 @@ const Page: NextPage<Props> = ({ }) => {
     const [currTour, setCurrTour] = useState<any>("");
     const [showPackageDropdown, setShowPackageDropdown] =
         useState<boolean>(false);
+    const param = useParams();
     const router = useRouter();
+    console.log("paramssss founddd", param);
 
+    
+    
     return (
         <div className="hidden lg:block">
             <header className="w-full text-sm flex justify-between px-10 bg-primary text-white">

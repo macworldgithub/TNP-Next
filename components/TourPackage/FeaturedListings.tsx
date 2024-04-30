@@ -14,6 +14,7 @@ import PaginationInfo from "../PaginationInfo";
 import { getTourPackages } from "@/app/actions/tourpackages";
 import FilterAndSearchBar from "./FilterAndSearchBar";
 import RenderTourCards from "./RenderTourCards";
+import honeymoonbg from "../../assets/honeymoon/honeymoon-bg.png";
 
 interface PackageStructure {
   package_id: number;

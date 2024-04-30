@@ -97,7 +97,7 @@ const typesItems: MenuProps['items'] = [
   },
 ];
 
-const TourpackSearch = () => {
+const TourpackSearch = ({color="#00ADEE", color2="#00ADEE"}) => {
   const [selectedPerson, setSelectedPerson] = useState(personItems[0]["label"]);
   const [selectedLocation, setSelectLocation] = useState(locationItems[0]["label"]);
   const [selectedType, setSelectedType] = useState(typesItems[0]["label"]);
@@ -126,7 +126,7 @@ const TourpackSearch = () => {
       <div className="flex mx-2 w-[15rem] md:w-auto md:justify-start justify-between  items-center">
         <div className="flex items-center">
           <div className="me-2">
-            <FaMapPin className="text-[#00ADEE] text-xl" />
+            <FaMapPin className={`text-[${color} text-xl`}/>
           </div>
           <Dropdown
             menu={{ items: locationItems, onClick: onClickLocationDropdown, defaultValue: selectedLocation }}         
@@ -150,7 +150,7 @@ const TourpackSearch = () => {
       <div className="flex mx-2 w-[15rem] md:w-auto md:justify-start justify-between  items-center">
         <div className="flex items-center">
           <div className="me-2">
-            <GiMountainClimbing className="text-[#00ADEE] text-xl" />
+            <GiMountainClimbing className={`text-[${color} text-xl`} />
           </div>
           <Dropdown menu={{ items: typesItems, onClick: onClickTypeDropdown }}>
             <a onClick={(e) => e.preventDefault()}>
@@ -171,7 +171,7 @@ const TourpackSearch = () => {
       <div className="flex mx-2 w-[15rem] md:w-auto md:justify-start justify-between  items-center">
         <div className="flex items-center">
           <div className="me-2">
-            <IoMdTimer className="text-[#00ADEE] text-xl" />
+            <IoMdTimer className={`text-[${color} text-xl`} />
           </div>
           <Dropdown menu={{ items, onClick }}>
             <a onClick={(e) => e.preventDefault()}>
@@ -192,7 +192,7 @@ const TourpackSearch = () => {
       <div className="flex mx-2 w-[15rem] md:w-auto md:justify-start justify-between  items-center">
         <div className="flex items-center">
           <div className="me-2">
-            <RxAvatar className="text-[#00ADEE] text-xl" />
+            <RxAvatar className={`text-[${color} text-xl`} />
           </div>
           <Dropdown menu={{ items: personItems, onClick: onClickPersonDropdown }}>
             <a onClick={(e) => e.preventDefault()}>
@@ -211,9 +211,9 @@ const TourpackSearch = () => {
       <div className="md:h-[50px] h-[2px] my-3 md:mx-5 bg-gray-300 block md:w-[2px]"></div>
       <div className="flex mx-2 justify-between items-center">
         <div className="me-2">
-          <RiEqualizerLine className="text-[#00ADEE] text-3xl" />
+          <RiEqualizerLine className={`text-[${color} text-xl`} />
         </div>
-        <div className="bg-[#00ADEE] flex items-center md:w-auto -full text-center cursor-pointer text-white rounded-md px-5 py-3 ml-4">
+        <div className="bg-[#8b2424] flex items-center md:w-auto -full text-center cursor-pointer text-white rounded-md px-5 py-3 ml-4">
           <CiSearch className="mr-2" size={20} />
           Search
         </div>

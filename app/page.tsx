@@ -260,7 +260,7 @@ export default function Home() {
     const getPackages = async () => {
       try {
         const response = await getTourPackagesByCategory(
-          "/tourpackages/filter?limit=8&offset=0"
+          "/tourpackages/filter?limit=8&offset=0&bestseller=true&featured=true"
         );
         console.log("Home API Response:", response);
         if (response) {

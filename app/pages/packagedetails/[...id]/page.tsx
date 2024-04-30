@@ -87,7 +87,7 @@ const Page: NextPage<Props> = ({ }) => {
       } else {
         response = await getSinglePackage('/tourpackages/single/' + params?.id[0]);
       }
-      console.log("Response", response);
+      console.log("Response for single item", response);
       setPackageDetails(response.data)
     }
 

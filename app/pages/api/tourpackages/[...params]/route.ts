@@ -5,7 +5,6 @@ interface PackageStructure {
   package_id: number;
   package_name: string;
   package_total_persons: number;
-  tnp_package_types: { package_type_id: number; package_type_name: string };
   package_description: string;
   package_rate_normal: number;
   package_rate_deluxe: number;
@@ -15,6 +14,11 @@ interface PackageStructure {
     destination_category_id: number;
     destination_region_id: number;
     destination_name: string;
+  };
+  tnp_package_types: {
+    package_type_id: number;
+    package_type_name: string;
+    package_type_value: string;
   };
 }
 
@@ -52,7 +56,12 @@ export async function GET(
           },
           include: {
             tnp_package_types: true,
-            tnp_destinations: true,
+            tnp_destinations: {
+              include: {
+                tnp_package_categories: true,
+                tnp_package_regions: true,
+              },
+            },
           },
         });
         break;

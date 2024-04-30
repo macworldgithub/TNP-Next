@@ -20,12 +20,23 @@ interface PackageStructure {
   package_description: string;
   package_rate_normal: number;
   package_rate_deluxe: number;
-  package_details: string | null;
+  package_details: string;
+  package_duration: number;
+  package_isfeatured: boolean;
+  package_bestseller: boolean;
   tnp_destinations: {
     destination_id: number;
     destination_category_id: number;
-    destination_region_id: number;
     destination_name: string;
+    destination_region_id: number;
+    tnp_package_categories: {
+      package_category_id: number;
+      package_category_name: string;
+    };
+    tnp_package_regions: {
+      region_id: number;
+      region_name: string;
+    };
   };
   tnp_package_types: {
     package_type_id: number;
@@ -89,7 +100,7 @@ export async function GET(request: NextRequest) {
       limit: parseInt(searchParams.get("limit") || take + ""),
       offset: parseInt(searchParams.get("offset") || skip + ""),
     };
-    console.log("searchParams", filterParams);   
+    // console.log("searchParams", filterParams);
 
     const category = searchParams.get("category");
     const region = searchParams.get("region");
@@ -157,7 +168,7 @@ export async function GET(request: NextRequest) {
 
     let packages: PackageStructure[] = [];
 
-    console.log("whereClause", whereClause);
+    // console.log("whereClause", whereClause);
 
     packages = await prisma.tnp_packages.findMany({
       where: whereClause,

@@ -65,7 +65,7 @@ const TourCardPagination: NextPage<Props> = ({
     const endIndex = Math.min(startIndex + cardsPerPage, featuredata.length);
 
     return (
-      <div className="flex md:flex-row flex-col md:gap-4 gap-4 justify-center items-center lg:w-[85%] w-[100%]  ">
+      <div className="flex md:flex-row flex-col md:gap-4 gap-4 justify-center items-center lg:w-[85%] w-[100%] lg:h-96">
         {featuredata?.slice(startIndex, endIndex).map((item, index) => {
           const packageDetails = JSON.parse(item.package_details || "{}");
           console.log("packageDetails", packageDetails);

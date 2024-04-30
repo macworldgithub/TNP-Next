@@ -34,7 +34,7 @@ const TourCard: React.FC<TourCardProps> = ({
 }) => {
   return (
     <Link
-      href={`/packagedetails/${id}`}
+      href={`pages/packagedetails/${id}`}
       className="flex flex-col bg-white md:h-[24rem] 2xl:h-[24rem] h-[24rem] items-center justify-center lg:w-[400px] xl:w-[300px] md:w-[40%] w-[90%] shadow-lg shadow-gray-400 rounded-lg"
     >
       <div className="relative w-full h-[49%]">
@@ -48,7 +48,7 @@ const TourCard: React.FC<TourCardProps> = ({
             {videoCount}
           </div>
         </div>
-        <div className="text-centerabsolute bg-primary bottom-[-6px] shadow-lg z-[3] right-5 text-xs text-white px-5 py-[0.3rem] rounded">
+        <div className="text-center absolute bg-primary bottom-[-6px] shadow-lg z-[3] right-5 text-xs text-white px-5 py-[0.3rem] rounded">
           Best Seller
         </div>
         <div className="text-center z-10 absolute bg-[#F7921E] top-3 left-2 text-xs text-white px-3 py-1 rounded">
@@ -62,10 +62,10 @@ const TourCard: React.FC<TourCardProps> = ({
           className="w-full h-full"
         />
       </div>
-      <div className="w-full h-full relative z-0">
+      <div className="w-full h-[51%] relative z-0">
         <div className="flex flex-col absolute top-[-9px] bg-white  left-0  justify-between gap-2 h-full w-full px-2 rounded-lg py-2 ">
           <div className="my-2 mx-2">
-            <h5 className="text-lg font-bold">{title}</h5>
+            <h5 className="text-lg font-bold truncate" title={title}>{title}</h5>
           </div>
           <div className="flex my-2 mx-2 flex-row gap-2 pb-[2px]">
             <div className="flex flex-row">

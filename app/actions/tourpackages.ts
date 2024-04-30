@@ -51,7 +51,7 @@ interface PackageStructure {
 }
 
 export async function getTourPackages(
-  extededRoute = "/tourpackages/all"
+  extededRoute = "/tourpackages/filter?limit=8&offset=0"
 ): Promise<any> {
   try {
     const response = await axios.get(LOCALHOST_URL + extededRoute);
@@ -76,7 +76,11 @@ export async function getSinglePackage(
   try {
     const response = await axios.get(LOCALHOST_URL + extededRoute);
     // console.log("API Response", response.data?.data);
-    return response.data?.data[0];
+    return {
+      data: response.data?.data[0],
+      message: "success",
+      status: 200
+    };
   } catch (error) {
     return {
       data: null,
@@ -95,7 +99,6 @@ export async function getTourPackagesByCategory(
 }> {
   try {
     const response = await axios.get(LOCALHOST_URL + extededRoute);
-    console.log(response, "hereeeeeeeeeee");
     // console.log("API Response", response.data?.data);
     return {
       data: response.data.data,

@@ -8,9 +8,9 @@ import { useParams } from "next/navigation";
 import HoneymoonFeaturedListings from "@/components/TourPackage/HoneymoonFeaturedListings";
 import HoneymoonTourPackHero from "@/components/TourPackage/HoneymoonTourPackHero";
 
-interface Props {}
+interface Props { }
 
-const Page: NextPage<Props> = ({}) => {
+const Page: NextPage<Props> = ({ }) => {
   const params = useParams();
   console.log("Param aya", params);
   const { category } = params;
@@ -19,21 +19,25 @@ const Page: NextPage<Props> = ({}) => {
     return string.charAt(0).toUpperCase() + string.slice(1);
   }
 
-  // if (category[0] === "honeymoon") {
-  //   return (
-  //     <div>
-  //       <Honeymoon />
-  //     </div>
-  //   );
-  // }
+  if (category[0] === "honeymoon") {
+    return (
+      <div>
+        <HoneymoonTourPackHero
+          heading={capitalizeFirstLetter(category.length > 0 && category[0])}
+          subheading={category.length > 1 && capitalizeFirstLetter(category[1])}
+        />
+        <HoneymoonFeaturedListings />
+      </div>
+    );
+  }
 
   return (
     <div>
-      <HoneymoonTourPackHero
+      <TourPackHero
         heading={capitalizeFirstLetter(category.length > 0 && category[0])}
         subheading={category.length > 1 && capitalizeFirstLetter(category[1])}
       />
-      <HoneymoonFeaturedListings/>
+      <FeaturedListings />
     </div>
   );
 };

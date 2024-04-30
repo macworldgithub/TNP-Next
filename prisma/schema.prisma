@@ -41,6 +41,7 @@ model tnp_packages {
   package_bestseller     Boolean?
   tnp_package_types      tnp_package_types @relation(fields: [package_type_id], references: [package_type_id], onUpdate: Restrict, map: "tnp_packages_ibfk_3")
   tnp_destinations       tnp_destinations? @relation(fields: [package_destination_id], references: [destination_id], onDelete: Restrict, onUpdate: Restrict, map: "tnp_packages_ibfk_4")
+  tnp_trips              tnp_trips[]
 
   @@index([package_type_id], map: "package_type_id")
   @@index([package_destination_id], map: "package_destination_id")
@@ -115,8 +116,11 @@ model tnp_tour_bookings {
 }
 
 model tnp_trips {
-  trip_id            Int      @id @default(autoincrement())
+  trip_id            Int          @id @default(autoincrement())
   trip_package_id    Int
-  trip_date          DateTime @db.Date
+  trip_date          DateTime     @db.Date
   trip_total_members Int
+  tnp_packages       tnp_packages @relation(fields: [trip_package_id], references: [package_id], onUpdate: Restrict, map: "tnp_trips_ibfk_1")
+
+  @@index([trip_package_id], map: "trip_package_id")
 }

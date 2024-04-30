@@ -279,10 +279,10 @@ const FeaturedListings = () => {
 
   return (
     <div className="w-full h-full flex justify-center items-center mt-12">
-      <div className="w-[80%] flex flex-col gap-4  ">
+      <div className="w-[80%] flex flex-col gap-4">
         <PaginationInfo
           currentPage={1}
-          itemsPerPage={6}
+          itemsPerPage={8}
           totalItems={packages.length}
         />
         <FilterAndSearchBar />

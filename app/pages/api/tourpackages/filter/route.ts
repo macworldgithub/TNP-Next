@@ -73,6 +73,8 @@ const sortFields: {
   package_total_persons: { package_total_persons: "asc" },
   price_delux_low_to_high: { package_rate_deluxe: "asc" },
   price_delux_high_to_low: { package_rate_deluxe: "desc" },
+  package_duration_low_to_high: { package_duration: "asc" },
+  package_duration_high_to_low: { package_duration: "desc" },
 };
 
 export async function GET(request: NextRequest) {

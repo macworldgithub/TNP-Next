@@ -25,7 +25,7 @@ interface TourCardProps {
 }
 const TourCard: React.FC<TourCardProps> = ({ pid, pic, loc, title, duration, people, price, dprice, review, imageCount, videoCount, color = "sky" }) => {
   return (
-    <Link href={`/pages/packagedetails/${pid}`} className="flex flex-col  md:h-[21rem] xl:h-auto h-auto items-center justify-center lg:w-[30%] xl:w-[300px] md:w-[45%] w-[100%] shadow-lg shadow-gray-400 rounded-lg">
+    <Link href={`/pages/packagedetails/${pid}`} className="flex flex-col md:h-[21rem] xl:h-auto h-auto items-center justify-center lg:w-[30%] xl:w-[300px] md:w-[45%] w-[100%] shadow-lg hover:shadow-xl hover:scale-[105%] shadow-gray-400 rounded-lg duration-300 ease-in-out">
 
       <div className=" w-full relative">
         <div className="overflow-hidden w-full h-[205px] absolute">

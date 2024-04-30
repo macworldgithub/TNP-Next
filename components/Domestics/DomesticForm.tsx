@@ -9,7 +9,11 @@ import {
   HiOutlineChip,
 } from "react-icons/hi";
 
-const DomesticForm = () => {
+const DomesticForm = ({
+  showAvailabilityButton,
+}: {
+  showAvailabilityButton: Boolean;
+}) => {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -151,9 +155,11 @@ const DomesticForm = () => {
         />
       </div>
       <div className="flex justify-center flex-col gap-6 items-center">
-        <button className="bg-[#760F22] text-white px-4 py-2 rounded hover:bg-secon w-[15rem] lg:w-[18rem]">
-          CHECK AVAILABILTY
-        </button>
+        {showAvailabilityButton && (
+          <button className="bg-[#760F22] text-white px-4 py-2 rounded hover:bg-secon w-[15rem] lg:w-[18rem]">
+            CHECK AVAILABILTY
+          </button>
+        )}
         <button className="bg-[#760F22] text-white px-4 py-2 mb-8  rounded hover:bg-secon w-[15rem] lg:w-[18rem]">
           BOOK NOW
         </button>

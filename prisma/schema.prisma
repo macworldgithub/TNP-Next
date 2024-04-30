@@ -116,11 +116,11 @@ model tnp_tour_bookings {
 }
 
 model tnp_trips {
-  trip_id            Int          @id @default(autoincrement())
-  trip_package_id    Int
-  trip_date          DateTime     @db.Date
-  trip_total_members Int
-  tnp_packages       tnp_packages @relation(fields: [trip_package_id], references: [package_id], onUpdate: Restrict, map: "tnp_trips_ibfk_1")
+  trip_id           Int          @id @default(autoincrement())
+  trip_package_id   Int
+  trip_date         DateTime     @db.Date
+  trip_booked_count Int
+  tnp_packages      tnp_packages @relation(fields: [trip_package_id], references: [package_id], onUpdate: Restrict, map: "tnp_trips_ibfk_1")
 
   @@index([trip_package_id], map: "trip_package_id")
 }

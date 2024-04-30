@@ -47,7 +47,7 @@ const TourCardPagination: NextPage<Props> = ({
   direction,
   cardsPerPage = 3,
 }) => {
-  console.log("featuredata",featuredata);
+  console.log("featuredata", featuredata);
   const [currentPage, setCurrentPage] = useState(0);
 
   const totalPages = Math.ceil(featuredata?.length / cardsPerPage);

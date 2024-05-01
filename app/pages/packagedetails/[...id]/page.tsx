@@ -10,8 +10,6 @@ import { TinyColor } from "@ctrl/tinycolor";
 import CarouselSlider from "@/components/Domestics/carousel";
 import Overview from "@/components/Domestics/overview";
 import { Spin } from "antd";
-import { Button, ConfigProvider, Space } from "antd";
-import axios from "axios";
 import { useEffect, useState } from "react";
 import FeaturedListings from "@/components/TourPackage/FeaturedListings";
 import TourPackHero from "@/components/TourPackage/TourPackHero";

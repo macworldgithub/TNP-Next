@@ -12,7 +12,12 @@ import { useParams } from "next/navigation";
 
 const Footer = () => {
   const params = useParams();
-  console.log("footer", params);
+
+  const { category, id } = useParams();
+  console.log("paramssss founddd", { category, id });
+  // console.log("footer", params);
+
+  // console.log("paramssss founddd at footer", params);
 
   const [isMounted, setIsMounted] = useState(false);
 
@@ -27,8 +32,13 @@ const Footer = () => {
     return null;
   }
 
+
+
+  const bgClass = (id && id[0] === 'honeymoon') || (category && category[0] === 'honeymoon') 
+  ? "bg-[#fff5fb]" : "bg-white";
+
   return (
-    <div className="text-black bg-white relative pb-4 pt-8 items-center flex flex-col">
+    <div className={`text-black ${bgClass} relative pb-4 pt-8 items-center flex flex-col`}>
       <Affiliations />
       {/* <div className="flex items-center justify-center flex-col relative pt-20 pb-16">
         <Image

@@ -14,6 +14,8 @@ import FooterBg from "./Footer/page";
 import { useEffect, useState } from "react";
 import { getSinglePackage } from "@/app/actions/tourpackages";
 import { Spin } from "antd";
+import bgImage from "../../../assets/honeymoon/rosesbg2.jpg";
+import bg from "../../../assets/honeymoon/honeymoon-bg2.png";
 
 interface PackageStructure {
   package_id: number;
@@ -102,21 +104,23 @@ const Honeymoon = () => {
   const tripDetails: TripDetails = JSON.parse(packageDetails?.package_details);
 
   return (
-    <div className="bg_color text-white">
-      <div className="bg_img">
-        <HeroDomestic heading={"Honeymoon"} paragraph={"Package"} />
+    <div className="bg_color text-black" >
+      <div className="bg_img" >
+        <HeroDomestic heading={"Honeymoon"} paragraph={"Package"} image={bgImage} />
 
-        <div className="w-full lg:w-[80%] flex flex-col lg:flex-row gap-6 justify-center mx-auto my-10">
+        <div 
+        className="w-full lg:w-[80%] flex flex-col lg:flex-row gap-6 justify-center mx-auto my-10"
+        >
           {/* Right Side*/}
           <div className=" w-full lg:w-[60%]  ">
             <div className="flex flex-col md:flex-row justify-between w-full items-center gap-2 my-5 md:p-3 lg:p-0">
-              <h1 className="text-1xl text-white md:text-2xl font-bold">
+              <h1 className="text-1xl text-black md:text-2xl font-bold">
                 {" "}
                 6 Days Skardu & Bashu Valley{" "}
               </h1>
 
               <div className="flex flex-col justify-center items-center border border-gray-300 shadow-sm">
-                <div className="w-[6rem] h-[5rem] bg-yellow-300 text-white text-3xl flex justify-center items-center">
+                <div className="w-[6rem] h-[5rem] bg-yellow-300 text-black text-3xl flex justify-center items-center">
                   6
                 </div>
                 <div className="w-[6rem] h-[2rem] text-1xl text-black flex justify-center items-center bg-white">
@@ -154,9 +158,10 @@ const Honeymoon = () => {
           </div>
         </div>
 
-        <FooterBg />
+        {/* <FooterBg /> */}
       </div>
     </div>
   );
 };
+
 export default Honeymoon;

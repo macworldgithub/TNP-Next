@@ -281,7 +281,7 @@ const HoneymoonFeaturedListings = () => {
   let currentItems = featuredData.slice(startIndex, endIndex);
 
   return (
-    <div className="w-full h-full flex justify-center items-center" style={styles.container}>
+    <div className="w-full h-full flex flex-col justify-center items-center" style={styles.container}>
       <div className="w-[80%] flex flex-col gap-4  ">
         <PaginationInfo
           currentPage={1}
@@ -304,6 +304,8 @@ const HoneymoonFeaturedListings = () => {
           packages?.length === 0 && <div> No items were found </div>
         }
       </div>
+      
+      <FooterBg/>
     </div>
   );
 };

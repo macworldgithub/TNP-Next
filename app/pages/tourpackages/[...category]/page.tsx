@@ -28,7 +28,6 @@ const Page: NextPage<Props> = ({ }) => {
           subheading={category.length > 1 && capitalizeFirstLetter(category[1])}
         />
         <HoneymoonFeaturedListings />
-        <FooterBg/>
       </div>
     );
   }

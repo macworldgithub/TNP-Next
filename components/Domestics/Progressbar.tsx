@@ -24,17 +24,17 @@ const Progressbar: React.FC<Props> = ({ data }) => {
           <span className="font-semibold text-lg">
             {item.day}:{" " + item.event}
           </span>
-        ), // Dynamically set the title
-        status: "process", // Set status to 'process' for the first item
+        ),
+        status: "process",
         description: <span className="text-sm ">{item.description}</span>,
         icon:
-          index === 0 || index === data.length - 1 ? ( // Conditionally render different icons
+          index === 0 || index === data.length - 1 ? (
             <SlLocationPin
               size={20}
               className="bg-sky-400 p-[3px] rounded-full"
-            /> // Custom icon for first and last step
+            />
           ) : (
-            <div className="w-2 h-2 mt-2 ml-2 bg-sky-500 rounded-full"></div> // Default dot icon for other steps
+            <div className="w-2 h-2 mt-2 ml-2 bg-sky-500 rounded-full"></div>
           ),
       }))}
     />

@@ -34,8 +34,8 @@ const DomesticForm = ({
   };
 
   return (
-    <div className="w-full max-w-md h-max bg-white rounded-md flex flex-col mx-auto p-4 md:p-0">
-      <h2 className="uppercase text-white text-2xl font-bold">
+    <div className="w-full max-w-md h-max bg-transparent rounded-md flex flex-col mx-auto p-4 md:p-0">
+      <h2 className="uppercase text-black p-5 text-2xl font-bold">
         Book this tour
       </h2>
       <div className="mb-4 ">

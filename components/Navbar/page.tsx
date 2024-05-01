@@ -28,15 +28,25 @@ const Page: NextPage<Props> = ({ }) => {
     const [currTour, setCurrTour] = useState<any>("");
     const [showPackageDropdown, setShowPackageDropdown] =
         useState<boolean>(false);
-    const param = useParams();
+    const params = useParams();
     const router = useRouter();
-    console.log("paramssss founddd", param);
+    // const {category} = useParams();
+    // console.log("paramssss founddd", params);
+    // const {id} = useParams();
+
+    const { category, id } = useParams();
+    console.log("paramssss founddd", { category, id });
+
+
+    const bgClass = (id && id[0] === 'honeymoon') || (category && category[0] === 'honeymoon') 
+    ? "bg-[#8b2424]" 
+    : "bg-primary";
 
     
     
     return (
         <div className="hidden lg:block">
-            <header className="w-full text-sm flex justify-between px-10 bg-primary text-white">
+            <header className={`w-full text-sm flex justify-between px-10 ${bgClass} text-white`}>
                 <div className="flex">
                     <div className="flex px-1 py-2 mx-1 items-center">
                         <FaPhoneAlt />
@@ -220,7 +230,7 @@ const Page: NextPage<Props> = ({ }) => {
                             </div>
                         </div>
                         <Link href="/pages/contactus" className="cursor-pointer font-bold">Contact Us</Link>
-                        <Link href={"/pages/offer"} className="bg-primary px-4 py-2 rounded shadow-lg cursor-pointer text-white">
+                        <Link href={"/pages/offer"} className={` ${bgClass} px-4 py-2 rounded shadow-lg cursor-pointer text-white`}>
                             Make your trip
                         </Link>
                     </div>

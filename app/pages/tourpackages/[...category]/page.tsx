@@ -7,6 +7,7 @@ import { NextPage } from "next";
 import { useParams } from "next/navigation";
 import HoneymoonFeaturedListings from "@/components/TourPackage/HoneymoonFeaturedListings";
 import HoneymoonTourPackHero from "@/components/TourPackage/HoneymoonTourPackHero";
+import FooterBg from "@/components/TourDetails/honeymoon/Footer/page";
 
 interface Props { }
 
@@ -27,6 +28,7 @@ const Page: NextPage<Props> = ({ }) => {
           subheading={category.length > 1 && capitalizeFirstLetter(category[1])}
         />
         <HoneymoonFeaturedListings />
+        <FooterBg/>
       </div>
     );
   }

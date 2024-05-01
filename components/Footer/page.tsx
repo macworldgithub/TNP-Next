@@ -38,7 +38,7 @@ const Footer = () => {
   ? "bg-[#fff5fb]" : "bg-white";
 
   return (
-    <div className={`text-black ${bgClass} relative pb-4 pt-8 items-center flex flex-col`}>
+    <div className={`text-black ${bgClass} relative pb-4 pt-8 items-center ${id && id[0] === 'honeymoon'? "hidden" : "flex"} flex-col`}>
       <Affiliations />
       {/* <div className="flex items-center justify-center flex-col relative pt-20 pb-16">
         <Image

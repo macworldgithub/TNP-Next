@@ -154,11 +154,11 @@ const Honeymoon = () => {
 
           {/* left side */}
           <div className=" w-full lg:w-[40%]  flex ">
-            <DomesticForm />
+            <DomesticForm showAvailabilityButton={undefined} />
           </div>
         </div>
 
-        {/* <FooterBg /> */}
+        <FooterBg />
       </div>
     </div>
   );

@@ -7,7 +7,9 @@ import { IoPersonAddOutline } from "react-icons/io5";
 // import video from "../../public/TourPackage/FeaturedListing/videoicon.png";
 import { MdPhotoCamera } from "react-icons/md";
 import { BiSolidVideos } from "react-icons/bi";
+import { useParams } from "next/navigation";
 import Link from 'next/link';
+
 
 interface TourCardProps {
   pid: number,
@@ -24,8 +26,11 @@ interface TourCardProps {
   color? : string;
 }
 const TourCard: React.FC<TourCardProps> = ({ pid, pic, loc, title, duration, people, price, dprice, review, imageCount, videoCount, color = "sky" }) => {
+
+  const {category} = useParams();
+  console.log("hahaha", category);
   return (
-    <Link href={`/pages/packagedetails/${pid}`} className="flex flex-col md:h-[21rem] xl:h-auto h-auto items-center justify-center lg:w-[30%] xl:w-[300px] md:w-[45%] w-[100%] shadow-lg hover:shadow-xl hover:scale-[105%] shadow-gray-400 rounded-lg duration-300 ease-in-out">
+    <Link  href={`/pages/packagedetails/${category && category[0] === "honeymoon" ? "honeymoon/" : ""}${pid}`} className="flex flex-col md:h-[21rem] xl:h-auto h-auto items-center justify-center lg:w-[30%] xl:w-[300px] md:w-[45%] w-[100%] shadow-lg hover:shadow-xl hover:scale-[105%] shadow-gray-400 rounded-lg duration-300 ease-in-out">
 
       <div className=" w-full relative">
         <div className="overflow-hidden w-full h-[205px] absolute">

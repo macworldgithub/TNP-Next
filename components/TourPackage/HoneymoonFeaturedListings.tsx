@@ -17,6 +17,7 @@ import RenderTourCards from "./RenderTourCards";
 import honeymoonbg from "../../assets/honeymoon/honeymoon-bg.png";
 import TourpackSearch from "./TourPackSearch";
 import HoneymoonRenderTourCards from "./HoneymoonRenderTourCards";
+import FooterBg from "../TourDetails/honeymoon/Footer/page";
 
 interface PackageStructure {
   package_id: number;   

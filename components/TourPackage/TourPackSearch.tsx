@@ -8,6 +8,7 @@ import { CiSearch } from "react-icons/ci";
 import { Dropdown, Menu, Space, type MenuProps } from 'antd';
 import { DownOutlined } from '@ant-design/icons';
 import { useState } from "react";
+import { useParams } from "next/navigation";
 
 const items: MenuProps['items'] = [
   {
@@ -106,6 +107,19 @@ const TourpackSearch = ({color="#00ADEE", color2="#00ADEE"}) => {
     console.log("Item clicked", key);
   };
 
+  const { category, id } = useParams();
+  console.log("paramssss founddd", { category, id });
+
+
+  const bgClass = (id && id[0] === 'honeymoon') || (category && category[0] === 'honeymoon') 
+  ? "bg-[#8b2424]" 
+  : "bg-[#00ADEE]";
+
+
+  const textColor = (id && id[0] === 'honeymoon') || (category && category[0] === 'honeymoon') 
+  ? "text-[#8b2424]" 
+  : "text-[#00ADEE]";
+  
   const onClickLocationDropdown: MenuProps['onClick'] = ({ key }) => {
     // console.log("Item clicked", key);
     setSelectLocation(locationItems.filter(e => e.key === key)[0]["label"]);
@@ -126,7 +140,7 @@ const TourpackSearch = ({color="#00ADEE", color2="#00ADEE"}) => {
       <div className="flex mx-2 w-[15rem] md:w-auto md:justify-start justify-between  items-center">
         <div className="flex items-center">
           <div className="me-2">
-            <FaMapPin className={`text-[${color} text-xl`}/>
+            <FaMapPin className={`${textColor} text-xl`}/>
           </div>
           <Dropdown
             menu={{ items: locationItems, onClick: onClickLocationDropdown, defaultValue: selectedLocation }}         
@@ -139,7 +153,7 @@ const TourpackSearch = ({color="#00ADEE", color2="#00ADEE"}) => {
                     {selectedLocation}
                   </p>
                 </div>
-                <DownOutlined />
+                <DownOutlined className={`${textColor} text-xl`} />
               </Space>
             </a>
           </Dropdown>
@@ -150,7 +164,7 @@ const TourpackSearch = ({color="#00ADEE", color2="#00ADEE"}) => {
       <div className="flex mx-2 w-[15rem] md:w-auto md:justify-start justify-between  items-center">
         <div className="flex items-center">
           <div className="me-2">
-            <GiMountainClimbing className={`text-[${color} text-xl`} />
+            <GiMountainClimbing className={` ${textColor}  text-xl`} />
           </div>
           <Dropdown menu={{ items: typesItems, onClick: onClickTypeDropdown }}>
             <a onClick={(e) => e.preventDefault()}>
@@ -159,7 +173,7 @@ const TourpackSearch = ({color="#00ADEE", color2="#00ADEE"}) => {
                   <p>Type</p>
                   <p className="text-xs text-gray-500">{selectedType}</p>
                 </div>
-                <DownOutlined />
+                <DownOutlined className={`${textColor} text-xl`}/>
               </Space>
             </a>
           </Dropdown>
@@ -171,7 +185,7 @@ const TourpackSearch = ({color="#00ADEE", color2="#00ADEE"}) => {
       <div className="flex mx-2 w-[15rem] md:w-auto md:justify-start justify-between  items-center">
         <div className="flex items-center">
           <div className="me-2">
-            <IoMdTimer className={`text-[${color} text-xl`} />
+            <IoMdTimer className={`${textColor}  text-xl`} />
           </div>
           <Dropdown menu={{ items, onClick }}>
             <a onClick={(e) => e.preventDefault()}>
@@ -180,7 +194,7 @@ const TourpackSearch = ({color="#00ADEE", color2="#00ADEE"}) => {
                   <p>Date From</p>
                   <p className="text-xs text-gray-500">Date Start From</p>
                 </div>
-                <DownOutlined />
+                <DownOutlined className={`${textColor} text-xl`} />
               </Space>
             </a>
           </Dropdown>
@@ -192,7 +206,7 @@ const TourpackSearch = ({color="#00ADEE", color2="#00ADEE"}) => {
       <div className="flex mx-2 w-[15rem] md:w-auto md:justify-start justify-between  items-center">
         <div className="flex items-center">
           <div className="me-2">
-            <RxAvatar className={`text-[${color} text-xl`} />
+            <RxAvatar className={`${textColor}  text-xl`} />
           </div>
           <Dropdown menu={{ items: personItems, onClick: onClickPersonDropdown }}>
             <a onClick={(e) => e.preventDefault()}>
@@ -201,7 +215,7 @@ const TourpackSearch = ({color="#00ADEE", color2="#00ADEE"}) => {
                   <p>Persons</p>
                   <p className="text-xs text-gray-500">{selectedPerson}</p>
                 </div>
-                <DownOutlined />
+                <DownOutlined className={`${textColor} text-xl`}/>
               </Space>
             </a>
           </Dropdown>
@@ -213,7 +227,7 @@ const TourpackSearch = ({color="#00ADEE", color2="#00ADEE"}) => {
         <div className="me-2">
           <RiEqualizerLine className={`text-[${color} text-xl`} />
         </div>
-        <div className="bg-[#8b2424] flex items-center md:w-auto -full text-center cursor-pointer text-white rounded-md px-5 py-3 ml-4">
+        <div className={` ${bgClass} flex items-center md:w-auto -full text-center cursor-pointer text-white rounded-md px-5 py-3 ml-4`}>
           <CiSearch className="mr-2" size={20} />
           Search
         </div>

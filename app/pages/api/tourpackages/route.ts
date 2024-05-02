@@ -13,6 +13,8 @@ interface InsertBodyRequest {
   package_rate_normal: number;
   package_rate_deluxe: number;
   package_details: string | null;
+  package_destination_id: number;
+  package_duration: number;
 }
 
 interface PackageStructure {
@@ -88,6 +90,7 @@ export async function POST(request: Request) {
   try {
     // Insert logic here
     const body: InsertBodyRequest = await request.json();
+    
     const insert = await prisma.tnp_packages.create({
       data: {
         package_name: body.package_name,
@@ -97,7 +100,11 @@ export async function POST(request: Request) {
         package_total_persons: body.package_total_persons,
         package_details: body.package_details,
         package_type_id: body.package_type_id,
-      },
+        package_bestseller: true,
+        package_isfeatured: true,
+        package_destination_id: body.package_destination_id,
+        package_duration: body.package_duration
+      }
     });
     console.log("Body", await body);
     return NextResponse.json({ status: 200, message: "Success", data: [] });

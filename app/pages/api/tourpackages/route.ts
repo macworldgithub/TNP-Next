@@ -1,6 +1,7 @@
 import { PrismaClient } from "@prisma/client";
 import prisma from "../db";
 import { NextRequest, NextResponse } from "next/server";
+import multer from 'multer';
 
 interface InsertBodyRequest {
   package_id: number;
@@ -89,9 +90,12 @@ export async function POST(request: Request) {
   const prisma = new PrismaClient();
   try {
     // Insert logic here
+    const upload = multer({ dest: '' });
+    upload.array("photos", 5)
     const body: InsertBodyRequest = await request.json();
-    
-    const insert = await prisma.tnp_packages.create({
+    console.log("Multer result", body);
+
+    const insert = await prisma.tnp_packages.create({ 
       data: {
         package_name: body.package_name,
         package_description: body.package_description,
@@ -103,8 +107,8 @@ export async function POST(request: Request) {
         package_bestseller: true,
         package_isfeatured: true,
         package_destination_id: body.package_destination_id,
-        package_duration: body.package_duration
-      }
+        package_duration: body.package_duration,
+      },
     });
     console.log("Body", await body);
     return NextResponse.json({ status: 200, message: "Success", data: [] });

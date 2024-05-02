@@ -1,6 +1,7 @@
 import prisma from "./db";
 import * as nodemailer from "nodemailer";
 import { google } from "googleapis";
+
 const OAuth2 = google.auth.OAuth2;
 
 export const getUser = async (email: string) => {

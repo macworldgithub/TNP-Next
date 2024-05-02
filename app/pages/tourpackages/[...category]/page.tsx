@@ -8,9 +8,9 @@ import { useParams } from "next/navigation";
 import HoneymoonFeaturedListings from "@/components/TourPackage/HoneymoonFeaturedListings";
 import HoneymoonTourPackHero from "@/components/TourPackage/HoneymoonTourPackHero";
 
-interface Props { }
+interface Props {}
 
-const Page: NextPage<Props> = ({ }) => {
+const Page: NextPage<Props> = ({}) => {
   const params = useParams();
   console.log("Param aya", params);
   const { category } = params;

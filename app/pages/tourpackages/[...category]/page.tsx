@@ -9,9 +9,9 @@ import HoneymoonFeaturedListings from "@/components/TourPackage/HoneymoonFeature
 import HoneymoonTourPackHero from "@/components/TourPackage/HoneymoonTourPackHero";
 import FooterBg from "@/components/TourDetails/honeymoon/Footer/page";
 
-interface Props { }
+interface Props {}
 
-const Page: NextPage<Props> = ({ }) => {
+const Page: NextPage<Props> = ({}) => {
   const params = useParams();
   console.log("Param aya", params);
   const { category } = params;

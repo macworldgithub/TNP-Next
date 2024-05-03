@@ -3,7 +3,7 @@ import { MdLocationPin } from "react-icons/md";
 import { MdOutlineStarPurple500 } from "react-icons/md";
 import { IoMdTime } from "react-icons/io";
 import { IoPersonAddOutline } from "react-icons/io5";
-// import image from "../../public/TourPackage/FeaturedListing/imageicon.png"; 
+// import image from "../../public/TourPackage/FeaturedListing/imageicon.png";
 // import video from "../../public/TourPackage/FeaturedListing/videoicon.png";
 import { MdPhotoCamera } from "react-icons/md";
 import { BiSolidVideos } from "react-icons/bi";
@@ -12,7 +12,7 @@ import { useParams } from "next/navigation";
 
 
 interface TourCardProps {
-  pid: number,
+  pid: number;
   pic?: StaticImageData[] | string[];
   loc: string;
   title: string;
@@ -23,7 +23,7 @@ interface TourCardProps {
   review: number;
   imageCount: number;
   videoCount: number;
-  color? : string;
+  color?: string;
 }
 const TourCard: React.FC<TourCardProps> = ({ pid, pic, loc, title, duration, people, price, dprice, review, imageCount, videoCount, color = "sky" }) => {
   const { category, id } = useParams();
@@ -43,7 +43,13 @@ const TourCard: React.FC<TourCardProps> = ({ pid, pic, loc, title, duration, peo
 
       <div className=" w-full relative">
         <div className="overflow-hidden w-full h-[205px] absolute">
-          <Image src={pic?.length > 0 && pic[0]} alt="not_found" width={300} height={300} className="w-full h-52 absolute z-0 transform hover:scale-[115%] transition-transform duration-300 ease-in-out" />
+          <Image
+            src={pic?.length > 0 && pic[0]}
+            alt="not_found"
+            width={300}
+            height={300}
+            className="w-full h-52 absolute z-0 transform hover:scale-[115%] transition-transform duration-300 ease-in-out"
+          />
         </div>
         <div className="absolute z-10 flex flex-row justify-between w-full">
         <p className={`${bgClass} text-white text-sm px-2 py-[2px] m-2 rounded-md`}>Featured</p> 
@@ -94,9 +100,8 @@ const TourCard: React.FC<TourCardProps> = ({ pid, pic, loc, title, duration, peo
           <p className={`text-xs ${textColor} font-semibold`}>Rs{dprice}</p>
           <p className="text-xs text-gray-500 line-through">Rs{price}</p>
         </div>
-
       </div>
     </Link>
-  )
-}
+  );
+};
 export default TourCard;

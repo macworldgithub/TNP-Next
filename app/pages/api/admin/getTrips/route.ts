@@ -35,11 +35,45 @@ export async function GET(request: NextRequest) {
     //   email: user?.email,
     //   id: user?.id,
     // };
-    console.log(user, "user");
     return NextResponse.json({
       status: 200,
       message: "success",
       data: user,
+    });
+  } catch (error) {
+    console.error("Error in GET handler:", error);
+    return new NextResponse("Internal Server Error", { status: 500 });
+  }
+}
+
+export async function DELETE(request: NextRequest) {
+  try {
+    const searchParams = request.nextUrl.searchParams;
+    const id = parseInt(searchParams.get("id"));
+
+    if (!id) {
+      return NextResponse.json({
+        status: 400,
+        message: "send id in query param",
+      });
+    }
+    const response = await prisma.tnp_trips.findUnique({
+      where: {
+        trip_id: id,
+      },
+    });
+
+    if (!response) {
+      return new NextResponse("Record Not Found", { status: 400 });
+    }
+    await prisma.tnp_trips.delete({
+      where: {
+        trip_id: id,
+      },
+    });
+    return NextResponse.json({
+      status: 200,
+      message: "success",
     });
   } catch (error) {
     console.error("Error in GET handler:", error);

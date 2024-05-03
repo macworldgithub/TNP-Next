@@ -17,7 +17,7 @@ export async function GET(request: NextRequest) {
       take: 10,
       skip: (page - 1) * 10,
       select: {
-        id: false,
+        id: true,
         createdAt: false,
         name: true,
         lname: true,
@@ -35,7 +35,6 @@ export async function GET(request: NextRequest) {
     //   email: user?.email,
     //   id: user?.id,
     // };
-    console.log(user, "user");
     return NextResponse.json({
       status: 200,
       message: "success",
@@ -43,6 +42,55 @@ export async function GET(request: NextRequest) {
     });
   } catch (error) {
     console.error("Error in GET handler:", error);
+    return new NextResponse("Internal Server Error", { status: 500 });
+  }
+}
+
+export async function DELETE(request: NextRequest) {
+  try {
+    const searchParams = request.nextUrl.searchParams;
+    const id = parseInt(searchParams.get("id"));
+
+    if (!id) {
+      return NextResponse.json({
+        status: 400,
+        message: "send id in query param",
+      });
+    }
+    const response = await prisma.tnp_user.findUnique({
+      where: {
+        id: id,
+      },
+    });
+    console.log(response);
+    if (!response) {
+      return new NextResponse("Record Not Found", { status: 400 });
+    }
+    await prisma.tnp_tour_bookings.deleteMany({
+      where: {
+        tour_client_email: response.email,
+      },
+    });
+    await prisma.tnp_car_booking.deleteMany({
+      where: {
+        user_id: id,
+      },
+    });
+    await prisma.tnp_hotel_bookings.deleteMany({
+      where: {
+        booking_user_id: id,
+      },
+    });
+    await prisma.tnp_user.delete({
+      where: {
+        id: id,
+      },
+    });
+    return NextResponse.json({
+      status: 200,
+      message: "success",
+    });
+  } catch (error) {
     return new NextResponse("Internal Server Error", { status: 500 });
   }
 }

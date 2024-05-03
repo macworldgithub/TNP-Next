@@ -90,10 +90,8 @@ export async function POST(request: Request) {
   const prisma = new PrismaClient();
   try {
     // Insert logic here
-    const upload = multer({ dest: '' });
-    upload.array("photos", 5)
     const body: InsertBodyRequest = await request.json();
-    console.log("Multer result", body);
+    console.log("body result", body);
 
     const insert = await prisma.tnp_packages.create({ 
       data: {

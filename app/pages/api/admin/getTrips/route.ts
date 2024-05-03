@@ -56,8 +56,8 @@ function checkMissingData(data) {
 }
 export async function POST(request: NextRequest) {
   try {
-    const { packageId, bookedCount, date } = await request.json();
-    const missingData = checkMissingData({ packageId, bookedCount, date });
+    const { packageId, date } = await request.json();
+    const missingData = checkMissingData({ packageId, date });
 
     if (missingData) {
       return NextResponse.json({
@@ -81,7 +81,7 @@ export async function POST(request: NextRequest) {
       data: {
         trip_package_id: parseInt(packageId),
         trip_date: date,
-        trip_booked_count: parseInt(bookedCount),
+        trip_booked_count: 0,
       },
     });
 

@@ -21,7 +21,7 @@ const FooterBg = ({ }) => {
     }
 
     return (
-        <div className="text-black w-full relative pb-4 pt-8 items-center flex flex-col">
+        <div className="text-black w-full relative pb-4 pt-8 items-center flex flex-col backdrop-blur-sm">
             <Affiliations />
             {/* <div className="flex items-center justify-center flex-col relative pt-20 pb-16">
                 <Image

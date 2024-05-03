@@ -54,6 +54,8 @@ model tnp_user {
   lname              String               @db.VarChar(255)
   email              String               @unique
   password           String?
+  login_count        Int?
+  tnp_car_booking    tnp_car_booking[]
   tnp_hotel_bookings tnp_hotel_bookings[]
 }
 
@@ -123,4 +125,45 @@ model tnp_trips {
   tnp_packages      tnp_packages @relation(fields: [trip_package_id], references: [package_id], onUpdate: Restrict, map: "tnp_trips_ibfk_1")
 
   @@index([trip_package_id], map: "trip_package_id")
+}
+
+model tnp_car_booking {
+  car_booking_id   Int      @id @default(autoincrement())
+  user_id          Int
+  car_id           Int
+  pickup_date      DateTime @db.Date
+  dropoff_date     DateTime @db.Date
+  pickup_location  String   @db.VarChar(255)
+  dropoff_location String   @db.VarChar(255)
+  tnp_cars         tnp_cars @relation(fields: [car_id], references: [car_id], onUpdate: Restrict, map: "tnp_cars_ibfk_1")
+  tnp_user         tnp_user @relation(fields: [user_id], references: [id], onUpdate: Restrict, map: "tnp_users_ibfk_1")
+
+  @@index([car_id], map: "tnp_cars_ibfk_1")
+  @@index([user_id], map: "tnp_users_ibfk_1")
+}
+
+model tnp_car_class {
+  car_class_id Int        @id @default(autoincrement())
+  car_id       Int
+  class_name   String     @db.VarChar(50)
+  tnp_cars     tnp_cars[]
+}
+
+model tnp_cars {
+  car_id          Int               @id @default(autoincrement())
+  car_name        String            @db.VarChar(255)
+  class_id        Int
+  make            String?
+  model           String?
+  year            Int?
+  color           String?
+  engine          String?
+  transmission    String?
+  fuelType        String?
+  pricePerDay     Float?
+  mileage         Float?
+  tnp_car_booking tnp_car_booking[]
+  tnp_car_class   tnp_car_class     @relation(fields: [class_id], references: [car_class_id], onUpdate: Restrict, map: "tnp_cars_class_ibfk_1")
+
+  @@index([class_id], map: "tnp_cars_class_ibfk_1")
 }

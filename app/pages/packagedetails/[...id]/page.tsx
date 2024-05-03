@@ -121,7 +121,7 @@ const Page: NextPage<Props> = ({}) => {
   }
 
   const tripDetails: TripDetails = JSON.parse(packageDetails?.package_details);
-
+  
   return (
     <div>
       <HeroDomestic
@@ -129,7 +129,7 @@ const Page: NextPage<Props> = ({}) => {
           packageDetails.tnp_package_types.package_type_name
         )}
         paragraph={capitalizeFirstLetter(
-          packageDetails.tnp_destinations.tnp_package_regions.region_name
+          packageDetails.tnp_destinations?.tnp_package_regions.region_name
         )}
         image={
           tripDetails.TripDetailsAndCostSummary.Images.length > 0 &&

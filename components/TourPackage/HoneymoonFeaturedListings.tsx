@@ -260,7 +260,7 @@ const featuredData = [
   }
 ];
 
-const HoneymoonFeaturedListings = () => {
+const  HoneymoonFeaturedListings = () => {
   const itemsPerPage = 8;
   const [packages, setPackages] = useState<PackageStructure[]>([]);
 

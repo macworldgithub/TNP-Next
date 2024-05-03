@@ -7,6 +7,7 @@ export async function GET(request: NextRequest) {
     const res = await prisma.tnp_packages.findMany({
       select: {
         package_name: true,
+        package_id: true,
       },
     });
 

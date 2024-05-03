@@ -67,7 +67,7 @@ const sortFields: {
   price_high_to_low: { package_rate_normal: "desc" },
   duration_low_to_high: { package_duration: "asc" },
   duration_high_to_low: { package_duration: "desc" },
-  package_id: { package_id: "asc" },
+  package_id: { package_id: "desc" },
   package_isfeatured: { package_isfeatured: "desc" },
   package_bestseller: { package_bestseller: "asc" },
   package_total_persons: { package_total_persons: "asc" },

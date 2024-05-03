@@ -46,6 +46,62 @@ export async function GET(request: NextRequest) {
     return new NextResponse("Internal Server Error", { status: 500 });
   }
 }
+function checkMissingData(data) {
+  for (const key in data) {
+    if (!data[key]) {
+      return key;
+    }
+  }
+  return null;
+}
+export async function POST(request: NextRequest) {
+  try {
+    const { packageId, bookedCount, date } = await request.json();
+    const missingData = checkMissingData({ packageId, bookedCount, date });
+
+    if (missingData) {
+      return NextResponse.json({
+        status: 400,
+        message: `Please provide '${missingData}' in the request data.`,
+      });
+    }
+
+    const isPackageAvalible = await prisma.tnp_packages.findUnique({
+      where: {
+        package_id: parseInt(packageId),
+      },
+    });
+    if (!isPackageAvalible) {
+      return NextResponse.json({
+        status: 500,
+        message: "Package is not available.",
+      });
+    }
+    const createdTrip = await prisma.tnp_trips.create({
+      data: {
+        trip_package_id: parseInt(packageId),
+        trip_date: date,
+        trip_booked_count: parseInt(bookedCount),
+      },
+    });
+
+    if (!createdTrip) {
+      return NextResponse.json({
+        status: 500,
+        message: "Failed to create trip.",
+      });
+    }
+
+    return NextResponse.json({
+      status: 200,
+      message: "Trip created successfully.",
+      data: createdTrip,
+    });
+  } catch (error) {
+    console.error("Error in POST handler:", error);
+    return new NextResponse("Internal Server Error", { status: 500 });
+  }
+}
 
 export async function DELETE(request: NextRequest) {
   try {

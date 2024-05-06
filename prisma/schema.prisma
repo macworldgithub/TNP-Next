@@ -167,3 +167,10 @@ model tnp_cars {
 
   @@index([class_id], map: "tnp_cars_class_ibfk_1")
 }
+
+model tnp_banner {
+  tnp_banner_id   Int    @id @unique(map: "tnp_banner_id") @default(autoincrement()) @db.UnsignedInt
+  tnp_banner_name String @db.Text
+  tnp_banner_page String @db.Text
+  tnp_banner_url  String @db.Text
+}

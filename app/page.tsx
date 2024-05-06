@@ -75,6 +75,7 @@ import { useSearchParams } from "next/navigation";
 import { useAppDispatch } from "@/lib/store";
 import { setUserData } from "@/lib/feature/user/userSlice";
 import { getTourPackagesByCategory } from "./actions/tourpackages";
+import axios from "axios";
 
 // const settings = {
 //   dots: true,
@@ -244,6 +245,7 @@ export default function Home() {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isOfferModalOpen, setIsOfferModalOpen] = useState(false);
   const [bestSellerData, setBestSellerData] = useState([]);
+  const [bannerImage, setBannerImage] = useState("");
   console.log("Best Seller Data", bestSellerData);
 
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -255,8 +257,17 @@ export default function Home() {
     console.log(user);
     dispatch(setUserData(user?.data?.userData));
   }
-
+  const fetchBannerImage = async () => {
+    // setLoading(true);
+    let res = await axios.get(
+      `pages/api/admin/getBanners/single?pagename=home`
+    );
+    console.log(res.data.data[0].tnp_banner_url);
+    setBannerImage(res.data.data[0].tnp_banner_url);
+    // setLoading(false);
+  };
   useEffect(() => {
+    fetchBannerImage();
     const getPackages = async () => {
       try {
         const response = await getTourPackagesByCategory(

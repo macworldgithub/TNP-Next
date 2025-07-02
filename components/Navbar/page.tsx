@@ -3,6 +3,7 @@
 import { NextPage } from "next";
 import Image from "next/legacy/image";
 import Logo from "../../assets/common/Logo.svg";
+import { useEffect } from "react";
 import {
   FaFacebook,
   FaTwitter,
@@ -32,6 +33,19 @@ const Page: NextPage<Props> = ({}) => {
     (id && id[0] === "honeymoon") || (category && category[0] === "honeymoon")
       ? "bg-[#8b2424]"
       : "bg-primary";
+  // Scroll par dropdown close karne ka effect
+  useEffect(() => {
+    const handleScroll = () => {
+      setShowTourDropdown(false);
+      setCurrTour("");
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
 
   return (
     <div className="hidden lg:block">
@@ -97,8 +111,14 @@ const Page: NextPage<Props> = ({}) => {
       </header>
 
       <header className="w-full text-sm flex justify-between px-10 bg-white">
-        <div className="flex items-center">
-          <Image src={Logo} alt="logo image" height={60} width={200} />
+        <div className="flex items-center overflow-hidden">
+          <Image
+            src={Logo}
+            alt="Main Logo"
+            height={70}
+            width={200}
+            className="object-contain"
+          />
         </div>
 
         <div className="bg-white-500 relative flex-1">
@@ -127,14 +147,24 @@ const Page: NextPage<Props> = ({}) => {
                   {/* ✅ Left Column: Main Categories */}
                   <ul className="py-3 px-4 min-w-[200px] space-y-7">
                     <li
-                      onMouseOver={() => setCurrTour("DesertSafari")}
+                      onClick={() =>
+                        setCurrTour(
+                          currTour === "DesertSafari" ? "" : "DesertSafari"
+                        )
+                      }
                       className="hover:text-[#FBAD17] flex justify-between items-center cursor-pointer"
                     >
                       <span>Desert Safari Dubai</span>
                       <IoIosArrowForward />
                     </li>
+
                     <li
-                      onMouseOver={() => setCurrTour("Sightseeing")}
+                      onClick={() => {
+                        setCurrTour(
+                          currTour === "Sightseeing" ? "" : "Sightseeing"
+                        );
+                        router.push("/pages/tourpackages/international");
+                      }}
                       className="hover:text-[#FBAD17] flex justify-between items-center cursor-pointer"
                     >
                       <span>Sightseeing Tours</span>
@@ -162,7 +192,9 @@ const Page: NextPage<Props> = ({}) => {
                         Evening Desert Safari with Quad Bike
                       </li>
                       <li className="hover:text-[#FBAD17] cursor-pointer">
+                          <Link href="/pages/rentcar" className="cursor-pointer font-bold">
                         Desert Safari Private Car
+                        </Link>
                       </li>
                       <li className="hover:text-[#FBAD17] cursor-pointer">
                         Red Dunes Desert Safari
@@ -186,32 +218,32 @@ const Page: NextPage<Props> = ({}) => {
                   {currTour === "Sightseeing" && (
                     <ul className="bg-white px-4 py-4 min-w-[280px] space-y-5 border-l">
                       <li className="hover:text-[#FBAD17] cursor-pointer">
-                        <Link href="/pages/tourpackages/international/dubai">
+                        <Link href="/pages/packagedetails/12">
                           Dubai City Tour
                         </Link>
                       </li>
                       <li className="hover:text-[#FBAD17] cursor-pointer">
-                        <Link href="/pages/tourpackages/international/thailand">
+                        <Link href="/pages/packagedetails/12">
                           Abu Dhabi City Tour From Dubai
                         </Link>
                       </li>
                       <li className="hover:text-[#FBAD17] cursor-pointer">
-                        <Link href="/pages/tourpackages/international/turkey">
+                        <Link href="/pages/packagedetails/12">
                           Six Emirates Tour
                         </Link>
                       </li>
                       <li className="hover:text-[#FBAD17] cursor-pointer">
-                        <Link href="/pages/tourpackages/international/malaysia">
+                        <Link href="/pages/packagedetails/12">
                           Fujairah City Tour
                         </Link>
                       </li>
                       <li className="hover:text-[#FBAD17] cursor-pointer">
-                        <Link href="/pages/tourpackages/international/baku">
+                        <Link href="/pages/packagedetails/12">
                           Private Hatta Moutain Tour
                         </Link>
                       </li>
                       <li className="hover:text-[#FBAD17] cursor-pointer">
-                        <Link href="/pages/tourpackages/international/azerbaijan">
+                        <Link href="/pages/packagedetails/12">
                           Dubai Deluxe private City Tour
                         </Link>
                       </li>
@@ -234,11 +266,7 @@ const Page: NextPage<Props> = ({}) => {
 
             <p className="cursor-pointer font-bold">About</p>
 
-            <div
-              className="relative font-bold"
-              onMouseEnter={() => setCurrTour("HolidayPackage")}
-              onMouseLeave={() => setCurrTour("")}
-            >
+            <div className="relative font-bold">
               <div
                 onClick={() =>
                   setCurrTour(
@@ -261,37 +289,41 @@ const Page: NextPage<Props> = ({}) => {
               >
                 <ul className="space-y-7 text-black">
                   <li className="hover:text-[#FBAD17] cursor-pointer">
-                    <Link href="/pages/tourpackages/group">
+                    <Link href="/pages/packagedetails/1">
                       Dubai 4 Days 3 Nights Package
                     </Link>
                   </li>
                   <li className="hover:text-[#FBAD17] cursor-pointer">
-                    <Link href="/pages/tourpackages/private-family">
+                    <Link href="/pages/packagedetails/2">
                       Dubai 5 Days 4 Nights Package
                     </Link>
                   </li>
                   <li className="hover:text-[#FBAD17] cursor-pointer">
-                    Dubai 6 Days 5 Nights Package
+                    <Link href="/pages/packagedetails/1">
+                      Dubai 6 Days 5 Nights Package
+                    </Link>
                   </li>
                   <li className="hover:text-[#FBAD17] cursor-pointer">
-                    Dubai 7 Days 6 Nights Package
+                    <Link href="/pages/packagedetails/4">
+                      Dubai 7 Days 6 Nights Package
+                    </Link>
                   </li>
                   <li className="hover:text-[#FBAD17] cursor-pointer">
-                    Dubai 8 Days 7 Nights Package
+                    <Link href="/pages/packagedetails/3">
+                      Dubai 8 Days 7 Nights Package
+                    </Link>
                   </li>
                   <li className="hover:text-[#FBAD17] cursor-pointer">
-                    Dubai 9 Days 8 Nights Package
+                    <Link href="/pages/packagedetails/5">
+                      Dubai 9 Days 8 Nights Package
+                    </Link>
                   </li>
                 </ul>
               </div>
             </div>
 
             {/* ✅ Combo Tours Dropdown */}
-            <div
-              className="relative font-bold"
-              onMouseEnter={() => setCurrTour("ComboTours")}
-              onMouseLeave={() => setCurrTour("")}
-            >
+            <div className="relative font-bold">
               <div
                 onClick={() =>
                   setCurrTour(currTour === "ComboTours" ? "" : "ComboTours")
@@ -326,8 +358,13 @@ const Page: NextPage<Props> = ({}) => {
                     Dubai City Tour + Desert Safari + Marina Cruise Dinner
                   </li>
                   <li className="hover:text-[#FBAD17] cursor-pointer">
-                    Dubai City Tour + Desert Safari + Marina Cruise Dinner + Abu
-                    Dhabi City Tour
+                    <Link
+                      href={"/pages/visa"}
+                      className="cursor-pointer font-bold"
+                    >
+                      Dubai City Tour + Desert Safari + Marina Cruise Dinner +
+                      Abu Dhabi City Tour
+                    </Link>
                   </li>
                 </ul>
               </div>

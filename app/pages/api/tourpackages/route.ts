@@ -38,7 +38,16 @@ interface PackageStructure {
     package_type_value: string;
   };
 }
-
+export async function OPTIONS() {
+  return new NextResponse(null, {
+    status: 204,
+    headers: {
+      "Access-Control-Allow-Origin": "*",
+      "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE, OPTIONS",
+      "Access-Control-Allow-Headers": "Content-Type, Authorization",
+    },
+  });
+}
 export async function GET(request: NextRequest) {
   const searchParams = request.nextUrl?.searchParams;
   if (!searchParams?.get("id")) {
@@ -87,34 +96,80 @@ export async function GET(request: NextRequest) {
 }
 
 export async function POST(request: Request) {
-  const prisma = new PrismaClient();
-  try {
-    // Insert logic here
-    const body: InsertBodyRequest = await request.json();
-    console.log("body result", body);
+  console.log("hehe");
 
-    const insert = await prisma.tnp_packages.create({ 
+  const prisma = new PrismaClient();
+
+  try {
+    const formData = await request.formData();
+    const body: any = {};
+
+    for (const [key, value] of formData.entries()) {
+      body[key] =
+        key === "package_details" && typeof value === "string"
+          ? JSON.parse(value)
+          : value;
+    }
+
+    // Validate numeric fields
+    const numericFields = [
+      "package_rate_normal",
+      "package_rate_deluxe",
+      "package_total_persons",
+      "package_type_id",
+      "package_destination_id",
+      "package_duration",
+    ];
+
+    for (const field of numericFields) {
+      if (isNaN(Number(body[field]))) {
+        const response = NextResponse.json({
+          status: 400,
+          message: `Invalid numeric field: ${field}`,
+        });
+        response.headers.set("Access-Control-Allow-Origin", "*");
+        return response;
+      }
+    }
+
+    const newPackage = await prisma.tnp_packages.create({
       data: {
         package_name: body.package_name,
         package_description: body.package_description,
-        package_rate_normal: body.package_rate_normal,
-        package_rate_deluxe: body.package_rate_deluxe,
-        package_total_persons: body.package_total_persons,
-        package_details: body.package_details,
-        package_type_id: body.package_type_id,
+        package_rate_normal: Number(body.package_rate_normal),
+        package_rate_deluxe: Number(body.package_rate_deluxe),
+        package_total_persons: Number(body.package_total_persons),
+        package_details: JSON.stringify(body.package_details),
+        package_type_id: Number(body.package_type_id),
         package_bestseller: true,
         package_isfeatured: true,
-        package_destination_id: body.package_destination_id,
-        package_duration: body.package_duration,
+        package_destination_id: Number(body.package_destination_id),
+        package_duration: Number(body.package_duration),
       },
     });
-    console.log("Body", await body);
-    return NextResponse.json({ status: 200, message: "Success", data: [] });
+
+    console.log("ha");
+
+    const response = NextResponse.json({
+      status: 200,
+      message: "Success",
+      data: newPackage,
+    });
+
+    response.headers.set("Access-Control-Allow-Origin", "*");
+    return response;
   } catch (error) {
     console.error("Error in POST handler:", error);
-    return new NextResponse("Internal Server Error", { status: 500 });
+
+    const response = new NextResponse("Internal Server Error", { status: 500 });
+    response.headers.set("Access-Control-Allow-Origin", "*");
+    return response;
+  } finally {
+    await prisma.$disconnect();
   }
 }
+
+
 
 export async function PUT(request: Request) {
   try {

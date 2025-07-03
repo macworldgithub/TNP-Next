@@ -279,7 +279,10 @@ const Page: NextPage<Props> = ({}) => {
               </div>
             </div>
 
+            <Link href="/pages/aboutus">
             <p className="cursor-pointer font-bold">About</p>
+            </Link>
+
 
             <div className="relative font-bold">
               <div

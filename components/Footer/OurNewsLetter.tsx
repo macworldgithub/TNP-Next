@@ -1,7 +1,7 @@
 import { NextPage } from "next";
 import Image from "next/image";
 import { useState } from "react";
-import messageBtn from "../../assets/common/messageBtn.svg"
+import messageBtn from "../../assets/common/messageBtn.svg";
 
 interface Props {}
 
@@ -15,11 +15,11 @@ const OurNewsLetter: NextPage<Props> = ({}) => {
     <div className="min-w-72 max-w-80">
       <p className="text-xl font-semibold mb-8">Our Newsletter</p>
 
-      <p className="mb-5">
+      {/* <p className="mb-5">
         <a href="#">
           Exerci tation ullamcorper suscipit lobortis nisl aliquip ex ea commodo
         </a>
-      </p>
+      </p> */}
 
       <div className="flex justify-between border-gray border rounded-xl">
         <input

@@ -1,6 +1,6 @@
 import { NextPage } from "next";
 import Image from "next/image";
-import { AffiliationsData } from "@/assets/strings/NavigationString";
+import { AffiliationsData } from "@/assets/Strings/NavigationString";
 
 interface Props {}
 
@@ -18,7 +18,12 @@ const Affiliations: NextPage<Props> = ({}) => {
       </div>
       <div className="w-full flex flex-col md:flex-row justify-around items-center mb-12">
         {AffiliationsData.map((item, i) => (
-          <Image className="m-4 h-20" alt="image_not_found" src={item.image} key={"affiliations-image-id-" + i} />
+          <Image
+            className="m-4 h-28"
+            alt="image_not_found"
+            src={item.image}
+            key={"affiliations-image-id-" + i}
+          />
         ))}
       </div>
     </div>

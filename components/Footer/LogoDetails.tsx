@@ -16,7 +16,7 @@ const LogoDetails: NextPage<Props> = ({}) => {
   
   <div className="mb-3">
     <p>
-      A new way to make the payments easy, reliable and 100% secure. claritatem itamconse quat. Exerci tation ullamcorper.
+Tours Dubai is a young and exciting Destination management company based in Dubai. The company is recognized for professionalism, impressive operational infrastructure, personalized service and creative itineraries which enable us to provide clients with the most memorable experience.
     </p>
   </div>
 

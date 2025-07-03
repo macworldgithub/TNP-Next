@@ -3,7 +3,7 @@
 import { NextPage } from "next";
 import Image from "next/legacy/image";
 import Logo from "../../assets/common/Logo.svg";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import {
   FaFacebook,
   FaTwitter,
@@ -12,7 +12,6 @@ import {
   FaGlobeEurope,
 } from "react-icons/fa";
 import { IoIosArrowForward, IoIosArrowDown } from "react-icons/io";
-import { useState } from "react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
 import { useAppDispatch, useAppSelector } from "@/lib/store";
@@ -33,17 +32,34 @@ const Page: NextPage<Props> = ({}) => {
     (id && id[0] === "honeymoon") || (category && category[0] === "honeymoon")
       ? "bg-[#8b2424]"
       : "bg-primary";
-  // Scroll par dropdown close karne ka effect
+
+  // Scroll par dropdown close
   useEffect(() => {
     const handleScroll = () => {
       setShowTourDropdown(false);
       setCurrTour("");
     };
-
     window.addEventListener("scroll", handleScroll);
-
     return () => {
       window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
+  // Click outside to close dropdowns
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      const target = event.target as HTMLElement;
+      if (
+        !target.closest(".dropdown-toggle") &&
+        !target.closest(".dropdown-content")
+      ) {
+        setShowTourDropdown(false);
+        setCurrTour("");
+      }
+    };
+    window.addEventListener("click", handleClickOutside);
+    return () => {
+      window.removeEventListener("click", handleClickOutside);
     };
   }, []);
 
@@ -68,7 +84,6 @@ const Page: NextPage<Props> = ({}) => {
             <Link href={"/pages/aboutus"} className="mx-2">
               About Us
             </Link>
-            {/* <p className="mx-2">Blogs</p> */}
             <Link href={"/pages/gallery"} className="cursor-pointer mx-2">
               Gallery
             </Link>
@@ -79,7 +94,6 @@ const Page: NextPage<Props> = ({}) => {
             <FaTwitter className="text-xl text-white mx-2" />
             <FaLinkedin className="text-xl text-white mx-2" />
           </div>
-
           <div className="flex py-2 ms-8">
             {userData?.token ? (
               <button
@@ -115,36 +129,34 @@ const Page: NextPage<Props> = ({}) => {
           <Image
             src={Logo}
             alt="Main Logo"
-            height={70}
+            height={85}
             width={200}
             className="object-contain"
           />
         </div>
 
         <div className="bg-white-500 relative flex-1">
-          <div className="text-black items-center h-full justify-center gap-x-10 flex">
+          <div className="text-black items-center h-full justify-center gap-x-10 flex text-base font-semibold hover:text-[#FBAD17]  ">
             <Link href="/" className="cursor-pointer font-bold">
               Home
             </Link>
 
-            {/* ✅ All Tours Dropdown */}
+            {/* All Tours Dropdown */}
             <div className="relative font-bold">
               <div
                 onClick={() => setShowTourDropdown(!showTourDropdown)}
-                className="flex items-center gap-1 cursor-pointer"
+                className="flex items-center gap-1 cursor-pointer dropdown-toggle"
               >
                 <p>All Tours</p>
                 <IoIosArrowDown />
               </div>
 
-              {/* ✅ Dropdown Content */}
               <div
                 className={`${
                   showTourDropdown ? "block" : "hidden"
-                } absolute z-[100] top-[40px]`}
+                } absolute z-[100] top-[40px] dropdown-content`}
               >
                 <div className="bg-white flex rounded shadow-lg mt-4 overflow-hidden">
-                  {/* ✅ Left Column: Main Categories */}
                   <ul className="py-3 px-4 min-w-[200px] space-y-7">
                     <li
                       onClick={() =>
@@ -157,7 +169,6 @@ const Page: NextPage<Props> = ({}) => {
                       <span>Desert Safari Dubai</span>
                       <IoIosArrowForward />
                     </li>
-
                     <li
                       onClick={() => {
                         setCurrTour(
@@ -171,7 +182,9 @@ const Page: NextPage<Props> = ({}) => {
                       <IoIosArrowForward />
                     </li>
                     <li
-                      onMouseOver={() => setCurrTour("Cruise")}
+                      onClick={() =>
+                        setCurrTour(currTour === "Cruise" ? "" : "Cruise")
+                      }
                       className="hover:text-[#FBAD17] flex justify-between items-center cursor-pointer"
                     >
                       <span>Cruise Dinner</span>
@@ -179,7 +192,6 @@ const Page: NextPage<Props> = ({}) => {
                     </li>
                   </ul>
 
-                  {/* ✅ Right Column: Sub Options */}
                   {currTour === "DesertSafari" && (
                     <ul className="bg-white px-4 py-4 min-w-[280px] space-y-5 border-l">
                       <li className="hover:text-[#FBAD17] cursor-pointer">
@@ -192,8 +204,8 @@ const Page: NextPage<Props> = ({}) => {
                         Evening Desert Safari with Quad Bike
                       </li>
                       <li className="hover:text-[#FBAD17] cursor-pointer">
-                          <Link href="/pages/rentcar" className="cursor-pointer font-bold">
-                        Desert Safari Private Car
+                        <Link href="/pages/rentcar">
+                          Desert Safari Private Car
                         </Link>
                       </li>
                       <li className="hover:text-[#FBAD17] cursor-pointer">
@@ -258,6 +270,9 @@ const Page: NextPage<Props> = ({}) => {
                       <li className="hover:text-[#FBAD17] cursor-pointer">
                         Creek Cruise Dinner
                       </li>
+                      <li className="hover:text-[#FBAD17] cursor-pointer">
+                        Creek Cruise Dinner 4 Star (Ramee Hotel)
+                      </li>
                     </ul>
                   )}
                 </div>
@@ -273,7 +288,7 @@ const Page: NextPage<Props> = ({}) => {
                     currTour === "HolidayPackage" ? "" : "HolidayPackage"
                   )
                 }
-                className="flex items-center gap-1 cursor-pointer select-none"
+                className="flex items-center gap-1 cursor-pointer dropdown-toggle"
               >
                 <Link href="/pages/hotel">
                   <p className="hover:text-[#FBAD17]">Holidays Package</p>
@@ -281,11 +296,10 @@ const Page: NextPage<Props> = ({}) => {
                 <IoIosArrowDown />
               </div>
 
-              {/* Dropdown Content */}
               <div
                 className={`${
                   currTour === "HolidayPackage" ? "block" : "hidden"
-                } absolute z-[100] top-[40px] bg-white rounded shadow-lg py-3 px-4 min-w-[280px]`}
+                } absolute z-[100] top-[40px] bg-white rounded shadow-lg py-3 px-4 min-w-[280px] dropdown-content`}
               >
                 <ul className="space-y-7 text-black">
                   <li className="hover:text-[#FBAD17] cursor-pointer">
@@ -322,23 +336,21 @@ const Page: NextPage<Props> = ({}) => {
               </div>
             </div>
 
-            {/* ✅ Combo Tours Dropdown */}
             <div className="relative font-bold">
               <div
                 onClick={() =>
                   setCurrTour(currTour === "ComboTours" ? "" : "ComboTours")
                 }
-                className="flex items-center gap-1 cursor-pointer select-none"
+                className="flex items-center gap-1 cursor-pointer dropdown-toggle"
               >
                 <p>Combo Tours</p>
                 <IoIosArrowDown />
               </div>
 
-              {/* Dropdown Content */}
               <div
                 className={`${
                   currTour === "ComboTours" ? "block" : "hidden"
-                } absolute z-[100] top-[40px] bg-white rounded shadow-lg py-3 px-4 min-w-[320px]`}
+                } absolute z-[100] top-[40px] bg-white rounded shadow-lg py-3 px-4 min-w-[320px] dropdown-content`}
               >
                 <ul className="space-y-7 text-black">
                   <li className="hover:text-[#FBAD17] cursor-pointer">
@@ -358,10 +370,7 @@ const Page: NextPage<Props> = ({}) => {
                     Dubai City Tour + Desert Safari + Marina Cruise Dinner
                   </li>
                   <li className="hover:text-[#FBAD17] cursor-pointer">
-                    <Link
-                      href={"/pages/visa"}
-                      className="cursor-pointer font-bold"
-                    >
+                    <Link href="/pages/visa">
                       Dubai City Tour + Desert Safari + Marina Cruise Dinner +
                       Abu Dhabi City Tour
                     </Link>
@@ -394,14 +403,14 @@ const Page: NextPage<Props> = ({}) => {
         </div>
 
         <div className="flex">
-          <div className="flex items-center ms-8">
+          {/* <div className="flex items-center ms-8">
             <p className="flex items-center text-black mx-1">
               <FaGlobeEurope className="mx-1" />
               English
             </p>
             <p>|</p>
             <p className="text-black mx-1">USD</p>
-          </div>
+          </div> */}
         </div>
       </header>
     </div>

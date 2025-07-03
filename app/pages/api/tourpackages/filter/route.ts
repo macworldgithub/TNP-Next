@@ -188,6 +188,7 @@ export async function GET(request: NextRequest) {
 }
 
 export async function POST(request: Request) {
+  console.log("POST request received");
   const prisma = new PrismaClient();
   try {
     const body: InsertBodyRequest = await request.json();

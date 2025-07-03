@@ -379,7 +379,7 @@ export default function Home() {
                       defaultValue="lucy"
                       style={{ height: 20 }}
                       className="w-full g-red-300 border-0 hide-border p-0"
-                      options={[{ value: "lucy", label: "New York" }]}
+                      options={[{ value: "lucy", label: "Dubai" }]}
                     />
                   </div>
                 </div>
@@ -497,9 +497,7 @@ export default function Home() {
             </h1>
 
             <p className="text-gray-400 my-7">
-              Welcome to our Print 128 website! We are a professional and
-              reliable printing company that offers a wide range of printing
-              services to
+         Welcometo Dubai tours that makes various efforts to provide 100% customer satisfaction.
             </p>
 
             <div className="w-4/5 flex-col md:flex-row flex justify-between">
@@ -509,11 +507,11 @@ export default function Home() {
                 </div>
                 <p className="text-black font-bold">Trusted travel guide</p>
                 <p className="text-gray-500 text-xs">
-                  Welcome to our Print 128 wesit! company that offers a wide
-                  range
+                  Welcome to our Hatta Mountain Services that offers a wide
+                  range of variety to our customers.
                 </p>
               </div>
-              <div className="mx- my-5 md:my-0">
+              {/* <div className="mx- my-5 md:my-0">
                 <div className="h-14">
                   <Image src={LocationBook} alt="..." />
                 </div>
@@ -522,7 +520,7 @@ export default function Home() {
                   Welcome to our Print 128 wesit! company that offers a wide
                   range
                 </p>
-              </div>
+              </div> */}
             </div>
 
             <div className="md:w-4/5 flex justify-between flex-col md:flex-row my-5">
@@ -531,7 +529,7 @@ export default function Home() {
                   More About us
                 </button>
               </div>
-              <div className="mx- md:w-1/2 my-5 md:my-0">
+              {/* <div className="mx- md:w-1/2 my-5 md:my-0">
                 <div className="flex items-center">
                   <div className="w-12 h-12 rounded-full bg-gray-400 border-2"></div>
                   <div className="mx-2">
@@ -539,7 +537,7 @@ export default function Home() {
                     <p className="text-xs text-primary">Ceo & Founder</p>
                   </div>
                 </div>
-              </div>
+              </div> */}
             </div>
 
             <div className="flex items-center">
@@ -566,19 +564,19 @@ export default function Home() {
 
         <div className="flex flex-wrap justify-center">
           <div className="px-3 text-sm w-32 py-1 my-1 shadow-2xl border text-center mx-2 text-black">
-            New York
+      Abu Dhabi
           </div>
           <div className="px-3 text-sm w-32 py-1 my-1 shadow-2xl  border text-center mx-2 text-black">
-            London
+         Sharjah
           </div>
           <div className="px-3 text-sm w-32 py-1 my-1 shadow-2xl border text-center mx-2 text-black">
-            Tokyo
+            Hatta Mountain
           </div>
           <div className="px-3 text-sm w-32 py-1 my-1 shadow-2xl border text-center mx-2 text-black">
-            Los Angelas
+            Dubai
           </div>
           <div className="px-3 text-sm w-32 py-1 my-1 shadow-2xl  border text-center mx-2 text-black">
-            Manila
+           Ajman
           </div>
         </div>
         <div className="relative w-full  mt-8 z-0 ">
@@ -615,7 +613,7 @@ export default function Home() {
             Explore the world
           </h2>
           <h1 className="text-black  text-center font-bold text-3xl lg:text-[2.7rem] lg:leading-[2.4rem] ">
-            Popular destinations
+      SightSeeing Tours
           </h1>
           <Image
             src={PlanePath1}
@@ -648,7 +646,7 @@ export default function Home() {
               </div>
               <div className="absolute left-3 bottom-3  px-3 py-1 ">
                 <p className={`${inter.className} text-white`}>Travel to</p>
-                <p className={` text-white`}>Switzerland</p>
+                <p className={` text-white`}>Abu Dhabi</p>
               </div>
             </div>
             <div className="mx-2 relative md:w-80 w-full my-1 h-80">
@@ -663,7 +661,7 @@ export default function Home() {
               </div>
               <div className="absolute left-3 bottom-3  px-3 py-1 ">
                 <p className={`${inter.className} text-white`}>Travel to</p>
-                <p className={` text-white`}>Australia</p>
+                <p className={` text-white`}>Dubai Deluxe</p>
               </div>
             </div>
             <div className="mx-2 my-1 relative md:w-60 w-full  h-80">
@@ -678,7 +676,7 @@ export default function Home() {
               </div>
               <div className="absolute left-3 bottom-3  px-3 py-1 ">
                 <p className={`${inter.className} text-white`}>Travel to</p>
-                <p className={` text-white`}>London</p>
+                <p className={` text-white`}>Sharjah</p>
               </div>
             </div>
           </div>
@@ -695,7 +693,7 @@ export default function Home() {
               </div>
               <div className="absolute left-3 bottom-3  px-3 py-1 ">
                 <p className={`${inter.className} text-white`}>Travel to</p>
-                <p className={` text-white`}>Thailand</p>
+                <p className={` text-white`}>Hatta Mountain</p>
               </div>
             </div>
             <div className="mx-2 relative w-full md:w-[28rem] my-1 h-80">
@@ -710,7 +708,7 @@ export default function Home() {
               </div>
               <div className="absolute left-3 bottom-3  px-3 py-1 ">
                 <p className={`${inter.className} text-white`}>Travel to</p>
-                <p className={` text-white`}>Morocco</p>
+                <p className={` text-white`}>Fujairah</p>
               </div>
             </div>
             <div className="mx-2 relative md:w-80 my-1 w-full  h-80">
@@ -725,7 +723,7 @@ export default function Home() {
               </div>
               <div className="absolute left-3 bottom-3  px-3 py-1 ">
                 <p className={`${inter.className} text-white`}>Travel to</p>
-                <p className={` text-white`}>Singapore</p>
+                <p className={` text-white`}>Ajman</p>
               </div>
             </div>
           </div>
@@ -816,7 +814,7 @@ export default function Home() {
             <div className="flex items-center flex-col mx-2 my-2 w-[90%] h-[93%] justify-around border-[#4EA529] bg-white border border-dashed px-15 rounded-2xl py-5">
               <Image src={Hike} alt="hiking" />
               <p className="text-primary text-3xl font-bold text-center">
-                5489
+                5480
               </p>
               <Image src={UselessImage} alt="hiking" />
               <p className="text-black font-bold text-center">
@@ -829,7 +827,7 @@ export default function Home() {
             <div className="flex items-center flex-col mx-2 my-2 w-[90%] h-[93%] justify-around border-[#4EA529] bg-white border border-dashed px-15 rounded-2xl py-5">
               <Image src={Feedback} alt="hiking" />
               <p className="text-primary text-3xl font-bold text-center">
-                99.9%
+                99.99%
               </p>
               <Image src={UselessImage} alt="hiking" />
               <p className="text-black font-bold text-center">
@@ -841,7 +839,7 @@ export default function Home() {
             <div className="flex items-center flex-col mx-2 my-2 w-[90%] h-[93%] justify-around border-[#4EA529] bg-white border border-dashed px-15 rounded-2xl py-5">
               <Image src={Path} alt="hiking" />
               <p className="text-primary text-3xl font-bold text-center">
-                190+
+                290+
               </p>
               <Image src={UselessImage} alt="hiking" />
               <p className="text-black text-center font-bold">
@@ -853,7 +851,7 @@ export default function Home() {
           <div className="bg-white rounded-2xl border my-2 mx-2 flex justify-center items-center h-72 w-64">
             <div className="flex items-center flex-col mx-2 my-2 w-[90%] h-[93%] justify-around border-[#4EA529] bg-white border border-dashed px-15 rounded-2xl py-5">
               <Image src={BadgeImage} alt="hiking" />
-              <p className="text-primary text-3xl font-bold text-center">472</p>
+              <p className="text-primary text-3xl font-bold text-center">478</p>
               <Image src={UselessImage} alt="hiking" />
               <p className="text-black text-center font-bold">
                 Travel <br /> Destinations
@@ -896,7 +894,7 @@ export default function Home() {
         </h1>
         <h1 className="text-black text-3xl font-bold text-center">
           <span className={`${inter.className} text-primary}`}>from</span>
-          The Blog
+          The Cruise Dinner
         </h1>
 
         <div className="flex justify-center mt-10 flex-wrap w-full">

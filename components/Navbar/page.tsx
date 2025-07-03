@@ -313,7 +313,7 @@ const Page: NextPage<Props> = ({}) => {
                     </Link>
                   </li>
                   <li className="hover:text-[#FBAD17] cursor-pointer">
-                    <Link href="/pages/packagedetails/1">
+                    <Link href="/pages/packagedetails/6">
                       Dubai 6 Days 5 Nights Package
                     </Link>
                   </li>

@@ -71,11 +71,11 @@ const Page: NextPage<Props> = ({}) => {
         <div className="flex">
           <div className="flex px-1 py-2 mx-1 items-center">
             <FaPhoneAlt />
-            <p className="text-white ps-1">923362164294</p>
+            <p className="text-white ps-1">+971 5686523</p>
           </div>
           <div className="flex px-1 py-2 mx-1 items-center">
             <FaPhoneAlt />
-            <p className="text-white ps-1">923362164294</p>
+            <p className="text-white ps-1">+971 5606923</p>
           </div>
         </div>
 
@@ -118,8 +118,8 @@ const Page: NextPage<Props> = ({}) => {
                 User login
               </Link>
             )}
-            <p>|</p>
-            <p className="mx-1">Agent login</p>
+            
+          
           </div>
         </div>
       </header>

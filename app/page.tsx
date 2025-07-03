@@ -17,11 +17,11 @@ import Hike from "../public/home/Hike.png";
 import Feedback from "../public/home/feedback 1.png";
 import Path from "../public/home/path.png";
 import MountainImage from "../public/home/mountain 1.png";
-import Rect1 from "../public/home/Rectangle 19378.png";
-import Rect2 from "../public/home/Rectangle 19437.png";
+import Rect1 from "../public/home/Rectangle 19378.jpg";
+import Rect2 from "../public/home/Rectangle 19437.jpg";
 import Rect3 from "../public/home/Rectangle 19438.png";
 import Rect4 from "../public/home/Rectangle 19439.png";
-import Rect5 from "../public/home/Rectangle 19440.png";
+import Rect5 from "../public/home/Rectangle 19440.jpg";
 import Rect6 from "../public/home/Rectangle 19441.png";
 import FlagMan from "../public/home/Group.png";
 import LocationBook from "../public/home/loc.png";
@@ -364,7 +364,7 @@ export default function Home() {
                 and
               </h1>
               <h1 className="lg:text-[3.5rem] lg:leading-[3rem] text-3xl font-bold text-white">
-                Adventure <span className=""> Camping </span>
+                Amazing<span className=""> Adventure</span>
               </h1>
             </div>
             <div className="flex my-3 flex-col md:flex-row md:mx-5 bg-white text-black flex-wrap  rounded px-4 py-2">
@@ -497,7 +497,8 @@ export default function Home() {
             </h1>
 
             <p className="text-gray-400 my-7">
-         Welcometo Dubai tours that makes various efforts to provide 100% customer satisfaction.
+              Welcometo Dubai tours that makes various efforts to provide 100%
+              customer satisfaction.
             </p>
 
             <div className="w-4/5 flex-col md:flex-row flex justify-between">
@@ -553,7 +554,7 @@ export default function Home() {
       <div className="flex items-center flex-wrap flex-col  w-full bg-white lg:mb-40">
         <div className="w-full flex flex-col items-center">
           <h1 className="text-black font-bold text-center text-3xl">
-            Amazing Featured Tour
+            Amazing Combo Tour
           </h1>
           <h2
             className={`font-bold text-gray-400 text-center my-2 text-3xl ${inter.className}`}
@@ -564,10 +565,10 @@ export default function Home() {
 
         <div className="flex flex-wrap justify-center">
           <div className="px-3 text-sm w-32 py-1 my-1 shadow-2xl border text-center mx-2 text-black">
-      Abu Dhabi
+            Abu Dhabi
           </div>
           <div className="px-3 text-sm w-32 py-1 my-1 shadow-2xl  border text-center mx-2 text-black">
-         Sharjah
+            Sharjah
           </div>
           <div className="px-3 text-sm w-32 py-1 my-1 shadow-2xl border text-center mx-2 text-black">
             Hatta Mountain
@@ -576,7 +577,7 @@ export default function Home() {
             Dubai
           </div>
           <div className="px-3 text-sm w-32 py-1 my-1 shadow-2xl  border text-center mx-2 text-black">
-           Ajman
+            Ajman
           </div>
         </div>
         <div className="relative w-full  mt-8 z-0 ">
@@ -613,7 +614,7 @@ export default function Home() {
             Explore the world
           </h2>
           <h1 className="text-black  text-center font-bold text-3xl lg:text-[2.7rem] lg:leading-[2.4rem] ">
-      SightSeeing Tours
+            SightSeeing Tours
           </h1>
           <Image
             src={PlanePath1}
@@ -642,7 +643,7 @@ export default function Home() {
               />
               <div className="w-full md:w-[28rem] absolute  bottom-0 left-0 h-40 grad2 rounded"></div>
               <div className="absolute text-white bg-[#F7921E] right-3 top-3 text-xs px-3 py-1 rounded">
-                3 Tours
+                5 Tours
               </div>
               <div className="absolute left-3 bottom-3  px-3 py-1 ">
                 <p className={`${inter.className} text-white`}>Travel to</p>
@@ -657,7 +658,7 @@ export default function Home() {
               />
               <div className="absolute w-full md:w-80  bottom-0 left-0 h-40 grad2 rounded"></div>
               <div className="absolute bg-[#F7921E] text-white right-3 top-3 text-xs px-3 py-1 rounded">
-                3 Tours
+                8 Tours
               </div>
               <div className="absolute left-3 bottom-3  px-3 py-1 ">
                 <p className={`${inter.className} text-white`}>Travel to</p>
@@ -672,7 +673,7 @@ export default function Home() {
               />
               <div className=" absolute  md:w-60 w-full bottom-0 left-0 h-40 grad2 rounded"></div>
               <div className="absolute bg-[#F7921E] right-3 text-white top-3 text-xs px-3 py-1 rounded">
-                3 Tours
+                4 Tours
               </div>
               <div className="absolute left-3 bottom-3  px-3 py-1 ">
                 <p className={`${inter.className} text-white`}>Travel to</p>
@@ -704,7 +705,7 @@ export default function Home() {
               />
               <div className="w-full md:w-[28rem] absolute  bottom-0 left-0 h-40 grad2 rounded"></div>
               <div className="absolute bg-[#F7921E] right-3 top-3 text-xs px-3 text-white py-1 rounded">
-                3 Tours
+                2 Tours
               </div>
               <div className="absolute left-3 bottom-3  px-3 py-1 ">
                 <p className={`${inter.className} text-white`}>Travel to</p>
@@ -719,7 +720,7 @@ export default function Home() {
               />
               <div className="md:w-80 w-full absolute  bottom-0 left-0 h-40  grad2 rounded"></div>
               <div className="absolute bg-[#F7921E] right-3 top-3 text-xs px-3 text-white py-1 rounded">
-                3 Tours
+                6 Tours
               </div>
               <div className="absolute left-3 bottom-3  px-3 py-1 ">
                 <p className={`${inter.className} text-white`}>Travel to</p>
@@ -926,16 +927,15 @@ export default function Home() {
                     </div>
 
                     <h3 className="md:text-xl text-lg text-black font-bold ">
-                      The 8 best things about Touristy
+                      Marina Cruise Dinner 5 Star
                     </h3>
                     <p className="text-gray-400 my-1 md:text-base text-xs">
-                      Business is the activity of making on cing or buying and
-                      selling pro
+                      No review
                     </p>
                   </div>
                   <div className="flex items-center">
                     <p className="text-black my-2 md:text-base text-xs">
-                      Read More
+                      2 Hours
                     </p>
                     <FaArrowCircleRight className="ms-4" />
                   </div>

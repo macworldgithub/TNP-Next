@@ -118,8 +118,6 @@ const Page: NextPage<Props> = ({}) => {
                 User login
               </Link>
             )}
-            
-          
           </div>
         </div>
       </header>
@@ -280,9 +278,8 @@ const Page: NextPage<Props> = ({}) => {
             </div>
 
             <Link href="/pages/aboutus">
-            <p className="cursor-pointer font-bold">About</p>
+              <p className="cursor-pointer font-bold">About</p>
             </Link>
-
 
             <div className="relative font-bold">
               <div
@@ -326,12 +323,12 @@ const Page: NextPage<Props> = ({}) => {
                     </Link>
                   </li>
                   <li className="hover:text-[#FBAD17] cursor-pointer">
-                    <Link href="/pages/packagedetails/3">
+                    <Link href="/pages/packagedetails/7">
                       Dubai 8 Days 7 Nights Package
                     </Link>
                   </li>
                   <li className="hover:text-[#FBAD17] cursor-pointer">
-                    <Link href="/pages/packagedetails/5">
+                    <Link href="/pages/packagedetails/8">
                       Dubai 9 Days 8 Nights Package
                     </Link>
                   </li>

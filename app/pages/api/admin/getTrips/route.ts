@@ -136,4 +136,60 @@ export async function DELETE(request: NextRequest) {
     console.error("Error in GET handler:", error);
     return new NextResponse("Internal Server Error", { status: 500 });
   }
+
+  
+}
+
+export async function PUT(request: NextRequest) {
+  try {
+    const { tripId, packageId, date, bookedCount } = await request.json();
+    const missingData = checkMissingData({ tripId, packageId, date });
+
+    if (missingData) {
+      return NextResponse.json({
+        status: 400,
+        message: `Please provide '${missingData}' in the request data.`,
+      });
+    }
+
+    const isPackageAvailable = await prisma.tnp_packages.findUnique({
+      where: {
+        package_id: parseInt(packageId),
+      },
+    });
+
+    if (!isPackageAvailable) {
+      return NextResponse.json({
+        status: 404,
+        message: "Package is not available.",
+      });
+    }
+
+    const updatedTrip = await prisma.tnp_trips.update({
+      where: {
+        trip_id: parseInt(tripId),
+      },
+      data: {
+        trip_package_id: parseInt(packageId),
+        trip_date: date,
+        trip_booked_count: parseInt(bookedCount) || 0,
+      },
+    });
+
+    if (!updatedTrip) {
+      return NextResponse.json({
+        status: 500,
+        message: "Failed to update trip.",
+      });
+    }
+
+    return NextResponse.json({
+      status: 200,
+      message: "Trip updated successfully.",
+      data: updatedTrip,
+    });
+  } catch (error) {
+    console.error("Error in PUT handler:", error);
+    return new NextResponse("Internal Server Error", { status: 500 });
+  }
 }

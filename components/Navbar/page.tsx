@@ -274,7 +274,9 @@ const Page: NextPage<Props> = ({}) => {
                         </Link>
                       </li>
                       <li className="hover:text-[#FBAD17] cursor-pointer">
-                        Creek Cruise Dinner 4 Star (Ramee Hotel)
+                        <Link href="/pages/packagedetails/81">
+                          Creek Cruise Dinner 4 Star (Ramee Hotel)
+                        </Link>
                       </li>
                     </ul>
                   )}

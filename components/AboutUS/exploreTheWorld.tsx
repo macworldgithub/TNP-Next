@@ -23,14 +23,16 @@ const ExploreTheWorld = () => {
                             & Travels
                         </h1>
          </div>
-      <div className="w-[90%] lg:w-[50%] text-center lg:text-left "> Lorem ipsum dolor, sit amet consectetur adipisicing elit. Magni, doloremque facere quod voluptatem quos in ea labore dolor, id eveniet, quaerat ipsam dicta. Ut natus nulla similique odit nostrum voluptates?</div>
+      <div className="w-[90%] lg:w-[50%] text-center lg:text-left "> We are an organization constructed by travellers for vacationers. Land at your destination and find out your tour leader is neighbourhood to the region.
+
+</div>
     </div>
 
     <div className=" lg:w-[80%]  flex  justify-center items-center gap-2 mx-auto my-3 flex-col lg:flex-row ">
-        <AboutUsCard    heading="Trusted Travel Guide" text="Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, fugit."/> 
-        <AboutUsCard    heading="Trusted Travel Guide" text="Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, fugit."/>
-        <AboutUsCard    heading="Trusted Travel Guide" text="Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, fugit."/>
-        <AboutUsCard    heading="Trusted Travel Guide" text="Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, fugit."/>
+        <AboutUsCard    heading="Trusted Travel Guide" text="Tours Dubai makes various efforts to provide 100% customer satisfaction."/> 
+        <AboutUsCard    heading="Trusted Travel Guide" text="We are customizing your trip packages according to your needs. We will work together to meet your exact requirements."/>
+        <AboutUsCard    heading="Trusted Travel Guide" text="We operate to travel from the grass-root level. When you book with us, you get a cost-efficient price."/>
+        <AboutUsCard    heading="Trusted Travel Guide" text="All trips consist of journey permits, accommodations, and eating. There aren’t any surprises with a hidden cost"/>
     </div>
 
     </>

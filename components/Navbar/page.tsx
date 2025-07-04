@@ -71,11 +71,11 @@ const Page: NextPage<Props> = ({}) => {
         <div className="flex">
           <div className="flex px-1 py-2 mx-1 items-center">
             <FaPhoneAlt />
-            <p className="text-white ps-1">923362164294</p>
+            <p className="text-white ps-1">+971 5686523</p>
           </div>
           <div className="flex px-1 py-2 mx-1 items-center">
             <FaPhoneAlt />
-            <p className="text-white ps-1">923362164294</p>
+            <p className="text-white ps-1">+971 5606923</p>
           </div>
         </div>
 
@@ -118,8 +118,6 @@ const Page: NextPage<Props> = ({}) => {
                 User login
               </Link>
             )}
-            <p>|</p>
-            <p className="mx-1">Agent login</p>
           </div>
         </div>
       </header>
@@ -279,7 +277,9 @@ const Page: NextPage<Props> = ({}) => {
               </div>
             </div>
 
-            <p className="cursor-pointer font-bold">About</p>
+            <Link href="/pages/aboutus">
+              <p className="cursor-pointer font-bold">About</p>
+            </Link>
 
             <div className="relative font-bold">
               <div
@@ -313,7 +313,7 @@ const Page: NextPage<Props> = ({}) => {
                     </Link>
                   </li>
                   <li className="hover:text-[#FBAD17] cursor-pointer">
-                    <Link href="/pages/packagedetails/1">
+                    <Link href="/pages/packagedetails/6">
                       Dubai 6 Days 5 Nights Package
                     </Link>
                   </li>
@@ -323,12 +323,12 @@ const Page: NextPage<Props> = ({}) => {
                     </Link>
                   </li>
                   <li className="hover:text-[#FBAD17] cursor-pointer">
-                    <Link href="/pages/packagedetails/3">
+                    <Link href="/pages/packagedetails/7">
                       Dubai 8 Days 7 Nights Package
                     </Link>
                   </li>
                   <li className="hover:text-[#FBAD17] cursor-pointer">
-                    <Link href="/pages/packagedetails/5">
+                    <Link href="/pages/packagedetails/8">
                       Dubai 9 Days 8 Nights Package
                     </Link>
                   </li>

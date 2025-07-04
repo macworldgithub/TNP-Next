@@ -131,10 +131,11 @@ const Page: NextPage<Props> = ({}) => {
         paragraph={capitalizeFirstLetter(
           packageDetails.tnp_destinations?.tnp_package_regions.region_name
         )}
-        image={
-          tripDetails.TripDetailsAndCostSummary.Images.length > 0 &&
-          tripDetails.TripDetailsAndCostSummary.Images[0]
-        }
+       image={
+  tripDetails?.TripDetailsAndCostSummary?.Images?.length > 0 &&
+  tripDetails.TripDetailsAndCostSummary.Images[0]
+}
+
       />
       <div className="w-full lg:w-[80%] flex flex-col lg:flex-row gap-6  justify-center mx-auto my-10">
         {/* Right Side*/}

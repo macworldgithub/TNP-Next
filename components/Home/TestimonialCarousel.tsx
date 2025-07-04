@@ -81,10 +81,7 @@ const TestimonialCarousel: React.FC = () => {
                 </div>
 
                 <div className="text-black overflow-hidden text-xs md:text-base my-3 ">
-                  The most advanced revenue than this. Iwill refer everyone I
-                  like Level more and more each day because it makes my easier.
-                  It really saves me time and effort. Level is exactly business
-                  has been lacking.
+                  Book the UAE package and experience Dubai, Abu Dhabi, and Fujairah fantastic attractions as we lead you through a fascinating exploration of the natural beauty, customs, history, architecture and gastronomic delights of the Emirates. Enjoy the ultimate holiday of sun, sea and sand surrounded by spectacular scenery. Discover the rich heritage of the country with our unsurpassed packages. As we take you on a journey of beautiful wadis and enchanting highlights of UAE.
                 </div>
               </div>
             </div>

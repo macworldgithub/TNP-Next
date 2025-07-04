@@ -1,4 +1,4 @@
-import { availableCars } from '@/assets/strings/RentCarData'
+import { availableCars } from '@/assets/Strings/RentCarData'
 import { NextPage } from 'next';
 import CarCard from './CarCard';
 import { List } from 'antd';

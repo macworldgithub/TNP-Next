@@ -1,6 +1,6 @@
 import { NextPage } from "next";
 import RentBannerHeader from "./RentBannerHeader";
-import { getCarMotivationData } from "@/assets/strings/RentCarData";
+import { getCarMotivationData } from "@/assets/Strings/RentCarData";
 import Image from "next/image";
 import MotivationCard from "./MotivationCard";
 

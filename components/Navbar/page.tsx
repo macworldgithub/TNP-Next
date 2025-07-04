@@ -233,27 +233,27 @@ const Page: NextPage<Props> = ({}) => {
                         </Link>
                       </li>
                       <li className="hover:text-[#FBAD17] cursor-pointer">
-                        <Link href="/pages/packagedetails/12">
+                        <Link href="/pages/packagedetails/9">
                           Abu Dhabi City Tour From Dubai
                         </Link>
                       </li>
                       <li className="hover:text-[#FBAD17] cursor-pointer">
-                        <Link href="/pages/packagedetails/12">
+                        <Link href="/pages/packagedetails/10">
                           Six Emirates Tour
                         </Link>
                       </li>
                       <li className="hover:text-[#FBAD17] cursor-pointer">
-                        <Link href="/pages/packagedetails/12">
+                        <Link href="/pages/packagedetails/5">
                           Fujairah City Tour
                         </Link>
                       </li>
                       <li className="hover:text-[#FBAD17] cursor-pointer">
-                        <Link href="/pages/packagedetails/12">
+                        <Link href="/pages/packagedetails/21">
                           Private Hatta Moutain Tour
                         </Link>
                       </li>
                       <li className="hover:text-[#FBAD17] cursor-pointer">
-                        <Link href="/pages/packagedetails/12">
+                        <Link href="/pages/packagedetails/22">
                           Dubai Deluxe private City Tour
                         </Link>
                       </li>
@@ -263,10 +263,15 @@ const Page: NextPage<Props> = ({}) => {
                   {currTour === "Cruise" && (
                     <ul className="bg-white px-4 py-4 min-w-[280px] space-y-5 border-l">
                       <li className="hover:text-[#FBAD17] cursor-pointer">
-                        Marina Cruise Dinner
+                        <Link href="/pages/packagedetails/70">
+                          Marina Cruise Dinner
+                        </Link>
                       </li>
+
                       <li className="hover:text-[#FBAD17] cursor-pointer">
-                        Creek Cruise Dinner
+                        <Link href="/pages/packagedetails/80">
+                          Marina Cruise Dinner 5 Star
+                        </Link>
                       </li>
                       <li className="hover:text-[#FBAD17] cursor-pointer">
                         Creek Cruise Dinner 4 Star (Ramee Hotel)

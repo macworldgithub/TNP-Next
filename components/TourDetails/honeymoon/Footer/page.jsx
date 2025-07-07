@@ -1,7 +1,7 @@
 "use client";
 import Image from "next/image";
 import mobile_download from "../../../../assets/footer/mobile_app_download.png";
-import { NavigationRows } from "../../../../assets/strings/NavigationString";
+import { NavigationRows } from "../../../../assets/Strings/NavigationString";
 import { useEffect, useState } from "react";
 import LogoDetails from "@/components/Footer/LogoDetails";
 import OurCompany from "@/components/Footer/OurCompany";

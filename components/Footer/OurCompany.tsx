@@ -1,4 +1,4 @@
-import { ourCompanyLinks } from "@/assets/strings/NavigationString";
+import { ourCompanyLinks } from "@/assets/Strings/NavigationString";
 import { NextPage } from "next";
 
 interface Props {}

@@ -16,11 +16,12 @@ export async function GET(request: Request) {
 export async function POST(request: Request) {
     try {
         const body = await request.json();
+        // Make sure trip_booked_count is sent or set default value, for example 0
         const newTrip = await prisma.tnp_trips.create({
             data: {
-                trip_package_id: body.trip_package_id,
+                trip_package_id: Number(body.trip_package_id),
                 trip_date: new Date(body.trip_date),
-                trip_total_members: body.trip_total_members,
+                trip_booked_count: body.trip_booked_count !== undefined ? Number(body.trip_booked_count) : 0,
             },
         });
         return new NextResponse(JSON.stringify(newTrip), { status: 201 });
@@ -36,9 +37,9 @@ export async function PUT(request: Request) {
         const updatedTrip = await prisma.tnp_trips.update({
             where: { trip_id: parseInt(body.trip_id) },
             data: {
-                trip_package_id: body.trip_package_id,
+                trip_package_id: Number(body.trip_package_id),
                 trip_date: new Date(body.trip_date),
-                trip_total_members: body.trip_total_members,
+                trip_booked_count: body.trip_booked_count !== undefined ? Number(body.trip_booked_count) : 0,
             },
         });
         return new NextResponse(JSON.stringify(updatedTrip), { status: 200 });
@@ -50,7 +51,6 @@ export async function PUT(request: Request) {
 
 export async function DELETE(request: Request) {
     try {
-        // const { id } = request.params;
         const body = await request.json();
         await prisma.tnp_trips.delete({ where: { trip_id: parseInt(body.id) } });
         return new NextResponse('Trip deleted successfully', { status: 200 });

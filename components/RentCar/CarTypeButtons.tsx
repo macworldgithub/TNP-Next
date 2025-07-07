@@ -1,4 +1,4 @@
-import { carTypes } from "@/assets/strings/RentCarData";
+import { carTypes } from "@/assets/Strings/RentCarData";
 import { Button } from "antd";
 import { NextPage } from "next";
 import Image from "next/legacy/image";

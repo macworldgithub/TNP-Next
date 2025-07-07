@@ -11,7 +11,7 @@ const Affiliations: NextPage<Props> = ({}) => {
         <div className="w-1/3 md:w-2/4 lg:w-3/4 xl:w-3/4 2xl:w-3/4 h-0.5 bg-gray-300"></div>
         <div className="w-2/3 md:w-2/4 lg:w-3/4 xl:w-3/4 2xl:w-2/5">
           <p className="text-2xl md:text-3xl lg:text-3xl xl:text-4xl font-semibold text-center">
-            Affiliations
+            Affiliated Groups
           </p>
         </div>
         <div className="w-1/3 md:w-2/4 lg:w-3/4 xl:w-3/4 2xl:w-3/4 h-0.5 bg-gray-300"></div>

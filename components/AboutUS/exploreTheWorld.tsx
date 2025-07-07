@@ -12,7 +12,7 @@ const ExploreTheWorld = () => {
     <div className="lg:w-[80%] xl:w-[75%] flex flex-col lg:flex-row gap-4 justify-center items-center mx-auto" >
       <div className="w-full lg:w-[50%] ">
       <p className={`${inter.className} text-primary text-[2rem] text-center lg:text-left`}>
-                            Explore the world
+                            Explore the world 
                         </p>
                         <h1 className="text-black lg:text-4xl my-1 font-bold text-3xl text-center lg:text-left ">
                             Great Opportunity For

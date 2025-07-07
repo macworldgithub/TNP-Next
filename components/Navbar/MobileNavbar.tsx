@@ -2,11 +2,11 @@
 import Image from "next/image";
 import Logo from "../../assets/common/Logo.svg";
 import { IoMdMenu } from "react-icons/io";
-import { Menu, Switch } from "antd";
+import { Menu } from "antd";
 import type { GetProp, MenuProps } from "antd";
-
 import React, { useState } from "react";
 import { Drawer } from "antd";
+import { useRouter } from "next/navigation"; // ✅ Added for routing
 
 type MenuItem = GetProp<MenuProps, "items">[number];
 
@@ -25,67 +25,87 @@ function getItem(
 }
 
 const items: MenuItem[] = [
-  getItem("Home", "home"),
+  getItem("Home", "/"),
   getItem("All Tours", "alltours", null, [
     getItem("Desert Safari Dubai", "desert", null, [
-      getItem("Morning Dune Bashing", "desert1"),
-      getItem("Desert Safari with Dinner and Activities", "desert2"),
-      getItem("Evening Desert Safari with Quad Bike", "desert3"),
-      getItem("Desert Safari Private Car", "desert4"),
-      getItem("Red Dunes Desert Safari", "desert5"),
-      getItem("Overnight Desert Safari", "desert6"),
-      getItem("Morning Dune Bashing with Quad Bike", "desert7"),
+      getItem("Morning Dune Bashing", "/pages/packagedetails/90"),
+      getItem(
+        "Desert Safari with Dinner and Activities",
+        "/pages/packagedetails/94"
+      ),
+      getItem(
+        "Evening Desert Safari with Quad Bike",
+        "/pages/packagedetails/96"
+      ),
+      getItem("Desert Safari Private Car", "/pages/packagedetails/98"),
+      getItem("Red Dunes Desert Safari", "/pages/packagedetails/100"),
+      getItem("Overnight Desert Safari", "/pages/packagedetails/107"),
+      getItem(
+        "Morning Dune Bashing with Quad Bike",
+        "/pages/packagedetails/106"
+      ),
       getItem(
         "Evening Desert Safari With Dune Buggy Ride double sharing",
-        "desert8"
+        "/pages/packagedetails/104"
       ),
       getItem(
         "VIP Evening Desert Safari with Dinner and Activities",
-        "desert9"
+        "/pages/packagedetails/99"
       ),
     ]),
     getItem("Sightseeing Tours", "sightseeing", null, [
-      getItem("Dubai City Tour", "sight1"),
-      getItem("Abu Dhabi City Tour From Dubai", "sight2"),
-      getItem("Six Emirates Tour", "sight3"),
-      getItem("Fujairah City Tour", "sight4"),
-      getItem("Private Hatta Moutain Tour", "sight5"),
-      getItem("Dubai Deluxe private City Tour", "sight6"),
+      getItem("Dubai City Tour", "/pages/packagedetails/12"),
+      getItem("Abu Dhabi City Tour From Dubai", "/pages/packagedetails/9"),
+      getItem("Six Emirates Tour", "/pages/packagedetails/10"),
+      getItem("Fujairah City Tour", "/pages/packagedetails/5"),
+      getItem("Private Hatta Moutain Tour", "/pages/packagedetails/21"),
+      getItem("Dubai Deluxe private City Tour", "/pages/packagedetails/22"),
     ]),
     getItem("Cruise Dinner", "cruise", null, [
-      getItem("Marina Cruise Dinner", "cruise1"),
-      getItem("Creek Cruise Dinner", "cruise2"),
+      getItem("Marina Cruise Dinner", "/pages/packagedetails/70"),
+      getItem("Marina Cruise Dinner 5 Star", "/pages/packagedetails/80"),
+      getItem(
+        " Creek Cruise Dinner 4 Star (Ramee Hotel)",
+        "/pages/packagedetails/81"
+      ),
     ]),
   ]),
-  getItem("About", "about"),
+  getItem("About", "/pages/aboutus"),
   getItem("Holidays Package", "holiday", null, [
-    getItem("Dubai 4 Days 3 Nights Package", "holiday1"),
-    getItem("Dubai 5 Days 4 Nights Package", "holiday2"),
-    getItem("Dubai 6 Days 5 Nights Package", "holiday3"),
-    getItem("Dubai 7 Days 6 Nights Package", "holiday4"),
-    getItem("Dubai 8 Days 7 Nights Package", "holiday5"),
-    getItem("Dubai 9 Days 8 Nights Package", "holiday6"),
+    getItem("Dubai 4 Days 3 Nights Package", "/pages/packagedetails/1"),
+    getItem("Dubai 5 Days 4 Nights Package", "/pages/packagedetails/2"),
+    getItem("Dubai 6 Days 5 Nights Package", "/pages/packagedetails/6"),
+    getItem("Dubai 7 Days 6 Nights Package", "/pages/packagedetails/4"),
+    getItem("Dubai 8 Days 7 Nights Package", "/pages/packagedetails/7"),
+    getItem("Dubai 9 Days 8 Nights Package", "/pages/packagedetails/8"),
   ]),
   getItem("Combo Tours", "combo", null, [
-    getItem("Desert Safari + Dhow Cruise Dinner (4 Star)", "combo1"),
-    getItem("Dubai City Tour + Desert Safari", "combo2"),
-    getItem("Desert Safari + Marina Cruise Dinner", "combo3"),
+    getItem(
+      "Desert Safari + Dhow Cruise Dinner (4 Star)",
+      "/pages/packagedetails/84"
+    ),
+    getItem("Dubai City Tour + Desert Safari", "/pages/packagedetails/91"),
+    getItem("Desert Safari + Marina Cruise Dinner", "/pages/packagedetails/92"),
     getItem(
       "Dubai City Tour + Desert Safari + Dhow Cruise Dinner (4 Star)",
-      "combo4"
+      "/pages/packagedetails/93"
     ),
-    getItem("Dubai City Tour + Desert Safari + Marina Cruise Dinner", "combo5"),
+    getItem(
+      "Dubai City Tour + Desert Safari + Marina Cruise Dinner",
+      "/pages/packagedetails/95"
+    ),
     getItem(
       "Dubai City Tour + Desert Safari + Marina Cruise Dinner + Abu Dhabi City Tour",
-      "combo6"
+      "/pages/packagedetails/97"
     ),
   ]),
-  getItem("Contact Us", "contact"),
-  getItem("Book & Go", "book"),
+  getItem("Contact Us", "/pages/contactus"),
+  getItem("Book & Go", "/pages/offer"),
 ];
 
 const MobileNavbar: React.FC = () => {
   const [open, setOpen] = useState(false);
+  const router = useRouter();
 
   const showDrawer = () => {
     setOpen(true);
@@ -114,11 +134,13 @@ const MobileNavbar: React.FC = () => {
       >
         <Menu
           className="w-full"
-          defaultSelectedKeys={["1"]}
-          defaultOpenKeys={["sub1"]}
-          theme={"light"}
-          mode={"inline"}
+          theme="light"
+          mode="inline"
           items={items}
+          onClick={({ key }) => {
+            router.push(key as string); // ✅ Navigate to route
+            setOpen(false); // ✅ Close drawer
+          }}
         />
       </Drawer>
     </>

@@ -12,7 +12,7 @@ const InstagramPost = () => {
         <div className="mt-16 lg:w-[80%] flex justify-center items-center flex-col mx-auto   " >
             <div className="flex justify-center text-center flex-col mx-auto ">
                 <h1 className={`${inter.className} text-golden text-[2rem] text-center `}>
-                    Explore the world
+                    Explore the world 
 
                 </h1>
                 <h1 className="text-black lg:text-4xl my-1 font-bold text-3xl text-center  ">

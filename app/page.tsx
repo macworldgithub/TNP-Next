@@ -352,7 +352,7 @@ export default function Home() {
               className="absolute top-[-2rem] w-40 h-32 left-0"
             />
             <p className={`text-primary text-2xl ${inter.className}`}>
-              Explore the world
+              Explore the world 
             </p>
             <div className="my-2 flex flex-col items-center">
               <h1 className="lg:text-[3.5rem] text-3xl lg:leading-[3rem] font-bold text-white">

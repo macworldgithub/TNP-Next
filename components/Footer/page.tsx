@@ -10,44 +10,38 @@ import Affiliations from "./Affiliations";
 import { useEffect, useState } from "react";
 import { useParams } from "next/navigation";
 
+// ✅ New: Import icons
+import visaIcon from "../../assets/footer/visa.png";
+import ucbIcon from "../../assets/footer/ucb.png";
+import discoverIcon from "../../assets/footer/discover.png";
+
 const Footer = () => {
   const params = useParams();
-
   const { category, id } = useParams();
-  console.log("paramssss founddd", { category, id });
-  // console.log("footer", params);
-
-  // console.log("paramssss founddd at footer", params);
 
   const [isMounted, setIsMounted] = useState(false);
 
   useEffect(() => {
-    setIsMounted(true); // Component has been mounted
+    setIsMounted(true);
   }, []);
 
-  if (!isMounted) {
-    return null; // Don't render anything until client-side hydration
-  }
-  if (params?.category && params.category[0] === "honeymoon") {
-    return null;
-  }
+  if (!isMounted) return null;
+  if (params?.category && params.category[0] === "honeymoon") return null;
 
-
-
-  const bgClass = (id && id[0] === 'honeymoon') || (category && category[0] === 'honeymoon') 
-  ? "bg-[#fff5fb]" : "bg-white";
+  const bgClass =
+    (id && id[0] === "honeymoon") || (category && category[0] === "honeymoon")
+      ? "bg-[#fff5fb]"
+      : "bg-white";
 
   return (
-    <div className={`text-black ${bgClass} relative pb-4 pt-8 items-center ${id && id[0] === 'honeymoon'? "hidden" : "flex"} flex-col`}>
+    <div
+      className={`text-black ${bgClass} relative pb-4 pt-8 items-center ${
+        id && id[0] === "honeymoon" ? "hidden" : "flex"
+      } flex-col`}
+    >
       <Affiliations />
-      {/* <div className="flex items-center justify-center flex-col relative pt-20 pb-16">
-        <Image
-          src={mobile_download}
-          alt="not_found_image"
-          className="w-[90%]"
-        />
-      </div> */}
-      <div className=" w-[90%] mb-5 flex flex-col lg:flex-row lg:flex-wrap justify-between">
+
+      <div className="w-[90%] mb-5 flex flex-col lg:flex-row lg:flex-wrap justify-between">
         {NavigationRows.map((item, i) => {
           if (item === "LogoDetails") {
             return <LogoDetails key={"rendering-id-" + i} />;
@@ -61,19 +55,21 @@ const Footer = () => {
           return <div key={"rendering-id-" + i}></div>;
         })}
       </div>
+
       <div className="w-[90%] border h-[1px] bg-gray-300"></div>
-      <div className="w-[90%] flex flex-col md:flex-row justify-between">
+
+      <div className="w-[90%] flex flex-col md:flex-row justify-between items-center">
         <div>
           <p className="font-medium mb-4">
-            {" "}
-            © Copyright <span className="text-[#00ADEE]">©2023</span> . All
-            Rights Reserved Copyright
+            © Copyright <span className="text-[#00ADEE]">©2023</span> by Tours Dubai
           </p>
         </div>
-        <div className="flex gap-4 lg:gap-7">
-          <p className="font-medium">Terms and conditions</p>
-          <p className="font-medium">Privacy policy</p>
-          <p className="font-medium">Login / Signup</p>
+
+        {/* ✅ Replaced text with icons */}
+        <div className="flex gap-4 lg:gap-7 items-center">
+          <Image src={visaIcon} alt="Visa" className="w-12 h-auto" />
+          <Image src={ucbIcon} alt="UCB" className="w-12 h-auto" />
+          <Image src={discoverIcon} alt="Discover" className="w-12 h-auto" />
         </div>
       </div>
     </div>

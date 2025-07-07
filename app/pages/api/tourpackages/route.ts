@@ -1,7 +1,8 @@
+
 import { PrismaClient } from "@prisma/client";
-import prisma from "../db";
 import { NextRequest, NextResponse } from "next/server";
-import multer from 'multer';
+import fs from "fs";
+import path from "path";
 
 interface InsertBodyRequest {
   package_id: number;
@@ -38,6 +39,7 @@ interface PackageStructure {
     package_type_value: string;
   };
 }
+
 export async function OPTIONS() {
   return new NextResponse(null, {
     status: 204,
@@ -48,7 +50,9 @@ export async function OPTIONS() {
     },
   });
 }
+
 export async function GET(request: NextRequest) {
+  const prisma =new PrismaClient();
   const searchParams = request.nextUrl?.searchParams;
   if (!searchParams?.get("id")) {
     return new NextResponse("Bad Request: Missing or invalid id parameter", {
@@ -96,19 +100,21 @@ export async function GET(request: NextRequest) {
 }
 
 export async function POST(request: Request) {
-  console.log("hehe");
-
   const prisma = new PrismaClient();
-
   try {
     const formData = await request.formData();
     const body: any = {};
 
     for (const [key, value] of formData.entries()) {
-      body[key] =
-        key === "package_details" && typeof value === "string"
-          ? JSON.parse(value)
-          : value;
+      if (key.startsWith("images[")) {
+        body.images = body.images || [];
+        body.images.push(value);
+      } else {
+        body[key] =
+          key === "package_details" && typeof value === "string"
+            ? JSON.parse(value)
+            : value;
+      }
     }
 
     // Validate numeric fields
@@ -132,6 +138,26 @@ export async function POST(request: Request) {
       }
     }
 
+    // Handle image uploads
+    const imagePaths: string[] = [];
+    if (body.images && body.images.length > 0) {
+      const uploadDir = path.join(process.cwd(), "public", "uploads");
+      if (!fs.existsSync(uploadDir)) {
+        fs.mkdirSync(uploadDir, { recursive: true });
+      }
+
+      for (let i = 0; i < Math.min(body.images.length, 3); i++) {
+        const file = body.images[i];
+        const fileName = `${Date.now()}-${i}${path.extname(file.name)}`;
+        const filePath = path.join(uploadDir, fileName);
+        await fs.promises.writeFile(filePath, Buffer.from(await file.arrayBuffer()));
+        imagePaths.push(`/uploads/${fileName}`);
+      }
+    }
+
+    // Update package_details with image paths
+    body.package_details.TripDetailsAndCostSummary.Images = imagePaths;
+
     const newPackage = await prisma.tnp_packages.create({
       data: {
         package_name: body.package_name,
@@ -148,8 +174,6 @@ export async function POST(request: Request) {
       },
     });
 
-    console.log("ha");
-
     const response = NextResponse.json({
       status: 200,
       message: "Success",
@@ -160,16 +184,16 @@ export async function POST(request: Request) {
     return response;
   } catch (error) {
     console.error("Error in POST handler:", error);
-
-    const response = new NextResponse("Internal Server Error", { status: 500 });
+    const response = NextResponse.json({
+      status: 500,
+      message: "Internal Server Error",
+    });
     response.headers.set("Access-Control-Allow-Origin", "*");
     return response;
   } finally {
     await prisma.$disconnect();
   }
 }
-
-
 
 export async function PUT(request: NextRequest) {
   const prisma = new PrismaClient();
@@ -179,10 +203,18 @@ export async function PUT(request: NextRequest) {
     const body: any = {};
 
     for (const [key, value] of formData.entries()) {
-      body[key] =
-        key === "package_details" && typeof value === "string"
-          ? JSON.parse(value)
-          : value;
+      if (key.startsWith("images[")) {
+        body.images = body.images || [];
+        body.images.push(value);
+      } else if (key.startsWith("deleteImages[")) {
+        body.deleteImages = body.deleteImages || [];
+        body.deleteImages.push(value);
+      } else {
+        body[key] =
+          key === "package_details" && typeof value === "string"
+            ? JSON.parse(value)
+            : value;
+      }
     }
 
     if (!body.package_id) {
@@ -214,6 +246,51 @@ export async function PUT(request: NextRequest) {
         return response;
       }
     }
+
+    // Fetch existing package to get current images
+    const existingPackage = await prisma.tnp_packages.findUnique({
+      where: { package_id: Number(body.package_id) },
+      select: { package_details: true },
+    });
+
+    let existingImages: string[] = [];
+    if (existingPackage?.package_details) {
+      const details = JSON.parse(existingPackage.package_details);
+      existingImages = details.TripDetailsAndCostSummary?.Images || [];
+    }
+
+    // Delete specified images
+    if (body.deleteImages && body.deleteImages.length > 0) {
+      const uploadDir = path.join(process.cwd(), "public", "uploads");
+      body.deleteImages.forEach((imagePath: string) => {
+        const filePath = path.join(process.cwd(), "public", imagePath);
+        if (fs.existsSync(filePath)) {
+          fs.unlinkSync(filePath);
+        }
+      });
+      existingImages = existingImages.filter((img: string) => !body.deleteImages.includes(img));
+    }
+
+    // Handle new image uploads
+    const imagePaths: string[] = [...existingImages];
+    if (body.images && body.images.length > 0) {
+      const uploadDir = path.join(process.cwd(), "public", "uploads");
+      if (!fs.existsSync(uploadDir)) {
+        fs.mkdirSync(uploadDir, { recursive: true });
+      }
+
+      const maxNewImages = 3 - existingImages.length;
+      for (let i = 0; i < Math.min(body.images.length, maxNewImages); i++) {
+        const file = body.images[i];
+        const fileName = `${Date.now()}-${i}${path.extname(file.name)}`;
+        const filePath = path.join(uploadDir, fileName);
+        await fs.promises.writeFile(filePath, Buffer.from(await file.arrayBuffer()));
+        imagePaths.push(`/uploads/${fileName}`);
+      }
+    }
+
+    // Update package_details with image paths
+    body.package_details.TripDetailsAndCostSummary.Images = imagePaths;
 
     const updatedPackage = await prisma.tnp_packages.update({
       where: {
@@ -266,6 +343,23 @@ export async function DELETE(request: NextRequest) {
       });
       response.headers.set("Access-Control-Allow-Origin", "*");
       return response;
+    }
+
+    // Delete associated images
+    const existingPackage = await prisma.tnp_packages.findUnique({
+      where: { package_id: Number(package_id) },
+      select: { package_details: true },
+    });
+
+    if (existingPackage?.package_details) {
+      const details = JSON.parse(existingPackage.package_details);
+      const images = details.TripDetailsAndCostSummary?.Images || [];
+      images.forEach((imagePath: string) => {
+        const filePath = path.join(process.cwd(), "public", imagePath);
+        if (fs.existsSync(filePath)) {
+          fs.unlinkSync(filePath);
+        }
+      });
     }
 
     await prisma.tnp_packages.delete({

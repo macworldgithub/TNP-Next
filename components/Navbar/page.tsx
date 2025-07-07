@@ -193,34 +193,50 @@ const Page: NextPage<Props> = ({}) => {
                   {currTour === "DesertSafari" && (
                     <ul className="bg-white px-4 py-4 min-w-[280px] space-y-5 border-l">
                       <li className="hover:text-[#FBAD17] cursor-pointer">
-                        Morning Dune Bashing
+                        <Link href="/pages/packagedetails/90">
+                          Morning Dune Bashing
+                        </Link>
                       </li>
                       <li className="hover:text-[#FBAD17] cursor-pointer">
-                        Desert Safari with Dinner and Activities
+                        <Link href="/pages/packagedetails/94">
+                          Desert Safari with Dinner and Activities
+                        </Link>
                       </li>
                       <li className="hover:text-[#FBAD17] cursor-pointer">
-                        Evening Desert Safari with Quad Bike
+                        <Link href="/pages/packagedetails/96">
+                          Evening Desert Safari with Quad Bike
+                        </Link>
                       </li>
                       <li className="hover:text-[#FBAD17] cursor-pointer">
-                        <Link href="/pages/rentcar">
+                        <Link href="/pages/packagedetails/98">
                           Desert Safari Private Car
                         </Link>
                       </li>
                       <li className="hover:text-[#FBAD17] cursor-pointer">
-                        Red Dunes Desert Safari
+                        <Link href="/pages/packagedetails/100">
+                          Red Dunes Desert Safari
+                        </Link>
                       </li>
                       <li className="hover:text-[#FBAD17] cursor-pointer">
-                        Overnight Desert Safari
+                        <Link href="/pages/packagedetails/107">
+                          Overnight Desert Safari
+                        </Link>
                       </li>
                       <li className="hover:text-[#FBAD17] cursor-pointer">
-                        Morning Dune Bashing with Quad Bike
+                        <Link href="/pages/packagedetails/106">
+                          Morning Dune Bashing with Quad Bike
+                        </Link>
                       </li>
                       <li className="hover:text-[#FBAD17] cursor-pointer">
-                        Evening Desert Safari With Dune Buggy Ride double
-                        sharing
+                        <Link href="/pages/packagedetails/104">
+                          Evening Desert Safari With Dune Buggy Ride double
+                          sharing
+                        </Link>
                       </li>
                       <li className="hover:text-[#FBAD17] cursor-pointer">
-                        VIP Evening Desert Safari with Dinner and Activities
+                        <Link href="/pages/packagedetails/99">
+                          VIP Evening Desert Safari with Dinner and Activities
+                        </Link>
                       </li>
                     </ul>
                   )}
@@ -361,23 +377,33 @@ const Page: NextPage<Props> = ({}) => {
               >
                 <ul className="space-y-7 text-black">
                   <li className="hover:text-[#FBAD17] cursor-pointer">
-                    Desert Safari + Dhow Cruise Dinner (4 Star)
+                    <Link href="/pages/packagedetails/84">
+                      Desert Safari + Dhow Cruise Dinner (4 Star)
+                    </Link>
                   </li>
                   <li className="hover:text-[#FBAD17] cursor-pointer">
-                    Dubai City Tour + Desert Safari
+                    <Link href="/pages/packagedetails/91">
+                      Dubai City Tour + Desert Safari
+                    </Link>
                   </li>
                   <li className="hover:text-[#FBAD17] cursor-pointer">
-                    Desert Safari + Marina Cruise Dinner
+                    <Link href="/pages/packagedetails/92">
+                      Desert Safari + Marina Cruise Dinner
+                    </Link>
                   </li>
                   <li className="hover:text-[#FBAD17] cursor-pointer">
-                    Dubai City Tour + Desert Safari + Dhow Cruise Dinner (4
-                    Star)
+                    <Link href="/pages/packagedetails/93">
+                      Dubai City Tour + Desert Safari + Dhow Cruise Dinner (4
+                      Star)
+                    </Link>
                   </li>
                   <li className="hover:text-[#FBAD17] cursor-pointer">
-                    Dubai City Tour + Desert Safari + Marina Cruise Dinner
+                    <Link href="/pages/packagedetails/95">
+                      Dubai City Tour + Desert Safari + Marina Cruise Dinner
+                    </Link>
                   </li>
                   <li className="hover:text-[#FBAD17] cursor-pointer">
-                    <Link href="/pages/visa">
+                    <Link href="/pages/packagedetails/97">
                       Dubai City Tour + Desert Safari + Marina Cruise Dinner +
                       Abu Dhabi City Tour
                     </Link>

@@ -34,7 +34,7 @@ export async function GET(request: NextRequest) {
       data: banner,
     });
   } catch (error) {
-    console.error("Error in GET handler:", error);
+    console.error("Error in GET handler getBanners1:", error);
     return new NextResponse("Internal Server Error", { status: 500 });
   }
 }
@@ -74,7 +74,7 @@ export async function POST(request: NextRequest) {
       data: user,
     });
   } catch (error) {
-    console.error("Error in GET handler:", error);
+    console.error("Error in GET handler getBanners2:", error);
     return new NextResponse("Internal Server Error", { status: 500 });
   }
 }

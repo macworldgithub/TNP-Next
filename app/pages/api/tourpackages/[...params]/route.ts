@@ -83,7 +83,7 @@ export async function GET(
       data: packages,
     });
   } catch (error) {
-    console.error("Error in GET handler:", error);
+    console.error("Error in GET handler tourpackages params:", error);
     return new NextResponse("Internal Server Error", { status: 500 });
   } finally {
     await prisma.$disconnect();

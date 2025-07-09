@@ -11,7 +11,7 @@ export async function GET(request: Request) {
     console.log("SENTTTTT");
     return NextResponse.json({ status: 200, message: "Success" });
   } catch (error) {
-    console.error('Error in GET handler:', error);
+    console.error('Error in GET handler emailtest:', error);
     return new NextResponse('Internal Server Error', { status: 500 });
   }
 }

@@ -134,13 +134,15 @@ const Page: NextPage<Props> = ({}) => {
         </div>
 
         <div className="bg-white-500 relative flex-1">
-          <div className="text-black items-center h-full justify-center gap-x-10 flex text-base font-semibold hover:text-[#FBAD17]  ">
-            <Link href="/" className="cursor-pointer font-bold">
+          <div className="text-black items-center h-full justify-center gap-x-10 flex text-base font-semibold">
+            <Link
+              href="/"
+              className="cursor-pointer font-bold hover:text-[#FBAD17]"
+            >
               Home
             </Link>
 
-            {/* All Tours Dropdown */}
-            <div className="relative font-bold">
+            <div className="relative font-bold hover:text-[#FBAD17]">
               <div
                 onClick={() => setShowTourDropdown(!showTourDropdown)}
                 className="flex items-center gap-1 cursor-pointer dropdown-toggle"
@@ -162,7 +164,7 @@ const Page: NextPage<Props> = ({}) => {
                           currTour === "DesertSafari" ? "" : "DesertSafari"
                         )
                       }
-                      className="hover:text-[#FBAD17] flex justify-between items-center cursor-pointer"
+                      className=" text-black hover:text-[#FBAD17] flex justify-between items-center cursor-pointer"
                     >
                       <span>Desert Safari Dubai</span>
                       <IoIosArrowForward />
@@ -174,7 +176,7 @@ const Page: NextPage<Props> = ({}) => {
                         );
                         router.push("/pages/tourpackages/international");
                       }}
-                      className="hover:text-[#FBAD17] flex justify-between items-center cursor-pointer"
+                      className=" text-black hover:text-[#FBAD17] flex justify-between items-center cursor-pointer"
                     >
                       <span>Sightseeing Tours</span>
                       <IoIosArrowForward />
@@ -183,7 +185,7 @@ const Page: NextPage<Props> = ({}) => {
                       onClick={() =>
                         setCurrTour(currTour === "Cruise" ? "" : "Cruise")
                       }
-                      className="hover:text-[#FBAD17] flex justify-between items-center cursor-pointer"
+                      className=" text-black hover:text-[#FBAD17] flex justify-between items-center cursor-pointer"
                     >
                       <span>Cruise Dinner</span>
                       <IoIosArrowForward />
@@ -192,48 +194,48 @@ const Page: NextPage<Props> = ({}) => {
 
                   {currTour === "DesertSafari" && (
                     <ul className="bg-white px-4 py-4 min-w-[280px] space-y-5 border-l">
-                      <li className="hover:text-[#FBAD17] cursor-pointer">
+                      <li className="text-black hover:text-[#FBAD17] cursor-pointer">
                         <Link href="/pages/packagedetails/90">
                           Morning Dune Bashing
                         </Link>
                       </li>
-                      <li className="hover:text-[#FBAD17] cursor-pointer">
+                      <li className="text-black hover:text-[#FBAD17] cursor-pointer">
                         <Link href="/pages/packagedetails/94">
                           Desert Safari with Dinner and Activities
                         </Link>
                       </li>
-                      <li className="hover:text-[#FBAD17] cursor-pointer">
+                      <li className="text-black hover:text-[#FBAD17] cursor-pointer">
                         <Link href="/pages/packagedetails/96">
                           Evening Desert Safari with Quad Bike
                         </Link>
                       </li>
-                      <li className="hover:text-[#FBAD17] cursor-pointer">
+                      <li className="text-black hover:text-[#FBAD17] cursor-pointer">
                         <Link href="/pages/packagedetails/98">
                           Desert Safari Private Car
                         </Link>
                       </li>
-                      <li className="hover:text-[#FBAD17] cursor-pointer">
+                      <li className="text-black hover:text-[#FBAD17] cursor-pointer">
                         <Link href="/pages/packagedetails/100">
                           Red Dunes Desert Safari
                         </Link>
                       </li>
-                      <li className="hover:text-[#FBAD17] cursor-pointer">
+                      <li className="text-black hover:text-[#FBAD17] cursor-pointer">
                         <Link href="/pages/packagedetails/107">
                           Overnight Desert Safari
                         </Link>
                       </li>
-                      <li className="hover:text-[#FBAD17] cursor-pointer">
+                      <li className="text-black hover:text-[#FBAD17] cursor-pointer">
                         <Link href="/pages/packagedetails/106">
                           Morning Dune Bashing with Quad Bike
                         </Link>
                       </li>
-                      <li className="hover:text-[#FBAD17] cursor-pointer">
+                      <li className="text-black hover:text-[#FBAD17] cursor-pointer">
                         <Link href="/pages/packagedetails/104">
                           Evening Desert Safari With Dune Buggy Ride double
                           sharing
                         </Link>
                       </li>
-                      <li className="hover:text-[#FBAD17] cursor-pointer">
+                      <li className="text-black hover:text-[#FBAD17] cursor-pointer">
                         <Link href="/pages/packagedetails/99">
                           VIP Evening Desert Safari with Dinner and Activities
                         </Link>
@@ -243,32 +245,32 @@ const Page: NextPage<Props> = ({}) => {
 
                   {currTour === "Sightseeing" && (
                     <ul className="bg-white px-4 py-4 min-w-[280px] space-y-5 border-l">
-                      <li className="hover:text-[#FBAD17] cursor-pointer">
+                      <li className="text-black hover:text-[#FBAD17] cursor-pointer">
                         <Link href="/pages/packagedetails/12">
                           Dubai City Tour
                         </Link>
                       </li>
-                      <li className="hover:text-[#FBAD17] cursor-pointer">
+                      <li className="text-black hover:text-[#FBAD17] cursor-pointer">
                         <Link href="/pages/packagedetails/9">
                           Abu Dhabi City Tour From Dubai
                         </Link>
                       </li>
-                      <li className="hover:text-[#FBAD17] cursor-pointer">
+                      <li className="text-black hover:text-[#FBAD17] cursor-pointer">
                         <Link href="/pages/packagedetails/10">
                           Six Emirates Tour
                         </Link>
                       </li>
-                      <li className="hover:text-[#FBAD17] cursor-pointer">
+                      <li className="text-black hover:text-[#FBAD17] cursor-pointer">
                         <Link href="/pages/packagedetails/5">
                           Fujairah City Tour
                         </Link>
                       </li>
-                      <li className="hover:text-[#FBAD17] cursor-pointer">
+                      <li className="text-black hover:text-[#FBAD17] cursor-pointer">
                         <Link href="/pages/packagedetails/21">
                           Private Hatta Moutain Tour
                         </Link>
                       </li>
-                      <li className="hover:text-[#FBAD17] cursor-pointer">
+                      <li className="text-black hover:text-[#FBAD17] cursor-pointer">
                         <Link href="/pages/packagedetails/22">
                           Dubai Deluxe private City Tour
                         </Link>
@@ -278,18 +280,18 @@ const Page: NextPage<Props> = ({}) => {
 
                   {currTour === "Cruise" && (
                     <ul className="bg-white px-4 py-4 min-w-[280px] space-y-5 border-l">
-                      <li className="hover:text-[#FBAD17] cursor-pointer">
+                      <li className="text-black hover:text-[#FBAD17] cursor-pointer">
                         <Link href="/pages/packagedetails/70">
                           Marina Cruise Dinner
                         </Link>
                       </li>
 
-                      <li className="hover:text-[#FBAD17] cursor-pointer">
+                      <li className="text-black hover:text-[#FBAD17] cursor-pointer">
                         <Link href="/pages/packagedetails/80">
                           Marina Cruise Dinner 5 Star
                         </Link>
                       </li>
-                      <li className="hover:text-[#FBAD17] cursor-pointer">
+                      <li className="text-black hover:text-[#FBAD17] cursor-pointer">
                         <Link href="/pages/packagedetails/81">
                           Creek Cruise Dinner 4 Star (Ramee Hotel)
                         </Link>
@@ -301,7 +303,9 @@ const Page: NextPage<Props> = ({}) => {
             </div>
 
             <Link href="/pages/aboutus">
-              <p className="cursor-pointer font-bold">About</p>
+              <p className="cursor-pointer font-bold hover:text-[#FBAD17]">
+                About
+              </p>
             </Link>
 
             <div className="relative font-bold">
@@ -364,7 +368,7 @@ const Page: NextPage<Props> = ({}) => {
                 onClick={() =>
                   setCurrTour(currTour === "ComboTours" ? "" : "ComboTours")
                 }
-                className="flex items-center gap-1 cursor-pointer dropdown-toggle"
+                className="flex items-center gap-1 cursor-pointer dropdown-toggle hover:text-[#FBAD17]"
               >
                 <p>Combo Tours</p>
                 <IoIosArrowDown />
@@ -412,7 +416,10 @@ const Page: NextPage<Props> = ({}) => {
               </div>
             </div>
 
-            <Link href="/pages/contactus" className="cursor-pointer font-bold">
+            <Link
+              href="/pages/contactus"
+              className="cursor-pointer font-bold hover:text-[#FBAD17]"
+            >
               Contact Us
             </Link>
 

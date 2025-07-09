@@ -596,9 +596,9 @@ export default function Home() {
             <div className="md:w-1/2 flex justify-center">
               <button className="bg-primary text-white px-6 rounded py-4 items-center shadow flex -full text-sm">
                 VIEW ALL TOURS
-                <span className="text-primary bg-white ms-3 rounded-full h-[1rem] content-center w-[1rem] block">
+                {/* <span className="text-primary bg-white ms-3 rounded-full h-[1rem] content-center w-[1rem] block">
                   &gt;
-                </span>
+                </span> */}
               </button>
               <p></p>
             </div>

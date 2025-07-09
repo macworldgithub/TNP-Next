@@ -39,7 +39,7 @@ export async function GET(request: NextRequest) {
 
         return NextResponse.json({ status: 200, message: "success", userData });
     } catch (error) {
-        console.error('Error in GET handler:', error);
+        console.error('Error in GET handler user:', error);
         return new NextResponse('Internal Server Error', { status: 500 });
     }
 }

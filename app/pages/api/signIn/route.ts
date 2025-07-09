@@ -34,7 +34,7 @@ export async function POST(request: Request) {
 
 
     } catch (error) {
-        console.error('Error in GET handler:', error);
+        console.error('Error in GET handler sigin:', error);
         return new NextResponse('Internal Server Error', { status: 500 });
     }
 }

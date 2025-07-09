@@ -44,7 +44,7 @@ export async function POST(request: Request) {
 
         return NextResponse.json({ status: 200, message: "success", userData });
     } catch (error) {
-        console.error('Error in GET handler:', error);
+        console.error('Error in GET handler signup:', error);
         return new NextResponse('Internal Server Error', { status: 500 });
     }
 }

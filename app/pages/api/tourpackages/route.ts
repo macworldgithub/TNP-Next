@@ -139,21 +139,22 @@ export async function POST(request: Request) {
     }
 
     // Handle image uploads
-    const imagePaths: string[] = [];
-    if (body.images && body.images.length > 0) {
-      const uploadDir = path.join(process.cwd(), "public", "uploads");
-      if (!fs.existsSync(uploadDir)) {
-        fs.mkdirSync(uploadDir, { recursive: true });
-      }
+const imagePaths: string[] = [];
+if (body.images && body.images.length > 0) {
+  const uploadDir = path.join(process.cwd(), "public", "uploads");
+  if (!fs.existsSync(uploadDir)) {
+    fs.mkdirSync(uploadDir, { recursive: true });
+  }
 
-      for (let i = 0; i < Math.min(body.images.length, 3); i++) {
-        const file = body.images[i];
-        const fileName = `${Date.now()}-${i}${path.extname(file.name)}`;
-        const filePath = path.join(uploadDir, fileName);
-        await fs.promises.writeFile(filePath, Buffer.from(await file.arrayBuffer()));
-        imagePaths.push(`/uploads/${fileName}`);
-      }
-    }
+  for (let i = 0; i < Math.min(body.images.length, 3); i++) {
+    const file = body.images[i];
+    const fileName = `${Date.now()}-${i}${path.extname(file.name)}`;
+    const filePath = path.join(uploadDir, fileName);
+    // Use ArrayBuffer directly
+    await fs.promises.writeFile(filePath, new Uint8Array(await file.arrayBuffer()));
+    imagePaths.push(`/uploads/${fileName}`);
+  }
+}
 
     // Update package_details with image paths
     body.package_details.TripDetailsAndCostSummary.Images = imagePaths;
@@ -272,22 +273,24 @@ export async function PUT(request: NextRequest) {
     }
 
     // Handle new image uploads
-    const imagePaths: string[] = [...existingImages];
-    if (body.images && body.images.length > 0) {
-      const uploadDir = path.join(process.cwd(), "public", "uploads");
-      if (!fs.existsSync(uploadDir)) {
-        fs.mkdirSync(uploadDir, { recursive: true });
-      }
+    // Handle new image uploads
+const imagePaths: string[] = [...existingImages];
+if (body.images && body.images.length > 0) {
+  const uploadDir = path.join(process.cwd(), "public", "uploads");
+  if (!fs.existsSync(uploadDir)) {
+    fs.mkdirSync(uploadDir, { recursive: true });
+  }
 
-      const maxNewImages = 3 - existingImages.length;
-      for (let i = 0; i < Math.min(body.images.length, maxNewImages); i++) {
-        const file = body.images[i];
-        const fileName = `${Date.now()}-${i}${path.extname(file.name)}`;
-        const filePath = path.join(uploadDir, fileName);
-        await fs.promises.writeFile(filePath, Buffer.from(await file.arrayBuffer()));
-        imagePaths.push(`/uploads/${fileName}`);
-      }
-    }
+  const maxNewImages = 3 - existingImages.length;
+  for (let i = 0; i < Math.min(body.images.length, maxNewImages); i++) {
+    const file = body.images[i];
+    const fileName = `${Date.now()}-${i}${path.extname(file.name)}`;
+    const filePath = path.join(uploadDir, fileName);
+    // Use ArrayBuffer directly
+    await fs.promises.writeFile(filePath, new Uint8Array(await file.arrayBuffer()));
+    imagePaths.push(`/uploads/${fileName}`);
+  }
+} 
 
     // Update package_details with image paths
     body.package_details.TripDetailsAndCostSummary.Images = imagePaths;

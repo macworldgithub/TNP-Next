@@ -10,7 +10,7 @@ import LuxuryImage from "../../assets/carrent/Group (1).svg";
 import LuxuryImage_hover from "../../assets/carrent/download.svg";
 import SUVImage from "../../assets/carrent/Group (2).svg";
 import SUVImage_hover from "../../assets/carrent/download (1).svg";
-import HiaceImage from "../../assets/carrent/Car2.png";
+import HiaceImage from "../../assets/carrent/car2.png";
 import HiaceImage_hover from "../../assets/carrent/Car5.png";
 import { Button, Form, Input, Radio, Select, TimePicker } from "antd";
 import { DatePicker, Space } from "antd";

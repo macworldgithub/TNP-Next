@@ -238,6 +238,7 @@ const Page: NextPage<Props> = ({}) => {
                       <li className="text-black hover:text-[#FBAD17] cursor-pointer">
                         <Link href="/pages/packagedetails/99">
                           VIP Evening Desert Safari with Dinner and Activities
+
                         </Link>
                       </li>
                     </ul>

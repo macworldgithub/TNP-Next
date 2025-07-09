@@ -1,5 +1,5 @@
 import fbr_logo from "../../assets/common/fbr-logo.svg";
-import govt_pk from "../../assets/common/govt_pk-logo.svg";
+// import govt_pk from "../../assets/common/govt_pk-logo.svg";
 import secp_logo from "../../assets/common/secp-logo.svg";
 import taap_logo from "../../assets/common/taap-logo.svg";
 
@@ -62,10 +62,10 @@ export const AffiliationsData = [
     name: "FBR",
     image: fbr_logo,
   },
-  {
-    name: "Govt-Pvt",
-    image: govt_pk,
-  },
+  // {
+  //   name: "Govt-Pvt",
+  //   image: govt_pk,
+  // },
   {
     name: "SECP",
     image: secp_logo,

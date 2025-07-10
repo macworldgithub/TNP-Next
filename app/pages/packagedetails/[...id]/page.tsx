@@ -161,10 +161,10 @@ const Page: NextPage<Props> = ({}) => {
 
           <div className="flex justify-end  gap-6 items-center p-2">
             <button onClick={() => setSelectedRate(1)} className="btn-normal">
-              Standard - {packageDetails?.package_rate_normal}
+              Standard - AED {packageDetails?.package_rate_normal}
             </button>
             <button onClick={() => setSelectedRate(2)} className="btn-deluxe">
-              Deluxe - {packageDetails?.package_rate_deluxe}
+              Deluxe - AED {packageDetails?.package_rate_deluxe}
             </button>
             <button className="bg-primary text-white px-4 py-2 rounded hover:bg-blue-600 w-[12rem] lg:w-[10rem]">
               Share

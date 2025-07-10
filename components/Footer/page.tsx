@@ -60,10 +60,19 @@ const Footer = () => {
 
       <div className="w-[90%] flex flex-col md:flex-row justify-between items-center">
         <div>
-          <p className="font-medium mb-4">
-            © Copyright <span className="text-[#00ADEE]">©2023</span> by Tours Dubai
-          </p>
-        </div>
+  <p className="font-medium mb-4">
+    © Copyright <span className="text-[#0a0a0a]">©2023</span>{" "}
+    <a
+      href="https://macworldtechnology.com/"
+      className="text-[#0c0c0c] "
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      macworldtechnology.com
+    </a>
+  </p>
+</div>
+
 
         {/* ✅ Replaced text with icons */}
         <div className="flex gap-4 lg:gap-7 items-center">

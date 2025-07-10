@@ -387,7 +387,7 @@ export default function CustomerReview() {
                   Walking the Amalfi Coast
                 </p>
                 <p>
-                  From <span className=" text-[#00ADEE]">$129.00</span>
+                  From <span className=" text-[#00ADEE]">AED 129.00</span>
                 </p>
               </div>
             </div>
@@ -401,7 +401,7 @@ export default function CustomerReview() {
                   Walking the Amalfi Coast
                 </p>
                 <p>
-                  From <span className=" text-[#00ADEE]">$129.00</span>
+                  From <span className=" text-[#00ADEE]">AED 129.00</span>
                 </p>
               </div>
             </div>
@@ -415,7 +415,7 @@ export default function CustomerReview() {
                   Walking the Amalfi Coast
                 </p>
                 <p>
-                  From <span className=" text-[#00ADEE]">$129.00</span>
+                  From <span className=" text-[#00ADEE]">AED 129.00</span>
                 </p>
               </div>
             </div>

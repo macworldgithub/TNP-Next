@@ -121,7 +121,7 @@ const Page: NextPage<Props> = ({}) => {
   }
 
   const tripDetails: TripDetails = JSON.parse(packageDetails?.package_details);
-  
+
   return (
     <div>
       <HeroDomestic
@@ -131,11 +131,10 @@ const Page: NextPage<Props> = ({}) => {
         paragraph={capitalizeFirstLetter(
           packageDetails.tnp_destinations?.tnp_package_regions.region_name
         )}
-       image={
-  tripDetails?.TripDetailsAndCostSummary?.Images?.length > 0 &&
-  tripDetails.TripDetailsAndCostSummary.Images[0]
-}
-
+        image={
+          tripDetails?.TripDetailsAndCostSummary?.Images?.length > 0 &&
+          tripDetails.TripDetailsAndCostSummary.Images[0]
+        }
       />
       <div className="w-full lg:w-[80%] flex flex-col lg:flex-row gap-6  justify-center mx-auto my-10">
         {/* Right Side*/}
@@ -159,12 +158,12 @@ const Page: NextPage<Props> = ({}) => {
             ImageList={tripDetails.TripDetailsAndCostSummary.Images}
           />
 
-          <div className="flex justify-end  gap-6 items-center p-2">
+          <div className="flex justify-end  gap-6 items-center p">
             <button onClick={() => setSelectedRate(1)} className="btn-normal">
-              Standard - AED {packageDetails?.package_rate_normal}
+              Adult- AED {packageDetails?.package_rate_normal}
             </button>
             <button onClick={() => setSelectedRate(2)} className="btn-deluxe">
-              Deluxe - AED {packageDetails?.package_rate_deluxe}
+              Child- AED {packageDetails?.package_rate_deluxe}
             </button>
             <button className="bg-primary text-white px-4 py-2 rounded hover:bg-blue-600 w-[12rem] lg:w-[10rem]">
               Share

@@ -54,10 +54,6 @@ import SkarduImage from "../public/home/skardu.png";
 import BashaImage from "../public/home/basha.png";
 import GalsImage from "../public/home/gals.png";
 
-// import img1 from "../public/TourPackage/FeaturedListing/6dayshunzaandnaltar.png";
-// import img2 from "../public/TourPackage/FeaturedListing/6dayshunzaandskardu.png";
-// import img3 from "../public/TourPackage/FeaturedListing/6dayssakrduandbasho.png";
-// import img4 from "../public/TourPackage/FeaturedListing/allgirlstriptokashmir.png";
 import img5 from "../public/TourPackage/FeaturedListing/Rectangle 19370 (1).png";
 import img6 from "../public/TourPackage/FeaturedListing/Rectangle 19370 (2).png";
 import img7 from "../public/TourPackage/FeaturedListing/Rectangle 19370 (3).png";
@@ -68,42 +64,14 @@ import TourCardPagination from "@/components/Home/TourCardPagination";
 import TestimonialCarousel from "@/components/Home/TestimonialCarousel";
 import NewCustomerOfferModel from "@/components/Home/NewCustomerOfferModel";
 import Timer from "@/components/Home/Timer";
-// import { useRouter } from "next/router";
+
 import { fetchUserById } from "@/apiFunctions/authentication";
-// import { getUser } from "./pages/api/utils";
+
 import { useSearchParams } from "next/navigation";
 import { useAppDispatch } from "@/lib/store";
 import { setUserData } from "@/lib/feature/user/userSlice";
 import { getTourPackagesByCategory } from "./actions/tourpackages";
 import axios from "axios";
-
-// const settings = {
-//   dots: true,
-//   infinite: true,
-//   speed: 500,
-//   slidesToShow: 3,
-//   slidesToScroll: 3,
-// };
-
-// const responsive = {
-//   superLargeDesktop: {
-//     // the naming can be any, depends on you.
-//     breakpoint: { max: 4000, min: 3000 },
-//     items: 5,
-//   },
-//   desktop: {
-//     breakpoint: { max: 3000, min: 1024 },
-//     items: 3,
-//   },
-//   tablet: {
-//     breakpoint: { max: 1024, min: 464 },
-//     items: 2,
-//   },
-//   mobile: {
-//     breakpoint: { max: 464, min: 0 },
-//     items: 1,
-//   },
-// };
 
 const inter = Yesteryear({
   subsets: ["latin"],
@@ -352,7 +320,7 @@ export default function Home() {
               className="absolute top-[-2rem] w-40 h-32 left-0"
             />
             <p className={`text-primary text-2xl ${inter.className}`}>
-              Explore the world 
+              Explore the world
             </p>
             <div className="my-2 flex flex-col items-center">
               <h1 className="lg:text-[3.5rem] text-3xl lg:leading-[3rem] font-bold text-white">
@@ -512,16 +480,7 @@ export default function Home() {
                   range of variety to our customers.
                 </p>
               </div>
-              {/* <div className="mx- my-5 md:my-0">
-                <div className="h-14">
-                  <Image src={LocationBook} alt="..." />
-                </div>
-                <p className="text-black font-bold">Personalized Trips</p>
-                <p className="text-gray-500 text-xs">
-                  Welcome to our Print 128 wesit! company that offers a wide
-                  range
-                </p>
-              </div> */}
+         
             </div>
 
             <div className="md:w-4/5 flex justify-between flex-col md:flex-row my-5">
@@ -530,15 +489,6 @@ export default function Home() {
                   More About us
                 </button>
               </div>
-              {/* <div className="mx- md:w-1/2 my-5 md:my-0">
-                <div className="flex items-center">
-                  <div className="w-12 h-12 rounded-full bg-gray-400 border-2"></div>
-                  <div className="mx-2">
-                    <p className="text-black text-sm">Mehedii. H</p>
-                    <p className="text-xs text-primary">Ceo & Founder</p>
-                  </div>
-                </div>
-              </div> */}
             </div>
 
             <div className="flex items-center">
@@ -596,9 +546,6 @@ export default function Home() {
             <div className="md:w-1/2 flex justify-center">
               <button className="bg-primary text-white px-6 rounded py-4 items-center shadow flex -full text-sm">
                 VIEW ALL TOURS
-                {/* <span className="text-primary bg-white ms-3 rounded-full h-[1rem] content-center w-[1rem] block">
-                  &gt;
-                </span> */}
               </button>
               <p></p>
             </div>
@@ -752,24 +699,6 @@ export default function Home() {
             <div className="w-20 text-black text-base font-bold">Hurry Up!</div>
             <div className="md:w-1/2 md:mx-5 my-5 md:my-0 text-xs text-black font-bold ">
               <Timer />
-              {/* <div className="flex md:w-full justify-between">
-                                <div className="flex flex-col h-12 px- justify-between ">
-                                    <p className="text-primary text-center">845</p>
-                                    <p>Days</p>
-                                </div>
-                                <div className="flex flex-col h-12 px-3 justify-between ">
-                                    <p className="text-primary text-center">213</p>
-                                    <p>Houres</p>
-                                </div>
-                                <div className="flex flex-col h-12 px-3 justify-between ">
-                                    <p className="text-primary text-center">347</p>
-                                    <p>Minute</p>
-                                </div>
-                                <div className="flex flex-col h-12 px-3 justify-between ">
-                                    <p className="text-primary text-center">59</p>
-                                    <p>Second</p>
-                                </div>
-                            </div> */}
             </div>
           </div>
 

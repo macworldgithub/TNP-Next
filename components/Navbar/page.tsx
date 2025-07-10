@@ -318,9 +318,9 @@ const Page: NextPage<Props> = ({}) => {
                 }
                 className="flex items-center gap-1 cursor-pointer dropdown-toggle"
               >
-                <Link href="/pages/hotel">
+                
                   <p className="hover:text-[#FBAD17]">Holidays Package</p>
-                </Link>
+                
                 <IoIosArrowDown />
               </div>
 

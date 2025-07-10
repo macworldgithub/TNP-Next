@@ -15,7 +15,7 @@ import TourPackHero from "@/components/TourPackage/TourPackHero";
 import Honeymoon from "@/components/TourDetails/honeymoon/honeymoon";
 import { NextPage } from "next";
 import { useParams } from "next/navigation";
-import { FaFacebook, FaWhatsapp, FaEnvelope } from "react-icons/fa"; // ✅ Icons
+import { FaFacebook, FaWhatsapp, FaEnvelope } from "react-icons/fa"; 
 
 interface Props {}
 
@@ -71,8 +71,7 @@ const Page: NextPage<Props> = ({}) => {
 
   const [packageDetails, setPackageDetails] = useState<PackageStructure>();
   const [selectedRate, setSelectedRate] = useState(null);
-  const [showShareOptions, setShowShareOptions] = useState(false); // ✅ Dropdown state
-
+  const [showShareOptions, setShowShareOptions] = useState(false); 
   useEffect(() => {
     async function getItem() {
       let response;
@@ -113,46 +112,46 @@ const Page: NextPage<Props> = ({}) => {
 
   // ✅ Share handler
   const handleShare = async (platform: string) => {
-  const url = window.location.href;
-  const message = `Check out this amazing tour package: ${url}`;
+    const url = window.location.href;
+    const message = `Check out this amazing tour package: ${url}`;
 
-  switch (platform) {
-    case "email":
-      if (navigator.share) {
-        try {
-          await navigator.share({
-            title: "Tour Package",
-            text: message,
-            url: url,
-          });
-        } catch (error) {
-          console.error("Error sharing:", error);
+    switch (platform) {
+      case "email":
+        if (navigator.share) {
+          try {
+            await navigator.share({
+              title: "Tour Package",
+              text: message,
+              url: url,
+            });
+          } catch (error) {
+            console.error("Error sharing:", error);
+          }
+        } else {
+          window.open(`mailto:?subject=Tour Package&body=${message}`);
         }
-      } else {
-        // fallback if navigator.share not supported
-        window.open(`mailto:?subject=Tour Package&body=${message}`);
-      }
-      break;
+        break;
 
-    case "facebook":
-      window.open(
-        `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(url)}`,
-        "_blank"
-      );
-      break;
+      case "facebook":
+        window.open(
+          `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(
+            url
+          )}`,
+          "_blank"
+        );
+        break;
 
-    case "whatsapp":
-      window.open(
-        `https://wa.me/?text=${encodeURIComponent(message)}`,
-        "_blank"
-      );
-      break;
+      case "whatsapp":
+        window.open(
+          `https://wa.me/?text=${encodeURIComponent(message)}`,
+          "_blank"
+        );
+        break;
 
-    default:
-      break;
-  }
-};
-
+      default:
+        break;
+    }
+  };
 
   function capitalizeFirstLetter(string) {
     return string.charAt(0).toUpperCase() + string.slice(1);
@@ -246,21 +245,21 @@ const Page: NextPage<Props> = ({}) => {
                     className="flex items-center gap-2 w-full text-left px-4 py-2 hover:bg-gray-100"
                   >
                     <FaEnvelope className="text-gray-600" />
-                    Share via Email
+                 Email
                   </button>
                   <button
                     onClick={() => handleShare("facebook")}
                     className="flex items-center gap-2 w-full text-left px-4 py-2 hover:bg-gray-100"
                   >
                     <FaFacebook className="text-blue-600" />
-                    Share on Facebook
+                  Facebook
                   </button>
                   <button
                     onClick={() => handleShare("whatsapp")}
                     className="flex items-center gap-2 w-full text-left px-4 py-2 hover:bg-gray-100"
                   >
                     <FaWhatsapp className="text-green-500" />
-                    Share on WhatsApp
+                 WhatsApp
                   </button>
                 </div>
               )}

@@ -15,7 +15,7 @@ import TourPackHero from "@/components/TourPackage/TourPackHero";
 import Honeymoon from "@/components/TourDetails/honeymoon/honeymoon";
 import { NextPage } from "next";
 import { useParams } from "next/navigation";
-import { FaFacebook, FaWhatsapp, FaEnvelope } from "react-icons/fa"; 
+import { FaFacebook, FaWhatsapp, FaEnvelope } from "react-icons/fa";
 
 interface Props {}
 
@@ -71,7 +71,7 @@ const Page: NextPage<Props> = ({}) => {
 
   const [packageDetails, setPackageDetails] = useState<PackageStructure>();
   const [selectedRate, setSelectedRate] = useState(null);
-  const [showShareOptions, setShowShareOptions] = useState(false); 
+  const [showShareOptions, setShowShareOptions] = useState(false);
   useEffect(() => {
     async function getItem() {
       let response;
@@ -245,21 +245,21 @@ const Page: NextPage<Props> = ({}) => {
                     className="flex items-center gap-2 w-full text-left px-4 py-2 hover:bg-gray-100"
                   >
                     <FaEnvelope className="text-gray-600" />
-                 Email
+                    Email
                   </button>
                   <button
                     onClick={() => handleShare("facebook")}
                     className="flex items-center gap-2 w-full text-left px-4 py-2 hover:bg-gray-100"
                   >
                     <FaFacebook className="text-blue-600" />
-                  Facebook
+                    Facebook
                   </button>
                   <button
                     onClick={() => handleShare("whatsapp")}
                     className="flex items-center gap-2 w-full text-left px-4 py-2 hover:bg-gray-100"
                   >
                     <FaWhatsapp className="text-green-500" />
-                 WhatsApp
+                    WhatsApp
                   </button>
                 </div>
               )}

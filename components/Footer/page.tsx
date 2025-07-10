@@ -14,6 +14,7 @@ import { useParams } from "next/navigation";
 import visaIcon from "../../assets/footer/visa.png";
 import ucbIcon from "../../assets/footer/ucb.png";
 import discoverIcon from "../../assets/footer/discover.png";
+import FloatingWhatsApp from "../FloatingWhatsapp";
 
 const Footer = () => {
   const params = useParams();
@@ -80,6 +81,7 @@ const Footer = () => {
           <Image src={ucbIcon} alt="UCB" className="w-12 h-auto" />
           <Image src={discoverIcon} alt="Discover" className="w-12 h-auto" />
         </div>
+        <FloatingWhatsApp/>
       </div>
     </div>
   );

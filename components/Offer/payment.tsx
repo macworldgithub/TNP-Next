@@ -10,9 +10,9 @@ const Payment: NextPage<Props> = ({}) => {
       </div>
       <div className=" flex flex-col text-center justify-center">
         <p className="font-semibold text-md md:text-lg mb-4">
-          Thank you Muhammad for create your own trip!
+          Thank you for create your own trip!
         </p>
-        <p className=" font-bold md:text-xl">Your Own Trip Charges 34,000 PKR</p>
+        <p className=" font-bold md:text-xl">Your Own Trip Charges 3000AED </p>
       </div>
     </div>
   );

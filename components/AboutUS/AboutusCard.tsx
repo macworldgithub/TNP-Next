@@ -28,7 +28,7 @@ const AboutUsCard = ({ heading, text }: any) => {
             isHovered ? 'hover:bg-primary hover:text-white' : 'text-primary'
           } font-bold py-5 rounded`}
         >
-          Book Now <span className="ml-2">&#8594;</span>
+          Book Now  <span className="ml-2">&#8594;</span>
         </button>
       </div>
     </div>

@@ -54,7 +54,6 @@ const DomesticForm = ({
         </div>
       </div>
       <div className="mb-4">
-        {/* <label htmlFor="email" className="block text-white font-bold mb-2">Email</label> */}
         <div className="relative flex items-center justify-center">
           <input
             type="email"
@@ -69,7 +68,6 @@ const DomesticForm = ({
         </div>
       </div>
       <div className="mb-4">
-        {/* <label htmlFor="confirmEmail" className="block text-white font-bold mb-2">Confirm Email</label> */}
         <div className="relative flex items-center justify-center">
           <input
             type="email"
@@ -84,7 +82,6 @@ const DomesticForm = ({
         </div>
       </div>
       <div className="mb-4">
-        {/* <label htmlFor="phone" className="block text-white font-bold mb-2">Phone</label> */}
         <div className="relative flex items-center justify-center">
           <input
             type="tel"
@@ -99,7 +96,6 @@ const DomesticForm = ({
         </div>
       </div>
       <div className="mb-4">
-        {/* <label htmlFor="dob" className="block text-white font-bold mb-2">Date of Birth</label> */}
         <div className="relative flex items-center justify-center ">
           <input
             type="date"
@@ -113,38 +109,8 @@ const DomesticForm = ({
           <HiOutlineCalendar className="absolute top-3 left-6 text-gray-400" />
         </div>
       </div>
-      {/* <div className="mb-4">
-        <label htmlFor="adults" className="block text-white font-bold mb-2">Number of Adults</label>
-        <div className="relative">
-          <input
-            type="number"
-            id="adults"
-            name="adults"
-            value={formData.adults}
-            onChange={handleChange}
-            placeholder="Enter number of adults"
-            className="input-with-icon pl-8 rounded border border-gray-300 shadow-sm focus:ring-2 focus:ring-blue-500 focus:border-transparent w-full"
-          />
-          <HiOutlineUsers className="absolute top-3 left-3 text-white" />
-        </div>
-      </div> */}
-      {/* <div className="mb-4">
-        <label htmlFor="kids" className="block text-white font-bold mb-2">Number of Kids</label>
-        <div className="relative">
-          <input
-            type="number"
-            id="kids"
-            name="kids"
-            value={formData.kids}
-            onChange={handleChange}
-            placeholder="Enter number of kids"
-            className="input-with-icon pl-8 rounded border border-gray-300 shadow-sm focus:ring-2 focus:ring-blue-500 focus:border-transparent w-full"
-          />
-          <HiOutlineChip className="absolute top-3 left-3 text-white" />
-        </div>
-      </div> */}
+
       <div className="mb-4 flex items-center justify-center">
-        {/* <label htmlFor="description" className="block text-white font-bold mb-2">Description</label> */}
         <textarea
           id="description"
           name="description"

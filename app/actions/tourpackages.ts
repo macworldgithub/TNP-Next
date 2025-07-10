@@ -2,7 +2,7 @@
 
 import axios from "axios";
 
-const LOCALHOST_URL = "https://tnp-next.vercel.app/";
+const LOCALHOST_URL = "https://tnp-next.vercel.app/pages/api";
 
 interface PackageDetails {
   TripDetailsAndCostSummary: {

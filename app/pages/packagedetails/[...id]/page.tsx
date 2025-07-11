@@ -178,12 +178,8 @@ const Page: NextPage<Props> = ({}) => {
   return (
     <div>
       <HeroDomestic
-        heading={capitalizeFirstLetter(
-          packageDetails.tnp_package_types.package_type_name
-        )}
-        paragraph={capitalizeFirstLetter(
-          packageDetails.tnp_destinations?.tnp_package_regions.region_name
-        )}
+        heading="Tour Package "
+        paragraph=""
         image={
           tripDetails?.TripDetailsAndCostSummary?.Images?.length > 0 &&
           tripDetails.TripDetailsAndCostSummary.Images[0]

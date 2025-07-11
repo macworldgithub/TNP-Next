@@ -344,17 +344,20 @@ export default function Home() {
                   <div className="w-full">
                     <p>Destination</p>
                     <Select
-                      defaultValue="lucy"
+                      defaultValue="dubai"
                       style={{ height: 20 }}
                       className="w-full g-red-300 border-0 hide-border p-0"
-                      options={[{ value: "lucy", label: "Dubai" }]}
+                      options={[
+                        { value: "dubai", label: "Dubai" },
+                        { value: "abu_dhabi", label: "Abu Dhabi" },
+                      ]}
                     />
                   </div>
                 </div>
               </div>
-              <div className="md:h-[50px] h-[2px] my-3 md:mx-5 bg-gray-300 block md:w-[1px]"></div>
+              {/* <div className="md:h-[50px] h-[2px] my-3 md:mx-5 bg-gray-300 block md:w-[1px]"></div> */}
 
-              <div className="flex mx-2 w-[15rem] md:w-[10rem] md:w-uto items-center">
+              {/* <div className="flex mx-2 w-[15rem] md:w-[10rem] md:w-uto items-center">
                 <div className="flex items-center w-full">
                   <div className="me-2">
                     <GiMountainClimbing className="text-[#FBAD17] text-xl" />
@@ -369,7 +372,7 @@ export default function Home() {
                     />
                   </div>
                 </div>
-              </div>
+              </div> */}
 
               <div className="md:h-[50px] h-[2px] my-3 md:mx-5 bg-gray-300 block md:w-[1px]"></div>
 
@@ -381,10 +384,17 @@ export default function Home() {
                   <div className="w-full">
                     <p>Duration</p>
                     <Select
-                      defaultValue="lucy"
+                      defaultValue="4-3"
                       style={{ height: 20 }}
                       className="w-full g-red-300 border-0 hide-border p-0"
-                      options={[{ value: "lucy", label: "2-4 days" }]}
+                      options={[
+                        { value: "4-3", label: "4-3 days" },
+                        { value: "5-4", label: "5-4 days" },
+                        { value: "6-5", label: "6-5 days" },
+                        { value: "7-6", label: "7-6 days" },
+                        { value: "8-7", label: "8-7 days" },
+                        { value: "9-8", label: "9-8 days" },
+                      ]}
                     />
                   </div>
                 </div>
@@ -399,11 +409,12 @@ export default function Home() {
                   </div>
                   <div className="w-full">
                     <p>Guests</p>
-                    <Select
-                      defaultValue="lucy"
-                      style={{ height: 20 }}
-                      className="w-full g-red-300 border-0 hide-border p-0"
-                      options={[{ value: "lucy", label: "0" }]}
+                    <input
+                      type="number"
+                      min={0}
+                      max={20}
+                      defaultValue={1}
+                      className="w-full border rounded px-2 py-1"
                     />
                   </div>
                 </div>
@@ -421,7 +432,7 @@ export default function Home() {
               </div>
             </div>
 
-            <div className="flex justify-center flex-wrap md:flex-nowrap my-5 items-start ">
+            {/* <div className="flex justify-center flex-wrap md:flex-nowrap my-5 items-start ">
               <div className="flex md:mx-5 md:w-full w-[320px] items-center">
                 <FaCircleCheck className="mx-2 text-primary" />
                 <p className="text-sm text-white">
@@ -436,7 +447,7 @@ export default function Home() {
                 <FaCircleCheck className="mx-2 text-primary" />
                 <p className="text-sm">Choose from a Wide Variety of Cars</p>
               </div>
-            </div>
+            </div> */}
           </div>
         </div>
       </div>
@@ -480,7 +491,6 @@ export default function Home() {
                   range of variety to our customers.
                 </p>
               </div>
-         
             </div>
 
             <div className="md:w-4/5 flex justify-between flex-col md:flex-row my-5">
@@ -691,7 +701,9 @@ export default function Home() {
             </div>
             <div className="md:w-1/2 g-blue-500 w- mx-5 text-xs text-black font-bold font-italic ">
               Discover Great <span className="text-primary"> Discount </span>{" "}
-              Deals Around the World
+              Deals Around the World. All outdoor activities depend on weather
+              condition and may cancel or reschedule anytime without prior
+              notice
             </div>
           </div>
 

@@ -71,12 +71,12 @@ const Page: NextPage<Props> = ({}) => {
         <div className="flex">
           <div className="flex px-1 py-2 mx-1 items-center">
             <FaPhoneAlt />
-            <p className="text-white ps-1">+971 5686523</p>
+            <p className="text-white ps-1">+971 521786384</p>
           </div>
-          <div className="flex px-1 py-2 mx-1 items-center">
+          {/* <div className="flex px-1 py-2 mx-1 items-center">
             <FaPhoneAlt />
             <p className="text-white ps-1">+971 5606923</p>
-          </div>
+          </div> */}
         </div>
 
         <div className="flex">
@@ -174,7 +174,7 @@ const Page: NextPage<Props> = ({}) => {
                         setCurrTour(
                           currTour === "Sightseeing" ? "" : "Sightseeing"
                         );
-                        router.push("/pages/tourpackages/international");
+                        // router.push("/pages/tourpackages/international");
                       }}
                       className=" text-black hover:text-[#FBAD17] flex justify-between items-center cursor-pointer"
                     >
@@ -238,7 +238,6 @@ const Page: NextPage<Props> = ({}) => {
                       <li className="text-black hover:text-[#FBAD17] cursor-pointer">
                         <Link href="/pages/packagedetails/99">
                           VIP Evening Desert Safari with Dinner and Activities
-
                         </Link>
                       </li>
                     </ul>
@@ -318,9 +317,8 @@ const Page: NextPage<Props> = ({}) => {
                 }
                 className="flex items-center gap-1 cursor-pointer dropdown-toggle"
               >
-                
-                  <p className="hover:text-[#FBAD17]">Holidays Package</p>
-                
+                <p className="hover:text-[#FBAD17]">Holidays Package</p>
+
                 <IoIosArrowDown />
               </div>
 

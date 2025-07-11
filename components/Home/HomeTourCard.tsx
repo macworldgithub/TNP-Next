@@ -96,7 +96,7 @@ const TourCard: React.FC<TourCardProps> = ({
               <p className="text-xs text-blue-400 font-semibold ">
                 {dprice}AED
               </p>
-              <p className="text-xs text-gray-500 line-through">{price}AED</p>
+              {/* <p className="text-xs text-gray-500 line-through">{price}AED</p> */}
             </div>
             <FaRegBookmark className="text-primary" />
           </div>

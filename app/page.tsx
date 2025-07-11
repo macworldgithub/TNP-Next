@@ -27,6 +27,7 @@ import FlagMan from "../public/home/Group.png";
 import LocationBook from "../public/home/loc.png";
 import VideoImage from "../public/home/image.png";
 import { Yesteryear } from "next/font/google";
+import { useRouter } from "next/navigation";
 import {
   FaArrowCircleRight,
   FaArrowRight,
@@ -214,6 +215,7 @@ export default function Home() {
   const [isOfferModalOpen, setIsOfferModalOpen] = useState(false);
   const [bestSellerData, setBestSellerData] = useState([]);
   const [bannerImage, setBannerImage] = useState("");
+    const router = useRouter();
   console.log("Best Seller Data", bestSellerData);
 
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -412,8 +414,8 @@ export default function Home() {
                     <input
                       type="number"
                       min={0}
-                      max={20}
-                      defaultValue={1}
+                      max={50}
+                      defaultValue={0}
                       className="w-full border rounded px-2 py-1"
                     />
                   </div>
@@ -425,7 +427,13 @@ export default function Home() {
                 <div className="me-2">
                   <IoFilterCircleOutline className="text-[#FBAD17] text-3xl" />
                 </div>
-                <div className="bg-[#FBAD17] flex items-center justify-center md:w-auto -full text-center cursor-pointer text-xs text-white rounded-full px-5 py-2">
+                <div
+                  onClick={() => {
+                    const section = document.getElementById("combo-section");
+                    section?.scrollIntoView({ behavior: "smooth" });
+                  }}
+                  className="bg-[#FBAD17] flex items-center justify-center md:w-auto w-full text-center cursor-pointer text-xs text-white rounded-full px-5 py-2"
+                >
                   <IoMdSearch className="me-1 w-5 h-5" />
                   <p>Search</p>
                 </div>
@@ -495,10 +503,13 @@ export default function Home() {
 
             <div className="md:w-4/5 flex justify-between flex-col md:flex-row my-5">
               <div className="md:w-1/2">
-                <button className="bg-primary text-white px-8 py-4 rounded shadow -full text-sm">
-                  More About us
-                </button>
-              </div>
+      <button
+        onClick={() => router.push("/pages/aboutus")}
+        className="bg-primary text-white px-8 py-4 rounded shadow w-full text-sm"
+      >
+        More About us
+      </button>
+    </div>
             </div>
 
             <div className="flex items-center">
@@ -512,7 +523,7 @@ export default function Home() {
       </div>
 
       <div className="flex items-center flex-wrap flex-col  w-full bg-white lg:mb-40">
-        <div className="w-full flex flex-col items-center">
+        <div id="combo-section" className="w-full flex flex-col items-center">
           <h1 className="text-black font-bold text-center text-3xl">
             Amazing Combo Tour
           </h1>
@@ -553,12 +564,12 @@ export default function Home() {
               />
             </div>
 
-            <div className="md:w-1/2 flex justify-center">
+            {/* <div className="md:w-1/2 flex justify-center">
               <button className="bg-primary text-white px-6 rounded py-4 items-center shadow flex -full text-sm">
                 VIEW ALL TOURS
               </button>
               <p></p>
-            </div>
+            </div> */}
           </div>
         </div>
       </div>

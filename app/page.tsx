@@ -215,7 +215,7 @@ export default function Home() {
   const [isOfferModalOpen, setIsOfferModalOpen] = useState(false);
   const [bestSellerData, setBestSellerData] = useState([]);
   const [bannerImage, setBannerImage] = useState("");
-    const router = useRouter();
+  const router = useRouter();
   console.log("Best Seller Data", bestSellerData);
 
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -247,10 +247,10 @@ export default function Home() {
         if (response) {
           setBestSellerData(response.data);
         } else {
-          console.error("Invalid API response:", response); // Log invalid response for debugging
+          console.error("Invalid API response:", response);
         }
       } catch (error) {
-        console.error("Error fetching data:", error); // Log any errors for debugging
+        console.error("Error fetching data:", error);
       }
     };
 
@@ -503,13 +503,13 @@ export default function Home() {
 
             <div className="md:w-4/5 flex justify-between flex-col md:flex-row my-5">
               <div className="md:w-1/2">
-      <button
-        onClick={() => router.push("/pages/aboutus")}
-        className="bg-primary text-white px-8 py-4 rounded shadow w-full text-sm"
-      >
-        More About us
-      </button>
-    </div>
+                <button
+                  onClick={() => router.push("/pages/aboutus")}
+                  className="bg-primary text-white px-8 py-4 rounded shadow w-full text-sm"
+                >
+                  More About us
+                </button>
+              </div>
             </div>
 
             <div className="flex items-center">

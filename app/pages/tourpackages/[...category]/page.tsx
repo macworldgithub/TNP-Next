@@ -20,7 +20,7 @@ const Page: NextPage<Props> = ({}) => {
     return string.charAt(0).toUpperCase() + string.slice(1);
   }
 
-  if (category[0] === "honeymoon") {
+  if (category[0] === "Dubai") {
     return (
       <div>
         <HoneymoonTourPackHero

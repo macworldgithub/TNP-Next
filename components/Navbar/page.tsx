@@ -144,6 +144,33 @@ const Page: NextPage<Props> = ({}) => {
 
             <div className="relative font-bold hover:text-[#FBAD17]">
               <div
+                onClick={() =>
+                  setCurrTour(currTour === "Activities" ? "" : "Activities")
+                }
+                className="flex items-center gap-1 cursor-pointer dropdown-toggle"
+              >
+                <p>Activities</p>
+                <IoIosArrowDown />
+              </div>
+
+              <div
+                className={`${
+                  currTour === "Activities" ? "block" : "hidden"
+                } absolute z-[100] top-[40px] bg-white rounded shadow-lg py-3 px-4 min-w-[200px] dropdown-content`}
+              >
+                <ul className="space-y-5 text-black">
+                  <li className="hover:text-[#FBAD17] cursor-pointer">
+                    <Link href="/pages/activities/abu-dhabi">Abu Dhabi</Link>
+                  </li>
+                  <li className="hover:text-[#FBAD17] cursor-pointer">
+                    <Link href="/pages/activities/dubai">Dubai</Link>
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <div className="relative font-bold hover:text-[#FBAD17]">
+              <div
                 onClick={() => setShowTourDropdown(!showTourDropdown)}
                 className="flex items-center gap-1 cursor-pointer dropdown-toggle"
               >
@@ -376,43 +403,84 @@ const Page: NextPage<Props> = ({}) => {
               <div
                 className={`${
                   currTour === "ComboTours" ? "block" : "hidden"
-                } absolute z-[100] top-[40px] bg-white rounded shadow-lg py-3 px-4 min-w-[320px] dropdown-content`}
+                } absolute z-[100] top-[40px] bg-white rounded shadow-lg py-3 px-4 min-w-[280px] dropdown-content`}
               >
-                <ul className="space-y-7 text-black">
-                  <li className="hover:text-[#FBAD17] cursor-pointer">
-                    <Link href="/pages/packagedetails/84">
-                      Desert Safari + Dhow Cruise Dinner (4 Star)
-                    </Link>
+                <ul className="space-y-5 text-black">
+                  <li
+                    onClick={() =>
+                      setCurrTour(currTour === "Platinum" ? "" : "Platinum")
+                    }
+                    className="hover:text-[#FBAD17] cursor-pointer flex justify-between items-center"
+                  >
+                    <span>Platinum Collection</span>
+                    <IoIosArrowForward />
                   </li>
-                  <li className="hover:text-[#FBAD17] cursor-pointer">
-                    <Link href="/pages/packagedetails/91">
-                      Dubai City Tour + Desert Safari
-                    </Link>
-                  </li>
-                  <li className="hover:text-[#FBAD17] cursor-pointer">
-                    <Link href="/pages/packagedetails/92">
-                      Desert Safari + Marina Cruise Dinner
-                    </Link>
-                  </li>
-                  <li className="hover:text-[#FBAD17] cursor-pointer">
-                    <Link href="/pages/packagedetails/93">
-                      Dubai City Tour + Desert Safari + Dhow Cruise Dinner (4
-                      Star)
-                    </Link>
-                  </li>
-                  <li className="hover:text-[#FBAD17] cursor-pointer">
-                    <Link href="/pages/packagedetails/95">
-                      Dubai City Tour + Desert Safari + Marina Cruise Dinner
-                    </Link>
-                  </li>
-                  <li className="hover:text-[#FBAD17] cursor-pointer">
-                    <Link href="/pages/packagedetails/97">
-                      Dubai City Tour + Desert Safari + Marina Cruise Dinner +
-                      Abu Dhabi City Tour
-                    </Link>
+                  <li
+                    onClick={() =>
+                      setCurrTour(currTour === "Heritage" ? "" : "Heritage")
+                    }
+                    className="hover:text-[#FBAD17] cursor-pointer flex justify-between items-center"
+                  >
+                    <span>Heritage Collection</span>
+                    <IoIosArrowForward />
                   </li>
                 </ul>
               </div>
+
+              {currTour === "Platinum" && (
+                <ul className="bg-white px-4 py-4 min-w-[280px] space-y-5 border-l absolute z-[101] top-[80px] left-full dropdown-content">
+                  <li className="text-black hover:text-[#FBAD17] cursor-pointer">
+                    <Link href="/pages/packagedetails/201">
+                      Platinum Desert Safari
+                    </Link>
+                  </li>
+                  <li className="text-black hover:text-[#FBAD17] cursor-pointer">
+                    <Link href="/pages/packagedetails/202">
+                      Royal Platinum Desert Experience
+                    </Link>
+                  </li>
+                  <li className="text-black hover:text-[#FBAD17] cursor-pointer">
+                    <Link href="/pages/packagedetails/203">
+                      Conservation Drive & Breakfast at Al Maha
+                    </Link>
+                  </li>
+                  <li className="text-black hover:text-[#FBAD17] cursor-pointer">
+                    <Link href="/pages/packagedetails/204">
+                      Royal Falconry Training & Nature Safari
+                    </Link>
+                  </li>
+                </ul>
+              )}
+
+              {currTour === "Heritage" && (
+                <ul className="bg-white px-4 py-4 min-w-[280px] space-y-5 border-l absolute z-[101] top-[80px] left-full dropdown-content">
+                  <li className="text-black hover:text-[#FBAD17] cursor-pointer">
+                    <Link href="/pages/packagedetails/205">
+                      Heritage Desert Safari
+                    </Link>
+                  </li>
+                  <li className="text-black hover:text-[#FBAD17] cursor-pointer">
+                    <Link href="/pages/packagedetails/206">
+                      Camel Desert Safari
+                    </Link>
+                  </li>
+                  <li className="text-black hover:text-[#FBAD17] cursor-pointer">
+                    <Link href="/pages/packagedetails/207">
+                      Bedouin Culture Safari
+                    </Link>
+                  </li>
+                  <li className="text-black hover:text-[#FBAD17] cursor-pointer">
+                    <Link href="/pages/packagedetails/208">
+                      Overnight Desert Safari
+                    </Link>
+                  </li>
+                  <li className="text-black hover:text-[#FBAD17] cursor-pointer">
+                    <Link href="/pages/packagedetails/209">
+                      Private Night Safari and Astronomy
+                    </Link>
+                  </li>
+                </ul>
+              )}
             </div>
 
             <Link

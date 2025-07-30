@@ -79,26 +79,31 @@ const items: MenuItem[] = [
     getItem("Dubai 8 Days 7 Nights Package", "/pages/packagedetails/7"),
     getItem("Dubai 9 Days 8 Nights Package", "/pages/packagedetails/8"),
   ]),
-  getItem("Combo Tours", "combo", null, [
+ getItem("Combo Tours", "combo", null, [
+  getItem("PLATINUM COLLECTION", "platinum", null, [
+    getItem("Platinum Desert Safari", "/pages/packagedetails/201"),
+    getItem("Royal Platinum Desert Experience", "/pages/packagedetails/202"),
     getItem(
-      "Desert Safari + Dhow Cruise Dinner (4 Star)",
-      "/pages/packagedetails/84"
-    ),
-    getItem("Dubai City Tour + Desert Safari", "/pages/packagedetails/91"),
-    getItem("Desert Safari + Marina Cruise Dinner", "/pages/packagedetails/92"),
-    getItem(
-      "Dubai City Tour + Desert Safari + Dhow Cruise Dinner (4 Star)",
-      "/pages/packagedetails/93"
+      "Conservation Drive & Breakfast at Al Maha",
+      "/pages/packagedetails/203"
     ),
     getItem(
-      "Dubai City Tour + Desert Safari + Marina Cruise Dinner",
-      "/pages/packagedetails/95"
-    ),
-    getItem(
-      "Dubai City Tour + Desert Safari + Marina Cruise Dinner + Abu Dhabi City Tour",
-      "/pages/packagedetails/97"
+      "Royal Falconry Training & Nature Safari",
+      "/pages/packagedetails/204"
     ),
   ]),
+  getItem("HERITAGE COLLECTION", "heritage", null, [
+    getItem("Heritage Desert Safari", "/pages/packagedetails/205"),
+    getItem("Camel Desert Safari", "/pages/packagedetails/206"),
+    getItem("Bedouin Culture Safari", "/pages/packagedetails/207"),
+    getItem("Overnight Desert Safari", "/pages/packagedetails/208"),
+    getItem(
+      "Private Night Safari and Astronomy",
+      "/pages/packagedetails/209"
+    ),
+  ]),
+]),
+
   getItem("Contact Us", "/pages/contactus"),
   getItem("Book & Go", "/pages/offer"),
 ];

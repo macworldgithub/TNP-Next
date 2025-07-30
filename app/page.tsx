@@ -542,13 +542,13 @@ export default function Home() {
             Sharjah
           </div>
           <div className="px-3 text-sm w-32 py-1 my-1 shadow-2xl border text-center mx-2 text-black">
-            Hatta Mountain
+            Jeddah
           </div>
           <div className="px-3 text-sm w-32 py-1 my-1 shadow-2xl border text-center mx-2 text-black">
             Dubai
           </div>
           <div className="px-3 text-sm w-32 py-1 my-1 shadow-2xl  border text-center mx-2 text-black">
-            Ajman
+            Singapore
           </div>
         </div>
         <div className="relative w-full  mt-8 z-0 ">

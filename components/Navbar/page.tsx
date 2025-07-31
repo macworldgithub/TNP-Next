@@ -430,7 +430,7 @@ const Page: NextPage<Props> = ({}) => {
               {currTour === "Platinum" && (
                 <ul className="bg-white px-4 py-4 min-w-[280px] space-y-5 border-l absolute z-[101] top-[80px] left-full dropdown-content">
                   <li className="text-black hover:text-[#FBAD17] cursor-pointer">
-                    <Link href="/pages/packagedetails/123">
+                    <Link href="/pages/packagedetails/125">
                       Platinum Desert Safari
                     </Link>
                   </li>

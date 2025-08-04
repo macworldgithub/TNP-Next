@@ -515,7 +515,6 @@ const Page: NextPage<Props> = ({}) => {
               <FaGlobeEurope className="mx-1" />
               English
             </p>
-            <p>|</p>
             <p className="text-black mx-1">USD</p>
           </div> */}
         </div>

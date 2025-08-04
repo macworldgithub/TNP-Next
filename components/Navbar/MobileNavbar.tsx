@@ -143,8 +143,8 @@ const MobileNavbar: React.FC = () => {
           mode="inline"
           items={items}
           onClick={({ key }) => {
-            router.push(key as string); // ✅ Navigate to route
-            setOpen(false); // ✅ Close drawer
+            router.push(key as string); 
+            setOpen(false); 
           }}
         />
       </Drawer>

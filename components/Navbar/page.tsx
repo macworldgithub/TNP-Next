@@ -440,12 +440,12 @@ const Page: NextPage<Props> = ({}) => {
                     </Link>
                   </li>
                   <li className="text-black hover:text-[#FBAD17] cursor-pointer">
-                    <Link href="/pages/packagedetails/203">
+                    <Link href="/pages/packagedetails/127">
                       Conservation Drive & Breakfast at Al Maha
                     </Link>
                   </li>
                   <li className="text-black hover:text-[#FBAD17] cursor-pointer">
-                    <Link href="/pages/packagedetails/204">
+                    <Link href="/pages/packagedetails/128">
                       Royal Falconry Training & Nature Safari
                     </Link>
                   </li>

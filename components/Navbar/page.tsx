@@ -430,22 +430,22 @@ const Page: NextPage<Props> = ({}) => {
               {currTour === "Platinum" && (
                 <ul className="bg-white px-4 py-4 min-w-[280px] space-y-5 border-l absolute z-[101] top-[80px] left-full dropdown-content">
                   <li className="text-black hover:text-[#FBAD17] cursor-pointer">
-                    <Link href="/pages/packagedetails/201">
+                    <Link href="/pages/packagedetails/125">
                       Platinum Desert Safari
                     </Link>
                   </li>
                   <li className="text-black hover:text-[#FBAD17] cursor-pointer">
-                    <Link href="/pages/packagedetails/202">
+                    <Link href="/pages/packagedetails/124">
                       Royal Platinum Desert Experience
                     </Link>
                   </li>
                   <li className="text-black hover:text-[#FBAD17] cursor-pointer">
-                    <Link href="/pages/packagedetails/203">
+                    <Link href="/pages/packagedetails/127">
                       Conservation Drive & Breakfast at Al Maha
                     </Link>
                   </li>
                   <li className="text-black hover:text-[#FBAD17] cursor-pointer">
-                    <Link href="/pages/packagedetails/204">
+                    <Link href="/pages/packagedetails/128">
                       Royal Falconry Training & Nature Safari
                     </Link>
                   </li>
@@ -455,27 +455,27 @@ const Page: NextPage<Props> = ({}) => {
               {currTour === "Heritage" && (
                 <ul className="bg-white px-4 py-4 min-w-[280px] space-y-5 border-l absolute z-[101] top-[80px] left-full dropdown-content">
                   <li className="text-black hover:text-[#FBAD17] cursor-pointer">
-                    <Link href="/pages/packagedetails/205">
+                    <Link href="/pages/packagedetails/129">
                       Heritage Desert Safari
                     </Link>
                   </li>
                   <li className="text-black hover:text-[#FBAD17] cursor-pointer">
-                    <Link href="/pages/packagedetails/206">
+                    <Link href="/pages/packagedetails/131">
                       Camel Desert Safari
                     </Link>
                   </li>
                   <li className="text-black hover:text-[#FBAD17] cursor-pointer">
-                    <Link href="/pages/packagedetails/207">
+                    <Link href="/pages/packagedetails/132">
                       Bedouin Culture Safari
                     </Link>
                   </li>
                   <li className="text-black hover:text-[#FBAD17] cursor-pointer">
-                    <Link href="/pages/packagedetails/208">
+                    <Link href="/pages/packagedetails/133">
                       Overnight Desert Safari
                     </Link>
                   </li>
                   <li className="text-black hover:text-[#FBAD17] cursor-pointer">
-                    <Link href="/pages/packagedetails/209">
+                    <Link href="/pages/packagedetails/134">
                       Private Night Safari and Astronomy
                     </Link>
                   </li>
@@ -515,7 +515,6 @@ const Page: NextPage<Props> = ({}) => {
               <FaGlobeEurope className="mx-1" />
               English
             </p>
-            <p>|</p>
             <p className="text-black mx-1">USD</p>
           </div> */}
         </div>
